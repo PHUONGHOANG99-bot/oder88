@@ -1,0 +1,372 @@
+﻿[
+    {
+        "id": 1,
+        "name": "Quần Cargo Nữ Rộng Ống Gradient",
+        "price": "650.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd1.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd1.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 2,
+        "name": "Quần Dài Nữ Rộng Ống Lace Trắng",
+        "price": "720.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd2.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd2.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 3,
+        "name": "Quần Jean Nữ Rộng Ống Rách Lace",
+        "price": "680.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd3.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd3.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 4,
+        "name": "Quần Dài Nữ Trắng Phối Đen",
+        "price": "750.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd4.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd4.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 5,
+        "name": "Quần Dài Nữ Rộng Ống Tie-Dye",
+        "price": "690.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd5.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd5.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 6,
+        "name": "Quần Jean Nữ Rộng Ống Xanh Phai",
+        "price": "620.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd6.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd6.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 7,
+        "name": "Quần Dài Nữ Rộng Ống Corduroy Xanh",
+        "price": "780.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd7.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd7.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 8,
+        "name": "Quần Jean Nữ Rộng Ống Sọc Dọc",
+        "price": "710.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd8.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd8.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 9,
+        "name": "Quần Dài Nữ Rộng Ống Rách Vàng",
+        "price": "730.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd9.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd9.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 10,
+        "name": "Quần Cargo Nữ Rộng Ống Rách",
+        "price": "760.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd10.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd10.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 11,
+        "name": "Quần Dài Nữ Rộng Ống Rách Xám",
+        "price": "640.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd11.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd11.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 12,
+        "name": "Quần Cargo Nữ Rộng Ống Tie-Dye",
+        "price": "740.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd12.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd12.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 13,
+        "name": "Quần Jean Nữ Rộng Ống Thêu Chó",
+        "price": "890.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd13.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd13.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 14,
+        "name": "Quần Dài Nữ Rộng Ống Tím Rách",
+        "price": "680.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd14.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd14.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 15,
+        "name": "Quần Cargo Nữ Rộng Ống Đen Rách",
+        "price": "770.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd15.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd15.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 16,
+        "name": "Quần Dài Nữ Rộng Ống Rách Xanh",
+        "price": "660.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd16.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd16.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 17,
+        "name": "Quần Cargo Nữ Rộng Ống Camo",
+        "price": "790.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd17.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd17.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 18,
+        "name": "Quần Cargo Nữ Rộng Ống Xanh Lá",
+        "price": "720.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd18.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd18.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 19,
+        "name": "Quần Dài Nữ Rộng Ống Đỏ Flare",
+        "price": "850.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd19.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd19.jpeg"],
+        "bestSeller": true
+    },
+    {
+        "id": 20,
+        "name": "Quần Jean Nữ Rộng Ống Xanh Nhạt",
+        "price": "640.000đ",
+        "category": "quan-dai-nu",
+        "categoryName": "Quần dài nữ",
+        "image": "assets/image/quan-dai-nu/qd20.jpeg",
+        "images": ["assets/image/quan-dai-nu/qd20.jpeg"],
+        "bestSeller": false
+    },
+    {
+        "id": 21,
+        "name": "Túi Xách Nữ Da Cao Cấp",
+        "price": "850.000đ",
+        "category": "tui-xach",
+        "categoryName": "Túi xách",
+        "image": "assets/image/Boot-cao/b6.jpg",
+        "images": ["assets/image/Boot-cao/b6.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 22,
+        "name": "Giày Sneaker Nam Thời Trang",
+        "price": "590.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b1.jpg",
+        "images": ["assets/image/Boot-cao/b1.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 23,
+        "name": "Giày Nam Châu Âu Sang Trọng",
+        "price": "590.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b2.jpg",
+        "images": ["assets/image/Boot-cao/b2.jpg"],
+        "bestSeller": false
+    },
+    {
+        "id": 24,
+        "name": "Giày Converse Chuck Taylor All Star Xám",
+        "price": "1.290.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b3.jpg",
+        "images": ["assets/image/Boot-cao/b3.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 25,
+        "name": "Giày Thể Thao Leaveland Trắng",
+        "price": "850.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b4.jpg",
+        "images": ["assets/image/Boot-cao/b4.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 26,
+        "name": "Giày Canvas Navy Cổ Thấp",
+        "price": "650.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b5.jpg",
+        "images": ["assets/image/Boot-cao/b5.jpg"],
+        "bestSeller": false
+    },
+    {
+        "id": 27,
+        "name": "Boot Cao Cổ Kem Khóa Vàng",
+        "price": "890.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b1.jpg",
+        "images": ["assets/image/Boot-cao/b1.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 28,
+        "name": "Boot Cao Cổ Kem Mũi Đen",
+        "price": "950.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b2.jpg",
+        "images": ["assets/image/Boot-cao/b2.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 29,
+        "name": "Boot Cao Cổ Đen Khóa Vàng",
+        "price": "920.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b3.jpg",
+        "images": ["assets/image/Boot-cao/b3.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 30,
+        "name": "Boot Cao Cổ Da Lộn Nâu",
+        "price": "880.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b4.jpg",
+        "images": ["assets/image/Boot-cao/b4.jpg"],
+        "bestSeller": false
+    },
+    {
+        "id": 31,
+        "name": "Boot Cao Cổ Lông Kem Mùa Đông",
+        "price": "1.150.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b5.jpg",
+        "images": ["assets/image/Boot-cao/b5.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 32,
+        "name": "Boot Platform Kem Khóa Kéo",
+        "price": "980.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b6.jpg",
+        "images": ["assets/image/Boot-cao/b6.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 33,
+        "name": "Boot Cao Cổ Be Khóa Bạc",
+        "price": "850.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b7.jpg",
+        "images": ["assets/image/Boot-cao/b7.jpg"],
+        "bestSeller": false
+    },
+    {
+        "id": 34,
+        "name": "Boot Platform Đen Khóa Vàng",
+        "price": "1.050.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b8.jpg",
+        "images": ["assets/image/Boot-cao/b8.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 35,
+        "name": "Boot Cao Cổ Kem Khóa Vàng Cao Cấp",
+        "price": "990.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b9.jpg",
+        "images": ["assets/image/Boot-cao/b9.jpg"],
+        "bestSeller": true
+    },
+    {
+        "id": 36,
+        "name": "Boot Cao Cổ Kem Khóa Bạc",
+        "price": "920.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b10.jpg",
+        "images": ["assets/image/Boot-cao/b10.jpg"],
+        "bestSeller": false
+    },
+    {
+        "id": 37,
+        "name": "Boot Cao Cổ Trắng Đen Hai Màu",
+        "price": "1.080.000đ",
+        "category": "giay-nu",
+        "categoryName": "Giày nữ",
+        "image": "assets/image/Boot-cao/b11.jpg",
+        "images": ["assets/image/Boot-cao/b11.jpg"],
+        "bestSeller": true
+    }
+]

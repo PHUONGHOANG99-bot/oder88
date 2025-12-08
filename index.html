@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>ODER 88 - Thời Trang Nam Nữ Cao Cấp | Fashion Store</title>
+        <meta
+            name="description"
+            content="ODER 88 - Shop thời trang nam nữ cao cấp với đa dạng sản phẩm: áo, quần, váy đầm, giày dép, túi xách. Giao hàng nhanh, giá tốt nhất thị trường."
+        />
+        <meta
+            name="keywords"
+            content="thời trang, quần áo nam nữ, áo nam, áo nữ, quần nam, quần nữ, váy đầm, giày dép, túi xách, oder 88, oder shop 88"
+        />
+        <meta name="author" content="ODER 88" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="Vietnamese" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nekoshop68.com/" />
+        <meta
+            property="og:title"
+            content="ODER 88 - Thời Trang Nam Nữ Cao Cấp"
+        />
+        <meta
+            property="og:description"
+            content="Shop thời trang nam nữ cao cấp với đa dạng sản phẩm. Giao hàng nhanh, giá tốt nhất thị trường."
+        />
+        <meta
+            property="og:image"
+            content="https://nekoshop68.com/assets/image/logo.jpg"
+        />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://nekoshop68.com/" />
+        <meta
+            property="twitter:title"
+            content="ODER 88 - Thời Trang Nam Nữ Cao Cấp"
+        />
+        <meta
+            property="twitter:description"
+            content="Shop thời trang nam nữ cao cấp với đa dạng sản phẩm. Giao hàng nhanh, giá tốt nhất thị trường."
+        />
+        <meta
+            property="twitter:image"
+            content="https://nekoshop68.com/assets/image/logo.jpg"
+        />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+        <!-- Preload critical resources -->
+        <link
+            rel="preload"
+            href="assets/products.json"
+            as="fetch"
+            crossorigin="anonymous"
+        />
+        <link rel="preload" href="assets/style.css?v=39" as="style" />
+        <link
+            rel="preload"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            as="style"
+        />
+
+        <link rel="stylesheet" href="assets/style.css?v=39" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <!-- Theme Toggle Script (Inline for immediate execution) -->
+        <script>
+            // Theme detection and initialization
+            (function () {
+                const theme =
+                    localStorage.getItem("theme") ||
+                    (window.matchMedia("(prefers-color-scheme: dark)").matches
+                        ? "dark"
+                        : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+            })();
+        </script>
+
+        <!-- Service Worker Registration -->
+        <script>
+            if ("serviceWorker" in navigator) {
+                // Unregister old service workers first
+                navigator.serviceWorker
+                    .getRegistrations()
+                    .then((registrations) => {
+                        registrations.forEach((registration) => {
+                            if (
+                                registration.active &&
+                                registration.active.scriptURL.includes(
+                                    "neko-shop"
+                                )
+                            ) {
+                                registration.unregister();
+                            }
+                        });
+                    });
+
+                window.addEventListener("load", () => {
+                    navigator.serviceWorker
+                        .register("/sw.js?v=39")
+                        .then((registration) => {
+                            console.log("SW registered: ", registration);
+
+                            // Check for updates every time
+                            registration.update();
+
+                            // Listen for updates
+                            registration.addEventListener("updatefound", () => {
+                                const newWorker = registration.installing;
+                                newWorker.addEventListener(
+                                    "statechange",
+                                    () => {
+                                        if (
+                                            newWorker.state === "installed" &&
+                                            navigator.serviceWorker.controller
+                                        ) {
+                                            // New service worker available, reload page
+                                            window.location.reload();
+                                        }
+                                    }
+                                );
+                            });
+                        })
+                        .catch((registrationError) => {
+                            console.log(
+                                "SW registration failed: ",
+                                registrationError
+                            );
+                        });
+                });
+
+                // Listen for messages from service worker
+                navigator.serviceWorker.addEventListener("message", (event) => {
+                    if (event.data && event.data.type === "SW_UPDATED") {
+                        window.location.reload();
+                    }
+                });
+            }
+        </script>
+
+        <!-- PWA Manifest -->
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#FF6600" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <!-- Menu Button - Left Side -->
+                    <div class="header-categories">
+                        <button
+                            class="mobile-menu-btn"
+                            aria-label="Mở menu danh mục"
+                            aria-expanded="false"
+                            id="mobileMenuBtn"
+                            type="button"
+                        >
+                            <i class="fas fa-bars" aria-hidden="true"></i>
+                            <span>Menu</span>
+                        </button>
+                    </div>
+
+                    <!-- Logo Text - Center -->
+                    <div class="header-logo-center">
+                        <h1 class="header-brand-text" onclick="reloadPage()">
+                            O D E R 8 8
+                        </h1>
+                    </div>
+
+                    <!-- Search and Actions - Right Side -->
+                    <div class="header-right">
+                        <div class="header-center">
+                            <div class="search-bar">
+                                <i
+                                    class="fas fa-search search-icon"
+                                    aria-hidden="true"
+                                ></i>
+                                <input
+                                    type="text"
+                                    id="searchInput"
+                                    placeholder="Tìm kiếm sản phẩm, thương hiệu..."
+                                    aria-label="Tìm kiếm sản phẩm thời trang"
+                                    aria-describedby="search-description"
+                                />
+                                <span id="search-description" class="sr-only"
+                                    >Nhập từ khóa để tìm kiếm sản phẩm</span
+                                >
+                                <button
+                                    id="searchBtn"
+                                    class="search-btn"
+                                    aria-label="Tìm kiếm"
+                                    type="button"
+                                >
+                                    <i
+                                        class="fas fa-search"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="header-actions">
+                            <button
+                                class="header-icon-btn"
+                                aria-label="Yêu thích"
+                                type="button"
+                            >
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <span class="icon-badge">0</span>
+                            </button>
+                            <a
+                                href="https://www.facebook.com/messages/t/117640791273059"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="header-icon-btn"
+                                aria-label="Liên hệ Messenger"
+                            >
+                                <i
+                                    class="fab fa-facebook-messenger"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Category Menu -->
+        <div
+            class="mobile-categories"
+            id="mobileCategories"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-categories-title"
+            aria-hidden="true"
+        >
+            <div class="mobile-categories-header">
+                <h3 id="mobile-categories-title">
+                    <i class="fas fa-list" aria-hidden="true"></i> DANH MỤC THỜI
+                    TRANG
+                </h3>
+                <button
+                    class="close-mobile-menu"
+                    aria-label="Đóng menu danh mục"
+                >
+                    &times;
+                </button>
+            </div>
+            <div class="mobile-categories-list">
+                <button class="mobile-category-btn active" data-category="all">
+                    <i class="fas fa-border-all"></i> Tất cả
+                </button>
+                <button class="mobile-category-btn" data-category="quan-dai-nu">
+                    <i class="fas fa-tshirt"></i> Quần dài nữ
+                </button>
+                <button class="mobile-category-btn" data-category="tui-xach">
+                    <i class="fas fa-shopping-bag"></i> Túi xách
+                </button>
+                <button class="mobile-category-btn" data-category="giay-nu">
+                    <i class="fas fa-heart"></i> Giày nữ
+                </button>
+            </div>
+        </div>
+
+        <!-- Featured Products Section - Combined -->
+        <section class="featured-products-wrapper">
+            <div class="featured-products-bg"></div>
+            <div class="featured-products-pattern"></div>
+            <div class="container">
+                <!-- Slider Sản Phẩm Bán Chạy -->
+                <div class="featured-slider">
+                    <div class="slider-header">
+                        <h2>
+                            <i class="fas fa-fire" aria-hidden="true"></i> THỜI
+                            TRANG ĐANG HOT
+                        </h2>
+                    </div>
+                    <div
+                        class="slider-container"
+                        role="region"
+                        aria-label="Slider sản phẩm đang hot"
+                    >
+                        <button
+                            class="slider-btn prev-btn"
+                            aria-label="Slide trước"
+                            type="button"
+                        >
+                            <i
+                                class="fas fa-chevron-left"
+                                aria-hidden="true"
+                            ></i>
+                        </button>
+                        <div
+                            class="slider-track"
+                            id="sliderTrack"
+                            role="list"
+                            aria-live="polite"
+                        ></div>
+                        <button
+                            class="slider-btn next-btn"
+                            aria-label="Slide sau"
+                            type="button"
+                        >
+                            <i
+                                class="fas fa-chevron-right"
+                                aria-hidden="true"
+                            ></i>
+                        </button>
+                    </div>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container main-container">
+            <!-- Sidebar Categories - Removed (moved to header) -->
+
+            <!-- Products Grid -->
+            <main class="products-section">
+                <div class="section-header">
+                    <h2 id="sectionTitle">
+                        <i class="fas fa-star" aria-hidden="true"></i> TẤT CẢ
+                    </h2>
+                    <div
+                        class="category-indicator"
+                        id="currentCategory"
+                        role="button"
+                        aria-label="Chọn danh mục"
+                        tabindex="0"
+                    >
+                        <span>Tất cả</span>
+                        <i
+                            class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 5px"
+                        ></i>
+                    </div>
+                </div>
+
+                <div
+                    class="products-grid"
+                    id="productsGrid"
+                    role="list"
+                    aria-label="Danh sách sản phẩm"
+                ></div>
+
+                <!-- Pagination -->
+                <nav
+                    class="pagination"
+                    id="pagination"
+                    role="navigation"
+                    aria-label="Phân trang sản phẩm"
+                ></nav>
+            </main>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button
+            class="scroll-to-top"
+            id="scrollToTop"
+            aria-label="Cuộn lên đầu trang"
+            type="button"
+            style="display: none"
+        >
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        </button>
+
+        <!-- Toast Notification Container -->
+        <div
+            class="toast-container"
+            id="toastContainer"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        ></div>
+
+        <!-- Loading Spinner -->
+        <div id="pageLoader" class="page-loader">
+            <div class="loader-spinner"></div>
+        </div>
+
+        <!-- Pull to Refresh Indicator -->
+        <div id="pullToRefresh" class="pull-to-refresh">
+            <div class="pull-to-refresh-icon">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="pull-to-refresh-text">Kéo xuống để làm mới</div>
+        </div>
+
+        <!-- Product Image Gallery Modal -->
+        <div class="product-gallery-modal" id="productGalleryModal">
+            <div class="gallery-modal-overlay"></div>
+            <div class="gallery-modal-content">
+                <button
+                    class="gallery-close-btn"
+                    aria-label="Đóng gallery"
+                    type="button"
+                >
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+                <div class="gallery-main">
+                    <button
+                        class="gallery-nav-btn gallery-prev"
+                        aria-label="Ảnh trước"
+                        type="button"
+                    >
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="gallery-main-image-wrapper">
+                        <img
+                            id="galleryMainImage"
+                            class="gallery-main-image"
+                            alt="Ảnh sản phẩm"
+                        />
+                        <div class="gallery-zoom-controls">
+                            <button
+                                class="gallery-zoom-btn"
+                                id="galleryZoomIn"
+                                aria-label="Phóng to"
+                                type="button"
+                            >
+                                <i
+                                    class="fas fa-search-plus"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
+                            <button
+                                class="gallery-zoom-btn"
+                                id="galleryZoomOut"
+                                aria-label="Thu nhỏ"
+                                type="button"
+                            >
+                                <i
+                                    class="fas fa-search-minus"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
+                            <button
+                                class="gallery-zoom-btn"
+                                id="galleryZoomReset"
+                                aria-label="Đặt lại"
+                                type="button"
+                            >
+                                <i
+                                    class="fas fa-expand-arrows-alt"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button
+                        class="gallery-nav-btn gallery-next"
+                        aria-label="Ảnh sau"
+                        type="button"
+                    >
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+                <div class="gallery-info">
+                    <h3 id="galleryProductName"></h3>
+                    <p id="galleryProductPrice"></p>
+                    <p class="gallery-image-counter">
+                        <span id="galleryCurrentIndex">1</span> /
+                        <span id="galleryTotalImages">4</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav
+            class="bottom-nav"
+            id="bottomNav"
+            role="navigation"
+            aria-label="Điều hướng chính"
+        >
+            <a
+                href="#top"
+                class="bottom-nav-item active"
+                aria-label="Trang chủ"
+                onclick="scrollToTop(); return false;"
+            >
+                <i class="fas fa-home" aria-hidden="true"></i>
+                <span>Trang chủ</span>
+            </a>
+            <a
+                href="https://www.facebook.com/messages/t/117640791273059"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bottom-nav-item"
+                aria-label="Liên hệ"
+            >
+                <i class="fab fa-facebook-messenger" aria-hidden="true"></i>
+                <span>Liên hệ</span>
+            </a>
+            <button
+                class="bottom-nav-item"
+                aria-label="Tìm kiếm"
+                onclick="focusSearch();"
+                type="button"
+            >
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <span>Tìm kiếm</span>
+            </button>
+            <button
+                class="bottom-nav-trend-btn"
+                aria-label="Xu hướng"
+                onclick="scrollToProducts();"
+                type="button"
+            >
+                <span>Xu hướng</span>
+            </button>
+            <button
+                class="bottom-nav-item"
+                aria-label="Danh mục"
+                onclick="toggleMobileMenu();"
+                type="button"
+            >
+                <i class="fas fa-th-large" aria-hidden="true"></i>
+                <span>Danh mục</span>
+            </button>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>
+                            <i class="fas fa-headset" aria-hidden="true"></i> HỖ
+                            TRỢ 24/7
+                        </h4>
+                        <p>Tư vấn thời trang & đặt hàng</p>
+                        <div class="social-links">
+                            <a
+                                href="https://www.facebook.com/messages/t/117640791273059"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-btn messenger"
+                                aria-label="Liên hệ qua Messenger"
+                            >
+                                <i
+                                    class="fab fa-facebook-messenger"
+                                    aria-hidden="true"
+                                ></i>
+                                Messenger
+                            </a>
+                            <a
+                                href="https://www.facebook.com/nekoshop68/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-btn facebook"
+                                aria-label="Xem Fanpage Facebook"
+                            >
+                                <i
+                                    class="fab fa-facebook-f"
+                                    aria-hidden="true"
+                                ></i>
+                                Fanpage
+                            </a>
+                            <a
+                                href="https://www.tiktok.com/@nekoshop68"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-btn tiktok"
+                                aria-label="Xem TikTok"
+                            >
+                                <i class="fab fa-tiktok" aria-hidden="true"></i>
+                                TikTok
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>
+                        <i class="far fa-copyright"></i> 2025 ODER 88 - Thời
+                        Trang Cao Cấp
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/script.js?v=39"></script>
+    </body>
+</html>

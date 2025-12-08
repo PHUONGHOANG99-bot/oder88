@@ -1,0 +1,35 @@
+{
+    "name": "ODER 88 - Thời Trang Cao Cấp",
+    "short_name": "ODER 88",
+    "description": "Shop thời trang nam nữ cao cấp với đa dạng sản phẩm",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#FF6600",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/assets/image/logo.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/image/logo.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["shopping", "fashion"],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Sản phẩm mới",
+            "short_name": "Mới",
+            "description": "Xem sản phẩm mới nhất",
+            "url": "/?category=new",
+            "icons": [{ "src": "/assets/image/logo.jpg", "sizes": "96x96" }]
+        }
+    ]
+}
