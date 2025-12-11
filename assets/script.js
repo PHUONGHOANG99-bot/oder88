@@ -44,10 +44,46 @@ let scrollObserver = null;
 let imageObserver = null;
 
 // ==================== LOAD DỮ LIỆU TỪ JSON ====================
+// Hàm lấy base path cho GitHub Pages
+function getBasePath() {
+    // Lấy pathname hiện tại (ví dụ: /oder88/ hoặc /)
+    const pathname = window.location.pathname;
+    // Tách pathname thành các phần
+    const parts = pathname.split('/').filter(p => p);
+    // Nếu có repository name trong path (không phải root domain)
+    if (parts.length > 0 && parts[0] !== 'index.html') {
+        // Trả về base path với dấu / ở đầu
+        return '/' + parts[0];
+    }
+    // Nếu là root domain hoặc localhost, trả về rỗng
+    return '';
+}
+
+// Hàm normalize đường dẫn cho GitHub Pages
+function normalizePath(path) {
+    if (!path) return path;
+    // Nếu đã là đường dẫn tuyệt đối (bắt đầu bằng http), giữ nguyên
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+        return path;
+    }
+    // Nếu bắt đầu bằng /, thêm base path
+    if (path.startsWith('/')) {
+        const basePath = getBasePath();
+        return basePath + path;
+    }
+    // Nếu là đường dẫn tương đối, thêm base path
+    const basePath = getBasePath();
+    return basePath + '/' + path;
+}
+
 async function loadProducts() {
     try {
         console.log("Đang load sản phẩm từ JSON...");
-        const response = await fetch("assets/products.json");
+        const basePath = getBasePath();
+        const jsonPath = `${basePath}/assets/products.json`.replace('//', '/');
+        console.log("Loading from:", jsonPath);
+        
+        const response = await fetch(jsonPath);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -774,7 +810,7 @@ function initCategories() {
             <div class="category-image-wrapper">
                 <div class="category-image-bg" style="background: ${category.color}"></div>
                 <img 
-                    src="${category.image}" 
+                    src="${normalizePath(category.image)}" 
                     alt="${category.name}"
                     class="category-image"
                     loading="lazy"
@@ -906,7 +942,7 @@ function initMobileCategories() {
                     index === 0 ? "active" : ""
                 }" data-category="${category.id}">
                     <div class="mobile-category-image">
-                        <img src="${category.image}" alt="${
+                        <img src="${normalizePath(category.image)}" alt="${
                     category.name
                 }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                         <div class="mobile-category-icon-fallback" style="background: ${
@@ -1038,7 +1074,7 @@ function initMobileCategories() {
                         type="button"
                     >
                         <div class="mobile-category-image">
-                            <img src="${category.image}" alt="${
+                            <img src="${normalizePath(category.image)}" alt="${
                     category.name
                 }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                             <div class="mobile-category-icon-fallback" style="background: ${
@@ -1112,7 +1148,7 @@ function initMobileCategories() {
                         type="button"
                     >
                         <div class="mobile-category-image">
-                            <img src="${category.image}" alt="${
+                            <img src="${normalizePath(category.image)}" alt="${
                     category.name
                 }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                             <div class="mobile-category-icon-fallback" style="background: ${
@@ -1450,7 +1486,7 @@ function initSlider() {
             product.id
         }" role="listitem" aria-label="Sản phẩm ${product.categoryName}">
             <div class="image-container">
-                <img src="${product.image}" 
+                <img src="${normalizePath(product.image)}" 
                      alt="${product.categoryName} - ${formatPriceToYen(
                 product.price
             )}" 
@@ -1602,7 +1638,7 @@ function displayProductsPaginated(productsToShow) {
                             ? '<div class="best-seller-badge">HOT</div>'
                             : ""
                     }
-                    <img src="${product.image}" 
+                    <img src="${normalizePath(product.image)}" 
                          alt="${product.categoryName} - ${formatPriceToYen(
                     product.price
                 )}" 
@@ -1948,7 +1984,7 @@ function openProductGallery(productId, imageIndex = 0) {
         totalImagesSpan.textContent = currentGalleryImages.length;
 
     // Set main image
-    mainImage.src = currentGalleryImages[currentGalleryIndex];
+    mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
     mainImage.style.transform = "scale(1)";
 
     // Create thumbnails
@@ -1961,7 +1997,7 @@ function openProductGallery(productId, imageIndex = 0) {
                 }" 
                      data-index="${index}"
                      onclick="goToGalleryImage(${index})">
-                    <img src="${img}" alt="Ảnh ${index + 1}" />
+                    <img src="${normalizePath(img)}" alt="Ảnh ${index + 1}" />
                     <div class="thumbnail-overlay"></div>
                 </div>
             `
@@ -2000,7 +2036,7 @@ function goToGalleryImage(index) {
     if (mainImage) {
         mainImage.style.opacity = "0";
         setTimeout(() => {
-            mainImage.src = currentGalleryImages[currentGalleryIndex];
+            mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
             mainImage.style.transform = "scale(1)";
             mainImage.style.opacity = "1";
         }, 150);
