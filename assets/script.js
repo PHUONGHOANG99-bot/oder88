@@ -54,6 +54,16 @@ async function loadProducts() {
         }
 
         products = await response.json();
+
+        // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có
+        products = products.map((product) => {
+            if (!product.purchases) {
+                // Tạo số lượt mua ngẫu nhiên từ 50 đến 500+
+                product.purchases = Math.floor(Math.random() * 451) + 50;
+            }
+            return product;
+        });
+
         originalProducts = [...products]; // Lưu bản gốc
         console.log(`✅ Đã load ${products.length} sản phẩm từ JSON`);
 
@@ -109,7 +119,7 @@ function getDefaultProducts() {
 async function initializeApp() {
     // 1. Show loading spinner
     showPageLoader();
-    
+
     // 2. Show loading skeleton
     showLoadingSkeleton(20);
 
@@ -118,6 +128,8 @@ async function initializeApp() {
 
     // 4. Khởi tạo các component
     initSlider();
+    initCategories();
+    initMobileCategories();
     filterProducts();
     updateCategoryIndicator();
 
@@ -252,14 +264,14 @@ function shuffleProducts() {
         // Nếu chưa có originalProducts, dùng products hiện tại
         originalProducts = [...products];
     }
-    
+
     // Tạo bản sao và shuffle
     const shuffled = [...originalProducts];
     for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-    
+
     // Cập nhật products với bản đã shuffle
     products = shuffled;
     console.log("🔄 Đã shuffle sản phẩm - hiển thị thứ tự mới");
@@ -274,17 +286,17 @@ function reloadPage() {
 function scrollToProducts() {
     // Shuffle sản phẩm để hiển thị thứ tự khác nhau
     shuffleProducts();
-    
+
     // Reset về category "all" và trang 1
     currentCategory = "all";
     currentPage = 1;
     searchQuery = "";
-    
+
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.value = "";
     }
-    
+
     // Reset active category buttons
     document
         .querySelectorAll(".category-option, .mobile-category-btn")
@@ -292,20 +304,20 @@ function scrollToProducts() {
             btn.classList.remove("active");
             btn.setAttribute("aria-selected", "false");
         });
-    
+
     // Set "Tất cả" button as active
     const allButtons = document.querySelectorAll('[data-category="all"]');
     allButtons.forEach((btn) => {
         btn.classList.add("active");
         btn.setAttribute("aria-selected", "true");
     });
-    
+
     // Update category indicator
     updateCategoryIndicator();
-    
+
     // Filter và hiển thị sản phẩm đã shuffle
     filterProducts();
-    
+
     // Scroll đến phần sản phẩm
     const productsSection = document.querySelector(".products-section");
     if (productsSection) {
@@ -316,7 +328,7 @@ function scrollToProducts() {
             });
         }, 100);
     }
-    
+
     // Đã tắt thông báo khi load sản phẩm
 }
 
@@ -557,15 +569,17 @@ function selectCategory(category, categoryName) {
         }
     }
 
-    // Cập nhật active
+    // Cập nhật active - bao gồm cả category-item
     document
-        .querySelectorAll(".category-option, .mobile-category-btn")
+        .querySelectorAll(
+            ".category-option, .mobile-category-btn, .category-item"
+        )
         .forEach((btn) => {
             btn.classList.remove("active");
             btn.setAttribute("aria-selected", "false");
         });
 
-    const activeSelectors = `.category-option[data-category="${category}"], .mobile-category-btn[data-category="${category}"]`;
+    const activeSelectors = `.category-option[data-category="${category}"], .mobile-category-btn[data-category="${category}"], .category-item[data-category="${category}"]`;
     document.querySelectorAll(activeSelectors).forEach((btn) => {
         btn.classList.add("active");
         btn.setAttribute("aria-selected", "true");
@@ -598,8 +612,16 @@ function updateCategoryIndicator() {
     let categoryName = "Tất cả";
     const categoryMap = {
         "quan-dai-nu": "Quần dài nữ",
+        "ao-nu": "Áo nữ",
+        "ao-dong-nu": "Áo đông nữ",
         "tui-xach": "Túi xách",
+        "tui-xach-nam": "Túi xách nam",
+        "tui-xach-nu": "Túi xách nữ",
         "giay-nu": "Giày nữ",
+        "boot-nu": "Boot nữ",
+        "giay-the-thao": "Giày Sneaker",
+        vay: "Váy",
+        "chan-vay": "Chân váy",
     };
 
     if (categoryMap[currentCategory]) {
@@ -616,8 +638,16 @@ function updateCategoryIndicator() {
         const iconMap = {
             all: "fa-star",
             "quan-dai-nu": "fa-tshirt",
+            "ao-nu": "fa-tshirt",
+            "ao-dong-nu": "fa-tshirt",
             "giay-nu": "fa-heart",
+            "boot-nu": "fa-shoe-prints",
+            "giay-the-thao": "fa-running",
+            vay: "fa-tshirt",
+            "chan-vay": "fa-tshirt",
             "tui-xach": "fa-shopping-bag",
+            "tui-xach-nam": "fa-briefcase",
+            "tui-xach-nu": "fa-handbag",
         };
 
         const icon = iconMap[currentCategory] || "fa-star";
@@ -626,10 +656,784 @@ function updateCategoryIndicator() {
     }
 }
 
+// ==================== HÀM CATEGORIES ====================
+function initCategories() {
+    const categoriesGrid = document.getElementById("categoriesGrid");
+    if (!categoriesGrid) return;
+
+    // Định nghĩa categories với hình ảnh đại diện
+    const categories = [
+        {
+            id: "all",
+            name: "Tất cả",
+            icon: "fa-border-all",
+            image: "assets/logo/logo1.png",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "ao-nu",
+            name: "Áo nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+        },
+        {
+            id: "ao-dong-nu",
+            name: "Áo đông nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+        },
+        {
+            id: "ao-nam",
+            name: "Áo Nam",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "ao-dong-nam",
+            name: "Áo đông nam",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "tui-xach",
+            name: "Túi xách",
+            icon: "fa-shopping-bag",
+            image: "assets/image/tui-xach/tui-xach-nu/tx1.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "giay-nu",
+            name: "Giày nữ",
+            icon: "fa-heart",
+            image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+            color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+        },
+        {
+            id: "boot-nu",
+            name: "Boot nữ",
+            icon: "fa-shoe-prints",
+            image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+            color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+        },
+        {
+            id: "giay-the-thao",
+            name: "Giày Sneaker",
+            icon: "fa-running",
+            image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "vay",
+            name: "Váy",
+            icon: "fa-tshirt",
+            image: "assets/image/vay/chan-vay/cv1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "giay-nam",
+            name: "Giày Nam",
+            icon: "fa-shoe-prints",
+            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "giay-sneaker-nam",
+            name: "Giày Sneaker",
+            icon: "fa-running",
+            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "quan-dai-nu",
+            name: "Quần dài nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/quan-dai-nu/qd1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+    ];
+
+    // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam)
+    categoriesGrid.innerHTML = categories
+        .map((category) => {
+            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam vì chúng là subcategories
+            if (
+                category.id === "boot-nu" ||
+                category.id === "giay-the-thao" ||
+                category.id === "ao-dong-nu" ||
+                category.id === "ao-dong-nam" ||
+                category.id === "giay-sneaker-nam"
+            ) {
+                return "";
+            }
+            return `
+        <div class="category-item" data-category="${category.id}" role="button" tabindex="0">
+            <div class="category-image-wrapper">
+                <div class="category-image-bg" style="background: ${category.color}"></div>
+                <img 
+                    src="${category.image}" 
+                    alt="${category.name}"
+                    class="category-image"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.parentElement.querySelector('.category-icon').style.display='flex';"
+                >
+                <div class="category-icon" style="display: none;">
+                    <i class="fas ${category.icon}"></i>
+                </div>
+            </div>
+            <div class="category-name">${category.name}</div>
+        </div>
+    `;
+        })
+        .filter((html) => html !== "") // Loại bỏ các HTML rỗng
+        .join("");
+
+    // Event listeners sẽ được gắn trong setupEventListeners()
+}
+
+// ==================== HÀM MOBILE CATEGORIES ====================
+function initMobileCategories() {
+    const mobileCategoriesList = document.querySelector(
+        ".mobile-categories-list"
+    );
+    if (!mobileCategoriesList) return;
+
+    // Định nghĩa categories với hình ảnh đại diện
+    const categories = [
+        {
+            id: "all",
+            name: "Tất cả",
+            icon: "fa-border-all",
+            image: "assets/logo/logo1.png",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "ao-nu",
+            name: "Áo nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+        },
+        {
+            id: "ao-dong-nu",
+            name: "Áo đông nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+        },
+        {
+            id: "ao-nam",
+            name: "Áo Nam",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "ao-dong-nam",
+            name: "Áo đông nam",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "tui-xach",
+            name: "Túi xách",
+            icon: "fa-shopping-bag",
+            image: "assets/image/tui-xach/tui-xach-nu/tx1.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "giay-nu",
+            name: "Giày nữ",
+            icon: "fa-heart",
+            image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+            color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+        },
+        {
+            id: "boot-nu",
+            name: "Boot nữ",
+            icon: "fa-shoe-prints",
+            image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+            color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+        },
+        {
+            id: "giay-the-thao",
+            name: "Giày Sneaker",
+            icon: "fa-running",
+            image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "vay",
+            name: "Váy",
+            icon: "fa-tshirt",
+            image: "assets/image/vay/chan-vay/cv1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "giay-nam",
+            name: "Giày Nam",
+            icon: "fa-shoe-prints",
+            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "giay-sneaker-nam",
+            name: "Giày Sneaker",
+            icon: "fa-running",
+            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "quan-dai-nu",
+            name: "Quần dài nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/quan-dai-nu/qd1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+    ];
+
+    // Render categories với hình ảnh và subcategories
+    const categoriesHTML = categories
+        .map((category, index) => {
+            // Mục "Tất cả" không có subcategories
+            if (category.id === "all") {
+                return `
+                <button class="mobile-category-btn ${
+                    index === 0 ? "active" : ""
+                }" data-category="${category.id}">
+                    <div class="mobile-category-image">
+                        <img src="${category.image}" alt="${
+                    category.name
+                }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                        <div class="mobile-category-icon-fallback" style="background: ${
+                            category.color
+                        }; display: none;">
+                            <i class="fas ${category.icon}"></i>
+                        </div>
+                    </div>
+                    <span class="mobile-category-text">${category.name}</span>
+                </button>
+            `;
+            }
+
+            // Tất cả mục khác đều có subcategories
+            if (category.id === "tui-xach") {
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="tuiXachBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${category.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${category.name}</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="tuiXachSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="tui-xach"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${category.image}" alt="Tất cả túi xách" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả túi xách</span>
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="tui-xach-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="assets/logo/logotuixachnam.JPG" alt="Túi xách nam" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: none;">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Túi xách nam</span>
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="tui-xach-nu"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="assets/image/tui-xach/tui-xach-nu/tui-xach-nu-1.jpg" alt="Túi xách nữ" loading="lazy" onerror="this.src='assets/image/tui-xach/tx1.JPG'; this.onerror=null;">
+                                <div class="mobile-category-icon-fallback" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: none;">
+                                    <i class="fas fa-handbag"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Túi xách nữ</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "quan-dai-nu") {
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="quanDaiNuBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${category.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${category.name}</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="quanDaiNuSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="quan-dai-nu"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${category.image}" alt="Tất cả quần dài nữ" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả quần dài nữ</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "ao-nu") {
+                // Tìm các subcategories
+                const aoDongNu = categories.find((c) => c.id === "ao-dong-nu");
+
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="aoNuBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${
+                    category.name
+                }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${
+                                category.color
+                            }; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${
+                            category.name
+                        }</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="aoNuSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="ao-nu"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${
+                                    category.image
+                                }" alt="Tất cả áo nữ" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${
+                                    category.color
+                                }; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả áo nữ</span>
+                        </button>
+                        ${
+                            aoDongNu
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="ao-dong-nu"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${aoDongNu.image}" alt="${aoDongNu.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${aoDongNu.color}; display: none;">
+                                    <i class="fas ${aoDongNu.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${aoDongNu.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "giay-nu") {
+                // Tìm các subcategories
+                const bootNu = categories.find((c) => c.id === "boot-nu");
+                const giayTheThao = categories.find(
+                    (c) => c.id === "giay-the-thao"
+                );
+
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="giayNuBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${
+                    category.name
+                }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${
+                                category.color
+                            }; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${
+                            category.name
+                        }</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="giayNuSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-nu"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${
+                                    category.image
+                                }" alt="Tất cả giày nữ" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${
+                                    category.color
+                                }; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả giày nữ</span>
+                        </button>
+                        ${
+                            bootNu
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="boot-nu"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${bootNu.image}" alt="${bootNu.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${bootNu.color}; display: none;">
+                                    <i class="fas ${bootNu.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${bootNu.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                        ${
+                            giayTheThao
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-the-thao"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${giayTheThao.image}" alt="${giayTheThao.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${giayTheThao.color}; display: none;">
+                                    <i class="fas ${giayTheThao.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${giayTheThao.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "vay") {
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="vayBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${category.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${category.name}</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="vaySubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="vay"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${category.image}" alt="Tất cả váy" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả váy</span>
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="chan-vay"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="assets/image/vay/chan-vay/cv1.jpg" alt="Chân váy" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: none;">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Chân váy</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "ao-nam") {
+                const aoDongNam = categories.find((c) => c.id === "ao-dong-nam");
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="aoNamBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${category.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${category.name}</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="aoNamSubcategories"
+                        style="display: none"
+                    >
+                        ${
+                            aoDongNam
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="ao-dong-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${aoDongNam.image}" alt="${aoDongNam.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${aoDongNam.color}; display: none;">
+                                    <i class="fas ${aoDongNam.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${aoDongNam.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "giay-nam") {
+                const giaySneakerNam = categories.find((c) => c.id === "giay-sneaker-nam");
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="giayNamBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${category.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${category.name}</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="giayNamSubcategories"
+                        style="display: none"
+                    >
+                        ${
+                            giaySneakerNam
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-sneaker-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${giaySneakerNam.image}" alt="${giaySneakerNam.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${giaySneakerNam.color}; display: none;">
+                                    <i class="fas ${giaySneakerNam.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${giaySneakerNam.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "boot-nu") {
+                // Bỏ qua category này vì đã được render trong subcategories của "giay-nu"
+                return "";
+            } else if (category.id === "giay-the-thao") {
+                // Bỏ qua category này vì đã được render trong subcategories của "giay-nu"
+                return "";
+            } else if (category.id === "ao-dong-nu") {
+                // Bỏ qua category này vì đã được render trong subcategories của "ao-nu"
+                return "";
+            } else if (category.id === "ao-dong-nam") {
+                // Bỏ qua category này vì đã được render trong subcategories của "ao-nam"
+                return "";
+            } else if (category.id === "giay-sneaker-nam") {
+                // Bỏ qua category này vì đã được render trong subcategories của "giay-nam"
+                return "";
+            }
+        })
+        .filter((html) => html !== "") // Loại bỏ các HTML rỗng
+        .join("");
+
+    // Cập nhật HTML
+    mobileCategoriesList.innerHTML = categoriesHTML;
+
+    // Event listeners sẽ được gắn trong setupEventListeners()
+}
+
 // ==================== HÀM SLIDER ====================
 function getBestSellers() {
-    // Lấy tối đa 10 sản phẩm bán chạy
-    return products.filter((product) => product.bestSeller).slice(0, 10);
+    // Lấy sản phẩm đa dạng từ nhiều category khác nhau
+    const categories = [
+        "quan-dai-nu",
+        "tui-xach-nam",
+        "tui-xach-nu",
+        "giay-nu",
+    ];
+    const selectedProducts = [];
+    const maxPerCategory = 4; // Tối đa 4 sản phẩm mỗi category
+    const totalProducts = 20; // Tổng số sản phẩm hiển thị
+
+    // Lấy sản phẩm từ mỗi category
+    categories.forEach((category) => {
+        const categoryProducts = products.filter(
+            (p) => p.category === category
+        );
+
+        if (categoryProducts.length === 0) return;
+
+        // Ưu tiên bestSeller, sau đó lấy ngẫu nhiên
+        const bestSellers = categoryProducts.filter((p) => p.bestSeller);
+        const others = categoryProducts.filter((p) => !p.bestSeller);
+
+        // Shuffle để đa dạng
+        const shuffledBestSellers = [...bestSellers].sort(
+            () => Math.random() - 0.5
+        );
+        const shuffledOthers = [...others].sort(() => Math.random() - 0.5);
+
+        // Lấy từ bestSeller trước
+        const fromBestSellers = shuffledBestSellers.slice(0, maxPerCategory);
+        selectedProducts.push(...fromBestSellers);
+
+        // Nếu chưa đủ, lấy thêm từ others
+        if (fromBestSellers.length < maxPerCategory) {
+            const needed = maxPerCategory - fromBestSellers.length;
+            selectedProducts.push(...shuffledOthers.slice(0, needed));
+        }
+    });
+
+    // Nếu chưa đủ, lấy thêm sản phẩm từ tất cả categories (ưu tiên bestSeller)
+    if (selectedProducts.length < totalProducts) {
+        const remaining = totalProducts - selectedProducts.length;
+        const selectedIds = new Set(selectedProducts.map((p) => p.id));
+
+        // Lấy bestSeller trước
+        const allBestSellers = products
+            .filter((p) => p.bestSeller && !selectedIds.has(p.id))
+            .sort(() => Math.random() - 0.5);
+
+        const fromBestSellers = allBestSellers.slice(0, remaining);
+        selectedProducts.push(...fromBestSellers);
+
+        // Nếu vẫn chưa đủ, lấy thêm từ tất cả sản phẩm
+        if (selectedProducts.length < totalProducts) {
+            const stillNeeded = totalProducts - selectedProducts.length;
+            const allOthers = products
+                .filter(
+                    (p) =>
+                        !selectedIds.has(p.id) &&
+                        !selectedProducts.find((sp) => sp.id === p.id)
+                )
+                .sort(() => Math.random() - 0.5)
+                .slice(0, stillNeeded);
+            selectedProducts.push(...allOthers);
+        }
+    }
+
+    // Shuffle lại để đa dạng hơn
+    const shuffled = [...selectedProducts].sort(() => Math.random() - 0.5);
+
+    // Trả về tối đa totalProducts sản phẩm
+    return shuffled.slice(0, totalProducts);
 }
 
 function initSlider() {
@@ -793,6 +1597,11 @@ function displayProductsPaginated(productsToShow) {
                 product.categoryName
             }" data-index="${index}">
                 <div class="image-container">
+                    ${
+                        product.bestSeller
+                            ? '<div class="best-seller-badge">HOT</div>'
+                            : ""
+                    }
                     <img src="${product.image}" 
                          alt="${product.categoryName} - ${formatPriceToYen(
                     product.price
@@ -804,9 +1613,16 @@ function displayProductsPaginated(productsToShow) {
                          style="cursor: pointer;">
                 </div>
                 <div class="product-info">
-                    <div class="product-price">${formatPriceToYen(
-                        product.price
-                    )}</div>
+                    <div class="product-price-wrapper">
+                        <div class="product-price">${formatPriceToYen(
+                            product.price
+                        )}</div>
+                        ${
+                            product.purchases
+                                ? `<div class="product-purchases">${product.purchases}+ người đã mua</div>`
+                                : ""
+                        }
+                    </div>
                     <a href="${createMessengerOrderLink(
                         product.name,
                         formatPriceToYen(product.price),
@@ -904,7 +1720,7 @@ function changePage(page) {
 
     // Show loading spinner
     showPageLoader();
-    
+
     // Show loading briefly
     showLoadingSkeleton(productsPerPage);
     setTimeout(() => {
@@ -925,10 +1741,67 @@ function filterProducts() {
     if (loader && !loader.classList.contains("active")) {
         showPageLoader();
     }
-    
+
     let filtered = products;
-    if (currentCategory !== "all")
-        filtered = filtered.filter((p) => p.category === currentCategory);
+    if (currentCategory !== "all") {
+        // Xử lý subcategories của Túi xách
+        if (currentCategory === "tui-xach") {
+            // Hiển thị tất cả túi xách (cả nam và nữ)
+            filtered = filtered.filter(
+                (p) =>
+                    p.category === "tui-xach" ||
+                    p.category === "tui-xach-nam" ||
+                    p.category === "tui-xach-nu"
+            );
+        } else if (currentCategory === "vay") {
+            // Hiển thị tất cả váy (bao gồm chân váy)
+            filtered = filtered.filter(
+                (p) => p.category === "vay" || p.category === "chan-vay"
+            );
+        } else if (currentCategory === "ao-nu") {
+            // Hiển thị tất cả áo nữ (bao gồm áo đông nữ)
+            filtered = filtered.filter(
+                (p) => p.category === "ao-nu" || p.category === "ao-dong-nu"
+            );
+        } else if (currentCategory === "ao-nam") {
+            // Hiển thị tất cả áo nam (bao gồm áo đông nam)
+            filtered = filtered.filter(
+                (p) => p.category === "ao-nam" || p.category === "ao-dong-nam"
+            );
+        } else if (currentCategory === "giay-nu") {
+            // Hiển thị tất cả giày nữ (bao gồm boot nữ và giày sneaker)
+            filtered = filtered.filter(
+                (p) =>
+                    p.category === "giay-nu" ||
+                    p.category === "boot-nu" ||
+                    p.category === "giay-the-thao"
+            );
+        } else if (currentCategory === "giay-nam") {
+            // Hiển thị tất cả giày nam (bao gồm giày sneaker nam)
+            filtered = filtered.filter(
+                (p) =>
+                    p.category === "giay-nam" ||
+                    p.category === "giay-sneaker-nam"
+            );
+        } else {
+            filtered = filtered.filter((p) => p.category === currentCategory);
+        }
+    }
+
+    // Apply tab filter if active
+    const activeTab = document.querySelector(".tab-btn.active");
+    if (activeTab) {
+        const tab = activeTab.dataset.tab;
+        if (tab === "hot") {
+            filtered = filtered.filter((p) => p.bestSeller);
+        } else if (tab === "recommended") {
+            // Shuffle and take top products
+            filtered = [...filtered]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, Math.min(filtered.length, 30));
+        }
+    }
+
     if (searchQuery)
         filtered = filtered.filter((p) =>
             p.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -945,12 +1818,12 @@ function filterProducts() {
     }
 
     displayProductsPaginated(filtered);
-    
+
     // Hide loading spinner sau khi hiển thị xong
     setTimeout(() => {
         hidePageLoader();
     }, 300);
-    
+
     return filtered;
 }
 
@@ -1336,9 +2209,11 @@ function setupEventListeners() {
     //     categoryToggleBtn.addEventListener("click", toggleCategoryDropdown);
     // }
 
-    // Category selection
+    // Category selection - bao gồm cả category-item trong categories section
     document
-        .querySelectorAll(".category-option, .mobile-category-btn")
+        .querySelectorAll(
+            ".category-option, .mobile-category-btn, .category-item"
+        )
         .forEach((btn) => {
             btn.setAttribute("role", "button");
             btn.setAttribute("tabindex", "0");
@@ -1347,19 +2222,118 @@ function setupEventListeners() {
                 btn.classList.contains("active") ? "true" : "false"
             );
 
-            const handleCategoryClick = () => {
+            const handleCategoryClick = (e) => {
                 const category = btn.dataset.category;
+                if (!category) return;
+
+                // Định nghĩa subcategoryMap ở ngoài để có thể dùng ở nhiều nơi
+                const subcategoryMap = {
+                    "tui-xach": {
+                        btnId: "tuiXachBtn",
+                        subId: "tuiXachSubcategories",
+                    },
+                    "quan-dai-nu": {
+                        btnId: "quanDaiNuBtn",
+                        subId: "quanDaiNuSubcategories",
+                    },
+                    "ao-nu": {
+                        btnId: "aoNuBtn",
+                        subId: "aoNuSubcategories",
+                    },
+                    "giay-nu": {
+                        btnId: "giayNuBtn",
+                        subId: "giayNuSubcategories",
+                    },
+                    vay: {
+                        btnId: "vayBtn",
+                        subId: "vaySubcategories",
+                    },
+                    "ao-nam": {
+                        btnId: "aoNamBtn",
+                        subId: "aoNamSubcategories",
+                    },
+                    "giay-nam": {
+                        btnId: "giayNamBtn",
+                        subId: "giayNamSubcategories",
+                    },
+                };
+
+                // Kiểm tra nếu button này có subcategory arrow (là button chính có subcategories)
+                const arrow = btn.querySelector(".subcategory-arrow");
+                if (arrow) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const subInfo = subcategoryMap[category];
+                    if (subInfo) {
+                        const subcategories = document.getElementById(
+                            subInfo.subId
+                        );
+                        if (subcategories) {
+                            const isVisible =
+                                subcategories.style.display !== "none" &&
+                                subcategories.style.display !== "";
+                            subcategories.style.display = isVisible
+                                ? "none"
+                                : "block";
+                            arrow.style.transform = isVisible
+                                ? "rotate(0deg)"
+                                : "rotate(90deg)";
+                            return; // Không filter, chỉ toggle subcategories
+                        }
+                    }
+                }
+
                 let categoryName = "";
 
                 const categoryNames = {
                     all: "Tất cả thời trang",
                     "quan-dai-nu": "Quần dài nữ",
                     "tui-xach": "Túi xách",
+                    "tui-xach-nam": "Túi xách nam",
+                    "tui-xach-nu": "Túi xách nữ",
                     "giay-nu": "Giày nữ",
+                    "ao-nam": "Áo Nam",
+                    "ao-dong-nam": "Áo đông nam",
+                    "giay-nam": "Giày Nam",
+                    "giay-sneaker-nam": "Giày Sneaker",
                 };
 
                 categoryName = categoryNames[category] || "Thời trang";
+
+                // Đóng tất cả subcategories khi chọn category
+                Object.values(subcategoryMap).forEach((subInfo) => {
+                    const subcategories = document.getElementById(
+                        subInfo.subId
+                    );
+                    if (subcategories) {
+                        subcategories.style.display = "none";
+                        const parentBtn = document.getElementById(
+                            subInfo.btnId
+                        );
+                        if (parentBtn) {
+                            const arrow =
+                                parentBtn.querySelector(".subcategory-arrow");
+                            if (arrow) {
+                                arrow.style.transform = "rotate(0deg)";
+                            }
+                        }
+                    }
+                });
+
                 selectCategory(category, categoryName);
+
+                // Scroll to products nếu là category-item (từ categories section)
+                if (btn.classList.contains("category-item")) {
+                    setTimeout(() => {
+                        document
+                            .querySelector(".products-section")
+                            ?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+                    }, 100);
+                }
             };
 
             btn.addEventListener("click", handleCategoryClick);
@@ -1370,6 +2344,58 @@ function setupEventListeners() {
                 }
             });
         });
+
+    // Tabs handling - TAOBAO STYLE
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    let currentTab = "all";
+
+    tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const tab = btn.dataset.tab;
+            currentTab = tab;
+
+            // Update active state
+            tabButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            // Filter products based on tab
+            let filtered = products;
+            if (currentCategory !== "all") {
+                if (currentCategory === "tui-xach") {
+                    filtered = filtered.filter(
+                        (p) =>
+                            p.category === "tui-xach" ||
+                            p.category === "tui-xach-nam" ||
+                            p.category === "tui-xach-nu"
+                    );
+                } else {
+                    filtered = filtered.filter(
+                        (p) => p.category === currentCategory
+                    );
+                }
+            }
+
+            // Apply tab filter
+            if (tab === "hot") {
+                filtered = filtered.filter((p) => p.bestSeller);
+            } else if (tab === "recommended") {
+                // Shuffle and take top products
+                filtered = [...filtered]
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, Math.min(filtered.length, 30));
+            }
+
+            // Apply search if any
+            if (searchQuery) {
+                filtered = filtered.filter((p) =>
+                    p.name.toLowerCase().includes(searchQuery.toLowerCase())
+                );
+            }
+
+            currentPage = 1;
+            displayProductsPaginated(filtered);
+        });
+    });
 
     // Đóng dropdown khi click ra ngoài
     document.addEventListener("click", function (e) {

@@ -61,14 +61,14 @@
             as="fetch"
             crossorigin="anonymous"
         />
-        <link rel="preload" href="assets/style.css?v=39" as="style" />
+        <link rel="preload" href="assets/style.css?v=41" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             as="style"
         />
 
-        <link rel="stylesheet" href="assets/style.css?v=39" />
+        <link rel="stylesheet" href="assets/style.css?v=41" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -108,7 +108,7 @@
 
                 window.addEventListener("load", () => {
                     navigator.serviceWorker
-                        .register("/sw.js?v=39")
+                        .register("/sw.js?v=41")
                         .then((registration) => {
                             console.log("SW registered: ", registration);
 
@@ -243,6 +243,28 @@
             </div>
         </header>
 
+        <!-- Floating Social Buttons - Top Right -->
+        <div class="floating-social-buttons">
+            <a
+                href="https://www.facebook.com/nekoshop68/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="floating-btn floating-fanpage"
+                aria-label="Xem Fanpage Facebook"
+            >
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a
+                href="https://www.facebook.com/messages/t/117640791273059"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="floating-btn floating-messenger"
+                aria-label="Liên hệ Messenger"
+            >
+                <i class="fab fa-facebook-messenger" aria-hidden="true"></i>
+            </a>
+        </div>
+
         <!-- Mobile Category Menu -->
         <div
             class="mobile-categories"
@@ -268,14 +290,136 @@
                 <button class="mobile-category-btn active" data-category="all">
                     <i class="fas fa-border-all"></i> Tất cả
                 </button>
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="tui-xach"
+                        id="tuiXachBtn"
+                    >
+                        <i class="fas fa-shopping-bag"></i> Túi xách
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="tuiXachSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="tui-xach-nam"
+                        >
+                            <i class="fas fa-briefcase"></i> Túi xách nam
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="tui-xach-nu"
+                        >
+                            <i class="fas fa-handbag"></i> Túi xách nữ
+                        </button>
+                    </div>
+                </div>
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="giay-nu"
+                        id="giayNuBtn"
+                    >
+                        <i class="fas fa-heart"></i> Giày nữ
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="giayNuSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="boot-nu"
+                        >
+                            <i class="fas fa-shoe-prints"></i> Boot nữ
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-the-thao"
+                        >
+                            <i class="fas fa-running"></i> Giày Sneaker
+                        </button>
+                    </div>
+                </div>
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="vay"
+                        id="vayBtn"
+                    >
+                        <i class="fas fa-tshirt"></i> Váy
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="vaySubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="vay"
+                        >
+                            <i class="fas fa-tshirt"></i> Tất cả váy
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="chan-vay"
+                        >
+                            <i class="fas fa-tshirt"></i> Chân váy
+                        </button>
+                    </div>
+                </div>
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="ao-nam"
+                        id="aoNamBtn"
+                    >
+                        <i class="fas fa-tshirt"></i> Áo Nam
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="aoNamSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="ao-dong-nam"
+                        >
+                            <i class="fas fa-tshirt"></i> Áo đông nam
+                        </button>
+                    </div>
+                </div>
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="giay-nam"
+                        id="giayNamBtn"
+                    >
+                        <i class="fas fa-shoe-prints"></i> Giày Nam
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="giayNamSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-sneaker-nam"
+                        >
+                            <i class="fas fa-running"></i> Giày Sneaker
+                        </button>
+                    </div>
+                </div>
                 <button class="mobile-category-btn" data-category="quan-dai-nu">
                     <i class="fas fa-tshirt"></i> Quần dài nữ
-                </button>
-                <button class="mobile-category-btn" data-category="tui-xach">
-                    <i class="fas fa-shopping-bag"></i> Túi xách
-                </button>
-                <button class="mobile-category-btn" data-category="giay-nu">
-                    <i class="fas fa-heart"></i> Giày nữ
                 </button>
             </div>
         </div>
@@ -330,12 +474,69 @@
             </div>
         </section>
 
+        <!-- Categories Section - MODERN E-COMMERCE STYLE -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="categories-header">
+                    <h2>
+                        <i class="fas fa-th-large" aria-hidden="true"></i> DANH
+                        SÁCH SẢN PHẨM
+                    </h2>
+                </div>
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- Categories will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
         <!-- Main Content -->
         <div class="container main-container">
             <!-- Sidebar Categories - Removed (moved to header) -->
 
             <!-- Products Grid -->
             <main class="products-section">
+                <!-- Tabs Section - MODERN STYLE -->
+                <div
+                    class="products-tabs"
+                    id="productsTabs"
+                    role="tablist"
+                    aria-label="Lọc sản phẩm"
+                >
+                    <button
+                        class="tab-btn active"
+                        data-tab="all"
+                        id="tabAll"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="productsGrid"
+                    >
+                        <i class="fas fa-th-large" aria-hidden="true"></i>
+                        <span>Tất cả</span>
+                    </button>
+                    <button
+                        class="tab-btn"
+                        data-tab="hot"
+                        id="tabHot"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="productsGrid"
+                    >
+                        <i class="fas fa-fire" aria-hidden="true"></i>
+                        <span>Bán chạy</span>
+                    </button>
+                    <button
+                        class="tab-btn"
+                        data-tab="recommended"
+                        id="tabRecommended"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="productsGrid"
+                    >
+                        <i class="fas fa-sparkles" aria-hidden="true"></i>
+                        <span>Gợi ý</span>
+                    </button>
+                </div>
+
                 <div class="section-header">
                     <h2 id="sectionTitle">
                         <i class="fas fa-star" aria-hidden="true"></i> TẤT CẢ
@@ -535,7 +736,13 @@
                 onclick="toggleMobileMenu();"
                 type="button"
             >
-                <i class="fas fa-th-large" aria-hidden="true"></i>
+                <div class="category-icon-wrapper">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <i
+                        class="fas fa-search category-search-icon"
+                        aria-hidden="true"
+                    ></i>
+                </div>
                 <span>Danh mục</span>
             </button>
         </nav>
@@ -599,6 +806,6 @@
             </div>
         </footer>
 
-        <script src="assets/script.js?v=39"></script>
+        <script src="assets/script.js?v=41"></script>
     </body>
 </html>
