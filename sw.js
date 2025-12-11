@@ -1,5 +1,5 @@
 // Service Worker for PWA Support
-const CACHE_NAME = "oder88-shop-v42";
+const CACHE_NAME = "oder88-shop-v43";
 const urlsToCache = [
     "/",
     "/index.html",
