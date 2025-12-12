@@ -538,6 +538,7 @@ function getActiveLabel(item) {
         search: "Tìm kiếm",
         contact: "Liên hệ",
         fanpage: "Fanpage",
+        random: "Ngẫu nhiên",
     };
     return labels[item] || "Trang chủ";
 }
@@ -586,6 +587,8 @@ function initBottomNav() {
                 updateBottomNavActive("contact");
             } else if (label === "Fanpage") {
                 updateBottomNavActive("fanpage");
+            } else if (label === "Ngẫu nhiên") {
+                updateBottomNavActive("random");
             }
         });
     });

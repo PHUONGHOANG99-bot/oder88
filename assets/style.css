@@ -1985,7 +1985,7 @@ body {
     position: relative;
     min-width: 0;
     max-width: 100%;
-    overflow: visible;
+    overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
 }
@@ -4414,7 +4414,7 @@ body {
         gap: 4px;
         min-width: 0;
         flex: 1;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .tab-btn i {
@@ -4658,7 +4658,7 @@ body {
         border-radius: 0;
         gap: 4px;
         min-width: 60px;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .tab-btn span {
@@ -5281,10 +5281,10 @@ input:focus-visible {
 
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed !important;
+    bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -5293,11 +5293,14 @@ input:focus-visible {
     box-shadow: 0 4px 20px rgba(139, 92, 246, 0.5),
         0 8px 30px rgba(124, 58, 237, 0.4);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1001;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001 !important;
     padding: 0;
     margin: 0;
     color: white;
@@ -5307,27 +5310,38 @@ input:focus-visible {
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    /* Đảm bảo nút không bị ảnh hưởng bởi scroll và luôn cố định */
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Ngăn chặn mọi tương tác với scroll */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .bottom-nav-trend-btn:hover {
-    transform: translateX(-50%) translateY(-5px) scale(1.05);
+    transform: translateX(-50%) translateY(-5px) scale(1.05) !important;
+    -webkit-transform: translateX(-50%) translateY(-5px) scale(1.05)
+        translateZ(0) !important;
     box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6),
         0 12px 40px rgba(124, 58, 237, 0.5);
     background: linear-gradient(135deg, #9f7aea 0%, #8b5cf6 50%, #7c3aed 100%);
 }
 
 .bottom-nav-trend-btn:active {
-    transform: translateX(-50%) translateY(-2px) scale(0.98);
+    transform: translateX(-50%) translateY(-2px) scale(0.98) !important;
+    -webkit-transform: translateX(-50%) translateY(-2px) scale(0.98)
+        translateZ(0) !important;
     box-shadow: 0 3px 15px rgba(139, 92, 246, 0.5);
 }
 
 .bottom-nav-trend-btn span {
     display: block;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
     text-align: center;
-    padding: 0 4px;
+    padding: 0 6px;
 }
 
 .bottom-nav-item {
@@ -5361,13 +5375,13 @@ input:focus-visible {
 
 .bottom-nav-item:nth-child(2) {
     margin-left: 0;
-    /* Tạo khoảng trống với nút Xu hướng ở giữa */
+    /* Tạo khoảng trống với nút Ngẫu nhiên ở giữa */
     margin-right: 60px;
 }
 
 /* Điều chỉnh khoảng cách: Tìm kiếm và Danh mục gần nhau */
 .bottom-nav-item:nth-child(3) {
-    /* Tạo khoảng trống với nút Xu hướng ở giữa */
+    /* Tạo khoảng trống với nút Ngẫu nhiên ở giữa */
     margin-left: 60px;
     margin-right: 0;
 }
@@ -5709,11 +5723,15 @@ input:focus-visible {
     .bottom-nav-trend-btn {
         width: 65px;
         height: 65px;
-        bottom: 18px;
+        bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        -webkit-transform: translateX(-50%) translateZ(0) !important;
         font-size: 0.6rem;
     }
 
     .bottom-nav-trend-btn span {
         font-size: 0.6rem;
+        padding: 0 4px;
     }
 }
