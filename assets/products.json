@@ -6,9 +6,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd1.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd1.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd1.jpg"],
         "bestSeller": true,
         "purchases": 300
     },
@@ -19,9 +17,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd2.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd2.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd2.jpg"],
         "bestSeller": true,
         "purchases": 300
     },
@@ -32,9 +28,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd3.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd3.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd3.jpg"],
         "bestSeller": true,
         "purchases": 301
     },
@@ -45,9 +39,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd4.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd4.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd4.jpg"],
         "bestSeller": false,
         "purchases": 318
     },
@@ -58,9 +50,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd5.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd5.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd5.jpg"],
         "bestSeller": true,
         "purchases": 335
     },
@@ -71,9 +61,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd6.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd6.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd6.jpg"],
         "bestSeller": false,
         "purchases": 352
     },
@@ -84,9 +72,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd7.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd7.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd7.jpg"],
         "bestSeller": true,
         "purchases": 369
     },
@@ -97,9 +83,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd8.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd8.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd8.jpg"],
         "bestSeller": true,
         "purchases": 386
     },
@@ -110,9 +94,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd9.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd9.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd9.jpg"],
         "bestSeller": false,
         "purchases": 403
     },
@@ -123,9 +105,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd10.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd10.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd10.jpg"],
         "bestSeller": true,
         "purchases": 420
     },
@@ -136,9 +116,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd11.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd11.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd11.jpg"],
         "bestSeller": false,
         "purchases": 437
     },
@@ -149,9 +127,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd12.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd12.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd12.jpg"],
         "bestSeller": true,
         "purchases": 454
     },
@@ -162,9 +138,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd13.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd13.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd13.jpg"],
         "bestSeller": true,
         "purchases": 471
     },
@@ -175,9 +149,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd14.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd14.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd14.jpg"],
         "bestSeller": false,
         "purchases": 488
     },
@@ -188,9 +160,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd15.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd15.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd15.jpg"],
         "bestSeller": true,
         "purchases": 305
     },
@@ -201,9 +171,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd16.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd16.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd16.jpg"],
         "bestSeller": false,
         "purchases": 322
     },
@@ -214,9 +182,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd17.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd17.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd17.jpg"],
         "bestSeller": true,
         "purchases": 339
     },
@@ -227,9 +193,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd18.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd18.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd18.jpg"],
         "bestSeller": false,
         "purchases": 356
     },
@@ -240,9 +204,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd19.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd19.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd19.jpg"],
         "bestSeller": true,
         "purchases": 373
     },
@@ -253,9 +215,7 @@
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd20.jpg",
-        "images": [
-            "assets/image/quan-dai-nu/qd20.jpg"
-        ],
+        "images": ["assets/image/quan-dai-nu/qd20.jpg"],
         "bestSeller": false,
         "purchases": 390
     },
@@ -266,9 +226,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn1.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn1.jpg"],
         "bestSeller": true,
         "purchases": 424
     },
@@ -279,9 +237,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn2.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn2.jpg"],
         "bestSeller": false,
         "purchases": 441
     },
@@ -292,9 +248,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn3.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn3.jpg"],
         "bestSeller": true,
         "purchases": 458
     },
@@ -305,9 +259,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn4.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn4.jpg"],
         "bestSeller": true,
         "purchases": 475
     },
@@ -318,9 +270,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn5.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn5.jpg"],
         "bestSeller": false,
         "purchases": 492
     },
@@ -331,9 +281,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn1.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn1.jpg"],
         "bestSeller": true,
         "purchases": 509
     },
@@ -344,9 +292,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn2.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn2.jpg"],
         "bestSeller": true,
         "purchases": 526
     },
@@ -357,9 +303,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn3.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn3.jpg"],
         "bestSeller": true,
         "purchases": 543
     },
@@ -370,9 +314,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn4.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn4.jpg"],
         "bestSeller": false,
         "purchases": 360
     },
@@ -383,9 +325,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn5.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn5.jpg"],
         "bestSeller": true,
         "purchases": 377
     },
@@ -396,9 +336,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn6.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn6.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn6.jpg"],
         "bestSeller": true,
         "purchases": 394
     },
@@ -409,9 +347,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn7.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn7.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn7.jpg"],
         "bestSeller": false,
         "purchases": 411
     },
@@ -422,9 +358,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn8.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn8.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn8.jpg"],
         "bestSeller": true,
         "purchases": 428
     },
@@ -435,9 +369,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn9.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn9.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn9.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -448,9 +380,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn10.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn10.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn10.jpg"],
         "bestSeller": false,
         "purchases": 462
     },
@@ -461,9 +391,7 @@
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn11.jpg",
-        "images": [
-            "assets/image/giay-nu/boot-nu/bn11.jpg"
-        ],
+        "images": ["assets/image/giay-nu/boot-nu/bn11.jpg"],
         "bestSeller": true,
         "purchases": 479
     },
@@ -474,9 +402,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn22.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn22.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn22.jpg"],
         "bestSeller": true,
         "purchases": 496
     },
@@ -487,9 +413,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn33.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn33.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn33.jpg"],
         "bestSeller": true,
         "purchases": 513
     },
@@ -500,9 +424,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn40.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn40.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn40.jpg"],
         "bestSeller": false,
         "purchases": 530
     },
@@ -513,9 +435,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn41.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn41.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn41.jpg"],
         "bestSeller": true,
         "purchases": 547
     },
@@ -526,9 +446,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn42.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn42.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn42.jpg"],
         "bestSeller": true,
         "purchases": 364
     },
@@ -539,9 +457,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn43.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn43.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn43.jpg"],
         "bestSeller": false,
         "purchases": 381
     },
@@ -552,9 +468,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn44.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn44.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn44.jpg"],
         "bestSeller": true,
         "purchases": 398
     },
@@ -565,9 +479,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn45.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn45.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn45.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -578,9 +490,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn46.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn46.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn46.jpg"],
         "bestSeller": true,
         "purchases": 432
     },
@@ -591,9 +501,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn23.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn23.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn23.jpg"],
         "bestSeller": false,
         "purchases": 449
     },
@@ -604,9 +512,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn24.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn24.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn24.jpg"],
         "bestSeller": true,
         "purchases": 466
     },
@@ -617,9 +523,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn25.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn25.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn25.jpg"],
         "bestSeller": true,
         "purchases": 483
     },
@@ -630,9 +534,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn26.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn26.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn26.jpg"],
         "bestSeller": true,
         "purchases": 500
     },
@@ -643,9 +545,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn27.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn27.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn27.jpg"],
         "bestSeller": false,
         "purchases": 517
     },
@@ -656,9 +556,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn28.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn28.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn28.jpg"],
         "bestSeller": true,
         "purchases": 534
     },
@@ -669,9 +567,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn29.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn29.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn29.jpg"],
         "bestSeller": true,
         "purchases": 551
     },
@@ -682,9 +578,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn30.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn30.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn30.jpg"],
         "bestSeller": true,
         "purchases": 368
     },
@@ -695,9 +589,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn31.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn31.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn31.jpg"],
         "bestSeller": false,
         "purchases": 385
     },
@@ -708,9 +600,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn32.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn32.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn32.jpg"],
         "bestSeller": true,
         "purchases": 402
     },
@@ -721,9 +611,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn34.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn34.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn34.jpg"],
         "bestSeller": true,
         "purchases": 419
     },
@@ -734,9 +622,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn35.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn35.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn35.jpg"],
         "bestSeller": false,
         "purchases": 436
     },
@@ -747,9 +633,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn36.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn36.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn36.jpg"],
         "bestSeller": true,
         "purchases": 453
     },
@@ -760,9 +644,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn37.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn37.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn37.jpg"],
         "bestSeller": true,
         "purchases": 470
     },
@@ -773,9 +655,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn38.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn38.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn38.jpg"],
         "bestSeller": true,
         "purchases": 487
     },
@@ -786,9 +666,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn1.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn1.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn1.jpg"],
         "bestSeller": true,
         "purchases": 571
     },
@@ -799,9 +677,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn2.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn2.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn2.jpg"],
         "bestSeller": true,
         "purchases": 588
     },
@@ -812,9 +688,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn3.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn3.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn3.jpg"],
         "bestSeller": false,
         "purchases": 405
     },
@@ -825,9 +699,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn4.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn4.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn4.jpg"],
         "bestSeller": true,
         "purchases": 422
     },
@@ -838,9 +710,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn5.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn5.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn5.jpg"],
         "bestSeller": true,
         "purchases": 439
     },
@@ -851,9 +721,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn6.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn6.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn6.jpg"],
         "bestSeller": true,
         "purchases": 456
     },
@@ -864,9 +732,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn7.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn7.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn7.jpg"],
         "bestSeller": false,
         "purchases": 473
     },
@@ -877,9 +743,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn8.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn8.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn8.jpg"],
         "bestSeller": true,
         "purchases": 490
     },
@@ -890,9 +754,7 @@
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn9.jpg",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nam/txn9.jpg"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nam/txn9.jpg"],
         "bestSeller": true,
         "purchases": 507
     },
@@ -903,9 +765,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv1.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv1.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv1.jpg"],
         "bestSeller": true,
         "purchases": 320
     },
@@ -916,9 +776,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv2.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv2.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv2.jpg"],
         "bestSeller": false,
         "purchases": 245
     },
@@ -929,9 +787,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv3.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv3.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv3.jpg"],
         "bestSeller": true,
         "purchases": 380
     },
@@ -942,9 +798,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv4.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv4.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv4.jpg"],
         "bestSeller": true,
         "purchases": 295
     },
@@ -955,9 +809,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv5.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv5.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv5.jpg"],
         "bestSeller": false,
         "purchases": 268
     },
@@ -968,9 +820,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv6.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv6.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv6.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -981,9 +831,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv7.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv7.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv7.jpg"],
         "bestSeller": true,
         "purchases": 335
     },
@@ -994,9 +842,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv8.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv8.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv8.jpg"],
         "bestSeller": false,
         "purchases": 285
     },
@@ -1007,9 +853,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv9.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv9.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv9.jpg"],
         "bestSeller": true,
         "purchases": 365
     },
@@ -1020,9 +864,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv10.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv10.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv10.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -1033,9 +875,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv11.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv11.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv11.jpg"],
         "bestSeller": false,
         "purchases": 250
     },
@@ -1046,9 +886,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv12.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv12.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv12.jpg"],
         "bestSeller": true,
         "purchases": 340
     },
@@ -1059,9 +897,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv13.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv13.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv13.jpg"],
         "bestSeller": false,
         "purchases": 275
     },
@@ -1072,9 +908,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv14.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv14.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv14.jpg"],
         "bestSeller": true,
         "purchases": 315
     },
@@ -1085,9 +919,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv15.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv15.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv15.jpg"],
         "bestSeller": true,
         "purchases": 355
     },
@@ -1098,9 +930,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv16.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv16.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv16.jpg"],
         "bestSeller": false,
         "purchases": 260
     },
@@ -1111,9 +941,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv17.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv17.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv17.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -1124,9 +952,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv18.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv18.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv18.jpg"],
         "bestSeller": true,
         "purchases": 330
     },
@@ -1137,9 +963,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv19.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv19.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv19.jpg"],
         "bestSeller": false,
         "purchases": 280
     },
@@ -1150,9 +974,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv20.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv20.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv20.jpg"],
         "bestSeller": true,
         "purchases": 350
     },
@@ -1163,9 +985,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv21.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv21.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv21.jpg"],
         "bestSeller": true,
         "purchases": 375
     },
@@ -1176,9 +996,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv22.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv22.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv22.jpg"],
         "bestSeller": false,
         "purchases": 255
     },
@@ -1189,9 +1007,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv23.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv23.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv23.jpg"],
         "bestSeller": true,
         "purchases": 385
     },
@@ -1202,9 +1018,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv24.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv24.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv24.jpg"],
         "bestSeller": true,
         "purchases": 310
     },
@@ -1215,9 +1029,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv25.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv25.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv25.jpg"],
         "bestSeller": false,
         "purchases": 290
     },
@@ -1228,9 +1040,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv26.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv26.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv26.jpg"],
         "bestSeller": true,
         "purchases": 360
     },
@@ -1241,9 +1051,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv27.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv27.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv27.jpg"],
         "bestSeller": true,
         "purchases": 390
     },
@@ -1254,9 +1062,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv28.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv28.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv28.jpg"],
         "bestSeller": false,
         "purchases": 265
     },
@@ -1267,9 +1073,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv29.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv29.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv29.jpg"],
         "bestSeller": true,
         "purchases": 345
     },
@@ -1280,9 +1084,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv30.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv30.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv30.jpg"],
         "bestSeller": false,
         "purchases": 300
     },
@@ -1293,9 +1095,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv31.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv31.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv31.jpg"],
         "bestSeller": true,
         "purchases": 325
     },
@@ -1306,9 +1106,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv32.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv32.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv32.jpg"],
         "bestSeller": true,
         "purchases": 370
     },
@@ -1319,9 +1117,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv33.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv33.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv33.jpg"],
         "bestSeller": false,
         "purchases": 270
     },
@@ -1332,9 +1128,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv34.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv34.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv34.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -1345,9 +1139,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv35.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv35.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv35.jpg"],
         "bestSeller": true,
         "purchases": 320
     },
@@ -1358,9 +1150,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv36.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv36.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv36.jpg"],
         "bestSeller": false,
         "purchases": 275
     },
@@ -1371,9 +1161,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv37.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv37.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv37.jpg"],
         "bestSeller": true,
         "purchases": 350
     },
@@ -1384,9 +1172,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv38.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv38.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv38.jpg"],
         "bestSeller": true,
         "purchases": 380
     },
@@ -1397,9 +1183,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv39.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv39.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv39.jpg"],
         "bestSeller": false,
         "purchases": 260
     },
@@ -1410,9 +1194,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv40.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv40.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv40.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -1423,9 +1205,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv41.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv41.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv41.jpg"],
         "bestSeller": true,
         "purchases": 315
     },
@@ -1436,9 +1216,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv42.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv42.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv42.jpg"],
         "bestSeller": false,
         "purchases": 295
     },
@@ -1449,9 +1227,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv43.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv43.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv43.jpg"],
         "bestSeller": true,
         "purchases": 365
     },
@@ -1462,9 +1238,7 @@
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv44.jpg",
-        "images": [
-            "assets/image/vay/chan-vay/cv44.jpg"
-        ],
+        "images": ["assets/image/vay/chan-vay/cv44.jpg"],
         "bestSeller": true,
         "purchases": 666
     },
@@ -1475,9 +1249,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn1.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn1.jpg"],
         "bestSeller": true,
         "purchases": 420
     },
@@ -1488,9 +1260,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn2.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn2.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn2.jpg"],
         "bestSeller": true,
         "purchases": 385
     },
@@ -1501,9 +1271,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn3.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn3.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn3.jpg"],
         "bestSeller": false,
         "purchases": 350
     },
@@ -1514,9 +1282,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn4.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn4.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn4.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -1527,9 +1293,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn5.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn5.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn5.jpg"],
         "bestSeller": true,
         "purchases": 398
     },
@@ -1540,9 +1304,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn1.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn1.jpg"],
         "bestSeller": true,
         "purchases": 420
     },
@@ -1553,9 +1315,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn2.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn2.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn2.jpg"],
         "bestSeller": true,
         "purchases": 385
     },
@@ -1566,9 +1326,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn3.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn3.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn3.jpg"],
         "bestSeller": false,
         "purchases": 350
     },
@@ -1579,9 +1337,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn4.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn4.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn4.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -1592,9 +1348,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn5.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn5.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn5.jpg"],
         "bestSeller": true,
         "purchases": 398
     },
@@ -1605,9 +1359,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn6.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn6.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn6.jpg"],
         "bestSeller": true,
         "purchases": 412
     },
@@ -1618,9 +1370,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn7.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn7.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn7.jpg"],
         "bestSeller": true,
         "purchases": 465
     },
@@ -1631,9 +1381,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn8.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn8.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn8.jpg"],
         "bestSeller": false,
         "purchases": 368
     },
@@ -1644,9 +1392,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn9.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn9.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn9.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -1657,9 +1403,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn10.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn10.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn10.jpg"],
         "bestSeller": true,
         "purchases": 428
     },
@@ -1670,9 +1414,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn11.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn11.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn11.jpg"],
         "bestSeller": false,
         "purchases": 342
     },
@@ -1683,9 +1425,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn12.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn12.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn12.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -1696,9 +1436,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn13.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn13.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn13.jpg"],
         "bestSeller": true,
         "purchases": 388
     },
@@ -1709,9 +1447,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn14.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn14.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn14.jpg"],
         "bestSeller": false,
         "purchases": 355
     },
@@ -1722,9 +1458,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn15.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn15.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn15.jpg"],
         "bestSeller": true,
         "purchases": 402
     },
@@ -1735,9 +1469,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn16.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn16.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn16.jpg"],
         "bestSeller": true,
         "purchases": 435
     },
@@ -1748,9 +1480,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn17.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn17.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn17.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -1761,9 +1491,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn18.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn18.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn18.jpg"],
         "bestSeller": false,
         "purchases": 365
     },
@@ -1774,9 +1502,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn19.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn19.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn19.jpg"],
         "bestSeller": true,
         "purchases": 392
     },
@@ -1787,9 +1513,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn20.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn20.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn20.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -1800,9 +1524,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn21.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn21.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn21.jpg"],
         "bestSeller": true,
         "purchases": 418
     },
@@ -1813,9 +1535,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn22.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn22.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn22.jpg"],
         "bestSeller": false,
         "purchases": 348
     },
@@ -1826,9 +1546,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn23.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn23.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn23.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -1839,9 +1557,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn24.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn24.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn24.jpg"],
         "bestSeller": true,
         "purchases": 385
     },
@@ -1852,9 +1568,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn25.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn25.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn25.jpg"],
         "bestSeller": false,
         "purchases": 360
     },
@@ -1865,9 +1579,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn26.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn26.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn26.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -1878,9 +1590,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn27.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn27.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn27.jpg"],
         "bestSeller": true,
         "purchases": 408
     },
@@ -1891,9 +1601,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn28.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn28.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn28.jpg"],
         "bestSeller": false,
         "purchases": 372
     },
@@ -1904,9 +1612,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn29.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn29.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn29.jpg"],
         "bestSeller": true,
         "purchases": 390
     },
@@ -1917,9 +1623,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn30.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn30.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn30.jpg"],
         "bestSeller": true,
         "purchases": 425
     },
@@ -1930,9 +1634,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn31.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn31.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn31.jpg"],
         "bestSeller": false,
         "purchases": 358
     },
@@ -1943,9 +1645,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn32.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn32.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn32.jpg"],
         "bestSeller": true,
         "purchases": 398
     },
@@ -1956,9 +1656,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn33.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn33.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn33.jpg"],
         "bestSeller": true,
         "purchases": 412
     },
@@ -1969,9 +1667,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn34.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn34.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn34.jpg"],
         "bestSeller": true,
         "purchases": 440
     },
@@ -1982,9 +1678,7 @@
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn35.jpg",
-        "images": [
-            "assets/image/ao-nu/ao-dong-nu/adn35.jpg"
-        ],
+        "images": ["assets/image/ao-nu/ao-dong-nu/adn35.jpg"],
         "bestSeller": false,
         "purchases": 365
     },
@@ -1995,9 +1689,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn6.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn6.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn6.jpg"],
         "bestSeller": true,
         "purchases": 412
     },
@@ -2008,9 +1700,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn7.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn7.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn7.jpg"],
         "bestSeller": true,
         "purchases": 465
     },
@@ -2021,9 +1711,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn8.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn8.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn8.jpg"],
         "bestSeller": false,
         "purchases": 368
     },
@@ -2034,9 +1722,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn9.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn9.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn9.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -2047,9 +1733,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn10.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn10.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn10.jpg"],
         "bestSeller": true,
         "purchases": 428
     },
@@ -2060,9 +1744,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn11.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn11.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn11.jpg"],
         "bestSeller": false,
         "purchases": 342
     },
@@ -2073,9 +1755,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn12.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn12.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn12.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -2086,9 +1766,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn13.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn13.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn13.jpg"],
         "bestSeller": true,
         "purchases": 388
     },
@@ -2099,9 +1777,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn14.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn14.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn14.jpg"],
         "bestSeller": false,
         "purchases": 355
     },
@@ -2112,9 +1788,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn15.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn15.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn15.jpg"],
         "bestSeller": true,
         "purchases": 402
     },
@@ -2125,9 +1799,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn16.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn16.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn16.jpg"],
         "bestSeller": true,
         "purchases": 435
     },
@@ -2138,9 +1810,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn17.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn17.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn17.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -2151,9 +1821,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn18.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn18.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn18.jpg"],
         "bestSeller": false,
         "purchases": 365
     },
@@ -2164,9 +1832,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn19.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn19.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn19.jpg"],
         "bestSeller": true,
         "purchases": 392
     },
@@ -2177,9 +1843,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn20.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn20.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn20.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -2190,9 +1854,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn21.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn21.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn21.jpg"],
         "bestSeller": true,
         "purchases": 418
     },
@@ -2203,9 +1865,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn22.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn22.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn22.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -2216,9 +1876,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn23.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn23.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn23.jpg"],
         "bestSeller": true,
         "purchases": 385
     },
@@ -2229,9 +1887,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn24.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn24.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn24.jpg"],
         "bestSeller": false,
         "purchases": 360
     },
@@ -2242,9 +1898,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn25.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn25.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn25.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -2255,9 +1909,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn26.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn26.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn26.jpg"],
         "bestSeller": true,
         "purchases": 408
     },
@@ -2268,9 +1920,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn27.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn27.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn27.jpg"],
         "bestSeller": false,
         "purchases": 372
     },
@@ -2281,9 +1931,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn28.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn28.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn28.jpg"],
         "bestSeller": true,
         "purchases": 425
     },
@@ -2294,9 +1942,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn29.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn29.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn29.jpg"],
         "bestSeller": false,
         "purchases": 358
     },
@@ -2307,9 +1953,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn30.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn30.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn30.jpg"],
         "bestSeller": true,
         "purchases": 398
     },
@@ -2320,9 +1964,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn31.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn31.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn31.jpg"],
         "bestSeller": true,
         "purchases": 412
     },
@@ -2333,9 +1975,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn32.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn32.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn32.jpg"],
         "bestSeller": true,
         "purchases": 440
     },
@@ -2346,9 +1986,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn33.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn33.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn33.jpg"],
         "bestSeller": false,
         "purchases": 365
     },
@@ -2359,9 +1997,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn34.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn34.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn34.jpg"],
         "bestSeller": true,
         "purchases": 450
     },
@@ -2372,9 +2008,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn35.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn35.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn35.jpg"],
         "bestSeller": true,
         "purchases": 430
     },
@@ -2385,9 +2019,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn36.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn36.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn36.jpg"],
         "bestSeller": false,
         "purchases": 375
     },
@@ -2398,9 +2030,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn37.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn37.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn37.jpg"],
         "bestSeller": true,
         "purchases": 420
     },
@@ -2411,9 +2041,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn38.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn38.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn38.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -2424,9 +2052,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn39.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn39.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn39.jpg"],
         "bestSeller": false,
         "purchases": 380
     },
@@ -2437,9 +2063,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn40.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn40.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn40.jpg"],
         "bestSeller": true,
         "purchases": 435
     },
@@ -2450,9 +2074,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn41.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn41.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn41.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -2463,9 +2085,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn42.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn42.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn42.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -2476,9 +2096,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn43.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn43.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn43.jpg"],
         "bestSeller": false,
         "purchases": 370
     },
@@ -2489,9 +2107,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn44.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn44.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn44.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -2502,9 +2118,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn45.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn45.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn45.jpg"],
         "bestSeller": true,
         "purchases": 425
     },
@@ -2515,9 +2129,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn46.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn46.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn46.jpg"],
         "bestSeller": true,
         "purchases": 460
     },
@@ -2528,9 +2140,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn47.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn47.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn47.jpg"],
         "bestSeller": false,
         "purchases": 390
     },
@@ -2541,9 +2151,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn48.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn48.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn48.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -2554,9 +2162,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn49.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn49.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn49.jpg"],
         "bestSeller": true,
         "purchases": 480
     },
@@ -2567,9 +2173,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn50.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn50.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn50.jpg"],
         "bestSeller": true,
         "purchases": 455
     },
@@ -2580,9 +2184,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn51.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn51.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn51.jpg"],
         "bestSeller": false,
         "purchases": 385
     },
@@ -2593,9 +2195,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn52.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn52.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn52.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -2606,9 +2206,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn53.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn53.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn53.jpg"],
         "bestSeller": true,
         "purchases": 430
     },
@@ -2619,9 +2217,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn54.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn54.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn54.jpg"],
         "bestSeller": false,
         "purchases": 360
     },
@@ -2632,9 +2228,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn55.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn55.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn55.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -2645,9 +2239,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn56.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn56.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn56.jpg"],
         "bestSeller": true,
         "purchases": 440
     },
@@ -2658,9 +2250,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn57.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn57.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn57.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -2671,9 +2261,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn58.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn58.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn58.jpg"],
         "bestSeller": true,
         "purchases": 425
     },
@@ -2684,9 +2272,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn59.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn59.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn59.jpg"],
         "bestSeller": true,
         "purchases": 450
     },
@@ -2697,9 +2283,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn60.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn60.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn60.jpg"],
         "bestSeller": false,
         "purchases": 375
     },
@@ -2710,9 +2294,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn61.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn61.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn61.jpg"],
         "bestSeller": true,
         "purchases": 470
     },
@@ -2723,9 +2305,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn62.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn62.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn62.jpg"],
         "bestSeller": true,
         "purchases": 485
     },
@@ -2736,9 +2316,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn63.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn63.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn63.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -2749,9 +2327,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn64.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn64.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn64.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -2762,9 +2338,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn65.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn65.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn65.jpg"],
         "bestSeller": false,
         "purchases": 380
     },
@@ -2775,9 +2349,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn66.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn66.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn66.jpg"],
         "bestSeller": true,
         "purchases": 435
     },
@@ -2788,9 +2360,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn67.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn67.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn67.jpg"],
         "bestSeller": true,
         "purchases": 495
     },
@@ -2801,9 +2371,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn68.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn68.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn68.jpg"],
         "bestSeller": true,
         "purchases": 475
     },
@@ -2814,9 +2382,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn69.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn69.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn69.jpg"],
         "bestSeller": true,
         "purchases": 420
     },
@@ -2827,9 +2393,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn70.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn70.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn70.jpg"],
         "bestSeller": false,
         "purchases": 390
     },
@@ -2840,9 +2404,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn71.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn71.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn71.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -2853,9 +2415,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn72.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn72.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn72.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -2866,9 +2426,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn73.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn73.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn73.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -2879,9 +2437,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn74.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn74.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn74.jpg"],
         "bestSeller": false,
         "purchases": 365
     },
@@ -2892,9 +2448,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn75.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn75.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn75.jpg"],
         "bestSeller": true,
         "purchases": 430
     },
@@ -2905,9 +2459,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn76.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn76.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn76.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -2918,9 +2470,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn77.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn77.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn77.jpg"],
         "bestSeller": false,
         "purchases": 375
     },
@@ -2931,9 +2481,7 @@
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn78.jpg",
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adn78.jpg"
-        ],
+        "images": ["assets/image/ao-nam/ao-dong-nam/adn78.jpg"],
         "bestSeller": true,
         "purchases": 390
     },
@@ -2944,9 +2492,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt1.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt1.jpg"],
         "bestSeller": true,
         "purchases": 420
     },
@@ -2957,9 +2503,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt2.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt2.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt2.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -2970,9 +2514,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt3.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt3.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt3.jpg"],
         "bestSeller": false,
         "purchases": 360
     },
@@ -2983,9 +2525,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt4.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt4.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt4.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -2996,9 +2536,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt5.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt5.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt5.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -3009,9 +2547,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt6.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt6.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt6.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -3022,9 +2558,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt7.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt7.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt7.jpg"],
         "bestSeller": false,
         "purchases": 348
     },
@@ -3035,9 +2569,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt8.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt8.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt8.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -3048,9 +2580,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt9.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt9.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt9.jpg"],
         "bestSeller": true,
         "purchases": 385
     },
@@ -3061,9 +2591,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt10.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt10.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt10.jpg"],
         "bestSeller": false,
         "purchases": 360
     },
@@ -3074,9 +2602,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt11.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt11.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt11.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -3087,9 +2613,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt12.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt12.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt12.jpg"],
         "bestSeller": true,
         "purchases": 408
     },
@@ -3100,9 +2624,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt13.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt13.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt13.jpg"],
         "bestSeller": false,
         "purchases": 372
     },
@@ -3113,9 +2635,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt14.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt14.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt14.jpg"],
         "bestSeller": true,
         "purchases": 425
     },
@@ -3126,9 +2646,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt15.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt15.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt15.jpg"],
         "bestSeller": false,
         "purchases": 358
     },
@@ -3139,9 +2657,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt16.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt16.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt16.jpg"],
         "bestSeller": true,
         "purchases": 398
     },
@@ -3152,9 +2668,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt17.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt17.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt17.jpg"],
         "bestSeller": true,
         "purchases": 412
     },
@@ -3165,9 +2679,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt18.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt18.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt18.jpg"],
         "bestSeller": true,
         "purchases": 440
     },
@@ -3178,9 +2690,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt19.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt19.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt19.jpg"],
         "bestSeller": false,
         "purchases": 365
     },
@@ -3191,9 +2701,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt20.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt20.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt20.jpg"],
         "bestSeller": true,
         "purchases": 450
     },
@@ -3204,9 +2712,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt21.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt21.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt21.jpg"],
         "bestSeller": true,
         "purchases": 430
     },
@@ -3217,9 +2723,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt22.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt22.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt22.jpg"],
         "bestSeller": false,
         "purchases": 375
     },
@@ -3230,9 +2734,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt23.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt23.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt23.jpg"],
         "bestSeller": true,
         "purchases": 420
     },
@@ -3243,9 +2745,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt24.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt24.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt24.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -3256,9 +2756,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt25.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt25.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt25.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -3269,9 +2767,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt26.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt26.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt26.jpg"],
         "bestSeller": true,
         "purchases": 425
     },
@@ -3282,9 +2778,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt27.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt27.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt27.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -3295,9 +2789,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt28.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt28.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt28.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -3308,9 +2800,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt29.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt29.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt29.jpg"],
         "bestSeller": false,
         "purchases": 370
     },
@@ -3321,9 +2811,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt30.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt30.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt30.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -3334,9 +2822,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt31.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt31.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt31.jpg"],
         "bestSeller": true,
         "purchases": 435
     },
@@ -3347,9 +2833,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt32.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt32.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt32.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -3360,9 +2844,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt33.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt33.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt33.jpg"],
         "bestSeller": true,
         "purchases": 480
     },
@@ -3373,9 +2855,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt34.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt34.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt34.jpg"],
         "bestSeller": true,
         "purchases": 455
     },
@@ -3386,9 +2866,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt35.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt35.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt35.jpg"],
         "bestSeller": false,
         "purchases": 385
     },
@@ -3399,9 +2877,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt36.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt36.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt36.jpg"],
         "bestSeller": true,
         "purchases": 430
     },
@@ -3412,9 +2888,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt37.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt37.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt37.jpg"],
         "bestSeller": true,
         "purchases": 450
     },
@@ -3425,9 +2899,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt38.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt38.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt38.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -3438,9 +2910,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt39.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt39.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt39.jpg"],
         "bestSeller": true,
         "purchases": 475
     },
@@ -3451,9 +2921,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt40.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt40.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt40.jpg"],
         "bestSeller": true,
         "purchases": 490
     },
@@ -3464,9 +2932,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt41.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt41.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt41.jpg"],
         "bestSeller": true,
         "purchases": 460
     },
@@ -3477,9 +2943,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt42.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt42.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt42.jpg"],
         "bestSeller": false,
         "purchases": 420
     },
@@ -3490,9 +2954,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt43.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt43.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt43.jpg"],
         "bestSeller": true,
         "purchases": 440
     },
@@ -3503,9 +2965,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt44.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt44.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt44.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -3516,9 +2976,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt45.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt45.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt45.jpg"],
         "bestSeller": false,
         "purchases": 380
     },
@@ -3529,9 +2987,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt46.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt46.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt46.jpg"],
         "bestSeller": true,
         "purchases": 400
     },
@@ -3542,9 +2998,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt47.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt47.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt47.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -3555,9 +3009,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt48.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt48.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt48.jpg"],
         "bestSeller": false,
         "purchases": 375
     },
@@ -3568,9 +3020,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt49.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt49.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt49.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -3581,9 +3031,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt50.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt50.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt50.jpg"],
         "bestSeller": true,
         "purchases": 435
     },
@@ -3594,9 +3042,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt51.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt51.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt51.jpg"],
         "bestSeller": true,
         "purchases": 395
     },
@@ -3607,9 +3053,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt52.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt52.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt52.jpg"],
         "bestSeller": true,
         "purchases": 408
     },
@@ -3620,9 +3064,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt53.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt53.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt53.jpg"],
         "bestSeller": false,
         "purchases": 370
     },
@@ -3633,9 +3075,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt54.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt54.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt54.jpg"],
         "bestSeller": true,
         "purchases": 450
     },
@@ -3646,9 +3086,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt55.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt55.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt55.jpg"],
         "bestSeller": true,
         "purchases": 410
     },
@@ -3659,9 +3097,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt56.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt56.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt56.jpg"],
         "bestSeller": true,
         "purchases": 430
     },
@@ -3672,9 +3108,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt57.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt57.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt57.jpg"],
         "bestSeller": true,
         "purchases": 480
     },
@@ -3685,9 +3119,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt58.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt58.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt58.jpg"],
         "bestSeller": false,
         "purchases": 420
     },
@@ -3698,9 +3130,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt59.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt59.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt59.jpg"],
         "bestSeller": true,
         "purchases": 415
     },
@@ -3711,9 +3141,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt60.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt60.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt60.jpg"],
         "bestSeller": true,
         "purchases": 405
     },
@@ -3724,9 +3152,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt61.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt61.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt61.jpg"],
         "bestSeller": true,
         "purchases": 425
     },
@@ -3737,9 +3163,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt62.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt62.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt62.jpg"],
         "bestSeller": true,
         "purchases": 435
     },
@@ -3750,9 +3174,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt63.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt63.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt63.jpg"],
         "bestSeller": false,
         "purchases": 390
     },
@@ -3763,9 +3185,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt64.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt64.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt64.jpg"],
         "bestSeller": true,
         "purchases": 445
     },
@@ -3776,9 +3196,7 @@
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt65.jpg",
-        "images": [
-            "assets/image/giay-nu/giay-the-thao/gtt65.jpg"
-        ],
+        "images": ["assets/image/giay-nu/giay-the-thao/gtt65.jpg"],
         "bestSeller": true,
         "purchases": 440
     },
@@ -3789,9 +3207,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn1.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn1.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn1.JPG"],
         "bestSeller": false,
         "purchases": 100
     },
@@ -3802,9 +3218,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn2.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn2.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn2.JPG"],
         "bestSeller": false,
         "purchases": 200
     },
@@ -3815,9 +3229,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn3.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn3.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn3.JPG"],
         "bestSeller": false,
         "purchases": 300
     },
@@ -3828,9 +3240,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn4.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn4.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn4.JPG"],
         "bestSeller": false,
         "purchases": 400
     },
@@ -3841,9 +3251,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn5.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn5.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn5.JPG"],
         "bestSeller": false,
         "purchases": 100
     },
@@ -3854,9 +3262,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn6.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn6.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn6.JPG"],
         "bestSeller": false,
         "purchases": 200
     },
@@ -3867,9 +3273,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn7.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn7.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn7.JPG"],
         "bestSeller": false,
         "purchases": 300
     },
@@ -3880,9 +3284,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn8.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn8.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn8.JPG"],
         "bestSeller": false,
         "purchases": 400
     },
@@ -3893,9 +3295,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn9.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn9.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn9.JPG"],
         "bestSeller": false,
         "purchases": 100
     },
@@ -3906,9 +3306,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn10.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn10.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn10.JPG"],
         "bestSeller": false,
         "purchases": 200
     },
@@ -3919,9 +3317,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn11.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn11.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn11.JPG"],
         "bestSeller": false,
         "purchases": 300
     },
@@ -3932,9 +3328,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn12.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn12.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn12.JPG"],
         "bestSeller": false,
         "purchases": 400
     },
@@ -3945,9 +3339,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn13.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn13.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn13.JPG"],
         "bestSeller": false,
         "purchases": 100
     },
@@ -3958,9 +3350,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn14.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn14.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn14.JPG"],
         "bestSeller": false,
         "purchases": 200
     },
@@ -3971,9 +3361,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn15.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn15.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn15.JPG"],
         "bestSeller": false,
         "purchases": 300
     },
@@ -3984,9 +3372,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn16.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn16.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn16.JPG"],
         "bestSeller": false,
         "purchases": 400
     },
@@ -3997,9 +3383,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn17.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn17.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn17.JPG"],
         "bestSeller": false,
         "purchases": 100
     },
@@ -4010,9 +3394,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn18.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn18.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn18.JPG"],
         "bestSeller": false,
         "purchases": 200
     },
@@ -4023,9 +3405,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn19.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn19.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn19.JPG"],
         "bestSeller": false,
         "purchases": 300
     },
@@ -4036,9 +3416,7 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn20.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn20.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn20.JPG"],
         "bestSeller": false,
         "purchases": 400
     },
@@ -4049,10 +3427,723 @@
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn21.JPG",
-        "images": [
-            "assets/image/tui-xach/tui-xach-nu/txn21.JPG"
-        ],
+        "images": ["assets/image/tui-xach/tui-xach-nu/txn21.JPG"],
         "bestSeller": false,
         "purchases": 100
+    },
+    {
+        "id": 313,
+        "name": "Giày Sneaker Nam Retro Trắng Đỏ D&S",
+        "price": "¥2850",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG"],
+        "bestSeller": false,
+        "purchases": 150
+    },
+    {
+        "id": 314,
+        "name": "Giày Sneaker Nam Trắng Họa Tiết LV",
+        "price": "¥3200",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0938.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0938.JPG"],
+        "bestSeller": true,
+        "purchases": 280
+    },
+    {
+        "id": 315,
+        "name": "Giày Sneaker Nam Trắng Mặt Cười Đế",
+        "price": "¥2750",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0939.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0939.JPG"],
+        "bestSeller": false,
+        "purchases": 200
+    },
+    {
+        "id": 316,
+        "name": "Giày Sneaker Nam Platform Kem Chunky",
+        "price": "¥3100",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0940.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0940.JPG"],
+        "bestSeller": true,
+        "purchases": 320
+    },
+    {
+        "id": 317,
+        "name": "Giày Sneaker Nam Đen Trắng 3 Sọc",
+        "price": "¥2650",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0941.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0941.JPG"],
+        "bestSeller": false,
+        "purchases": 180
+    },
+    {
+        "id": 318,
+        "name": "Giày Sneaker Nam Onitsuka Tiger Street Fighter",
+        "price": "¥3500",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0942.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0942.JPG"],
+        "bestSeller": true,
+        "purchases": 350
+    },
+    {
+        "id": 319,
+        "name": "Giày Sneaker Nam Vàng Mustard Đế Trắng",
+        "price": "¥2900",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0943.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0943.JPG"],
+        "bestSeller": false,
+        "purchases": 220
+    },
+    {
+        "id": 320,
+        "name": "Giày Sneaker Nam Đen Kem Platform Chunky",
+        "price": "¥3150",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0944.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0944.JPG"],
+        "bestSeller": true,
+        "purchases": 300
+    },
+    {
+        "id": 321,
+        "name": "Giày Sneaker Nam Kem Đen Sọc Vàng",
+        "price": "¥2800",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0945.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0945.JPG"],
+        "bestSeller": false,
+        "purchases": 190
+    },
+    {
+        "id": 322,
+        "name": "Giày Sneaker Nam Xanh Olive Platform",
+        "price": "¥2950",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0948.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0948.JPG"],
+        "bestSeller": false,
+        "purchases": 210
+    },
+    {
+        "id": 323,
+        "name": "Giày Sneaker Nam Nâu Da Lộn Platform Trắng",
+        "price": "¥3000",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0949.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0949.JPG"],
+        "bestSeller": true,
+        "purchases": 280
+    },
+    {
+        "id": 324,
+        "name": "Giày Sneaker Nam Đỏ Trắng Chunky Retro",
+        "price": "¥3250",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0951.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0951.JPG"],
+        "bestSeller": true,
+        "purchases": 340
+    },
+    {
+        "id": 325,
+        "name": "Giày Sneaker Nam Đen Trắng Platform 3 Sọc",
+        "price": "¥3100",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0952.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0952.JPG"],
+        "bestSeller": false,
+        "purchases": 250
+    },
+    {
+        "id": 326,
+        "name": "Giày Sneaker Nam Trắng Đen Họa Tiết",
+        "price": "¥2850",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0953.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0953.JPG"],
+        "bestSeller": false,
+        "purchases": 200
+    },
+    {
+        "id": 327,
+        "name": "Giày Sneaker Nam Trắng Đen 1987 LYXBCXC",
+        "price": "¥3200",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0954.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0954.JPG"],
+        "bestSeller": true,
+        "purchases": 330
+    },
+    {
+        "id": 328,
+        "name": "Giày Sneaker Nam Onitsuka Tiger Vàng",
+        "price": "¥3400",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0955.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0955.JPG"],
+        "bestSeller": true,
+        "purchases": 360
+    },
+    {
+        "id": 329,
+        "name": "Giày Sneaker Nam Kem Đỏ Đen OLB",
+        "price": "¥2750",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0956.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0956.JPG"],
+        "bestSeller": false,
+        "purchases": 180
+    },
+    {
+        "id": 330,
+        "name": "Giày Sneaker Nam Puma Trắng Đen",
+        "price": "¥2700",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0957.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0957.JPG"],
+        "bestSeller": false,
+        "purchases": 240
+    },
+    {
+        "id": 331,
+        "name": "Giày Sneaker Nam Kem Đen Sọc Vàng",
+        "price": "¥2800",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0958.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0958.JPG"],
+        "bestSeller": false,
+        "purchases": 190
+    },
+    {
+        "id": 332,
+        "name": "Giày Sneaker Nam Xanh Teal Retro",
+        "price": "¥2900",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0959.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0959.JPG"],
+        "bestSeller": false,
+        "purchases": 210
+    },
+    {
+        "id": 333,
+        "name": "Giày Sneaker Nam Be Puma Sọc Đen",
+        "price": "¥2650",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0960.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0960.JPG"],
+        "bestSeller": false,
+        "purchases": 200
+    },
+    {
+        "id": 334,
+        "name": "Giày Sneaker Nam Trắng 1991 WANGHONGN",
+        "price": "¥3300",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0961.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0961.JPG"],
+        "bestSeller": true,
+        "purchases": 320
+    },
+    {
+        "id": 335,
+        "name": "Giày Sneaker Nam Đen Kim Cương Bạc",
+        "price": "¥3800",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0962.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0962.JPG"],
+        "bestSeller": true,
+        "purchases": 380
+    },
+    {
+        "id": 336,
+        "name": "Giày Sneaker Nam Trắng Đỏ NODA",
+        "price": "¥2750",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0964.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0964.JPG"],
+        "bestSeller": false,
+        "purchases": 220
+    },
+    {
+        "id": 337,
+        "name": "Giày Sneaker Nam Trắng Đen Onitsuka",
+        "price": "¥3000",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0965.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0965.JPG"],
+        "bestSeller": true,
+        "purchases": 290
+    },
+    {
+        "id": 338,
+        "name": "Giày Sneaker Nam Đen Kem Platform",
+        "price": "¥3100",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0966.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0966.JPG"],
+        "bestSeller": false,
+        "purchases": 260
+    },
+    {
+        "id": 339,
+        "name": "Giày Sneaker Nam Trắng Họa Tiết F",
+        "price": "¥2850",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0967.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0967.JPG"],
+        "bestSeller": false,
+        "purchases": 230
+    },
+    {
+        "id": 340,
+        "name": "Giày Sneaker Nam Trắng Họa Tiết Đen",
+        "price": "¥2950",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0968.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0968.JPG"],
+        "bestSeller": false,
+        "purchases": 240
+    },
+    {
+        "id": 341,
+        "name": "Giày Sneaker Nam Trắng Họa Tiết Đen 1987",
+        "price": "¥3200",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0969.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0969.JPG"],
+        "bestSeller": true,
+        "purchases": 310
+    },
+    {
+        "id": 342,
+        "name": "Giày Sneaker Nam Trắng Xanh Lá Platform",
+        "price": "¥3000",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0970.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0970.JPG"],
+        "bestSeller": false,
+        "purchases": 250
+    },
+    {
+        "id": 343,
+        "name": "Giày Sneaker Nam Đen Trắng TTCX",
+        "price": "¥3100",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0971.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0971.JPG"],
+        "bestSeller": false,
+        "purchases": 270
+    },
+    {
+        "id": 344,
+        "name": "Giày Sneaker Nam Trắng Mặt Cười",
+        "price": "¥2750",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0972.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0972.JPG"],
+        "bestSeller": false,
+        "purchases": 210
+    },
+    {
+        "id": 345,
+        "name": "Giày Sneaker Nam Trắng PNITTOADRN",
+        "price": "¥3400",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0973.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0973.JPG"],
+        "bestSeller": true,
+        "purchases": 350
+    },
+    {
+        "id": 346,
+        "name": "Giày Sneaker Nam Trắng Nét Vẽ Đen",
+        "price": "¥2900",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0974.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0974.JPG"],
+        "bestSeller": false,
+        "purchases": 240
+    },
+    {
+        "id": 347,
+        "name": "Giày Sneaker Nam Đen Trắng TICK",
+        "price": "¥3000",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0975.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0975.JPG"],
+        "bestSeller": false,
+        "purchases": 260
+    },
+    {
+        "id": 348,
+        "name": "Giày Sneaker Nam Trắng Xanh Lá TICK",
+        "price": "¥3050",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0976.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0976.JPG"],
+        "bestSeller": false,
+        "purchases": 270
+    },
+    {
+        "id": 349,
+        "name": "Giày Sneaker Nam Cam Bạc Sequins",
+        "price": "¥3600",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0977.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0977.JPG"],
+        "bestSeller": true,
+        "purchases": 340
+    },
+    {
+        "id": 350,
+        "name": "Giày Sneaker Nam Trắng Bạc Sequins",
+        "price": "¥3500",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0978.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0978.JPG"],
+        "bestSeller": true,
+        "purchases": 330
+    },
+    {
+        "id": 351,
+        "name": "Giày Sneaker Nam Đen Kim Cương",
+        "price": "¥3800",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0979.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0979.JPG"],
+        "bestSeller": true,
+        "purchases": 370
+    },
+    {
+        "id": 352,
+        "name": "Giày Sneaker Nam Đen Trắng REA",
+        "price": "¥2800",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0980.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0980.JPG"],
+        "bestSeller": false,
+        "purchases": 230
+    },
+    {
+        "id": 353,
+        "name": "Giày Sneaker Nam Kem Bạc Đen 1987",
+        "price": "¥3200",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0981.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0981.JPG"],
+        "bestSeller": true,
+        "purchases": 300
+    },
+    {
+        "id": 354,
+        "name": "Giày Sneaker Nam Nhiều Màu GAISIMA",
+        "price": "¥3300",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0982.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0982.JPG"],
+        "bestSeller": true,
+        "purchases": 310
+    },
+    {
+        "id": 355,
+        "name": "Giày Sneaker Nam Canvas Kem Sọc Đỏ Xanh",
+        "price": "¥2650",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0983.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0983.JPG"],
+        "bestSeller": false,
+        "purchases": 200
+    },
+    {
+        "id": 356,
+        "name": "Giày Sneaker Nam Canvas Kem Phai",
+        "price": "¥2500",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0984.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0984.JPG"],
+        "bestSeller": false,
+        "purchases": 180
+    },
+    {
+        "id": 357,
+        "name": "Giày Sneaker Nam Canvas Trắng ROX",
+        "price": "¥2700",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0985.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0985.JPG"],
+        "bestSeller": false,
+        "purchases": 220
+    },
+    {
+        "id": 358,
+        "name": "Giày Sneaker Nam Canvas Trắng BAIKUANG",
+        "price": "¥2750",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0986.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0986.JPG"],
+        "bestSeller": false,
+        "purchases": 210
+    },
+    {
+        "id": 359,
+        "name": "Giày Sneaker Nam Canvas Kem Họa Tiết IMPALA",
+        "price": "¥2900",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0987.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0987.JPG"],
+        "bestSeller": false,
+        "purchases": 240
+    },
+    {
+        "id": 360,
+        "name": "Giày Sneaker Nam Trắng Đơn Giản",
+        "price": "¥2600",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0988.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0988.JPG"],
+        "bestSeller": false,
+        "purchases": 200
+    },
+    {
+        "id": 361,
+        "name": "Giày Sneaker Nam Trắng Nhiều Màu 1987",
+        "price": "¥3200",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0989.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0989.JPG"],
+        "bestSeller": true,
+        "purchases": 300
+    },
+    {
+        "id": 362,
+        "name": "Giày Sneaker Nam Canvas Xám Họa Tiết",
+        "price": "¥2800",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0990.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0990.JPG"],
+        "bestSeller": false,
+        "purchases": 230
+    },
+    {
+        "id": 363,
+        "name": "Giày Sneaker Nam Canvas Nhiều Màu",
+        "price": "¥2900",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0991.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0991.JPG"],
+        "bestSeller": false,
+        "purchases": 250
+    },
+    {
+        "id": 364,
+        "name": "Giày Sneaker Nam Canvas Xanh Denim",
+        "price": "¥2700",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0992.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0992.JPG"],
+        "bestSeller": false,
+        "purchases": 220
+    },
+    {
+        "id": 365,
+        "name": "Giày Sneaker Nam Canvas Nhiều Màu FASHION",
+        "price": "¥3100",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0993.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0993.JPG"],
+        "bestSeller": true,
+        "purchases": 290
+    },
+    {
+        "id": 366,
+        "name": "Giày Sneaker Nam Canvas Nhiều Màu Retro",
+        "price": "¥3000",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0994.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0994.JPG"],
+        "bestSeller": false,
+        "purchases": 270
+    },
+    {
+        "id": 367,
+        "name": "Giày Sneaker Nam Trắng Đen V",
+        "price": "¥2850",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0995.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0995.JPG"],
+        "bestSeller": false,
+        "purchases": 240
+    },
+    {
+        "id": 368,
+        "name": "Giày Sneaker Nam Kem Bạc Lấp Lánh",
+        "price": "¥3400",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0996.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0996.JPG"],
+        "bestSeller": true,
+        "purchases": 320
+    },
+    {
+        "id": 369,
+        "name": "Giày Sneaker Nam Đen Bạc Kim Cương",
+        "price": "¥3700",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0997.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0997.JPG"],
+        "bestSeller": true,
+        "purchases": 360
+    },
+    {
+        "id": 370,
+        "name": "Giày Sneaker Nam Canvas Nâu",
+        "price": "¥2600",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0998.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0998.JPG"],
+        "bestSeller": false,
+        "purchases": 200
+    },
+    {
+        "id": 371,
+        "name": "Giày Sneaker Nam Canvas Nâu Retro",
+        "price": "¥2750",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0999.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_0999.JPG"],
+        "bestSeller": false,
+        "purchases": 210
+    },
+    {
+        "id": 372,
+        "name": "Giày Sneaker Nam Canvas Nâu Sọc",
+        "price": "¥2800",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1001.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_1001.JPG"],
+        "bestSeller": false,
+        "purchases": 220
+    },
+    {
+        "id": 373,
+        "name": "Giày Sneaker Nam Canvas Nâu Gum",
+        "price": "¥2700",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1002.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_1002.JPG"],
+        "bestSeller": false,
+        "purchases": 230
+    },
+    {
+        "id": 374,
+        "name": "Giày Sneaker Nam Canvas Nâu Be",
+        "price": "¥2650",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1003.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_1003.JPG"],
+        "bestSeller": false,
+        "purchases": 200
+    },
+    {
+        "id": 375,
+        "name": "Giày Sneaker Nam Canvas Nâu Retro",
+        "price": "¥2900",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1004.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_1004.JPG"],
+        "bestSeller": false,
+        "purchases": 240
+    },
+    {
+        "id": 376,
+        "name": "Giày Sneaker Nam Canvas Nâu Gum",
+        "price": "¥2750",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1005.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_1005.JPG"],
+        "bestSeller": false,
+        "purchases": 210
+    },
+    {
+        "id": 377,
+        "name": "Giày Sneaker Nam NUKO Vàng Mustard",
+        "price": "¥3500",
+        "category": "giay-sneaker-nam",
+        "categoryName": "Sneaker Nam",
+        "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1046.JPG",
+        "images": ["assets/image/giay-nam/giay-sneaker-nam/IMG_1046.JPG"],
+        "bestSeller": true,
+        "purchases": 340
     }
 ]
