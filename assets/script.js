@@ -4,7 +4,7 @@ let originalProducts = []; // Lưu bản gốc để shuffle lại
 let currentCategory = "all";
 let searchQuery = "";
 let currentPage = 1;
-const productsPerPage = 20;
+const productsPerPage = 40;
 let currentSlide = 0;
 const itemsPerSlide = 3;
 
@@ -49,40 +49,40 @@ function getBasePath() {
     // Lấy pathname hiện tại (ví dụ: /oder88/ hoặc /)
     const pathname = window.location.pathname;
     // Tách pathname thành các phần
-    const parts = pathname.split('/').filter(p => p);
+    const parts = pathname.split("/").filter((p) => p);
     // Nếu có repository name trong path (không phải root domain)
-    if (parts.length > 0 && parts[0] !== 'index.html') {
+    if (parts.length > 0 && parts[0] !== "index.html") {
         // Trả về base path với dấu / ở đầu
-        return '/' + parts[0];
+        return "/" + parts[0];
     }
     // Nếu là root domain hoặc localhost, trả về rỗng
-    return '';
+    return "";
 }
 
 // Hàm normalize đường dẫn cho GitHub Pages
 function normalizePath(path) {
     if (!path) return path;
     // Nếu đã là đường dẫn tuyệt đối (bắt đầu bằng http), giữ nguyên
-    if (path.startsWith('http://') || path.startsWith('https://')) {
+    if (path.startsWith("http://") || path.startsWith("https://")) {
         return path;
     }
     // Nếu bắt đầu bằng /, thêm base path
-    if (path.startsWith('/')) {
+    if (path.startsWith("/")) {
         const basePath = getBasePath();
         return basePath + path;
     }
     // Nếu là đường dẫn tương đối, thêm base path
     const basePath = getBasePath();
-    return basePath + '/' + path;
+    return basePath + "/" + path;
 }
 
 async function loadProducts() {
     try {
         console.log("Đang load sản phẩm từ JSON...");
         const basePath = getBasePath();
-        const jsonPath = `${basePath}/assets/products.json`.replace('//', '/');
+        const jsonPath = `${basePath}/assets/products.json`.replace("//", "/");
         console.log("Loading from:", jsonPath);
-        
+
         const response = await fetch(jsonPath);
 
         if (!response.ok) {
@@ -94,8 +94,20 @@ async function loadProducts() {
         // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có
         products = products.map((product) => {
             if (!product.purchases) {
-                // Tạo số lượt mua ngẫu nhiên từ 50 đến 500+
-                product.purchases = Math.floor(Math.random() * 451) + 50;
+                // Tạo số lượt mua ngẫu nhiên là số chẵn: 100, 200, 300, 400, 500, 600, 700, 800
+                const randomMultiplier = Math.floor(Math.random() * 8) + 1; // 1-8
+                product.purchases = randomMultiplier * 100;
+            } else {
+                // Làm tròn số lượt mua hiện có thành số chẵn gần nhất (làm tròn xuống)
+                const currentPurchases =
+                    parseInt(
+                        String(product.purchases).replace(/[^0-9]/g, ""),
+                        10
+                    ) || 0;
+                if (currentPurchases > 0) {
+                    product.purchases =
+                        Math.floor(currentPurchases / 100) * 100 || 100;
+                }
             }
             return product;
         });
@@ -215,6 +227,15 @@ function createMessengerOrderLink(productName, productPrice, categoryName) {
     return `https://m.me/nekoshop68?text=${encodedMessage}`;
 }
 
+function getCategoryDisplayName(categoryId, fallbackName) {
+    const map = {
+        "quan-dai-nu": "Quần Nữ",
+        "quan-nam": "Quần Nam",
+        "quan-jean-nam": "Quần Jean",
+    };
+    return map[categoryId] || fallbackName || "Sản phẩm";
+}
+
 // ==================== HÀM LOADING SPINNER ====================
 function showPageLoader() {
     const loader = document.getElementById("pageLoader");
@@ -295,6 +316,42 @@ function scrollToTop() {
 }
 
 // ==================== HÀM SHUFFLE SẢN PHẨM ====================
+// Seeded random number generator để đảm bảo cùng seed cho cùng kết quả
+function seededRandom(seed) {
+    let value = seed;
+    return function () {
+        value = (value * 9301 + 49297) % 233280;
+        return value / 233280;
+    };
+}
+
+// Hàm shuffle có seed để đảm bảo thứ tự cố định
+function seededShuffle(array, seed) {
+    const shuffled = [...array];
+    const random = seededRandom(seed);
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
+// Lấy hoặc tạo seed cho shuffle tab "Tất cả"
+function getShuffleSeed() {
+    const STORAGE_KEY = "allTabShuffleSeed";
+    let seed = localStorage.getItem(STORAGE_KEY);
+
+    if (!seed) {
+        // Tạo seed mới dựa trên timestamp và lưu vào localStorage
+        seed = Date.now().toString().slice(-9); // Lấy 9 chữ số cuối
+        localStorage.setItem(STORAGE_KEY, seed);
+    }
+
+    return parseInt(seed);
+}
+
 function shuffleProducts() {
     if (originalProducts.length === 0) {
         // Nếu chưa có originalProducts, dùng products hiện tại
@@ -647,17 +704,25 @@ function updateCategoryIndicator() {
 
     let categoryName = "Tất cả";
     const categoryMap = {
-        "quan-dai-nu": "Quần dài nữ",
+        "quan-dai-nu": "Quần Nữ",
+        "quan-nam": "Quần Nam",
+        "quan-jean-nam": "Quần Jean",
         "ao-nu": "Áo nữ",
         "ao-dong-nu": "Áo đông nữ",
         "tui-xach": "Túi xách",
         "tui-xach-nam": "Túi xách nam",
         "tui-xach-nu": "Túi xách nữ",
+        giay: "Giày",
         "giay-nu": "Giày nữ",
+        "giay-nam": "Giày Nam",
         "boot-nu": "Boot nữ",
-        "giay-the-thao": "Giày Sneaker",
+        "giay-the-thao": "Sneaker Nữ",
+        "giay-sneaker-nam": "Giày Sneaker",
         vay: "Váy",
         "chan-vay": "Chân váy",
+        "set-do": "Sét Đồ",
+        "set-do-nu": "Sét Đồ Nữ",
+        "set-do-nam": "Sét Đồ Nam",
     };
 
     if (categoryMap[currentCategory]) {
@@ -674,14 +739,22 @@ function updateCategoryIndicator() {
         const iconMap = {
             all: "fa-star",
             "quan-dai-nu": "fa-tshirt",
+            "quan-nam": "fa-user",
+            "quan-jean-nam": "fa-user",
             "ao-nu": "fa-tshirt",
             "ao-dong-nu": "fa-tshirt",
+            giay: "fa-shoe-prints",
             "giay-nu": "fa-heart",
+            "giay-nam": "fa-shoe-prints",
             "boot-nu": "fa-shoe-prints",
             "giay-the-thao": "fa-running",
+            "giay-sneaker-nam": "fa-running",
             vay: "fa-tshirt",
             "chan-vay": "fa-tshirt",
             "tui-xach": "fa-shopping-bag",
+            "set-do": "fa-tshirt",
+            "set-do-nu": "fa-tshirt",
+            "set-do-nam": "fa-tshirt",
             "tui-xach-nam": "fa-briefcase",
             "tui-xach-nu": "fa-handbag",
         };
@@ -703,8 +776,15 @@ function initCategories() {
             id: "all",
             name: "Tất cả",
             icon: "fa-border-all",
-            image: "assets/logo/logo1.png",
+            image: "assets/logo/tatca.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "set-do",
+            name: "Sét Đồ",
+            icon: "fa-tshirt",
+            image: "assets/image/set-do-nu/sd1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
             id: "ao-nu",
@@ -742,11 +822,11 @@ function initCategories() {
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
-            id: "giay-nu",
-            name: "Giày nữ",
-            icon: "fa-heart",
+            id: "giay",
+            name: "Giày",
+            icon: "fa-shoe-prints",
             image: "assets/image/giay-nu/boot-nu/bn1.jpg",
-            color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
             id: "boot-nu",
@@ -757,7 +837,7 @@ function initCategories() {
         },
         {
             id: "giay-the-thao",
-            name: "Giày Sneaker",
+            name: "Sneaker Nữ",
             icon: "fa-running",
             image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
@@ -770,45 +850,59 @@ function initCategories() {
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
-            id: "giay-nam",
-            name: "Giày Nam",
-            icon: "fa-shoe-prints",
-            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
-            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        },
-        {
             id: "giay-sneaker-nam",
-            name: "Giày Sneaker",
+            name: "Sneaker Nam",
             icon: "fa-running",
             image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
+            id: "quan-nam",
+            name: "Quần Nam",
+            icon: "fa-user",
+            image: "assets/logo/quannam.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "quan-jean-nam",
+            name: "Quần Jean",
+            icon: "fa-user",
+            image: "assets/logo/quannam.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
             id: "quan-dai-nu",
-            name: "Quần dài nữ",
+            name: "Quần Nữ",
             icon: "fa-tshirt",
             image: "assets/image/quan-dai-nu/qd1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
     ];
 
-    // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam)
+    // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam)
     categoriesGrid.innerHTML = categories
         .map((category) => {
-            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam vì chúng là subcategories
+            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam, giay-nu, giay-nam vì chúng là subcategories
             if (
                 category.id === "boot-nu" ||
                 category.id === "giay-the-thao" ||
                 category.id === "ao-dong-nu" ||
                 category.id === "ao-dong-nam" ||
-                category.id === "giay-sneaker-nam"
+                category.id === "giay-sneaker-nam" ||
+                category.id === "quan-jean-nam" ||
+                category.id === "giay-nu" ||
+                category.id === "giay-nam"
             ) {
                 return "";
             }
             return `
-        <div class="category-item" data-category="${category.id}" role="button" tabindex="0">
+        <div class="category-item" data-category="${
+            category.id
+        }" role="button" tabindex="0">
             <div class="category-image-wrapper">
-                <div class="category-image-bg" style="background: ${category.color}"></div>
+                <div class="category-image-bg" style="background: ${
+                    category.color
+                }"></div>
                 <img 
                     src="${normalizePath(category.image)}" 
                     alt="${category.name}"
@@ -843,8 +937,29 @@ function initMobileCategories() {
             id: "all",
             name: "Tất cả",
             icon: "fa-border-all",
-            image: "assets/logo/logo1.png",
+            image: "assets/logo/tatca.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "set-do",
+            name: "Sét Đồ",
+            icon: "fa-tshirt",
+            image: "assets/image/set-do-nu/sd1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "set-do-nu",
+            name: "Sét Đồ Nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/set-do-nu/sd1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "set-do-nam",
+            name: "Sét Đồ Nam",
+            icon: "fa-tshirt",
+            image: "assets/image/set-do-nu/sd1.jpg",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
             id: "ao-nu",
@@ -882,11 +997,11 @@ function initMobileCategories() {
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
-            id: "giay-nu",
-            name: "Giày nữ",
-            icon: "fa-heart",
+            id: "giay",
+            name: "Giày",
+            icon: "fa-shoe-prints",
             image: "assets/image/giay-nu/boot-nu/bn1.jpg",
-            color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
             id: "boot-nu",
@@ -897,7 +1012,7 @@ function initMobileCategories() {
         },
         {
             id: "giay-the-thao",
-            name: "Giày Sneaker",
+            name: "Sneaker Nữ",
             icon: "fa-running",
             image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
@@ -910,25 +1025,32 @@ function initMobileCategories() {
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
-            id: "giay-nam",
-            name: "Giày Nam",
-            icon: "fa-shoe-prints",
-            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
-            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        },
-        {
             id: "giay-sneaker-nam",
-            name: "Giày Sneaker",
+            name: "Sneaker Nam",
             icon: "fa-running",
             image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
             id: "quan-dai-nu",
-            name: "Quần dài nữ",
+            name: "Quần Nữ",
             icon: "fa-tshirt",
             image: "assets/image/quan-dai-nu/qd1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "quan-nam",
+            name: "Quần Nam",
+            icon: "fa-user",
+            image: "assets/logo/quannam.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "quan-jean-nam",
+            name: "Quần Jean",
+            icon: "fa-user",
+            image: "assets/logo/quannam.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
     ];
 
@@ -986,12 +1108,12 @@ function initMobileCategories() {
                             type="button"
                         >
                             <div class="mobile-category-image">
-                                <img src="${category.image}" alt="Tất cả túi xách" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <img src="${category.image}" alt="Tất cả" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                                 <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
                                     <i class="fas ${category.icon}"></i>
                                 </div>
                             </div>
-                            <span class="mobile-category-text">Tất cả túi xách</span>
+                            <span class="mobile-category-text">Tất cả</span>
                         </button>
                         <button
                             class="mobile-category-btn subcategory-btn"
@@ -1051,13 +1173,84 @@ function initMobileCategories() {
                             type="button"
                         >
                             <div class="mobile-category-image">
-                                <img src="${category.image}" alt="Tất cả quần dài nữ" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <img src="${category.image}" alt="Tất cả" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                                 <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
                                     <i class="fas ${category.icon}"></i>
                                 </div>
                             </div>
-                            <span class="mobile-category-text">Tất cả quần dài nữ</span>
+                            <span class="mobile-category-text">Tất cả</span>
                         </button>
+                    </div>
+                </div>
+            `;
+            } else if (category.id === "quan-nam") {
+                const quanJeanNam = categories.find(
+                    (c) => c.id === "quan-jean-nam"
+                );
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="quanNamBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${category.image}" alt="${
+                    category.name
+                }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${
+                                category.color
+                            }; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${
+                            category.name
+                        }</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="quanNamSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="quan-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${
+                                    category.image
+                                }" alt="Tất cả" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${
+                                    category.color
+                                }; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả</span>
+                        </button>
+                        ${
+                            quanJeanNam
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="quan-jean-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${quanJeanNam.image}" alt="${quanJeanNam.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${quanJeanNam.color}; display: none;">
+                                    <i class="fas ${quanJeanNam.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${quanJeanNam.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
                     </div>
                 </div>
             `;
@@ -1101,14 +1294,14 @@ function initMobileCategories() {
                             <div class="mobile-category-image">
                                 <img src="${
                                     category.image
-                                }" alt="Tất cả áo nữ" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                }" alt="Tất cả" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                                 <div class="mobile-category-icon-fallback" style="background: ${
                                     category.color
                                 }; display: none;">
                                     <i class="fas ${category.icon}"></i>
                                 </div>
                             </div>
-                            <span class="mobile-category-text">Tất cả áo nữ</span>
+                            <span class="mobile-category-text">Tất cả</span>
                         </button>
                         ${
                             aoDongNu
@@ -1132,11 +1325,16 @@ function initMobileCategories() {
                     </div>
                 </div>
             `;
-            } else if (category.id === "giay-nu") {
+            } else if (category.id === "giay") {
                 // Tìm các subcategories
+                const giayNu = categories.find((c) => c.id === "giay-nu");
                 const bootNu = categories.find((c) => c.id === "boot-nu");
                 const giayTheThao = categories.find(
                     (c) => c.id === "giay-the-thao"
+                );
+                const giayNam = categories.find((c) => c.id === "giay-nam");
+                const giaySneakerNam = categories.find(
+                    (c) => c.id === "giay-sneaker-nam"
                 );
 
                 return `
@@ -1144,7 +1342,7 @@ function initMobileCategories() {
                     <button
                         class="mobile-category-btn"
                         data-category="${category.id}"
-                        id="giayNuBtn"
+                        id="giayBtn"
                         type="button"
                     >
                         <div class="mobile-category-image">
@@ -1164,26 +1362,28 @@ function initMobileCategories() {
                     </button>
                     <div
                         class="subcategories"
-                        id="giayNuSubcategories"
+                        id="giaySubcategories"
                         style="display: none"
                     >
+                        ${
+                            giayNu
+                                ? `
                         <button
                             class="mobile-category-btn subcategory-btn"
                             data-category="giay-nu"
                             type="button"
                         >
                             <div class="mobile-category-image">
-                                <img src="${
-                                    category.image
-                                }" alt="Tất cả giày nữ" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
-                                <div class="mobile-category-icon-fallback" style="background: ${
-                                    category.color
-                                }; display: none;">
-                                    <i class="fas ${category.icon}"></i>
+                                <img src="${giayNu.image}" alt="${giayNu.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${giayNu.color}; display: none;">
+                                    <i class="fas ${giayNu.icon}"></i>
                                 </div>
                             </div>
-                            <span class="mobile-category-text">Tất cả giày nữ</span>
+                            <span class="mobile-category-text">${giayNu.name}</span>
                         </button>
+                        `
+                                : ""
+                        }
                         ${
                             bootNu
                                 ? `
@@ -1222,6 +1422,44 @@ function initMobileCategories() {
                         `
                                 : ""
                         }
+                        ${
+                            giayNam
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${giayNam.image}" alt="${giayNam.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${giayNam.color}; display: none;">
+                                    <i class="fas ${giayNam.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${giayNam.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                        ${
+                            giaySneakerNam
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-sneaker-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${giaySneakerNam.image}" alt="${giaySneakerNam.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${giaySneakerNam.color}; display: none;">
+                                    <i class="fas ${giaySneakerNam.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${giaySneakerNam.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
                     </div>
                 </div>
             `;
@@ -1254,12 +1492,12 @@ function initMobileCategories() {
                             type="button"
                         >
                             <div class="mobile-category-image">
-                                <img src="${category.image}" alt="Tất cả váy" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <img src="${category.image}" alt="Tất cả" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                                 <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
                                     <i class="fas ${category.icon}"></i>
                                 </div>
                             </div>
-                            <span class="mobile-category-text">Tất cả váy</span>
+                            <span class="mobile-category-text">Tất cả</span>
                         </button>
                         <button
                             class="mobile-category-btn subcategory-btn"
@@ -1277,8 +1515,101 @@ function initMobileCategories() {
                     </div>
                 </div>
             `;
+            } else if (category.id === "set-do") {
+                // Tìm các subcategories
+                const setDoNu = categories.find((c) => c.id === "set-do-nu");
+                const setDoNam = categories.find((c) => c.id === "set-do-nam");
+
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="setDoBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${normalizePath(category.image)}" alt="${
+                    category.name
+                }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${
+                                category.color
+                            }; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${
+                            category.name
+                        }</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="setDoSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="set-do"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${
+                                    category.image
+                                }" alt="Tất cả" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${
+                                    category.color
+                                }; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả</span>
+                        </button>
+                        ${
+                            setDoNu
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="set-do-nu"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${setDoNu.image}" alt="${setDoNu.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${setDoNu.color}; display: none;">
+                                    <i class="fas ${setDoNu.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${setDoNu.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                        ${
+                            setDoNam
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="set-do-nam"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${setDoNam.image}" alt="${setDoNam.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${setDoNam.color}; display: none;">
+                                    <i class="fas ${setDoNam.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${setDoNam.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                    </div>
+                </div>
+            `;
             } else if (category.id === "ao-nam") {
-                const aoDongNam = categories.find((c) => c.id === "ao-dong-nam");
+                const aoDongNam = categories.find(
+                    (c) => c.id === "ao-dong-nam"
+                );
                 return `
                 <div class="category-with-subcategories">
                     <button
@@ -1288,12 +1619,18 @@ function initMobileCategories() {
                         type="button"
                     >
                         <div class="mobile-category-image">
-                            <img src="${category.image}" alt="${category.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
-                            <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
+                            <img src="${category.image}" alt="${
+                    category.name
+                }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${
+                                category.color
+                            }; display: none;">
                                 <i class="fas ${category.icon}"></i>
                             </div>
                         </div>
-                        <span class="mobile-category-text">${category.name}</span>
+                        <span class="mobile-category-text">${
+                            category.name
+                        }</span>
                         <i class="fas fa-chevron-right subcategory-arrow"></i>
                     </button>
                     <div
@@ -1324,56 +1661,13 @@ function initMobileCategories() {
                 </div>
             `;
             } else if (category.id === "giay-nam") {
-                const giaySneakerNam = categories.find((c) => c.id === "giay-sneaker-nam");
-                return `
-                <div class="category-with-subcategories">
-                    <button
-                        class="mobile-category-btn"
-                        data-category="${category.id}"
-                        id="giayNamBtn"
-                        type="button"
-                    >
-                        <div class="mobile-category-image">
-                            <img src="${category.image}" alt="${category.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
-                            <div class="mobile-category-icon-fallback" style="background: ${category.color}; display: none;">
-                                <i class="fas ${category.icon}"></i>
-                            </div>
-                        </div>
-                        <span class="mobile-category-text">${category.name}</span>
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
-                    </button>
-                    <div
-                        class="subcategories"
-                        id="giayNamSubcategories"
-                        style="display: none"
-                    >
-                        ${
-                            giaySneakerNam
-                                ? `
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="giay-sneaker-nam"
-                            type="button"
-                        >
-                            <div class="mobile-category-image">
-                                <img src="${giaySneakerNam.image}" alt="${giaySneakerNam.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
-                                <div class="mobile-category-icon-fallback" style="background: ${giaySneakerNam.color}; display: none;">
-                                    <i class="fas ${giaySneakerNam.icon}"></i>
-                                </div>
-                            </div>
-                            <span class="mobile-category-text">${giaySneakerNam.name}</span>
-                        </button>
-                        `
-                                : ""
-                        }
-                    </div>
-                </div>
-            `;
+                // Bỏ qua category này vì đã được render trong subcategories của "giay"
+                return "";
             } else if (category.id === "boot-nu") {
-                // Bỏ qua category này vì đã được render trong subcategories của "giay-nu"
+                // Bỏ qua category này vì đã được render trong subcategories của "giay"
                 return "";
             } else if (category.id === "giay-the-thao") {
-                // Bỏ qua category này vì đã được render trong subcategories của "giay-nu"
+                // Bỏ qua category này vì đã được render trong subcategories của "giay"
                 return "";
             } else if (category.id === "ao-dong-nu") {
                 // Bỏ qua category này vì đã được render trong subcategories của "ao-nu"
@@ -1382,7 +1676,13 @@ function initMobileCategories() {
                 // Bỏ qua category này vì đã được render trong subcategories của "ao-nam"
                 return "";
             } else if (category.id === "giay-sneaker-nam") {
-                // Bỏ qua category này vì đã được render trong subcategories của "giay-nam"
+                // Bỏ qua category này vì đã được render trong subcategories của "giay"
+                return "";
+            } else if (category.id === "giay-nu") {
+                // Bỏ qua category này vì đã được render trong subcategories của "giay"
+                return "";
+            } else if (category.id === "quan-jean-nam") {
+                // Bỏ qua category này vì đã được render trong subcategories của "quan-nam"
                 return "";
             }
         })
@@ -1395,81 +1695,30 @@ function initMobileCategories() {
     // Event listeners sẽ được gắn trong setupEventListeners()
 }
 
+// ==================== HELPERS ====================
+function getPurchaseCount(product) {
+    if (product == null) return 0;
+    const val = product.purchases;
+    if (val === undefined || val === null) {
+        return product.bestSeller ? 1 : 0;
+    }
+    const num = parseInt(String(val).replace(/[^0-9]/g, ""), 10);
+    if (Number.isNaN(num)) return product.bestSeller ? 1 : 0;
+    return num;
+}
+
 // ==================== HÀM SLIDER ====================
 function getBestSellers() {
-    // Lấy sản phẩm đa dạng từ nhiều category khác nhau
-    const categories = [
-        "quan-dai-nu",
-        "tui-xach-nam",
-        "tui-xach-nu",
-        "giay-nu",
-    ];
-    const selectedProducts = [];
-    const maxPerCategory = 4; // Tối đa 4 sản phẩm mỗi category
     const totalProducts = 20; // Tổng số sản phẩm hiển thị
 
-    // Lấy sản phẩm từ mỗi category
-    categories.forEach((category) => {
-        const categoryProducts = products.filter(
-            (p) => p.category === category
-        );
-
-        if (categoryProducts.length === 0) return;
-
-        // Ưu tiên bestSeller, sau đó lấy ngẫu nhiên
-        const bestSellers = categoryProducts.filter((p) => p.bestSeller);
-        const others = categoryProducts.filter((p) => !p.bestSeller);
-
-        // Shuffle để đa dạng
-        const shuffledBestSellers = [...bestSellers].sort(
-            () => Math.random() - 0.5
-        );
-        const shuffledOthers = [...others].sort(() => Math.random() - 0.5);
-
-        // Lấy từ bestSeller trước
-        const fromBestSellers = shuffledBestSellers.slice(0, maxPerCategory);
-        selectedProducts.push(...fromBestSellers);
-
-        // Nếu chưa đủ, lấy thêm từ others
-        if (fromBestSellers.length < maxPerCategory) {
-            const needed = maxPerCategory - fromBestSellers.length;
-            selectedProducts.push(...shuffledOthers.slice(0, needed));
-        }
+    const sortedByPurchases = [...products].sort((a, b) => {
+        const diff = getPurchaseCount(b) - getPurchaseCount(a);
+        if (diff !== 0) return diff;
+        // Nếu bằng nhau, ưu tiên bestSeller
+        return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
     });
 
-    // Nếu chưa đủ, lấy thêm sản phẩm từ tất cả categories (ưu tiên bestSeller)
-    if (selectedProducts.length < totalProducts) {
-        const remaining = totalProducts - selectedProducts.length;
-        const selectedIds = new Set(selectedProducts.map((p) => p.id));
-
-        // Lấy bestSeller trước
-        const allBestSellers = products
-            .filter((p) => p.bestSeller && !selectedIds.has(p.id))
-            .sort(() => Math.random() - 0.5);
-
-        const fromBestSellers = allBestSellers.slice(0, remaining);
-        selectedProducts.push(...fromBestSellers);
-
-        // Nếu vẫn chưa đủ, lấy thêm từ tất cả sản phẩm
-        if (selectedProducts.length < totalProducts) {
-            const stillNeeded = totalProducts - selectedProducts.length;
-            const allOthers = products
-                .filter(
-                    (p) =>
-                        !selectedIds.has(p.id) &&
-                        !selectedProducts.find((sp) => sp.id === p.id)
-                )
-                .sort(() => Math.random() - 0.5)
-                .slice(0, stillNeeded);
-            selectedProducts.push(...allOthers);
-        }
-    }
-
-    // Shuffle lại để đa dạng hơn
-    const shuffled = [...selectedProducts].sort(() => Math.random() - 0.5);
-
-    // Trả về tối đa totalProducts sản phẩm
-    return shuffled.slice(0, totalProducts);
+    return sortedByPurchases.slice(0, totalProducts);
 }
 
 function initSlider() {
@@ -1484,12 +1733,16 @@ function initSlider() {
             (product, index) => `
         <div class="slider-item" data-id="${
             product.id
-        }" role="listitem" aria-label="Sản phẩm ${product.categoryName}">
+        }" role="listitem" aria-label="Sản phẩm ${getCategoryDisplayName(
+                product.category,
+                product.categoryName
+            )}">
             <div class="image-container">
                 <img src="${normalizePath(product.image)}" 
-                     alt="${product.categoryName} - ${formatPriceToYen(
-                product.price
-            )}" 
+                     alt="${getCategoryDisplayName(
+                         product.category,
+                         product.categoryName
+                     )} - ${formatPriceToYen(product.price)}" 
                      class="slider-img" 
                      data-product-id="${product.id}"
                      loading="${index < 3 ? "eager" : "lazy"}"
@@ -1503,12 +1756,18 @@ function initSlider() {
                 <a href="${createMessengerOrderLink(
                     product.name,
                     formatPriceToYen(product.price),
-                    product.categoryName
+                    getCategoryDisplayName(
+                        product.category,
+                        product.categoryName
+                    )
                 )}" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    class="order-btn"
-                   aria-label="Đặt hàng ${product.categoryName}">
+                   aria-label="Đặt hàng ${getCategoryDisplayName(
+                       product.category,
+                       product.categoryName
+                   )}">
                     <i class="fas fa-shopping-cart" aria-hidden="true"></i> ORDER NGAY
                 </a>
             </div>
@@ -1633,15 +1892,11 @@ function displayProductsPaginated(productsToShow) {
                 product.categoryName
             }" data-index="${index}">
                 <div class="image-container">
-                    ${
-                        product.bestSeller
-                            ? '<div class="best-seller-badge">HOT</div>'
-                            : ""
-                    }
                     <img src="${normalizePath(product.image)}" 
-                         alt="${product.categoryName} - ${formatPriceToYen(
-                    product.price
-                )}" 
+                         alt="${getCategoryDisplayName(
+                             product.category,
+                             product.categoryName
+                         )} - ${formatPriceToYen(product.price)}" 
                          class="product-image" 
                          data-product-id="${product.id}"
                          loading="${index < 4 ? "eager" : "lazy"}"
@@ -1653,21 +1908,36 @@ function displayProductsPaginated(productsToShow) {
                         <div class="product-price">${formatPriceToYen(
                             product.price
                         )}</div>
-                        ${
-                            product.purchases
-                                ? `<div class="product-purchases">${product.purchases}+ người đã mua</div>`
-                                : ""
-                        }
+                        <div class="product-meta-info">
+                            ${
+                                product.purchases
+                                    ? `<div class="product-purchases">
+                                        <i class="fas fa-users" aria-hidden="true"></i>
+                                        <span>${product.purchases}+ đã mua</span>
+                                    </div>`
+                                    : ""
+                            }
+                            <div class="product-delivery">
+                                <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+                                <span>7-10 ngày</span>
+                            </div>
+                        </div>
                     </div>
                     <a href="${createMessengerOrderLink(
                         product.name,
                         formatPriceToYen(product.price),
-                        product.categoryName
+                        getCategoryDisplayName(
+                            product.category,
+                            product.categoryName
+                        )
                     )}" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="order-btn"
-                       aria-label="Đặt hàng ${product.categoryName}">
+                       aria-label="Đặt hàng ${getCategoryDisplayName(
+                           product.category,
+                           product.categoryName
+                       )}">
                         <i class="fas fa-shopping-cart" aria-hidden="true"></i> ORDER NGAY
                     </a>
                 </div>
@@ -1771,6 +2041,327 @@ function changePage(page) {
 }
 
 // ==================== HÀM LỌC & TÌM KIẾM ====================
+// Hàm loại bỏ dấu tiếng Việt để tìm kiếm dễ hơn
+function removeVietnameseTones(str) {
+    if (!str) return "";
+    str = str.toLowerCase();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    return str;
+}
+
+// Hàm tạo từ khóa tìm kiếm từ sản phẩm
+function getProductSearchKeywords(product) {
+    if (!product) return "";
+
+    const keywords = [];
+
+    // Thêm tên sản phẩm
+    keywords.push(product.name || "");
+    keywords.push(removeVietnameseTones(product.name || ""));
+
+    // Thêm category name
+    keywords.push(product.categoryName || "");
+    keywords.push(removeVietnameseTones(product.categoryName || ""));
+
+    // Thêm category ID
+    keywords.push(product.category || "");
+
+    // Thêm từ khóa liên quan dựa trên category
+    const categoryKeywords = {
+        "quan-dai-nu": [
+            "quần",
+            "quan",
+            "nữ",
+            "nu",
+            "dài",
+            "dai",
+            "cargo",
+            "jean",
+            "kaki",
+            "thun",
+            "vải",
+            "vai",
+            "ống",
+            "ong",
+            "rộng",
+            "rong",
+            "ống rộng",
+            "ong rong",
+            "quần nữ",
+            "quan nu",
+        ],
+        "quan-nam": [
+            "quần",
+            "quan",
+            "nam",
+            "dài",
+            "dai",
+            "cargo",
+            "jean",
+            "kaki",
+            "thun",
+            "quần nam",
+            "quan nam",
+        ],
+        "quan-jean-nam": [
+            "quần",
+            "quan",
+            "jean",
+            "nam",
+            "quần jean",
+            "quan jean",
+            "jean nam",
+        ],
+        "ao-nam": [
+            "áo",
+            "ao",
+            "nam",
+            "sơ mi",
+            "so mi",
+            "thun",
+            "polo",
+            "áo nam",
+            "ao nam",
+            "áo đông",
+            "ao dong",
+        ],
+        "ao-dong-nam": [
+            "áo",
+            "ao",
+            "đông",
+            "dong",
+            "nam",
+            "áo đông",
+            "ao dong",
+            "áo khoác",
+            "ao khoac",
+            "jacket",
+            "hoodie",
+        ],
+        "ao-nu": [
+            "áo",
+            "ao",
+            "nữ",
+            "nu",
+            "sơ mi",
+            "so mi",
+            "thun",
+            "áo nữ",
+            "ao nu",
+            "áo đông",
+            "ao dong",
+        ],
+        "ao-dong-nu": [
+            "áo",
+            "ao",
+            "đông",
+            "dong",
+            "nữ",
+            "nu",
+            "áo đông",
+            "ao dong",
+            "áo khoác",
+            "ao khoac",
+            "jacket",
+            "hoodie",
+        ],
+        "giay-nu": [
+            "giày",
+            "giay",
+            "nữ",
+            "nu",
+            "dép",
+            "dep",
+            "giày nữ",
+            "giay nu",
+            "sneaker",
+            "thể thao",
+            "the thao",
+        ],
+        "giay-nam": [
+            "giày",
+            "giay",
+            "nam",
+            "dép",
+            "dep",
+            "giày nam",
+            "giay nam",
+            "sneaker",
+            "thể thao",
+            "the thao",
+        ],
+        "giay-the-thao": [
+            "giày",
+            "giay",
+            "sneaker",
+            "thể thao",
+            "the thao",
+            "nữ",
+            "nu",
+            "sneaker nữ",
+            "sneaker nu",
+            "giày thể thao",
+            "giay the thao",
+            "running",
+            "sport",
+            "athletic",
+        ],
+        "giay-sneaker-nam": [
+            "giày",
+            "giay",
+            "sneaker",
+            "nam",
+            "sneaker nam",
+            "thể thao",
+            "the thao",
+            "giày thể thao",
+            "giay the thao",
+            "running",
+            "sport",
+            "athletic",
+        ],
+        "boot-nu": [
+            "boot",
+            "bốt",
+            "bot",
+            "nữ",
+            "nu",
+            "boot nữ",
+            "boot nu",
+            "bốt nữ",
+            "bot nu",
+            "giày boot",
+            "giay boot",
+        ],
+        "tui-xach": [
+            "túi",
+            "tui",
+            "xách",
+            "xach",
+            "túi xách",
+            "tui xach",
+            "bag",
+            "handbag",
+            "backpack",
+            "balo",
+        ],
+        "tui-xach-nam": [
+            "túi",
+            "tui",
+            "xách",
+            "xach",
+            "nam",
+            "túi nam",
+            "tui nam",
+            "túi xách nam",
+            "tui xach nam",
+            "bag",
+            "backpack",
+            "balo",
+            "briefcase",
+        ],
+        "tui-xach-nu": [
+            "túi",
+            "tui",
+            "xách",
+            "xach",
+            "nữ",
+            "nu",
+            "túi nữ",
+            "tui nu",
+            "túi xách nữ",
+            "tui xach nu",
+            "bag",
+            "handbag",
+            "purse",
+            "clutch",
+        ],
+        vay: [
+            "váy",
+            "vay",
+            "đầm",
+            "dam",
+            "váy đầm",
+            "vay dam",
+            "dress",
+            "skirt",
+        ],
+        "chan-vay": [
+            "chân",
+            "chan",
+            "váy",
+            "vay",
+            "chân váy",
+            "chan vay",
+            "skirt",
+            "mini skirt",
+            "maxi skirt",
+        ],
+        "set-do-nu": [
+            "set",
+            "đồ",
+            "do",
+            "nữ",
+            "nu",
+            "set đồ",
+            "set do",
+            "bộ",
+            "bo",
+            "outfit",
+            "combo",
+        ],
+    };
+
+    const relatedKeywords = categoryKeywords[product.category] || [];
+    keywords.push(...relatedKeywords);
+
+    // Tách từ trong tên sản phẩm
+    const nameWords = (product.name || "").toLowerCase().split(/\s+/);
+    keywords.push(...nameWords);
+    keywords.push(...nameWords.map((w) => removeVietnameseTones(w)));
+
+    // Loại bỏ các từ quá ngắn và trùng lặp
+    const uniqueKeywords = [...new Set(keywords)]
+        .filter((k) => k && k.length > 1)
+        .join(" ");
+
+    return uniqueKeywords.toLowerCase();
+}
+
+// Hàm kiểm tra sản phẩm có khớp với từ khóa tìm kiếm không
+function productMatchesSearch(product, searchQuery) {
+    if (!searchQuery) return true;
+
+    const query = removeVietnameseTones(searchQuery.toLowerCase().trim());
+    const searchKeywords = getProductSearchKeywords(product);
+
+    // Tìm kiếm trong tất cả từ khóa
+    if (searchKeywords.includes(query)) return true;
+
+    // Tìm kiếm từng từ trong query
+    const queryWords = query.split(/\s+/).filter((w) => w.length > 1);
+    if (queryWords.length > 0) {
+        const allWordsMatch = queryWords.every((word) =>
+            searchKeywords.includes(word)
+        );
+        if (allWordsMatch) return true;
+    }
+
+    // Tìm kiếm một phần của từ
+    if (query.length >= 2) {
+        const searchableText = searchKeywords;
+        if (searchableText.includes(query)) return true;
+    }
+
+    return false;
+}
+
 function filterProducts() {
     // Show loading spinner nếu đang filter
     const loader = document.getElementById("pageLoader");
@@ -1804,20 +2395,26 @@ function filterProducts() {
             filtered = filtered.filter(
                 (p) => p.category === "ao-nam" || p.category === "ao-dong-nam"
             );
-        } else if (currentCategory === "giay-nu") {
-            // Hiển thị tất cả giày nữ (bao gồm boot nữ và giày sneaker)
+        } else if (currentCategory === "set-do") {
+            // Hiển thị tất cả sét đồ (bao gồm sét đồ nữ và sét đồ nam)
+            filtered = filtered.filter(
+                (p) => p.category === "set-do-nu" || p.category === "set-do-nam"
+            );
+        } else if (currentCategory === "giay") {
+            // Hiển thị tất cả giày (bao gồm giày nam, giày nữ, boot nữ và giày sneaker)
             filtered = filtered.filter(
                 (p) =>
                     p.category === "giay-nu" ||
+                    p.category === "giay-nam" ||
                     p.category === "boot-nu" ||
-                    p.category === "giay-the-thao"
+                    p.category === "giay-the-thao" ||
+                    p.category === "giay-sneaker-nam"
             );
-        } else if (currentCategory === "giay-nam") {
-            // Hiển thị tất cả giày nam (bao gồm giày sneaker nam)
+        } else if (currentCategory === "quan-nam") {
+            // Hiển thị tất cả quần nam (bao gồm quần jean nam)
             filtered = filtered.filter(
                 (p) =>
-                    p.category === "giay-nam" ||
-                    p.category === "giay-sneaker-nam"
+                    p.category === "quan-nam" || p.category === "quan-jean-nam"
             );
         } else {
             filtered = filtered.filter((p) => p.category === currentCategory);
@@ -1826,10 +2423,37 @@ function filterProducts() {
 
     // Apply tab filter if active
     const activeTab = document.querySelector(".tab-btn.active");
+    let activeTabName = "all";
     if (activeTab) {
         const tab = activeTab.dataset.tab;
+        activeTabName = tab;
         if (tab === "hot") {
-            filtered = filtered.filter((p) => p.bestSeller);
+            filtered = [...filtered]
+                .sort((a, b) => {
+                    const diff = getPurchaseCount(b) - getPurchaseCount(a);
+                    if (diff !== 0) return diff;
+                    return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
+                })
+                .slice(0, Math.min(filtered.length, 30));
+        } else if (tab === "trending") {
+            // Sản phẩm xu hướng - sắp xếp theo lượt xem và mua gần đây
+            filtered = [...filtered]
+                .sort((a, b) => {
+                    const aViews =
+                        parseInt(
+                            String(a.views || 0).replace(/[^0-9]/g, ""),
+                            10
+                        ) || 0;
+                    const bViews =
+                        parseInt(
+                            String(b.views || 0).replace(/[^0-9]/g, ""),
+                            10
+                        ) || 0;
+                    const diff = bViews - aViews;
+                    if (diff !== 0) return diff;
+                    return getPurchaseCount(b) - getPurchaseCount(a);
+                })
+                .slice(0, Math.min(filtered.length, 30));
         } else if (tab === "recommended") {
             // Shuffle and take top products
             filtered = [...filtered]
@@ -1838,10 +2462,14 @@ function filterProducts() {
         }
     }
 
+    // Shuffle ngẫu nhiên khi ở tab "Tất cả" và danh mục "all" - sử dụng seed cố định
+    if (currentCategory === "all" && activeTabName === "all") {
+        const seed = getShuffleSeed();
+        filtered = seededShuffle(filtered, seed);
+    }
+
     if (searchQuery)
-        filtered = filtered.filter((p) =>
-            p.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
+        filtered = filtered.filter((p) => productMatchesSearch(p, searchQuery));
     currentPage = 1;
 
     // Update ARIA live region
@@ -1877,6 +2505,8 @@ function handleSearch() {
 let currentGalleryImages = [];
 let currentGalleryIndex = 0;
 let galleryZoomLevel = 1;
+let panX = 0;
+let panY = 0;
 
 function getProductImages(productId) {
     const product = products.find((p) => p.id === productId);
@@ -1963,6 +2593,8 @@ function openProductGallery(productId, imageIndex = 0) {
         Math.min(imageIndex, currentGalleryImages.length - 1)
     );
     galleryZoomLevel = 1;
+    panX = 0;
+    panY = 0;
 
     const modal = document.getElementById("productGalleryModal");
     const mainImage = document.getElementById("galleryMainImage");
@@ -1971,6 +2603,7 @@ function openProductGallery(productId, imageIndex = 0) {
     const currentIndexSpan = document.getElementById("galleryCurrentIndex");
     const totalImagesSpan = document.getElementById("galleryTotalImages");
     const thumbnailsContainer = document.getElementById("galleryThumbnails");
+    const orderBtn = document.getElementById("galleryOrderBtn");
 
     if (!modal || !mainImage) return;
 
@@ -1983,9 +2616,20 @@ function openProductGallery(productId, imageIndex = 0) {
     if (totalImagesSpan)
         totalImagesSpan.textContent = currentGalleryImages.length;
 
+    // Set order button link
+    if (orderBtn) {
+        orderBtn.href = createMessengerOrderLink(
+            product.name,
+            formatPriceToYen(product.price),
+            getCategoryDisplayName(product.category, product.categoryName)
+        );
+    }
+
     // Set main image
     mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
     mainImage.style.transform = "scale(1)";
+    mainImage.style.transformOrigin = "center center";
+    mainImage.classList.remove("zoomed");
 
     // Create thumbnails
     if (thumbnailsContainer) {
@@ -2016,9 +2660,19 @@ function closeProductGallery() {
         modal.classList.remove("show");
         document.body.style.overflow = "";
         galleryZoomLevel = 1;
+        panX = 0;
+        panY = 0;
         const mainImage = document.getElementById("galleryMainImage");
+        const mainImageWrapper = document.querySelector(
+            ".gallery-main-image-wrapper"
+        );
         if (mainImage) {
             mainImage.style.transform = "scale(1)";
+            mainImage.style.transformOrigin = "center center";
+            mainImage.classList.remove("zoomed");
+        }
+        if (mainImageWrapper) {
+            mainImageWrapper.classList.remove("panning");
         }
     }
 }
@@ -2028,18 +2682,31 @@ function goToGalleryImage(index) {
 
     currentGalleryIndex = index;
     galleryZoomLevel = 1;
+    panX = 0;
+    panY = 0;
 
     const mainImage = document.getElementById("galleryMainImage");
+    const mainImageWrapper = document.querySelector(
+        ".gallery-main-image-wrapper"
+    );
     const currentIndexSpan = document.getElementById("galleryCurrentIndex");
     const thumbnails = document.querySelectorAll(".gallery-thumbnail");
 
     if (mainImage) {
         mainImage.style.opacity = "0";
         setTimeout(() => {
-            mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
+            mainImage.src = normalizePath(
+                currentGalleryImages[currentGalleryIndex]
+            );
             mainImage.style.transform = "scale(1)";
+            mainImage.style.transformOrigin = "center center";
             mainImage.style.opacity = "1";
+            mainImage.classList.remove("zoomed");
         }, 150);
+    }
+
+    if (mainImageWrapper) {
+        mainImageWrapper.classList.remove("panning");
     }
 
     if (currentIndexSpan) {
@@ -2069,14 +2736,27 @@ function zoomGalleryImage(direction) {
     if (!mainImage) return;
 
     if (direction === "in") {
-        galleryZoomLevel = Math.min(galleryZoomLevel + 0.25, 3);
+        galleryZoomLevel = Math.min(galleryZoomLevel + 0.25, 5);
     } else if (direction === "out") {
         galleryZoomLevel = Math.max(galleryZoomLevel - 0.25, 1);
     } else if (direction === "reset") {
         galleryZoomLevel = 1;
+        panX = 0;
+        panY = 0;
     }
 
-    mainImage.style.transform = `scale(${galleryZoomLevel})`;
+    if (galleryZoomLevel <= 1) {
+        panX = 0;
+        panY = 0;
+        mainImage.style.transform = "scale(1)";
+        mainImage.classList.remove("zoomed");
+    } else {
+        mainImage.style.transform = `scale(${galleryZoomLevel}) translate(${
+            panX / galleryZoomLevel
+        }px, ${panY / galleryZoomLevel}px)`;
+        mainImage.classList.add("zoomed");
+    }
+
     mainImage.style.transition = "transform 0.3s ease";
 }
 
@@ -2140,37 +2820,222 @@ function initProductGallery() {
         }
     });
 
-    // Touch swipe for mobile
+    // Pinch-to-zoom and pan for mobile
     let touchStartX = 0;
     let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    let initialDistance = 0;
+    let initialZoom = 1;
+    let isPinching = false;
+    let isPanning = false;
+    let panStartX = 0;
+    let panStartY = 0;
+    let lastTouchTime = 0;
+
     const mainImageWrapper = document.querySelector(
         ".gallery-main-image-wrapper"
     );
+    const mainImage = document.getElementById("galleryMainImage");
 
-    if (mainImageWrapper) {
+    // Calculate distance between two touch points
+    function getDistance(touch1, touch2) {
+        const dx = touch2.clientX - touch1.clientX;
+        const dy = touch2.clientY - touch1.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    // Calculate center point between two touches
+    function getCenter(touch1, touch2) {
+        return {
+            x: (touch1.clientX + touch2.clientX) / 2,
+            y: (touch1.clientY + touch2.clientY) / 2,
+        };
+    }
+
+    if (mainImageWrapper && mainImage) {
+        // Touch start
         mainImageWrapper.addEventListener(
             "touchstart",
             (e) => {
-                touchStartX = e.changedTouches[0].screenX;
+                const touches = e.touches;
+
+                if (touches.length === 1) {
+                    // Single touch - prepare for swipe or pan
+                    touchStartX = touches[0].clientX;
+                    touchStartY = touches[0].clientY;
+                    panStartX = panX;
+                    panStartY = panY;
+
+                    // Double tap to zoom
+                    const currentTime = Date.now();
+                    const timeDiff = currentTime - lastTouchTime;
+                    if (timeDiff < 300 && timeDiff > 0) {
+                        // Double tap detected
+                        if (galleryZoomLevel === 1) {
+                            galleryZoomLevel = 2;
+                            panX = 0;
+                            panY = 0;
+                        } else {
+                            galleryZoomLevel = 1;
+                            panX = 0;
+                            panY = 0;
+                        }
+                        updateImageTransform();
+                        e.preventDefault();
+                    }
+                    lastTouchTime = currentTime;
+
+                    if (galleryZoomLevel > 1) {
+                        isPanning = true;
+                        mainImageWrapper.classList.add("panning");
+                    }
+                } else if (touches.length === 2) {
+                    // Two touches - pinch to zoom
+                    isPinching = true;
+                    isPanning = false;
+                    initialDistance = getDistance(touches[0], touches[1]);
+                    initialZoom = galleryZoomLevel;
+
+                    const center = getCenter(touches[0], touches[1]);
+                    const rect = mainImageWrapper.getBoundingClientRect();
+                    const centerX = center.x - rect.left - rect.width / 2;
+                    const centerY = center.y - rect.top - rect.height / 2;
+
+                    // Set transform origin to pinch center
+                    mainImage.style.transformOrigin = `${center.x}px ${center.y}px`;
+
+                    e.preventDefault();
+                }
             },
-            { passive: true }
+            { passive: false }
         );
 
+        // Touch move
+        mainImageWrapper.addEventListener(
+            "touchmove",
+            (e) => {
+                const touches = e.touches;
+
+                if (touches.length === 2 && isPinching) {
+                    // Pinch zoom
+                    const currentDistance = getDistance(touches[0], touches[1]);
+                    const scale = currentDistance / initialDistance;
+                    galleryZoomLevel = Math.max(
+                        1,
+                        Math.min(initialZoom * scale, 5)
+                    );
+
+                    updateImageTransform();
+                    e.preventDefault();
+                } else if (
+                    touches.length === 1 &&
+                    isPanning &&
+                    galleryZoomLevel > 1
+                ) {
+                    // Pan when zoomed
+                    const deltaX = touches[0].clientX - touchStartX;
+                    const deltaY = touches[0].clientY - touchStartY;
+
+                    panX = panStartX + deltaX;
+                    panY = panStartY + deltaY;
+
+                    // Limit pan to image bounds
+                    const rect = mainImage.getBoundingClientRect();
+                    const maxPanX =
+                        (rect.width * galleryZoomLevel - rect.width) / 2;
+                    const maxPanY =
+                        (rect.height * galleryZoomLevel - rect.height) / 2;
+
+                    panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
+                    panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+
+                    updateImageTransform();
+                    e.preventDefault();
+                }
+            },
+            { passive: false }
+        );
+
+        // Touch end
         mainImageWrapper.addEventListener(
             "touchend",
             (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        nextGalleryImage();
-                    } else {
-                        prevGalleryImage();
+                const touches = e.changedTouches;
+
+                if (isPinching && touches.length < 2) {
+                    // Pinch ended
+                    isPinching = false;
+                    mainImage.style.transformOrigin = "center center";
+
+                    // Reset pan if zoomed out to 1
+                    if (galleryZoomLevel <= 1) {
+                        galleryZoomLevel = 1;
+                        panX = 0;
+                        panY = 0;
+                        updateImageTransform();
                     }
+                }
+
+                if (isPanning && touches.length === 0) {
+                    // Pan ended - check for swipe
+                    touchEndX = touchStartX;
+                    touchEndY = touchStartY;
+
+                    if (e.changedTouches.length > 0) {
+                        touchEndX = e.changedTouches[0].clientX;
+                        touchEndY = e.changedTouches[0].clientY;
+                    }
+
+                    const diffX = touchStartX - touchEndX;
+                    const diffY = touchStartY - touchEndY;
+
+                    // Only swipe if not zoomed or if horizontal swipe is much larger than vertical
+                    if (
+                        galleryZoomLevel === 1 &&
+                        Math.abs(diffX) > 50 &&
+                        Math.abs(diffX) > Math.abs(diffY) * 1.5
+                    ) {
+                        if (diffX > 0) {
+                            nextGalleryImage();
+                        } else {
+                            prevGalleryImage();
+                        }
+                    }
+
+                    // Close on swipe down when not zoomed
+                    if (
+                        galleryZoomLevel === 1 &&
+                        diffY > 100 &&
+                        Math.abs(diffY) > Math.abs(diffX) * 1.5
+                    ) {
+                        closeProductGallery();
+                    }
+
+                    isPanning = false;
+                    mainImageWrapper.classList.remove("panning");
                 }
             },
             { passive: true }
         );
+    }
+
+    // Update image transform
+    function updateImageTransform() {
+        if (!mainImage) return;
+
+        if (galleryZoomLevel > 1) {
+            mainImage.style.transform = `scale(${galleryZoomLevel}) translate(${
+                panX / galleryZoomLevel
+            }px, ${panY / galleryZoomLevel}px)`;
+            mainImage.classList.add("zoomed");
+            mainImage.style.transition = "none";
+        } else {
+            mainImage.style.transform = "scale(1)";
+            mainImage.classList.remove("zoomed");
+            mainImage.style.transition =
+                "transform 0.3s ease, opacity 0.3s ease";
+        }
     }
 
     // Mouse drag for desktop
@@ -2179,15 +3044,16 @@ function initProductGallery() {
     let dragStartY = 0;
     let currentX = 0;
     let currentY = 0;
-    const mainImage = document.getElementById("galleryMainImage");
+    const mainImageDesktop = document.getElementById("galleryMainImage");
 
-    if (mainImage) {
-        mainImage.addEventListener("mousedown", (e) => {
+    if (mainImageDesktop) {
+        mainImageDesktop.addEventListener("mousedown", (e) => {
             if (galleryZoomLevel > 1) {
                 isDragging = true;
                 dragStartX = e.clientX - currentX;
                 dragStartY = e.clientY - currentY;
-                mainImage.style.cursor = "grabbing";
+                mainImageDesktop.style.cursor = "grabbing";
+                mainImageDesktop.classList.add("panning");
             }
         });
 
@@ -2196,16 +3062,33 @@ function initProductGallery() {
                 e.preventDefault();
                 currentX = e.clientX - dragStartX;
                 currentY = e.clientY - dragStartY;
-                mainImage.style.transform = `scale(${galleryZoomLevel}) translate(${
-                    currentX / galleryZoomLevel
-                }px, ${currentY / galleryZoomLevel}px)`;
+                panX = currentX;
+                panY = currentY;
+
+                // Limit pan to image bounds
+                const rect = mainImageDesktop.getBoundingClientRect();
+                const maxPanX =
+                    (rect.width * galleryZoomLevel - rect.width) / 2;
+                const maxPanY =
+                    (rect.height * galleryZoomLevel - rect.height) / 2;
+
+                panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
+                panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+
+                mainImageDesktop.style.transform = `scale(${galleryZoomLevel}) translate(${
+                    panX / galleryZoomLevel
+                }px, ${panY / galleryZoomLevel}px)`;
+                mainImageDesktop.style.transition = "none";
             }
         });
 
         document.addEventListener("mouseup", () => {
             if (isDragging) {
                 isDragging = false;
-                mainImage.style.cursor = galleryZoomLevel > 1 ? "grab" : "move";
+                mainImageDesktop.style.cursor =
+                    galleryZoomLevel > 1 ? "grab" : "move";
+                mainImageDesktop.style.transition = "transform 0.3s ease";
+                mainImageDesktop.classList.remove("panning");
             }
         });
     }
@@ -2272,13 +3155,17 @@ function setupEventListeners() {
                         btnId: "quanDaiNuBtn",
                         subId: "quanDaiNuSubcategories",
                     },
+                    "quan-nam": {
+                        btnId: "quanNamBtn",
+                        subId: "quanNamSubcategories",
+                    },
                     "ao-nu": {
                         btnId: "aoNuBtn",
                         subId: "aoNuSubcategories",
                     },
-                    "giay-nu": {
-                        btnId: "giayNuBtn",
-                        subId: "giayNuSubcategories",
+                    giay: {
+                        btnId: "giayBtn",
+                        subId: "giaySubcategories",
                     },
                     vay: {
                         btnId: "vayBtn",
@@ -2288,9 +3175,9 @@ function setupEventListeners() {
                         btnId: "aoNamBtn",
                         subId: "aoNamSubcategories",
                     },
-                    "giay-nam": {
-                        btnId: "giayNamBtn",
-                        subId: "giayNamSubcategories",
+                    "set-do": {
+                        btnId: "setDoBtn",
+                        subId: "setDoSubcategories",
                     },
                 };
 
@@ -2309,6 +3196,38 @@ function setupEventListeners() {
                             const isVisible =
                                 subcategories.style.display !== "none" &&
                                 subcategories.style.display !== "";
+
+                            // Đóng tất cả subcategories khác trước
+                            Object.values(subcategoryMap).forEach(
+                                (otherSubInfo) => {
+                                    if (otherSubInfo.subId !== subInfo.subId) {
+                                        const otherSubcategories =
+                                            document.getElementById(
+                                                otherSubInfo.subId
+                                            );
+                                        if (otherSubcategories) {
+                                            otherSubcategories.style.display =
+                                                "none";
+                                            const otherParentBtn =
+                                                document.getElementById(
+                                                    otherSubInfo.btnId
+                                                );
+                                            if (otherParentBtn) {
+                                                const otherArrow =
+                                                    otherParentBtn.querySelector(
+                                                        ".subcategory-arrow"
+                                                    );
+                                                if (otherArrow) {
+                                                    otherArrow.style.transform =
+                                                        "rotate(0deg)";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            );
+
+                            // Toggle subcategory hiện tại
                             subcategories.style.display = isVisible
                                 ? "none"
                                 : "block";
@@ -2324,15 +3243,23 @@ function setupEventListeners() {
 
                 const categoryNames = {
                     all: "Tất cả thời trang",
-                    "quan-dai-nu": "Quần dài nữ",
+                    "quan-dai-nu": "Quần Nữ",
+                    "quan-nam": "Quần Nam",
+                    "quan-jean-nam": "Quần Jean",
                     "tui-xach": "Túi xách",
                     "tui-xach-nam": "Túi xách nam",
                     "tui-xach-nu": "Túi xách nữ",
+                    giay: "Giày",
                     "giay-nu": "Giày nữ",
+                    "giay-nam": "Giày Nam",
                     "ao-nam": "Áo Nam",
                     "ao-dong-nam": "Áo đông nam",
-                    "giay-nam": "Giày Nam",
-                    "giay-sneaker-nam": "Giày Sneaker",
+                    "giay-sneaker-nam": "Sneaker Nam",
+                    "boot-nu": "Boot nữ",
+                    "giay-the-thao": "Sneaker Nữ",
+                    "set-do": "Sét Đồ",
+                    "set-do-nu": "Sét Đồ Nữ",
+                    "set-do-nam": "Sét Đồ Nam",
                 };
 
                 categoryName = categoryNames[category] || "Thời trang";
@@ -2396,13 +3323,54 @@ function setupEventListeners() {
 
             // Filter products based on tab
             let filtered = products;
-            if (currentCategory !== "all") {
+
+            // Nếu tab là "all", luôn hiển thị tất cả sản phẩm (bỏ qua category filter)
+            if (tab === "all") {
+                // Hiển thị tất cả sản phẩm, không filter theo category
+                filtered = products;
+            } else if (currentCategory !== "all") {
+                // Nếu tab khác "all", vẫn filter theo category hiện tại
                 if (currentCategory === "tui-xach") {
                     filtered = filtered.filter(
                         (p) =>
                             p.category === "tui-xach" ||
                             p.category === "tui-xach-nam" ||
                             p.category === "tui-xach-nu"
+                    );
+                } else if (currentCategory === "vay") {
+                    filtered = filtered.filter(
+                        (p) => p.category === "vay" || p.category === "chan-vay"
+                    );
+                } else if (currentCategory === "ao-nu") {
+                    filtered = filtered.filter(
+                        (p) =>
+                            p.category === "ao-nu" ||
+                            p.category === "ao-dong-nu"
+                    );
+                } else if (currentCategory === "ao-nam") {
+                    filtered = filtered.filter(
+                        (p) =>
+                            p.category === "ao-nam" ||
+                            p.category === "ao-dong-nam"
+                    );
+                } else if (currentCategory === "set-do") {
+                    filtered = filtered.filter(
+                        (p) =>
+                            p.category === "set-do-nu" ||
+                            p.category === "set-do-nam"
+                    );
+                } else if (currentCategory === "giay-nu") {
+                    filtered = filtered.filter(
+                        (p) =>
+                            p.category === "giay-nu" ||
+                            p.category === "boot-nu" ||
+                            p.category === "giay-the-thao"
+                    );
+                } else if (currentCategory === "giay-nam") {
+                    filtered = filtered.filter(
+                        (p) =>
+                            p.category === "giay-nam" ||
+                            p.category === "giay-sneaker-nam"
                     );
                 } else {
                     filtered = filtered.filter(
@@ -2413,18 +3381,47 @@ function setupEventListeners() {
 
             // Apply tab filter
             if (tab === "hot") {
-                filtered = filtered.filter((p) => p.bestSeller);
+                filtered = [...filtered]
+                    .sort((a, b) => {
+                        const diff = getPurchaseCount(b) - getPurchaseCount(a);
+                        if (diff !== 0) return diff;
+                        return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
+                    })
+                    .slice(0, Math.min(filtered.length, 30));
+            } else if (tab === "trending") {
+                // Sản phẩm xu hướng - sắp xếp theo lượt xem và mua gần đây
+                filtered = [...filtered]
+                    .sort((a, b) => {
+                        const aViews =
+                            parseInt(
+                                String(a.views || 0).replace(/[^0-9]/g, ""),
+                                10
+                            ) || 0;
+                        const bViews =
+                            parseInt(
+                                String(b.views || 0).replace(/[^0-9]/g, ""),
+                                10
+                            ) || 0;
+                        const diff = bViews - aViews;
+                        if (diff !== 0) return diff;
+                        return getPurchaseCount(b) - getPurchaseCount(a);
+                    })
+                    .slice(0, Math.min(filtered.length, 30));
             } else if (tab === "recommended") {
                 // Shuffle and take top products
                 filtered = [...filtered]
                     .sort(() => Math.random() - 0.5)
                     .slice(0, Math.min(filtered.length, 30));
+            } else if (tab === "all") {
+                // Shuffle ngẫu nhiên với seed cố định cho tab "Tất cả"
+                const seed = getShuffleSeed();
+                filtered = seededShuffle(filtered, seed);
             }
 
             // Apply search if any
             if (searchQuery) {
                 filtered = filtered.filter((p) =>
-                    p.name.toLowerCase().includes(searchQuery.toLowerCase())
+                    productMatchesSearch(p, searchQuery)
                 );
             }
 
@@ -2474,7 +3471,7 @@ function setupEventListeners() {
     // Auto slide with smooth transition
     let slideInterval = setInterval(() => {
         nextSlide();
-    }, 6000); // Increased to 6 seconds for better UX
+    }, 2000); // 2 seconds for faster slide transition
 
     const sliderContainer = document.querySelector(".slider-container");
     if (sliderContainer) {
@@ -2485,7 +3482,7 @@ function setupEventListeners() {
             clearInterval(slideInterval);
             slideInterval = setInterval(() => {
                 nextSlide();
-            }, 6000);
+            }, 2000);
         });
     }
 
@@ -2521,7 +3518,7 @@ function setupEventListeners() {
                 touchEndX = e.changedTouches[0].screenX;
                 if (touchStartX - touchEndX > 50) nextSlide();
                 if (touchEndX - touchStartX > 50) prevSlide();
-                slideInterval = setInterval(nextSlide, 5000);
+                slideInterval = setInterval(nextSlide, 2000);
             });
         }
     }

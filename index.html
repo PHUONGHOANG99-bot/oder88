@@ -215,55 +215,22 @@
                                 </button>
                             </div>
                         </div>
-
-                        <div class="header-actions">
-                            <button
-                                class="header-icon-btn"
-                                aria-label="Yêu thích"
-                                type="button"
-                            >
-                                <i class="fas fa-heart" aria-hidden="true"></i>
-                                <span class="icon-badge">0</span>
-                            </button>
-                            <a
-                                href="https://www.facebook.com/messages/t/117640791273059"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="header-icon-btn"
-                                aria-label="Liên hệ Messenger"
-                            >
-                                <i
-                                    class="fab fa-facebook-messenger"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Floating Social Buttons - Top Right -->
-        <div class="floating-social-buttons">
-            <a
-                href="https://www.facebook.com/nekoshop68/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="floating-btn floating-fanpage"
-                aria-label="Xem Fanpage Facebook"
-            >
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <a
-                href="https://www.facebook.com/messages/t/117640791273059"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="floating-btn floating-messenger"
-                aria-label="Liên hệ Messenger"
-            >
-                <i class="fab fa-facebook-messenger" aria-hidden="true"></i>
-            </a>
-        </div>
+        <!-- Fixed Facebook Button (always visible) -->
+        <a
+            href="https://www.facebook.com/nekoshop68/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="header-fb-btn"
+            aria-label="Xem Fanpage Facebook"
+        >
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            <span>Facebook</span>
+        </a>
 
         <!-- Mobile Category Menu -->
         <div
@@ -290,6 +257,34 @@
                 <button class="mobile-category-btn active" data-category="all">
                     <i class="fas fa-border-all"></i> Tất cả
                 </button>
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="set-do"
+                        id="setDoBtn"
+                    >
+                        <i class="fas fa-tshirt"></i> Sét Đồ
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="setDoSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="set-do-nu"
+                        >
+                            <i class="fas fa-tshirt"></i> Sét Đồ Nữ
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="set-do-nam"
+                        >
+                            <i class="fas fa-tshirt"></i> Sét Đồ Nam
+                        </button>
+                    </div>
+                </div>
                 <div class="category-with-subcategories">
                     <button
                         class="mobile-category-btn"
@@ -321,17 +316,23 @@
                 <div class="category-with-subcategories">
                     <button
                         class="mobile-category-btn"
-                        data-category="giay-nu"
-                        id="giayNuBtn"
+                        data-category="giay"
+                        id="giayBtn"
                     >
-                        <i class="fas fa-heart"></i> Giày nữ
+                        <i class="fas fa-shoe-prints"></i> Giày
                         <i class="fas fa-chevron-right subcategory-arrow"></i>
                     </button>
                     <div
                         class="subcategories"
-                        id="giayNuSubcategories"
+                        id="giaySubcategories"
                         style="display: none"
                     >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-nu"
+                        >
+                            <i class="fas fa-heart"></i> Giày nữ
+                        </button>
                         <button
                             class="mobile-category-btn subcategory-btn"
                             data-category="boot-nu"
@@ -342,7 +343,19 @@
                             class="mobile-category-btn subcategory-btn"
                             data-category="giay-the-thao"
                         >
-                            <i class="fas fa-running"></i> Giày Sneaker
+                            <i class="fas fa-running"></i> Sneaker Nữ
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-nam"
+                        >
+                            <i class="fas fa-shoe-prints"></i> Giày Nam
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="giay-sneaker-nam"
+                        >
+                            <i class="fas fa-running"></i> Sneaker Nam
                         </button>
                     </div>
                 </div>
@@ -364,7 +377,7 @@
                             class="mobile-category-btn subcategory-btn"
                             data-category="vay"
                         >
-                            <i class="fas fa-tshirt"></i> Tất cả váy
+                            <i class="fas fa-tshirt"></i> Tất cả
                         </button>
                         <button
                             class="mobile-category-btn subcategory-btn"
@@ -393,28 +406,6 @@
                             data-category="ao-dong-nam"
                         >
                             <i class="fas fa-tshirt"></i> Áo đông nam
-                        </button>
-                    </div>
-                </div>
-                <div class="category-with-subcategories">
-                    <button
-                        class="mobile-category-btn"
-                        data-category="giay-nam"
-                        id="giayNamBtn"
-                    >
-                        <i class="fas fa-shoe-prints"></i> Giày Nam
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
-                    </button>
-                    <div
-                        class="subcategories"
-                        id="giayNamSubcategories"
-                        style="display: none"
-                    >
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="giay-sneaker-nam"
-                        >
-                            <i class="fas fa-running"></i> Giày Sneaker
                         </button>
                     </div>
                 </div>
@@ -526,6 +517,17 @@
                     </button>
                     <button
                         class="tab-btn"
+                        data-tab="trending"
+                        id="tabTrending"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="productsGrid"
+                    >
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <span>Xu hướng</span>
+                    </button>
+                    <button
+                        class="tab-btn"
                         data-tab="recommended"
                         id="tabRecommended"
                         role="tab"
@@ -535,25 +537,6 @@
                         <i class="fas fa-sparkles" aria-hidden="true"></i>
                         <span>Gợi ý</span>
                     </button>
-                </div>
-
-                <div class="section-header">
-                    <h2 id="sectionTitle">
-                        <i class="fas fa-star" aria-hidden="true"></i> TẤT CẢ
-                    </h2>
-                    <div
-                        class="category-indicator"
-                        id="currentCategory"
-                        role="button"
-                        aria-label="Chọn danh mục"
-                        tabindex="0"
-                    >
-                        <span>Tất cả</span>
-                        <i
-                            class="fas fa-chevron-down"
-                            style="font-size: 0.8rem; margin-left: 5px"
-                        ></i>
-                    </div>
                 </div>
 
                 <div
@@ -677,12 +660,41 @@
                 </div>
                 <div class="gallery-thumbnails" id="galleryThumbnails"></div>
                 <div class="gallery-info">
-                    <h3 id="galleryProductName"></h3>
-                    <p id="galleryProductPrice"></p>
-                    <p class="gallery-image-counter">
-                        <span id="galleryCurrentIndex">1</span> /
-                        <span id="galleryTotalImages">4</span>
-                    </p>
+                    <div class="gallery-info-header">
+                        <div class="gallery-product-details">
+                            <h3 id="galleryProductName"></h3>
+                            <div class="gallery-price-wrapper">
+                                <p
+                                    id="galleryProductPrice"
+                                    class="gallery-price"
+                                ></p>
+                                <div class="gallery-shipping">
+                                    <i
+                                        class="fas fa-shipping-fast"
+                                        aria-hidden="true"
+                                    ></i>
+                                    <span class="flag-japan">🇯🇵</span>
+                                    <span>7-10 ngày</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="gallery-image-counter">
+                            <span id="galleryCurrentIndex">1</span> /
+                            <span id="galleryTotalImages">4</span>
+                        </p>
+                    </div>
+                    <a
+                        id="galleryOrderBtn"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="gallery-order-btn"
+                        aria-label="Đặt hàng sản phẩm"
+                    >
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span>ĐẶT HÀNG NGAY</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -724,11 +736,11 @@
             </button>
             <button
                 class="bottom-nav-trend-btn"
-                aria-label="Xu hướng"
+                aria-label="Ngẫu nhiên"
                 onclick="scrollToProducts();"
                 type="button"
             >
-                <span>Xu hướng</span>
+                <span>Ngẫu nhiên</span>
             </button>
             <button
                 class="bottom-nav-item"
