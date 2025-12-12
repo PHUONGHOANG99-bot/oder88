@@ -9,6 +9,29 @@ let currentSlide = 0;
 const itemsPerSlide = 3;
 
 // ==================== HÀM FORMAT GIÁ TIỀN ====================
+// Tỷ giá: 1¥ = 170 VND (theo App dcom)
+const YEN_TO_VND_RATE = 170;
+
+// Hàm lấy số Yên từ chuỗi giá
+function getYenAmount(price) {
+    if (!price) return 0;
+    let priceStr = String(price);
+    // Loại bỏ tất cả ký tự không phải số
+    priceStr = priceStr.replace(/[^0-9]/g, "");
+    return parseInt(priceStr) || 0;
+}
+
+// Hàm quy đổi Yên sang VND
+function convertYenToVND(yenAmount) {
+    return Math.round(yenAmount * YEN_TO_VND_RATE);
+}
+
+// Hàm format số VND với dấu chấm ngăn cách
+function formatVND(amount) {
+    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+// Hàm format giá Yên (giữ nguyên format hiện tại)
 function formatPriceToYen(price) {
     if (!price) return "¥0";
 
@@ -37,6 +60,19 @@ function formatPriceToYen(price) {
 
     // Thêm ký hiệu yên ở đầu
     return `¥${priceStr}`;
+}
+
+// Hàm format giá hiển thị cả Yên và VND
+function formatPriceWithVND(price) {
+    const yenAmount = getYenAmount(price);
+    const yenFormatted = formatPriceToYen(price);
+    const vndAmount = convertYenToVND(yenAmount);
+    const vndFormatted = formatVND(vndAmount);
+    
+    return {
+        yen: yenFormatted,
+        vnd: `${vndFormatted}đ`
+    };
 }
 
 // Intersection Observer instances
@@ -1751,9 +1787,12 @@ function initSlider() {
                      style="cursor: pointer;">
             </div>
             <div class="slider-info">
-                <div class="slider-price">${formatPriceToYen(
-                    product.price
-                )}</div>
+                <div class="slider-price-container">
+                    <div class="slider-price">${formatPriceToYen(
+                        product.price
+                    )}</div>
+                    <div class="slider-price-vnd">${formatPriceWithVND(product.price).vnd}</div>
+                </div>
                 <a href="${createMessengerOrderLink(
                     product.name,
                     formatPriceToYen(product.price),
@@ -1906,9 +1945,12 @@ function displayProductsPaginated(productsToShow) {
                 </div>
                 <div class="product-info">
                     <div class="product-price-wrapper">
-                        <div class="product-price">${formatPriceToYen(
-                            product.price
-                        )}</div>
+                        <div class="product-price-container">
+                            <div class="product-price">${formatPriceToYen(
+                                product.price
+                            )}</div>
+                            <div class="product-price-vnd">${formatPriceWithVND(product.price).vnd}</div>
+                        </div>
                         <div class="product-meta-info">
                             ${
                                 product.purchases
@@ -2610,8 +2652,13 @@ function openProductGallery(productId, imageIndex = 0) {
 
     // Set product info
     if (productName) productName.textContent = product.name;
-    if (productPrice)
-        productPrice.textContent = formatPriceToYen(product.price);
+    if (productPrice) {
+        const priceData = formatPriceWithVND(product.price);
+        productPrice.innerHTML = `
+            <span class="gallery-price-yen">${priceData.yen}</span>
+            <span class="gallery-price-vnd">${priceData.vnd}</span>
+        `;
+    }
     if (currentIndexSpan)
         currentIndexSpan.textContent = currentGalleryIndex + 1;
     if (totalImagesSpan)

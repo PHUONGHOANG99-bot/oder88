@@ -1,3433 +1,4057 @@
-﻿[
+[
     {
         "id": 1,
         "name": "Quần Cargo Nữ Rộng Ống Gradient",
-        "price": "650.000đ",
+        "price": "¥3022",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd1.jpg",
-        "images": ["assets/image/quan-dai-nu/qd1.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 300
     },
     {
         "id": 2,
         "name": "Quần Dài Nữ Rộng Ống Lace Trắng",
-        "price": "720.000đ",
+        "price": "¥3110",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd2.jpg",
-        "images": ["assets/image/quan-dai-nu/qd2.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd2.jpg"
+        ],
         "bestSeller": true,
         "purchases": 300
     },
     {
         "id": 3,
         "name": "Quần Jean Nữ Rộng Ống Rách Lace",
-        "price": "680.000đ",
+        "price": "¥3839",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd3.jpg",
-        "images": ["assets/image/quan-dai-nu/qd3.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd3.jpg"
+        ],
         "bestSeller": true,
         "purchases": 301
     },
     {
         "id": 4,
         "name": "Quần Dài Nữ Trắng Phối Đen",
-        "price": "750.000đ",
+        "price": "¥2352",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd4.jpg",
-        "images": ["assets/image/quan-dai-nu/qd4.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd4.jpg"
+        ],
         "bestSeller": false,
         "purchases": 318
     },
     {
         "id": 5,
         "name": "Quần Dài Nữ Rộng Ống Tie-Dye",
-        "price": "690.000đ",
+        "price": "¥3822",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd5.jpg",
-        "images": ["assets/image/quan-dai-nu/qd5.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd5.jpg"
+        ],
         "bestSeller": true,
         "purchases": 335
     },
     {
         "id": 6,
         "name": "Quần Jean Nữ Rộng Ống Xanh Phai",
-        "price": "620.000đ",
+        "price": "¥2260",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd6.jpg",
-        "images": ["assets/image/quan-dai-nu/qd6.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd6.jpg"
+        ],
         "bestSeller": false,
         "purchases": 352
     },
     {
         "id": 7,
         "name": "Quần Dài Nữ Rộng Ống Corduroy Xanh",
-        "price": "780.000đ",
+        "price": "¥3477",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd7.jpg",
-        "images": ["assets/image/quan-dai-nu/qd7.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd7.jpg"
+        ],
         "bestSeller": true,
         "purchases": 369
     },
     {
         "id": 8,
         "name": "Quần Jean Nữ Rộng Ống Sọc Dọc",
-        "price": "710.000đ",
+        "price": "¥2851",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd8.jpg",
-        "images": ["assets/image/quan-dai-nu/qd8.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd8.jpg"
+        ],
         "bestSeller": true,
         "purchases": 386
     },
     {
         "id": 9,
         "name": "Quần Dài Nữ Rộng Ống Rách Vàng",
-        "price": "730.000đ",
+        "price": "¥2701",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd9.jpg",
-        "images": ["assets/image/quan-dai-nu/qd9.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd9.jpg"
+        ],
         "bestSeller": false,
         "purchases": 403
     },
     {
         "id": 10,
         "name": "Quần Cargo Nữ Rộng Ống Rách",
-        "price": "760.000đ",
+        "price": "¥2198",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd10.jpg",
-        "images": ["assets/image/quan-dai-nu/qd10.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd10.jpg"
+        ],
         "bestSeller": true,
         "purchases": 420
     },
     {
         "id": 11,
         "name": "Quần Dài Nữ Rộng Ống Rách Xám",
-        "price": "640.000đ",
+        "price": "¥2688",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd11.jpg",
-        "images": ["assets/image/quan-dai-nu/qd11.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd11.jpg"
+        ],
         "bestSeller": false,
         "purchases": 437
     },
     {
         "id": 12,
         "name": "Quần Cargo Nữ Rộng Ống Tie-Dye",
-        "price": "740.000đ",
+        "price": "¥2977",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd12.jpg",
-        "images": ["assets/image/quan-dai-nu/qd12.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd12.jpg"
+        ],
         "bestSeller": true,
         "purchases": 454
     },
     {
         "id": 13,
         "name": "Quần Jean Nữ Rộng Ống Thêu Chó",
-        "price": "890.000đ",
+        "price": "¥3725",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd13.jpg",
-        "images": ["assets/image/quan-dai-nu/qd13.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd13.jpg"
+        ],
         "bestSeller": true,
         "purchases": 471
     },
     {
         "id": 14,
         "name": "Quần Dài Nữ Rộng Ống Tím Rách",
-        "price": "680.000đ",
+        "price": "¥3825",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd14.jpg",
-        "images": ["assets/image/quan-dai-nu/qd14.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd14.jpg"
+        ],
         "bestSeller": false,
         "purchases": 488
     },
     {
         "id": 15,
         "name": "Quần Cargo Nữ Rộng Ống Đen Rách",
-        "price": "770.000đ",
+        "price": "¥2184",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd15.jpg",
-        "images": ["assets/image/quan-dai-nu/qd15.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd15.jpg"
+        ],
         "bestSeller": true,
         "purchases": 305
     },
     {
         "id": 16,
         "name": "Quần Dài Nữ Rộng Ống Rách Xanh",
-        "price": "660.000đ",
+        "price": "¥2661",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd16.jpg",
-        "images": ["assets/image/quan-dai-nu/qd16.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd16.jpg"
+        ],
         "bestSeller": false,
         "purchases": 322
     },
     {
         "id": 17,
         "name": "Quần Cargo Nữ Rộng Ống Camo",
-        "price": "790.000đ",
+        "price": "¥2929",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd17.jpg",
-        "images": ["assets/image/quan-dai-nu/qd17.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd17.jpg"
+        ],
         "bestSeller": true,
         "purchases": 339
     },
     {
         "id": 18,
         "name": "Quần Cargo Nữ Rộng Ống Xanh Lá",
-        "price": "720.000đ",
+        "price": "¥2247",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd18.jpg",
-        "images": ["assets/image/quan-dai-nu/qd18.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd18.jpg"
+        ],
         "bestSeller": false,
         "purchases": 356
     },
     {
         "id": 19,
         "name": "Quần Dài Nữ Rộng Ống Đỏ Flare",
-        "price": "850.000đ",
+        "price": "¥3326",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd19.jpg",
-        "images": ["assets/image/quan-dai-nu/qd19.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd19.jpg"
+        ],
         "bestSeller": true,
         "purchases": 373
     },
     {
         "id": 20,
         "name": "Quần Jean Nữ Rộng Ống Xanh Nhạt",
-        "price": "640.000đ",
+        "price": "¥3547",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd20.jpg",
-        "images": ["assets/image/quan-dai-nu/qd20.jpg"],
+        "images": [
+            "assets/image/quan-dai-nu/qd20.jpg"
+        ],
         "bestSeller": false,
         "purchases": 390
     },
     {
         "id": 21,
         "name": "Boot Cao Cổ Khóa Vàng",
-        "price": "590.000đ",
+        "price": "¥3275",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn1.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 424
     },
     {
         "id": 22,
         "name": "Boot Cao Cổ Đen Khóa",
-        "price": "590.000đ",
+        "price": "¥3023",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn2.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn2.jpg"
+        ],
         "bestSeller": false,
         "purchases": 441
     },
     {
         "id": 23,
         "name": "Giày Converse Chuck Taylor All Star Xám",
-        "price": "1.290.000đ",
+        "price": "¥2402",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn3.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn3.jpg"
+        ],
         "bestSeller": true,
         "purchases": 458
     },
     {
         "id": 24,
         "name": "Giày Thể Thao Leaveland Trắng",
-        "price": "850.000đ",
+        "price": "¥2558",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn4.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn4.jpg"
+        ],
         "bestSeller": true,
         "purchases": 475
     },
     {
         "id": 25,
         "name": "Giày Canvas Navy Cổ Thấp",
-        "price": "650.000đ",
+        "price": "¥2682",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn5.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn5.jpg"
+        ],
         "bestSeller": false,
         "purchases": 492
     },
     {
         "id": 26,
         "name": "Boot Cao Cổ Kem Khóa Vàng",
-        "price": "890.000đ",
+        "price": "¥2118",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn1.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 509
     },
     {
         "id": 27,
         "name": "Boot Cao Cổ Kem Mũi Đen",
-        "price": "950.000đ",
+        "price": "¥3450",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn2.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn2.jpg"
+        ],
         "bestSeller": true,
         "purchases": 526
     },
     {
         "id": 28,
         "name": "Boot Cao Cổ Đen Khóa Vàng",
-        "price": "920.000đ",
+        "price": "¥3070",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn3.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn3.jpg"
+        ],
         "bestSeller": true,
         "purchases": 543
     },
     {
         "id": 29,
         "name": "Boot Cao Cổ Da Lộn Nâu",
-        "price": "880.000đ",
+        "price": "¥2821",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn4.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn4.jpg"
+        ],
         "bestSeller": false,
         "purchases": 360
     },
     {
         "id": 30,
         "name": "Boot Cao Cổ Lông Kem Mùa Đông",
-        "price": "1.150.000đ",
+        "price": "¥3344",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn5.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn5.jpg"
+        ],
         "bestSeller": true,
         "purchases": 377
     },
     {
         "id": 31,
         "name": "Boot Platform Kem Khóa Kéo",
-        "price": "980.000đ",
+        "price": "¥3877",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn6.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn6.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn6.jpg"
+        ],
         "bestSeller": true,
         "purchases": 394
     },
     {
         "id": 32,
         "name": "Boot Cao Cổ Be Khóa Bạc",
-        "price": "850.000đ",
+        "price": "¥3128",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn7.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn7.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn7.jpg"
+        ],
         "bestSeller": false,
         "purchases": 411
     },
     {
         "id": 33,
         "name": "Boot Platform Đen Khóa Vàng",
-        "price": "1.050.000đ",
+        "price": "¥2960",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn8.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn8.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn8.jpg"
+        ],
         "bestSeller": true,
         "purchases": 428
     },
     {
         "id": 34,
         "name": "Boot Cao Cổ Kem Khóa Vàng Cao Cấp",
-        "price": "990.000đ",
+        "price": "¥3360",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn9.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn9.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn9.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 35,
         "name": "Boot Cao Cổ Kem Khóa Bạc",
-        "price": "920.000đ",
+        "price": "¥3650",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn10.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn10.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn10.jpg"
+        ],
         "bestSeller": false,
         "purchases": 462
     },
     {
         "id": 36,
         "name": "Boot Cao Cổ Trắng Đen Hai Màu",
-        "price": "1.080.000đ",
+        "price": "¥3407",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn11.jpg",
-        "images": ["assets/image/giay-nu/boot-nu/bn11.jpg"],
+        "images": [
+            "assets/image/giay-nu/boot-nu/bn11.jpg"
+        ],
         "bestSeller": true,
         "purchases": 479
     },
     {
         "id": 37,
         "name": "Túi Xách Nữ Kem Dây Xích Bạc",
-        "price": "¥2,000",
+        "price": "¥2158",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn22.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn22.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn22.jpg"
+        ],
         "bestSeller": true,
         "purchases": 496
     },
     {
         "id": 38,
         "name": "Túi Xách Nữ Trắng Bướm Bạc",
-        "price": "¥2,000",
+        "price": "¥3557",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn33.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn33.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn33.jpg"
+        ],
         "bestSeller": true,
         "purchases": 513
     },
     {
         "id": 39,
         "name": "Túi Xách Nữ Hồng Ruched Drawstring",
-        "price": "¥2,000",
+        "price": "¥2694",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn40.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn40.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn40.jpg"
+        ],
         "bestSeller": false,
         "purchases": 530
     },
     {
         "id": 40,
         "name": "Túi Xách Nữ Xanh Dương Quilted",
-        "price": "¥2,000",
+        "price": "¥3095",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn41.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn41.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn41.jpg"
+        ],
         "bestSeller": true,
         "purchases": 547
     },
     {
         "id": 41,
         "name": "Túi Xách Nữ Kem Vintage Lace",
-        "price": "¥2,000",
+        "price": "¥2970",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn42.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn42.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn42.jpg"
+        ],
         "bestSeller": true,
         "purchases": 364
     },
     {
         "id": 42,
         "name": "Túi Xách Nữ Vàng Scrunchie Strap",
-        "price": "¥2,000",
+        "price": "¥3392",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn43.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn43.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn43.jpg"
+        ],
         "bestSeller": false,
         "purchases": 381
     },
     {
         "id": 43,
         "name": "Túi Xách Nữ Hồng Pastel Charms",
-        "price": "¥2,000",
+        "price": "¥2124",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn44.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn44.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn44.jpg"
+        ],
         "bestSeller": true,
         "purchases": 398
     },
     {
         "id": 44,
         "name": "Túi Xách Nữ Kem Bướm Bạc",
-        "price": "¥2,000",
+        "price": "¥3773",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn45.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn45.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn45.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 45,
         "name": "Túi Xách Nữ Bạc Metallic Bow",
-        "price": "¥2,000",
+        "price": "¥3367",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn46.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn46.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn46.jpg"
+        ],
         "bestSeller": true,
         "purchases": 432
     },
     {
         "id": 46,
         "name": "Túi Xách Nữ Kem Đỏ Polka Dots",
-        "price": "¥2,000",
+        "price": "¥3592",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn23.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn23.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn23.jpg"
+        ],
         "bestSeller": false,
         "purchases": 449
     },
     {
         "id": 47,
         "name": "Túi Xách Nữ Xám Scrunchie Butterfly",
-        "price": "¥2,000",
+        "price": "¥3319",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn24.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn24.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn24.jpg"
+        ],
         "bestSeller": true,
         "purchases": 466
     },
     {
         "id": 48,
         "name": "Túi Xách Nữ Kem Ruched Box",
-        "price": "¥2,000",
+        "price": "¥2854",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn25.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn25.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn25.jpg"
+        ],
         "bestSeller": true,
         "purchases": 483
     },
     {
         "id": 49,
         "name": "Túi Xách Nữ Hoa Văn Geometric",
-        "price": "¥2,000",
+        "price": "¥2395",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn26.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn26.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn26.jpg"
+        ],
         "bestSeller": true,
         "purchases": 500
     },
     {
         "id": 50,
         "name": "Túi Xách Nữ Kem Nâu Bunny Charm",
-        "price": "¥2,000",
+        "price": "¥2993",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn27.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn27.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn27.jpg"
+        ],
         "bestSeller": false,
         "purchases": 517
     },
     {
         "id": 51,
         "name": "Túi Xách Nữ Kem Nâu Bear Charm",
-        "price": "¥2,000",
+        "price": "¥2706",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn28.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn28.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn28.jpg"
+        ],
         "bestSeller": true,
         "purchases": 534
     },
     {
         "id": 52,
         "name": "Túi Xách Nữ Trắng Croc Embossed",
-        "price": "¥2,000",
+        "price": "¥3186",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn29.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn29.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn29.jpg"
+        ],
         "bestSeller": true,
         "purchases": 551
     },
     {
         "id": 53,
         "name": "Túi Xách Nữ Kem Embroidered",
-        "price": "¥2,000",
+        "price": "¥3930",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn30.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn30.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn30.jpg"
+        ],
         "bestSeller": true,
         "purchases": 368
     },
     {
         "id": 54,
         "name": "Túi Xách Nữ Bạc Lace Ribbons",
-        "price": "¥2,000",
+        "price": "¥2545",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn31.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn31.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn31.jpg"
+        ],
         "bestSeller": false,
         "purchases": 385
     },
     {
         "id": 55,
         "name": "Túi Xách Nữ Đen Trắng Bow Pattern",
-        "price": "¥2,000",
+        "price": "¥3176",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn32.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn32.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn32.jpg"
+        ],
         "bestSeller": true,
         "purchases": 402
     },
     {
         "id": 56,
         "name": "Túi Xách Nữ Hồng Kẻ Caro Bunny",
-        "price": "¥2,000",
+        "price": "¥3064",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn34.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn34.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn34.jpg"
+        ],
         "bestSeller": true,
         "purchases": 419
     },
     {
         "id": 57,
         "name": "Túi Xách Nữ Hồng Embroidered",
-        "price": "¥2,000",
+        "price": "¥3733",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn35.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn35.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn35.jpg"
+        ],
         "bestSeller": false,
         "purchases": 436
     },
     {
         "id": 58,
         "name": "Túi Xách Nữ Kem Lace Bow",
-        "price": "¥2,000",
+        "price": "¥2108",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn36.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn36.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn36.jpg"
+        ],
         "bestSeller": true,
         "purchases": 453
     },
     {
         "id": 59,
         "name": "Túi Xách Nữ Kem Ribbons Beads",
-        "price": "¥2,000",
+        "price": "¥3927",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn37.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn37.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn37.jpg"
+        ],
         "bestSeller": true,
         "purchases": 470
     },
     {
         "id": 60,
         "name": "Túi Xách Nữ Xám Xanh Hoa Văn",
-        "price": "¥2,000",
+        "price": "¥3918",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn38.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn38.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn38.jpg"
+        ],
         "bestSeller": true,
         "purchases": 487
     },
     {
         "id": 61,
         "name": "Túi Xách Nam Đen Crossbody Khóa Vàng",
-        "price": "¥2,800",
+        "price": "¥3481",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn1.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn1.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 571
     },
     {
         "id": 62,
         "name": "Túi Xách Nam Đen Faux Leather Crossbody",
-        "price": "¥2,500",
+        "price": "¥2341",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn2.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn2.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn2.jpg"
+        ],
         "bestSeller": true,
         "purchases": 588
     },
     {
         "id": 63,
         "name": "Túi Xách Nam Nâu Distressed Leather Messenger",
-        "price": "¥3,200",
+        "price": "¥3341",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn3.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn3.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn3.jpg"
+        ],
         "bestSeller": false,
         "purchases": 405
     },
     {
         "id": 64,
         "name": "Túi Xách Nam Đen Denim Crossbody",
-        "price": "¥2,600",
+        "price": "¥3682",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn4.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn4.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn4.jpg"
+        ],
         "bestSeller": true,
         "purchases": 422
     },
     {
         "id": 65,
         "name": "Túi Xách Nam Đen Messenger Buckle",
-        "price": "¥2,900",
+        "price": "¥2574",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn5.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn5.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn5.jpg"
+        ],
         "bestSeller": true,
         "purchases": 439
     },
     {
         "id": 66,
         "name": "Túi Xách Nam Đen Leather Logo Messenger",
-        "price": "¥3,500",
+        "price": "¥2609",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn6.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn6.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn6.jpg"
+        ],
         "bestSeller": true,
         "purchases": 456
     },
     {
         "id": 67,
         "name": "Túi Xách Nam Nâu Double Stitch Crossbody",
-        "price": "¥2,700",
+        "price": "¥3009",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn7.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn7.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn7.jpg"
+        ],
         "bestSeller": false,
         "purchases": 473
     },
     {
         "id": 68,
         "name": "Túi Xách Nam Xám Dark Messenger Bag",
-        "price": "¥3,000",
+        "price": "¥2671",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn8.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn8.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn8.jpg"
+        ],
         "bestSeller": true,
         "purchases": 490
     },
     {
         "id": 69,
         "name": "Túi Xách Nam Đen Cernen Kearn Messenger",
-        "price": "¥2,800",
+        "price": "¥3265",
         "category": "tui-xach-nam",
         "categoryName": "Túi xách nam",
         "image": "assets/image/tui-xach/tui-xach-nam/txn9.jpg",
-        "images": ["assets/image/tui-xach/tui-xach-nam/txn9.jpg"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nam/txn9.jpg"
+        ],
         "bestSeller": true,
         "purchases": 507
     },
     {
         "id": 70,
         "name": "Chân váy Nữ Dài Xòe",
-        "price": "550.000đ",
+        "price": "¥2008",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv1.jpg",
-        "images": ["assets/image/vay/chan-vay/cv1.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 320
     },
     {
         "id": 71,
         "name": "Chân váy Nữ Ngắn A-Line",
-        "price": "480.000đ",
+        "price": "¥3458",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv2.jpg",
-        "images": ["assets/image/vay/chan-vay/cv2.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv2.jpg"
+        ],
         "bestSeller": false,
         "purchases": 245
     },
     {
         "id": 72,
         "name": "Chân váy Nữ Xếp Ly",
-        "price": "620.000đ",
+        "price": "¥2955",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv3.jpg",
-        "images": ["assets/image/vay/chan-vay/cv3.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv3.jpg"
+        ],
         "bestSeller": true,
         "purchases": 380
     },
     {
         "id": 73,
         "name": "Chân váy Nữ Chữ A",
-        "price": "520.000đ",
+        "price": "¥3929",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv4.jpg",
-        "images": ["assets/image/vay/chan-vay/cv4.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv4.jpg"
+        ],
         "bestSeller": true,
         "purchases": 295
     },
     {
         "id": 74,
         "name": "Chân váy Nữ Ôm Body",
-        "price": "580.000đ",
+        "price": "¥2633",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv5.jpg",
-        "images": ["assets/image/vay/chan-vay/cv5.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv5.jpg"
+        ],
         "bestSeller": false,
         "purchases": 268
     },
     {
         "id": 75,
         "name": "Chân váy Nữ Midi Dài",
-        "price": "650.000đ",
+        "price": "¥2387",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv6.jpg",
-        "images": ["assets/image/vay/chan-vay/cv6.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv6.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 76,
         "name": "Chân váy Nữ Mini Ngắn",
-        "price": "450.000đ",
+        "price": "¥2752",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv7.jpg",
-        "images": ["assets/image/vay/chan-vay/cv7.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv7.jpg"
+        ],
         "bestSeller": true,
         "purchases": 335
     },
     {
         "id": 77,
         "name": "Chân váy Nữ Maxi Dài",
-        "price": "720.000đ",
+        "price": "¥2538",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv8.jpg",
-        "images": ["assets/image/vay/chan-vay/cv8.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv8.jpg"
+        ],
         "bestSeller": false,
         "purchases": 285
     },
     {
         "id": 78,
         "name": "Chân váy Nữ Công Sở",
-        "price": "590.000đ",
+        "price": "¥3027",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv9.jpg",
-        "images": ["assets/image/vay/chan-vay/cv9.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv9.jpg"
+        ],
         "bestSeller": true,
         "purchases": 365
     },
     {
         "id": 79,
         "name": "Chân váy Nữ Xòe Rộng",
-        "price": "640.000đ",
+        "price": "¥3548",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv10.jpg",
-        "images": ["assets/image/vay/chan-vay/cv10.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv10.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 80,
         "name": "Chân váy Nữ Bút Chì",
-        "price": "560.000đ",
+        "price": "¥2623",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv11.jpg",
-        "images": ["assets/image/vay/chan-vay/cv11.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv11.jpg"
+        ],
         "bestSeller": false,
         "purchases": 250
     },
     {
         "id": 81,
         "name": "Chân váy Nữ Xếp Nếp",
-        "price": "600.000đ",
+        "price": "¥2249",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv12.jpg",
-        "images": ["assets/image/vay/chan-vay/cv12.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv12.jpg"
+        ],
         "bestSeller": true,
         "purchases": 340
     },
     {
         "id": 82,
         "name": "Chân váy Nữ Dài Thướt Tha",
-        "price": "680.000đ",
+        "price": "¥3948",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv13.jpg",
-        "images": ["assets/image/vay/chan-vay/cv13.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv13.jpg"
+        ],
         "bestSeller": false,
         "purchases": 275
     },
     {
         "id": 83,
         "name": "Chân váy Nữ Ngắn Cá Tính",
-        "price": "490.000đ",
+        "price": "¥2526",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv14.jpg",
-        "images": ["assets/image/vay/chan-vay/cv14.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv14.jpg"
+        ],
         "bestSeller": true,
         "purchases": 315
     },
     {
         "id": 84,
         "name": "Chân váy Nữ Xòe Phồng",
-        "price": "610.000đ",
+        "price": "¥3865",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv15.jpg",
-        "images": ["assets/image/vay/chan-vay/cv15.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv15.jpg"
+        ],
         "bestSeller": true,
         "purchases": 355
     },
     {
         "id": 85,
         "name": "Chân váy Nữ Midi Công Sở",
-        "price": "570.000đ",
+        "price": "¥3729",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv16.jpg",
-        "images": ["assets/image/vay/chan-vay/cv16.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv16.jpg"
+        ],
         "bestSeller": false,
         "purchases": 260
     },
     {
         "id": 86,
         "name": "Chân váy Nữ Dài Xòe Rộng",
-        "price": "660.000đ",
+        "price": "¥2477",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv17.jpg",
-        "images": ["assets/image/vay/chan-vay/cv17.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv17.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 87,
         "name": "Chân váy Nữ Ngắn Xinh",
-        "price": "470.000đ",
+        "price": "¥3136",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv18.jpg",
-        "images": ["assets/image/vay/chan-vay/cv18.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv18.jpg"
+        ],
         "bestSeller": true,
         "purchases": 330
     },
     {
         "id": 88,
         "name": "Chân váy Nữ Xếp Ly Dài",
-        "price": "630.000đ",
+        "price": "¥3302",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv19.jpg",
-        "images": ["assets/image/vay/chan-vay/cv19.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv19.jpg"
+        ],
         "bestSeller": false,
         "purchases": 280
     },
     {
         "id": 89,
         "name": "Chân váy Nữ A-Line Dài",
-        "price": "600.000đ",
+        "price": "¥2822",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv20.jpg",
-        "images": ["assets/image/vay/chan-vay/cv20.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv20.jpg"
+        ],
         "bestSeller": true,
         "purchases": 350
     },
     {
         "id": 90,
         "name": "Chân váy Nữ Midi Xòe",
-        "price": "580.000đ",
+        "price": "¥3565",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv21.jpg",
-        "images": ["assets/image/vay/chan-vay/cv21.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv21.jpg"
+        ],
         "bestSeller": true,
         "purchases": 375
     },
     {
         "id": 91,
         "name": "Chân váy Nữ Ngắn Xếp Ly",
-        "price": "500.000đ",
+        "price": "¥2594",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv22.jpg",
-        "images": ["assets/image/vay/chan-vay/cv22.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv22.jpg"
+        ],
         "bestSeller": false,
         "purchases": 255
     },
     {
         "id": 92,
         "name": "Chân váy Nữ Dài Thời Trang",
-        "price": "690.000đ",
+        "price": "¥2082",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv23.jpg",
-        "images": ["assets/image/vay/chan-vay/cv23.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv23.jpg"
+        ],
         "bestSeller": true,
         "purchases": 385
     },
     {
         "id": 93,
         "name": "Chân váy Nữ Mini Cá Tính",
-        "price": "460.000đ",
+        "price": "¥3745",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv24.jpg",
-        "images": ["assets/image/vay/chan-vay/cv24.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv24.jpg"
+        ],
         "bestSeller": true,
         "purchases": 310
     },
     {
         "id": 94,
         "name": "Chân váy Nữ Maxi Xòe",
-        "price": "710.000đ",
+        "price": "¥3295",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv25.jpg",
-        "images": ["assets/image/vay/chan-vay/cv25.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv25.jpg"
+        ],
         "bestSeller": false,
         "purchases": 290
     },
     {
         "id": 95,
         "name": "Chân váy Nữ Công Sở Dài",
-        "price": "610.000đ",
+        "price": "¥2748",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv26.jpg",
-        "images": ["assets/image/vay/chan-vay/cv26.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv26.jpg"
+        ],
         "bestSeller": true,
         "purchases": 360
     },
     {
         "id": 96,
         "name": "Chân váy Nữ Xòe Rộng Dài",
-        "price": "670.000đ",
+        "price": "¥2517",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv27.jpg",
-        "images": ["assets/image/vay/chan-vay/cv27.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv27.jpg"
+        ],
         "bestSeller": true,
         "purchases": 390
     },
     {
         "id": 97,
         "name": "Chân váy Nữ Bút Chì Dài",
-        "price": "590.000đ",
+        "price": "¥2201",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv28.jpg",
-        "images": ["assets/image/vay/chan-vay/cv28.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv28.jpg"
+        ],
         "bestSeller": false,
         "purchases": 265
     },
     {
         "id": 98,
         "name": "Chân váy Nữ Xếp Nếp Dài",
-        "price": "620.000đ",
+        "price": "¥3370",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv29.jpg",
-        "images": ["assets/image/vay/chan-vay/cv29.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv29.jpg"
+        ],
         "bestSeller": true,
         "purchases": 345
     },
     {
         "id": 99,
         "name": "Chân váy Nữ Dài Thướt Tha Xòe",
-        "price": "700.000đ",
+        "price": "¥3038",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv30.jpg",
-        "images": ["assets/image/vay/chan-vay/cv30.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv30.jpg"
+        ],
         "bestSeller": false,
         "purchases": 300
     },
     {
         "id": 100,
         "name": "Chân váy Nữ Ngắn Trẻ Trung",
-        "price": "480.000đ",
+        "price": "¥3765",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv31.jpg",
-        "images": ["assets/image/vay/chan-vay/cv31.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv31.jpg"
+        ],
         "bestSeller": true,
         "purchases": 325
     },
     {
         "id": 101,
         "name": "Chân váy Nữ Xòe Phồng Dài",
-        "price": "650.000đ",
+        "price": "¥2786",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv32.jpg",
-        "images": ["assets/image/vay/chan-vay/cv32.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv32.jpg"
+        ],
         "bestSeller": true,
         "purchases": 370
     },
     {
         "id": 102,
         "name": "Chân váy Nữ Midi Thanh Lịch",
-        "price": "590.000đ",
+        "price": "¥2095",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv33.jpg",
-        "images": ["assets/image/vay/chan-vay/cv33.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv33.jpg"
+        ],
         "bestSeller": false,
         "purchases": 270
     },
     {
         "id": 103,
         "name": "Chân váy Nữ Dài Xòe Rộng Đẹp",
-        "price": "680.000đ",
+        "price": "¥2036",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv34.jpg",
-        "images": ["assets/image/vay/chan-vay/cv34.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv34.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 104,
         "name": "Chân váy Nữ Ngắn Xinh Xắn",
-        "price": "490.000đ",
+        "price": "¥2469",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv35.jpg",
-        "images": ["assets/image/vay/chan-vay/cv35.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv35.jpg"
+        ],
         "bestSeller": true,
         "purchases": 320
     },
     {
         "id": 105,
         "name": "Chân váy Nữ Xếp Ly Midi",
-        "price": "610.000đ",
+        "price": "¥2726",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv36.jpg",
-        "images": ["assets/image/vay/chan-vay/cv36.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv36.jpg"
+        ],
         "bestSeller": false,
         "purchases": 275
     },
     {
         "id": 106,
         "name": "Chân váy Nữ A-Line Midi",
-        "price": "600.000đ",
+        "price": "¥2132",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv37.jpg",
-        "images": ["assets/image/vay/chan-vay/cv37.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv37.jpg"
+        ],
         "bestSeller": true,
         "purchases": 350
     },
     {
         "id": 107,
         "name": "Chân váy Nữ Midi Xòe Đẹp",
-        "price": "580.000đ",
+        "price": "¥2107",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv38.jpg",
-        "images": ["assets/image/vay/chan-vay/cv38.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv38.jpg"
+        ],
         "bestSeller": true,
         "purchases": 380
     },
     {
         "id": 108,
         "name": "Chân váy Nữ Ngắn Xếp Ly Đẹp",
-        "price": "510.000đ",
+        "price": "¥2004",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv39.jpg",
-        "images": ["assets/image/vay/chan-vay/cv39.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv39.jpg"
+        ],
         "bestSeller": false,
         "purchases": 260
     },
     {
         "id": 109,
         "name": "Chân váy Nữ Dài Thời Trang Xòe",
-        "price": "690.000đ",
+        "price": "¥3222",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv40.jpg",
-        "images": ["assets/image/vay/chan-vay/cv40.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv40.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 110,
         "name": "Chân váy Nữ Mini Trẻ Trung",
-        "price": "470.000đ",
+        "price": "¥3929",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv41.jpg",
-        "images": ["assets/image/vay/chan-vay/cv41.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv41.jpg"
+        ],
         "bestSeller": true,
         "purchases": 315
     },
     {
         "id": 111,
         "name": "Chân váy Nữ Maxi Xòe Rộng",
-        "price": "720.000đ",
+        "price": "¥3255",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv42.jpg",
-        "images": ["assets/image/vay/chan-vay/cv42.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv42.jpg"
+        ],
         "bestSeller": false,
         "purchases": 295
     },
     {
         "id": 112,
         "name": "Chân váy Nữ Công Sở Thanh Lịch",
-        "price": "620.000đ",
+        "price": "¥2878",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv43.jpg",
-        "images": ["assets/image/vay/chan-vay/cv43.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv43.jpg"
+        ],
         "bestSeller": true,
         "purchases": 365
     },
     {
         "id": 113,
         "name": "Chân váy Nữ Xòe Rộng Thời Trang",
-        "price": "660.000đ",
+        "price": "¥2524",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv44.jpg",
-        "images": ["assets/image/vay/chan-vay/cv44.jpg"],
+        "images": [
+            "assets/image/vay/chan-vay/cv44.jpg"
+        ],
         "bestSeller": true,
         "purchases": 666
     },
     {
         "id": 114,
         "name": "Áo Khoác Đông Nam Dày Dặn",
-        "price": "850.000đ",
+        "price": "¥3510",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn1.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 420
     },
     {
         "id": 115,
         "name": "Áo Khoác Nam Mùa Đông",
-        "price": "920.000đ",
+        "price": "¥2452",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn2.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn2.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn2.jpg"
+        ],
         "bestSeller": true,
         "purchases": 385
     },
     {
         "id": 116,
         "name": "Áo Khoác Nam Chống Nước",
-        "price": "980.000đ",
+        "price": "¥2612",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn3.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn3.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn3.jpg"
+        ],
         "bestSeller": false,
         "purchases": 350
     },
     {
         "id": 117,
         "name": "Áo Khoác Nam Phao",
-        "price": "1.150.000đ",
+        "price": "¥3061",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn4.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn4.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn4.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 118,
         "name": "Áo Khoác Nam Bomber",
-        "price": "890.000đ",
+        "price": "¥2436",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn5.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn5.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn5.jpg"
+        ],
         "bestSeller": true,
         "purchases": 398
     },
     {
         "id": 119,
         "name": "Áo Khoác Đông Nữ Dày Dặn",
-        "price": "850.000đ",
+        "price": "¥2073",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn1.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 420
     },
     {
         "id": 120,
         "name": "Áo Khoác Nữ Mùa Đông",
-        "price": "920.000đ",
+        "price": "¥2243",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn2.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn2.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn2.jpg"
+        ],
         "bestSeller": true,
         "purchases": 385
     },
     {
         "id": 121,
         "name": "Áo Khoác Nữ Chống Nước",
-        "price": "980.000đ",
+        "price": "¥3839",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn3.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn3.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn3.jpg"
+        ],
         "bestSeller": false,
         "purchases": 350
     },
     {
         "id": 122,
         "name": "Áo Khoác Nữ Phao",
-        "price": "1.150.000đ",
+        "price": "¥2923",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn4.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn4.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn4.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 123,
         "name": "Áo Khoác Nữ Bomber",
-        "price": "890.000đ",
+        "price": "¥2387",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn5.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn5.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn5.jpg"
+        ],
         "bestSeller": true,
         "purchases": 398
     },
     {
         "id": 124,
         "name": "Áo Khoác Nữ Dạ",
-        "price": "950.000đ",
+        "price": "¥3327",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn6.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn6.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn6.jpg"
+        ],
         "bestSeller": true,
         "purchases": 412
     },
     {
         "id": 125,
         "name": "Áo Khoác Nữ Lông Vũ",
-        "price": "1.280.000đ",
+        "price": "¥3115",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn7.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn7.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn7.jpg"
+        ],
         "bestSeller": true,
         "purchases": 465
     },
     {
         "id": 126,
         "name": "Áo Khoác Nữ Len",
-        "price": "880.000đ",
+        "price": "¥2380",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn8.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn8.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn8.jpg"
+        ],
         "bestSeller": false,
         "purchases": 368
     },
     {
         "id": 127,
         "name": "Áo Khoác Nữ Nỉ",
-        "price": "820.000đ",
+        "price": "¥2337",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn9.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn9.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn9.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 128,
         "name": "Áo Khoác Nữ Khoác Ngoài",
-        "price": "990.000đ",
+        "price": "¥3559",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn10.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn10.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn10.jpg"
+        ],
         "bestSeller": true,
         "purchases": 428
     },
     {
         "id": 129,
         "name": "Áo Khoác Nữ Thời Trang",
-        "price": "1.050.000đ",
+        "price": "¥3328",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn11.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn11.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn11.jpg"
+        ],
         "bestSeller": false,
         "purchases": 342
     },
     {
         "id": 130,
         "name": "Áo Khoác Nữ Có Mũ",
-        "price": "920.000đ",
+        "price": "¥2540",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn12.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn12.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn12.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 131,
         "name": "Áo Khoác Nữ Dài Tay",
-        "price": "870.000đ",
+        "price": "¥3870",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn13.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn13.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn13.jpg"
+        ],
         "bestSeller": true,
         "purchases": 388
     },
     {
         "id": 132,
         "name": "Áo Khoác Nữ Form Rộng",
-        "price": "940.000đ",
+        "price": "¥3832",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn14.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn14.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn14.jpg"
+        ],
         "bestSeller": false,
         "purchases": 355
     },
     {
         "id": 133,
         "name": "Áo Khoác Nữ Cổ Tròn",
-        "price": "860.000đ",
+        "price": "¥3199",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn15.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn15.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn15.jpg"
+        ],
         "bestSeller": true,
         "purchases": 402
     },
     {
         "id": 134,
         "name": "Áo Khoác Nữ Cổ Lông",
-        "price": "1.120.000đ",
+        "price": "¥2528",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn16.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn16.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn16.jpg"
+        ],
         "bestSeller": true,
         "purchases": 435
     },
     {
         "id": 135,
         "name": "Áo Khoác Nữ Khóa Kéo",
-        "price": "910.000đ",
+        "price": "¥3832",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn17.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn17.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn17.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 136,
         "name": "Áo Khoác Nữ Cúc Áo",
-        "price": "930.000đ",
+        "price": "¥2236",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn18.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn18.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn18.jpg"
+        ],
         "bestSeller": false,
         "purchases": 365
     },
     {
         "id": 137,
         "name": "Áo Khoác Nữ Màu Pastel",
-        "price": "880.000đ",
+        "price": "¥2127",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn19.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn19.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn19.jpg"
+        ],
         "bestSeller": true,
         "purchases": 392
     },
     {
         "id": 138,
         "name": "Áo Khoác Nữ Màu Đen",
-        "price": "850.000đ",
+        "price": "¥2677",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn20.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn20.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn20.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 139,
         "name": "Áo Khoác Nữ Màu Trắng",
-        "price": "890.000đ",
+        "price": "¥2999",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn21.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn21.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn21.jpg"
+        ],
         "bestSeller": true,
         "purchases": 418
     },
     {
         "id": 140,
         "name": "Áo Khoác Nữ Màu Hồng",
-        "price": "920.000đ",
+        "price": "¥2622",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn22.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn22.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn22.jpg"
+        ],
         "bestSeller": false,
         "purchases": 348
     },
     {
         "id": 141,
         "name": "Áo Khoác Nữ Màu Xám",
-        "price": "870.000đ",
+        "price": "¥3115",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn23.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn23.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn23.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 142,
         "name": "Áo Khoác Nữ Màu Be",
-        "price": "900.000đ",
+        "price": "¥2542",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn24.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn24.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn24.jpg"
+        ],
         "bestSeller": true,
         "purchases": 385
     },
     {
         "id": 143,
         "name": "Áo Khoác Nữ Màu Xanh",
-        "price": "910.000đ",
+        "price": "¥2984",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn25.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn25.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn25.jpg"
+        ],
         "bestSeller": false,
         "purchases": 360
     },
     {
         "id": 144,
         "name": "Áo Khoác Nữ Màu Nâu",
-        "price": "880.000đ",
+        "price": "¥3582",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn26.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn26.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn26.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 145,
         "name": "Áo Khoác Nữ Màu Cam",
-        "price": "930.000đ",
+        "price": "¥2798",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn27.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn27.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn27.jpg"
+        ],
         "bestSeller": true,
         "purchases": 408
     },
     {
         "id": 146,
         "name": "Áo Khoác Nữ Màu Tím",
-        "price": "950.000đ",
+        "price": "¥2485",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn28.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn28.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn28.jpg"
+        ],
         "bestSeller": false,
         "purchases": 372
     },
     {
         "id": 147,
         "name": "Áo Khoác Nữ Màu Vàng",
-        "price": "920.000đ",
+        "price": "¥2786",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn29.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn29.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn29.jpg"
+        ],
         "bestSeller": true,
         "purchases": 390
     },
     {
         "id": 148,
         "name": "Áo Khoác Nữ Màu Đỏ",
-        "price": "940.000đ",
+        "price": "¥2404",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn30.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn30.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn30.jpg"
+        ],
         "bestSeller": true,
         "purchases": 425
     },
     {
         "id": 149,
         "name": "Áo Khoác Nữ Màu Xanh Lá",
-        "price": "900.000đ",
+        "price": "¥2820",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn31.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn31.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn31.jpg"
+        ],
         "bestSeller": false,
         "purchases": 358
     },
     {
         "id": 150,
         "name": "Áo Khoác Nữ Màu Xanh Dương",
-        "price": "910.000đ",
+        "price": "¥2886",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn32.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn32.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn32.jpg"
+        ],
         "bestSeller": true,
         "purchases": 398
     },
     {
         "id": 151,
         "name": "Áo Khoác Nữ Màu Kem",
-        "price": "890.000đ",
+        "price": "¥2119",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn33.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn33.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn33.jpg"
+        ],
         "bestSeller": true,
         "purchases": 412
     },
     {
         "id": 152,
         "name": "Áo Khoác Nữ Màu Hồng Đậm",
-        "price": "960.000đ",
+        "price": "¥2541",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn34.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn34.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn34.jpg"
+        ],
         "bestSeller": true,
         "purchases": 440
     },
     {
         "id": 153,
         "name": "Áo Khoác Nữ Màu Xám Đậm",
-        "price": "880.000đ",
+        "price": "¥2368",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adn35.jpg",
-        "images": ["assets/image/ao-nu/ao-dong-nu/adn35.jpg"],
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adn35.jpg"
+        ],
         "bestSeller": false,
         "purchases": 365
     },
     {
         "id": 154,
         "name": "Áo Khoác Nam Dạ Dày Cổ Lông",
-        "price": "950.000đ",
+        "price": "¥2715",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn6.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn6.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn6.jpg"
+        ],
         "bestSeller": true,
         "purchases": 412
     },
     {
         "id": 155,
         "name": "Áo Khoác Nam Lông Vũ",
-        "price": "1.280.000đ",
+        "price": "¥3204",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn7.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn7.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn7.jpg"
+        ],
         "bestSeller": true,
         "purchases": 465
     },
     {
         "id": 156,
         "name": "Áo Khoác Nam Len",
-        "price": "880.000đ",
+        "price": "¥3135",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn8.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn8.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn8.jpg"
+        ],
         "bestSeller": false,
         "purchases": 368
     },
     {
         "id": 157,
         "name": "Áo Khoác Nam Nỉ",
-        "price": "820.000đ",
+        "price": "¥3664",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn9.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn9.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn9.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 158,
         "name": "Áo Khoác Nam Khoác Ngoài",
-        "price": "990.000đ",
+        "price": "¥3537",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn10.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn10.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn10.jpg"
+        ],
         "bestSeller": true,
         "purchases": 428
     },
     {
         "id": 159,
         "name": "Áo Khoác Nam Thời Trang",
-        "price": "1.050.000đ",
+        "price": "¥3617",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn11.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn11.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn11.jpg"
+        ],
         "bestSeller": false,
         "purchases": 342
     },
     {
         "id": 160,
         "name": "Áo Khoác Nam Có Mũ",
-        "price": "920.000đ",
+        "price": "¥3029",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn12.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn12.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn12.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 161,
         "name": "Áo Khoác Nam Dài Tay",
-        "price": "870.000đ",
+        "price": "¥2676",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn13.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn13.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn13.jpg"
+        ],
         "bestSeller": true,
         "purchases": 388
     },
     {
         "id": 162,
         "name": "Áo Khoác Nam Form Rộng",
-        "price": "940.000đ",
+        "price": "¥3226",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn14.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn14.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn14.jpg"
+        ],
         "bestSeller": false,
         "purchases": 355
     },
     {
         "id": 163,
         "name": "Áo Khoác Nam Cổ Tròn",
-        "price": "860.000đ",
+        "price": "¥3521",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn15.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn15.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn15.jpg"
+        ],
         "bestSeller": true,
         "purchases": 402
     },
     {
         "id": 164,
         "name": "Áo Khoác Nam Cổ Lông",
-        "price": "1.120.000đ",
+        "price": "¥2108",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn16.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn16.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn16.jpg"
+        ],
         "bestSeller": true,
         "purchases": 435
     },
     {
         "id": 165,
         "name": "Áo Khoác Nam Khóa Kéo",
-        "price": "910.000đ",
+        "price": "¥3979",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn17.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn17.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn17.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 166,
         "name": "Áo Khoác Nam Cúc Áo",
-        "price": "930.000đ",
+        "price": "¥2789",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn18.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn18.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn18.jpg"
+        ],
         "bestSeller": false,
         "purchases": 365
     },
     {
         "id": 167,
         "name": "Áo Khoác Nam Màu Pastel",
-        "price": "880.000đ",
+        "price": "¥2529",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn19.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn19.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn19.jpg"
+        ],
         "bestSeller": true,
         "purchases": 392
     },
     {
         "id": 168,
         "name": "Áo Khoác Nam Màu Đen",
-        "price": "850.000đ",
+        "price": "¥2047",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn20.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn20.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn20.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 169,
         "name": "Áo Khoác Nam Màu Trắng",
-        "price": "890.000đ",
+        "price": "¥2767",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn21.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn21.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn21.jpg"
+        ],
         "bestSeller": true,
         "purchases": 418
     },
     {
         "id": 170,
         "name": "Áo Khoác Nam Màu Xám",
-        "price": "870.000đ",
+        "price": "¥2152",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn22.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn22.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn22.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 171,
         "name": "Áo Khoác Nam Màu Be",
-        "price": "900.000đ",
+        "price": "¥2537",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn23.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn23.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn23.jpg"
+        ],
         "bestSeller": true,
         "purchases": 385
     },
     {
         "id": 172,
         "name": "Áo Khoác Nam Màu Xanh",
-        "price": "910.000đ",
+        "price": "¥2579",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn24.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn24.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn24.jpg"
+        ],
         "bestSeller": false,
         "purchases": 360
     },
     {
         "id": 173,
         "name": "Áo Khoác Nam Màu Nâu",
-        "price": "880.000đ",
+        "price": "¥3712",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn25.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn25.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn25.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 174,
         "name": "Áo Khoác Nam Màu Cam",
-        "price": "930.000đ",
+        "price": "¥2836",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn26.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn26.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn26.jpg"
+        ],
         "bestSeller": true,
         "purchases": 408
     },
     {
         "id": 175,
         "name": "Áo Khoác Nam Màu Tím",
-        "price": "950.000đ",
+        "price": "¥3787",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn27.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn27.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn27.jpg"
+        ],
         "bestSeller": false,
         "purchases": 372
     },
     {
         "id": 176,
         "name": "Áo Khoác Nam Màu Đỏ",
-        "price": "940.000đ",
+        "price": "¥3578",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn28.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn28.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn28.jpg"
+        ],
         "bestSeller": true,
         "purchases": 425
     },
     {
         "id": 177,
         "name": "Áo Khoác Nam Màu Xanh Lá",
-        "price": "900.000đ",
+        "price": "¥2668",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn29.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn29.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn29.jpg"
+        ],
         "bestSeller": false,
         "purchases": 358
     },
     {
         "id": 178,
         "name": "Áo Khoác Nam Màu Xanh Dương",
-        "price": "910.000đ",
+        "price": "¥2322",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn30.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn30.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn30.jpg"
+        ],
         "bestSeller": true,
         "purchases": 398
     },
     {
         "id": 179,
         "name": "Áo Khoác Nam Màu Kem",
-        "price": "890.000đ",
+        "price": "¥3122",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn31.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn31.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn31.jpg"
+        ],
         "bestSeller": true,
         "purchases": 412
     },
     {
         "id": 180,
         "name": "Áo Khoác Nam Màu Hồng Đậm",
-        "price": "960.000đ",
+        "price": "¥2676",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn32.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn32.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn32.jpg"
+        ],
         "bestSeller": true,
         "purchases": 440
     },
     {
         "id": 181,
         "name": "Áo Khoác Nam Màu Xám Đậm",
-        "price": "880.000đ",
+        "price": "¥3142",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn33.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn33.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn33.jpg"
+        ],
         "bestSeller": false,
         "purchases": 365
     },
     {
         "id": 182,
         "name": "Áo Khoác Nam Phong Cách Hàn Quốc",
-        "price": "1.100.000đ",
+        "price": "¥2476",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn34.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn34.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn34.jpg"
+        ],
         "bestSeller": true,
         "purchases": 450
     },
     {
         "id": 183,
         "name": "Áo Khoác Nam Phong Cách Streetwear",
-        "price": "1.050.000đ",
+        "price": "¥3219",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn35.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn35.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn35.jpg"
+        ],
         "bestSeller": true,
         "purchases": 430
     },
     {
         "id": 184,
         "name": "Áo Khoác Nam Phong Cách Casual",
-        "price": "920.000đ",
+        "price": "¥2412",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn36.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn36.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn36.jpg"
+        ],
         "bestSeller": false,
         "purchases": 375
     },
     {
         "id": 185,
         "name": "Áo Khoác Nam Phong Cách Sport",
-        "price": "980.000đ",
+        "price": "¥2180",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn37.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn37.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn37.jpg"
+        ],
         "bestSeller": true,
         "purchases": 420
     },
     {
         "id": 186,
         "name": "Áo Khoác Nam Phong Cách Military",
-        "price": "1.120.000đ",
+        "price": "¥3048",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn38.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn38.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn38.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 187,
         "name": "Áo Khoác Nam Phong Cách Vintage",
-        "price": "950.000đ",
+        "price": "¥3777",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn39.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn39.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn39.jpg"
+        ],
         "bestSeller": false,
         "purchases": 380
     },
     {
         "id": 188,
         "name": "Áo Khoác Nam Phong Cách Urban",
-        "price": "1.080.000đ",
+        "price": "¥3669",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn40.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn40.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn40.jpg"
+        ],
         "bestSeller": true,
         "purchases": 435
     },
     {
         "id": 189,
         "name": "Áo Khoác Nam Phong Cách Minimalist",
-        "price": "890.000đ",
+        "price": "¥3895",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn41.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn41.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn41.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 190,
         "name": "Áo Khoác Nam Phong Cách Oversized",
-        "price": "1.000.000đ",
+        "price": "¥3771",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn42.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn42.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn42.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 191,
         "name": "Áo Khoác Nam Phong Cách Slim Fit",
-        "price": "920.000đ",
+        "price": "¥3859",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn43.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn43.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn43.jpg"
+        ],
         "bestSeller": false,
         "purchases": 370
     },
     {
         "id": 192,
         "name": "Áo Khoác Nam Phong Cách Classic",
-        "price": "980.000đ",
+        "price": "¥2508",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn44.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn44.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn44.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 193,
         "name": "Áo Khoác Nam Phong Cách Modern",
-        "price": "1.050.000đ",
+        "price": "¥3798",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn45.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn45.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn45.jpg"
+        ],
         "bestSeller": true,
         "purchases": 425
     },
     {
         "id": 194,
         "name": "Áo Khoác Nam Phong Cách Techwear",
-        "price": "1.200.000đ",
+        "price": "¥3009",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn46.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn46.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn46.jpg"
+        ],
         "bestSeller": true,
         "purchases": 460
     },
     {
         "id": 195,
         "name": "Áo Khoác Nam Phong Cách Workwear",
-        "price": "1.100.000đ",
+        "price": "¥2058",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn47.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn47.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn47.jpg"
+        ],
         "bestSeller": false,
         "purchases": 390
     },
     {
         "id": 196,
         "name": "Áo Khoác Nam Phong Cách Denim",
-        "price": "950.000đ",
+        "price": "¥3010",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn48.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn48.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn48.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 197,
         "name": "Áo Khoác Nam Phong Cách Leather",
-        "price": "1.350.000đ",
+        "price": "¥3185",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn49.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn49.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn49.jpg"
+        ],
         "bestSeller": true,
         "purchases": 480
     },
     {
         "id": 198,
         "name": "Áo Khoác Nam Phong Cách Suede",
-        "price": "1.250.000đ",
+        "price": "¥2299",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn50.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn50.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn50.jpg"
+        ],
         "bestSeller": true,
         "purchases": 455
     },
     {
         "id": 199,
         "name": "Áo Khoác Nam Phong Cách Corduroy",
-        "price": "980.000đ",
+        "price": "¥2244",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn51.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn51.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn51.jpg"
+        ],
         "bestSeller": false,
         "purchases": 385
     },
     {
         "id": 200,
         "name": "Áo Khoác Nam Phong Cách Canvas",
-        "price": "920.000đ",
+        "price": "¥3996",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn52.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn52.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn52.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 201,
         "name": "Áo Khoác Nam Phong Cách Nylon",
-        "price": "1.080.000đ",
+        "price": "¥3140",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn53.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn53.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn53.jpg"
+        ],
         "bestSeller": true,
         "purchases": 430
     },
     {
         "id": 202,
         "name": "Áo Khoác Nam Phong Cách Polyester",
-        "price": "850.000đ",
+        "price": "¥3130",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn54.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn54.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn54.jpg"
+        ],
         "bestSeller": false,
         "purchases": 360
     },
     {
         "id": 203,
         "name": "Áo Khoác Nam Phong Cách Cotton",
-        "price": "880.000đ",
+        "price": "¥3065",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn55.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn55.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn55.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 204,
         "name": "Áo Khoác Nam Phong Cách Wool",
-        "price": "1.150.000đ",
+        "price": "¥2170",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn56.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn56.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn56.jpg"
+        ],
         "bestSeller": true,
         "purchases": 440
     },
     {
         "id": 205,
         "name": "Áo Khoác Nam Phong Cách Fleece",
-        "price": "890.000đ",
+        "price": "¥3746",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn57.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn57.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn57.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 206,
         "name": "Áo Khoác Nam Phong Cách Quilted",
-        "price": "1.100.000đ",
+        "price": "¥2569",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn58.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn58.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn58.jpg"
+        ],
         "bestSeller": true,
         "purchases": 425
     },
     {
         "id": 207,
         "name": "Áo Khoác Nam Phong Cách Puffer",
-        "price": "1.180.000đ",
+        "price": "¥3306",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn59.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn59.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn59.jpg"
+        ],
         "bestSeller": true,
         "purchases": 450
     },
     {
         "id": 208,
         "name": "Áo Khoác Nam Phong Cách Windbreaker",
-        "price": "950.000đ",
+        "price": "¥3810",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn60.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn60.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn60.jpg"
+        ],
         "bestSeller": false,
         "purchases": 375
     },
     {
         "id": 209,
         "name": "Áo Khoác Nam Phong Cách Trench",
-        "price": "1.250.000đ",
+        "price": "¥3125",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn61.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn61.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn61.jpg"
+        ],
         "bestSeller": true,
         "purchases": 470
     },
     {
         "id": 210,
         "name": "Áo Khoác Nam Phong Cách Parka",
-        "price": "1.300.000đ",
+        "price": "¥2085",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn62.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn62.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn62.jpg"
+        ],
         "bestSeller": true,
         "purchases": 485
     },
     {
         "id": 211,
         "name": "Áo Khoác Nam Phong Cách Anorak",
-        "price": "980.000đ",
+        "price": "¥3007",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn63.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn63.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn63.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 212,
         "name": "Áo Khoác Nam Phong Cách Hoodie",
-        "price": "920.000đ",
+        "price": "¥3846",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn64.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn64.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn64.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 213,
         "name": "Áo Khoác Nam Phong Cách Blouson",
-        "price": "1.050.000đ",
+        "price": "¥3898",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn65.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn65.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn65.jpg"
+        ],
         "bestSeller": false,
         "purchases": 380
     },
     {
         "id": 214,
         "name": "Áo Khoác Nam Phong Cách Field",
-        "price": "1.150.000đ",
+        "price": "¥2254",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn66.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn66.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn66.jpg"
+        ],
         "bestSeller": true,
         "purchases": 435
     },
     {
         "id": 215,
         "name": "Áo Khoác Nam Phong Cách Moto",
-        "price": "1.400.000đ",
+        "price": "¥2239",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn67.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn67.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn67.jpg"
+        ],
         "bestSeller": true,
         "purchases": 495
     },
     {
         "id": 216,
         "name": "Áo Khoác Nam Phong Cách Biker",
-        "price": "1.350.000đ",
+        "price": "¥3892",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn68.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn68.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn68.jpg"
+        ],
         "bestSeller": true,
         "purchases": 475
     },
     {
         "id": 217,
         "name": "Áo Khoác Nam Phong Cách Varsity",
-        "price": "1.100.000đ",
+        "price": "¥2659",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn69.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn69.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn69.jpg"
+        ],
         "bestSeller": true,
         "purchases": 420
     },
     {
         "id": 218,
         "name": "Áo Khoác Nam Phong Cách Letterman",
-        "price": "1.080.000đ",
+        "price": "¥2034",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn70.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn70.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn70.jpg"
+        ],
         "bestSeller": false,
         "purchases": 390
     },
     {
         "id": 219,
         "name": "Áo Khoác Nam Phong Cách Track",
-        "price": "950.000đ",
+        "price": "¥3494",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn71.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn71.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn71.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 220,
         "name": "Áo Khoác Nam Phong Cách Coach",
-        "price": "1.200.000đ",
+        "price": "¥3543",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn72.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn72.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn72.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 221,
         "name": "Áo Khoác Nam Phong Cách Harrington",
-        "price": "980.000đ",
+        "price": "¥2841",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn73.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn73.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn73.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 222,
         "name": "Áo Khoác Nam Phong Cách Gilet",
-        "price": "850.000đ",
+        "price": "¥2708",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn74.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn74.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn74.jpg"
+        ],
         "bestSeller": false,
         "purchases": 365
     },
     {
         "id": 223,
         "name": "Áo Khoác Nam Phong Cách Gilet Lông",
-        "price": "1.100.000đ",
+        "price": "¥2336",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn75.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn75.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn75.jpg"
+        ],
         "bestSeller": true,
         "purchases": 430
     },
     {
         "id": 224,
         "name": "Áo Khoác Nam Phong Cách Gilet Phao",
-        "price": "980.000đ",
+        "price": "¥2108",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn76.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn76.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn76.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 225,
         "name": "Áo Khoác Nam Phong Cách Gilet Len",
-        "price": "890.000đ",
+        "price": "¥3373",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn77.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn77.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn77.jpg"
+        ],
         "bestSeller": false,
         "purchases": 375
     },
     {
         "id": 226,
         "name": "Áo Khoác Nam Phong Cách Gilet Nỉ",
-        "price": "820.000đ",
+        "price": "¥2799",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn78.jpg",
-        "images": ["assets/image/ao-nam/ao-dong-nam/adn78.jpg"],
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adn78.jpg"
+        ],
         "bestSeller": true,
         "purchases": 390
     },
     {
         "id": 227,
         "name": "Giày Sneaker Nữ Thời Trang",
-        "price": "850.000đ",
+        "price": "¥2723",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt1.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt1.jpg"
+        ],
         "bestSeller": true,
         "purchases": 420
     },
     {
         "id": 228,
         "name": "Giày Sneaker Nữ Cổ Thấp",
-        "price": "780.000đ",
+        "price": "¥2626",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt2.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt2.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt2.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 229,
         "name": "Giày Sneaker Nữ Cổ Cao",
-        "price": "920.000đ",
+        "price": "¥3301",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt3.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt3.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt3.jpg"
+        ],
         "bestSeller": false,
         "purchases": 360
     },
     {
         "id": 230,
         "name": "Giày Sneaker Nữ Platform",
-        "price": "950.000đ",
+        "price": "¥2391",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt4.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt4.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt4.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 231,
         "name": "Giày Sneaker Nữ Màu Trắng",
-        "price": "880.000đ",
+        "price": "¥3408",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt5.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt5.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt5.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 232,
         "name": "Giày Sneaker Nữ Màu Đen",
-        "price": "850.000đ",
+        "price": "¥3039",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt6.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt6.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt6.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 233,
         "name": "Giày Sneaker Nữ Màu Hồng",
-        "price": "920.000đ",
+        "price": "¥3187",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt7.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt7.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt7.jpg"
+        ],
         "bestSeller": false,
         "purchases": 348
     },
     {
         "id": 234,
         "name": "Giày Sneaker Nữ Màu Xám",
-        "price": "870.000đ",
+        "price": "¥3300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt8.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt8.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt8.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 235,
         "name": "Giày Sneaker Nữ Màu Be",
-        "price": "900.000đ",
+        "price": "¥2605",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt9.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt9.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt9.jpg"
+        ],
         "bestSeller": true,
         "purchases": 385
     },
     {
         "id": 236,
         "name": "Giày Sneaker Nữ Màu Xanh",
-        "price": "910.000đ",
+        "price": "¥2214",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt10.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt10.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt10.jpg"
+        ],
         "bestSeller": false,
         "purchases": 360
     },
     {
         "id": 237,
         "name": "Giày Sneaker Nữ Màu Nâu",
-        "price": "880.000đ",
+        "price": "¥3380",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt11.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt11.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt11.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 238,
         "name": "Giày Sneaker Nữ Màu Cam",
-        "price": "930.000đ",
+        "price": "¥2111",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt12.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt12.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt12.jpg"
+        ],
         "bestSeller": true,
         "purchases": 408
     },
     {
         "id": 239,
         "name": "Giày Sneaker Nữ Màu Tím",
-        "price": "950.000đ",
+        "price": "¥3197",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt13.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt13.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt13.jpg"
+        ],
         "bestSeller": false,
         "purchases": 372
     },
     {
         "id": 240,
         "name": "Giày Sneaker Nữ Màu Đỏ",
-        "price": "940.000đ",
+        "price": "¥2517",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt14.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt14.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt14.jpg"
+        ],
         "bestSeller": true,
         "purchases": 425
     },
     {
         "id": 241,
         "name": "Giày Sneaker Nữ Màu Xanh Lá",
-        "price": "900.000đ",
+        "price": "¥2440",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt15.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt15.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt15.jpg"
+        ],
         "bestSeller": false,
         "purchases": 358
     },
     {
         "id": 242,
         "name": "Giày Sneaker Nữ Màu Xanh Dương",
-        "price": "910.000đ",
+        "price": "¥3067",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt16.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt16.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt16.jpg"
+        ],
         "bestSeller": true,
         "purchases": 398
     },
     {
         "id": 243,
         "name": "Giày Sneaker Nữ Màu Kem",
-        "price": "890.000đ",
+        "price": "¥2689",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt17.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt17.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt17.jpg"
+        ],
         "bestSeller": true,
         "purchases": 412
     },
     {
         "id": 244,
         "name": "Giày Sneaker Nữ Màu Hồng Đậm",
-        "price": "960.000đ",
+        "price": "¥3752",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt18.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt18.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt18.jpg"
+        ],
         "bestSeller": true,
         "purchases": 440
     },
     {
         "id": 245,
         "name": "Giày Sneaker Nữ Màu Xám Đậm",
-        "price": "880.000đ",
+        "price": "¥2071",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt19.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt19.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt19.jpg"
+        ],
         "bestSeller": false,
         "purchases": 365
     },
     {
         "id": 246,
         "name": "Giày Sneaker Nữ Phong Cách Hàn Quốc",
-        "price": "1.100.000đ",
+        "price": "¥2705",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt20.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt20.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt20.jpg"
+        ],
         "bestSeller": true,
         "purchases": 450
     },
     {
         "id": 247,
         "name": "Giày Sneaker Nữ Phong Cách Streetwear",
-        "price": "1.050.000đ",
+        "price": "¥2524",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt21.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt21.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt21.jpg"
+        ],
         "bestSeller": true,
         "purchases": 430
     },
     {
         "id": 248,
         "name": "Giày Sneaker Nữ Phong Cách Casual",
-        "price": "920.000đ",
+        "price": "¥3387",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt22.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt22.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt22.jpg"
+        ],
         "bestSeller": false,
         "purchases": 375
     },
     {
         "id": 249,
         "name": "Giày Sneaker Nữ Phong Cách Sport",
-        "price": "980.000đ",
+        "price": "¥2927",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt23.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt23.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt23.jpg"
+        ],
         "bestSeller": true,
         "purchases": 420
     },
     {
         "id": 250,
         "name": "Giày Sneaker Nữ Phong Cách Retro",
-        "price": "1.000.000đ",
+        "price": "¥2538",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt24.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt24.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt24.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 251,
         "name": "Giày Sneaker Nữ Phong Cách Classic",
-        "price": "980.000đ",
+        "price": "¥2433",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt25.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt25.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt25.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 252,
         "name": "Giày Sneaker Nữ Phong Cách Modern",
-        "price": "1.050.000đ",
+        "price": "¥3146",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt26.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt26.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt26.jpg"
+        ],
         "bestSeller": true,
         "purchases": 425
     },
     {
         "id": 253,
         "name": "Giày Sneaker Nữ Phong Cách Minimalist",
-        "price": "890.000đ",
+        "price": "¥3189",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt27.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt27.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt27.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 254,
         "name": "Giày Sneaker Nữ Phong Cách Oversized",
-        "price": "1.000.000đ",
+        "price": "¥3399",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt28.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt28.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt28.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 255,
         "name": "Giày Sneaker Nữ Phong Cách Slim Fit",
-        "price": "920.000đ",
+        "price": "¥2501",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt29.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt29.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt29.jpg"
+        ],
         "bestSeller": false,
         "purchases": 370
     },
     {
         "id": 256,
         "name": "Giày Sneaker Nữ Phong Cách Vintage",
-        "price": "950.000đ",
+        "price": "¥2500",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt30.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt30.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt30.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 257,
         "name": "Giày Sneaker Nữ Phong Cách Urban",
-        "price": "1.080.000đ",
+        "price": "¥3895",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt31.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt31.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt31.jpg"
+        ],
         "bestSeller": true,
         "purchases": 435
     },
     {
         "id": 258,
         "name": "Giày Sneaker Nữ Canvas",
-        "price": "920.000đ",
+        "price": "¥2439",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt32.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt32.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt32.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 259,
         "name": "Giày Sneaker Nữ Leather",
-        "price": "1.350.000đ",
+        "price": "¥3845",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt33.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt33.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt33.jpg"
+        ],
         "bestSeller": true,
         "purchases": 480
     },
     {
         "id": 260,
         "name": "Giày Sneaker Nữ Suede",
-        "price": "1.250.000đ",
+        "price": "¥3283",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt34.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt34.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt34.jpg"
+        ],
         "bestSeller": true,
         "purchases": 455
     },
     {
         "id": 261,
         "name": "Giày Sneaker Nữ Mesh",
-        "price": "980.000đ",
+        "price": "¥3700",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt35.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt35.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt35.jpg"
+        ],
         "bestSeller": false,
         "purchases": 385
     },
     {
         "id": 262,
         "name": "Giày Sneaker Nữ Knit",
-        "price": "1.100.000đ",
+        "price": "¥3626",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt36.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt36.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt36.jpg"
+        ],
         "bestSeller": true,
         "purchases": 430
     },
     {
         "id": 263,
         "name": "Giày Sneaker Nữ Flyknit",
-        "price": "1.180.000đ",
+        "price": "¥3354",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt37.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt37.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt37.jpg"
+        ],
         "bestSeller": true,
         "purchases": 450
     },
     {
         "id": 264,
         "name": "Giày Sneaker Nữ Primeknit",
-        "price": "1.200.000đ",
+        "price": "¥3919",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt38.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt38.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt38.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 265,
         "name": "Giày Sneaker Nữ Boost",
-        "price": "1.350.000đ",
+        "price": "¥3495",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt39.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt39.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt39.jpg"
+        ],
         "bestSeller": true,
         "purchases": 475
     },
     {
         "id": 266,
         "name": "Giày Sneaker Nữ Air",
-        "price": "1.400.000đ",
+        "price": "¥2014",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt40.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt40.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt40.jpg"
+        ],
         "bestSeller": true,
         "purchases": 490
     },
     {
         "id": 267,
         "name": "Giày Sneaker Nữ React",
-        "price": "1.280.000đ",
+        "price": "¥2053",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt41.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt41.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt41.jpg"
+        ],
         "bestSeller": true,
         "purchases": 460
     },
     {
         "id": 268,
         "name": "Giày Sneaker Nữ Zoom",
-        "price": "1.320.000đ",
+        "price": "¥3022",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt42.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt42.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt42.jpg"
+        ],
         "bestSeller": false,
         "purchases": 420
     },
     {
         "id": 269,
         "name": "Giày Sneaker Nữ Gel",
-        "price": "1.150.000đ",
+        "price": "¥2354",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt43.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt43.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt43.jpg"
+        ],
         "bestSeller": true,
         "purchases": 440
     },
     {
         "id": 270,
         "name": "Giày Sneaker Nữ EVA",
-        "price": "980.000đ",
+        "price": "¥2996",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt44.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt44.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt44.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 271,
         "name": "Giày Sneaker Nữ Phylon",
-        "price": "1.050.000đ",
+        "price": "¥3675",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt45.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt45.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt45.jpg"
+        ],
         "bestSeller": false,
         "purchases": 380
     },
     {
         "id": 272,
         "name": "Giày Sneaker Nữ Lace Up",
-        "price": "920.000đ",
+        "price": "¥3919",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt46.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt46.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt46.jpg"
+        ],
         "bestSeller": true,
         "purchases": 400
     },
     {
         "id": 273,
         "name": "Giày Sneaker Nữ Slip On",
-        "price": "950.000đ",
+        "price": "¥3804",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt47.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt47.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt47.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 274,
         "name": "Giày Sneaker Nữ Velcro",
-        "price": "980.000đ",
+        "price": "¥2517",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt48.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt48.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt48.jpg"
+        ],
         "bestSeller": false,
         "purchases": 375
     },
     {
         "id": 275,
         "name": "Giày Sneaker Nữ Zipper",
-        "price": "1.000.000đ",
+        "price": "¥3602",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt49.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt49.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt49.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 276,
         "name": "Giày Sneaker Nữ Elastic",
-        "price": "1.080.000đ",
+        "price": "¥3262",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt50.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt50.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt50.jpg"
+        ],
         "bestSeller": true,
         "purchases": 435
     },
     {
         "id": 277,
         "name": "Giày Sneaker Nữ Low Top",
-        "price": "850.000đ",
+        "price": "¥2061",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt51.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt51.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt51.jpg"
+        ],
         "bestSeller": true,
         "purchases": 395
     },
     {
         "id": 278,
         "name": "Giày Sneaker Nữ Mid Top",
-        "price": "920.000đ",
+        "price": "¥2735",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt52.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt52.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt52.jpg"
+        ],
         "bestSeller": true,
         "purchases": 408
     },
     {
         "id": 279,
         "name": "Giày Sneaker Nữ High Top",
-        "price": "980.000đ",
+        "price": "¥3857",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt53.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt53.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt53.jpg"
+        ],
         "bestSeller": false,
         "purchases": 370
     },
     {
         "id": 280,
         "name": "Giày Sneaker Nữ Running",
-        "price": "1.200.000đ",
+        "price": "¥3961",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt54.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt54.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt54.jpg"
+        ],
         "bestSeller": true,
         "purchases": 450
     },
     {
         "id": 281,
         "name": "Giày Sneaker Nữ Walking",
-        "price": "950.000đ",
+        "price": "¥3945",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt55.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt55.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt55.jpg"
+        ],
         "bestSeller": true,
         "purchases": 410
     },
     {
         "id": 282,
         "name": "Giày Sneaker Nữ Training",
-        "price": "1.100.000đ",
+        "price": "¥2248",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt56.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt56.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt56.jpg"
+        ],
         "bestSeller": true,
         "purchases": 430
     },
     {
         "id": 283,
         "name": "Giày Sneaker Nữ Basketball",
-        "price": "1.350.000đ",
+        "price": "¥3622",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt57.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt57.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt57.jpg"
+        ],
         "bestSeller": true,
         "purchases": 480
     },
     {
         "id": 284,
         "name": "Giày Sneaker Nữ Tennis",
-        "price": "1.150.000đ",
+        "price": "¥2881",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt58.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt58.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt58.jpg"
+        ],
         "bestSeller": false,
         "purchases": 420
     },
     {
         "id": 285,
         "name": "Giày Sneaker Nữ Gym",
-        "price": "1.000.000đ",
+        "price": "¥2932",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt59.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt59.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt59.jpg"
+        ],
         "bestSeller": true,
         "purchases": 415
     },
     {
         "id": 286,
         "name": "Giày Sneaker Nữ Lifestyle",
-        "price": "980.000đ",
+        "price": "¥3548",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt60.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt60.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt60.jpg"
+        ],
         "bestSeller": true,
         "purchases": 405
     },
     {
         "id": 287,
         "name": "Giày Sneaker Nữ Fashion",
-        "price": "1.050.000đ",
+        "price": "¥3290",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt61.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt61.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt61.jpg"
+        ],
         "bestSeller": true,
         "purchases": 425
     },
     {
         "id": 288,
         "name": "Giày Sneaker Nữ Comfort",
-        "price": "1.080.000đ",
+        "price": "¥2911",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt62.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt62.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt62.jpg"
+        ],
         "bestSeller": true,
         "purchases": 435
     },
     {
         "id": 289,
         "name": "Giày Sneaker Nữ Lightweight",
-        "price": "1.100.000đ",
+        "price": "¥3195",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt63.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt63.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt63.jpg"
+        ],
         "bestSeller": false,
         "purchases": 390
     },
     {
         "id": 290,
         "name": "Giày Sneaker Nữ Cushioned",
-        "price": "1.200.000đ",
+        "price": "¥2458",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt64.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt64.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt64.jpg"
+        ],
         "bestSeller": true,
         "purchases": 445
     },
     {
         "id": 291,
         "name": "Giày Sneaker Nữ Breathable",
-        "price": "1.150.000đ",
+        "price": "¥3681",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/gtt65.jpg",
-        "images": ["assets/image/giay-nu/giay-the-thao/gtt65.jpg"],
+        "images": [
+            "assets/image/giay-nu/giay-the-thao/gtt65.jpg"
+        ],
         "bestSeller": true,
         "purchases": 440
     },
     {
         "id": 292,
         "name": "Túi Xách Nữ Đen Ngôi Sao Bạc",
-        "price": "¥2,000",
+        "price": "¥2169",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn1.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn1.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn1.JPG"
+        ],
         "bestSeller": false,
         "purchases": 100
     },
     {
         "id": 293,
         "name": "Túi Xách Nữ Xanh Dương Denim Hạt Bạc",
-        "price": "¥2,000",
+        "price": "¥2416",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn2.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn2.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn2.JPG"
+        ],
         "bestSeller": false,
         "purchases": 200
     },
     {
         "id": 294,
         "name": "Túi Xách Nữ Xám Trắng Nơ Bạc",
-        "price": "¥2,000",
+        "price": "¥3105",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn3.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn3.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn3.JPG"
+        ],
         "bestSeller": false,
         "purchases": 300
     },
     {
         "id": 295,
         "name": "Túi Xách Nữ Xanh Dương Denim Nơ Ngọc Trai",
-        "price": "¥2,000",
+        "price": "¥2570",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn4.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn4.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn4.JPG"
+        ],
         "bestSeller": false,
         "purchases": 400
     },
     {
         "id": 296,
         "name": "Túi Xách Nữ Hồng Nhạt Hobo Nơ Ngọc Trai",
-        "price": "¥2,000",
+        "price": "¥3092",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn5.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn5.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn5.JPG"
+        ],
         "bestSeller": false,
         "purchases": 100
     },
     {
         "id": 297,
         "name": "Túi Xách Nữ Be Chần Bông Hello Kitty",
-        "price": "¥2,000",
+        "price": "¥2249",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn6.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn6.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn6.JPG"
+        ],
         "bestSeller": false,
         "purchases": 200
     },
     {
         "id": 298,
         "name": "Túi Xách Nữ Đen Hello Kitty",
-        "price": "¥2,000",
+        "price": "¥2349",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn7.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn7.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn7.JPG"
+        ],
         "bestSeller": false,
         "purchases": 300
     },
     {
         "id": 299,
         "name": "Túi Xách Nữ Xanh Trắng Backpack Patch Mèo",
-        "price": "¥2,000",
+        "price": "¥2500",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn8.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn8.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn8.JPG"
+        ],
         "bestSeller": false,
         "purchases": 400
     },
     {
         "id": 300,
         "name": "Túi Xách Nữ Bạc Metallic Crinkled",
-        "price": "¥2,000",
+        "price": "¥3720",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn9.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn9.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn9.JPG"
+        ],
         "bestSeller": false,
         "purchases": 100
     },
     {
         "id": 301,
         "name": "Túi Xách Nữ Nâu Charm Thỏ",
-        "price": "¥2,000",
+        "price": "¥3133",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn10.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn10.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn10.JPG"
+        ],
         "bestSeller": false,
         "purchases": 200
     },
     {
         "id": 302,
         "name": "Túi Xách Nữ Nâu Khóa Bạc",
-        "price": "¥2,000",
+        "price": "¥3155",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn11.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn11.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn11.JPG"
+        ],
         "bestSeller": false,
         "purchases": 300
     },
     {
         "id": 303,
         "name": "Túi Xách Nữ Đen Lazy Breeze",
-        "price": "¥2,000",
+        "price": "¥2969",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn12.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn12.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn12.JPG"
+        ],
         "bestSeller": false,
         "purchases": 400
     },
     {
         "id": 304,
         "name": "Túi Xách Nữ Nâu Bóng Hobo",
-        "price": "¥2,000",
+        "price": "¥3429",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn13.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn13.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn13.JPG"
+        ],
         "bestSeller": false,
         "purchases": 100
     },
     {
         "id": 305,
         "name": "Túi Xách Nữ Leopard Hello Kitty",
-        "price": "¥2,000",
+        "price": "¥2991",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn14.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn14.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn14.JPG"
+        ],
         "bestSeller": false,
         "purchases": 200
     },
     {
         "id": 306,
         "name": "Túi Xách Nữ Nâu Hạt Gỗ Charm Hoa Cúc",
-        "price": "¥2,000",
+        "price": "¥2849",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn15.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn15.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn15.JPG"
+        ],
         "bestSeller": false,
         "purchases": 300
     },
     {
         "id": 307,
         "name": "Túi Xách Nữ Be Kẻ Sọc Charm Thỏ",
-        "price": "¥2,000",
+        "price": "¥2079",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn16.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn16.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn16.JPG"
+        ],
         "bestSeller": false,
         "purchases": 400
     },
     {
         "id": 308,
         "name": "Túi Xách Nữ Kem Lazy Breeze",
-        "price": "¥2,000",
+        "price": "¥2442",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn17.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn17.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn17.JPG"
+        ],
         "bestSeller": false,
         "purchases": 100
     },
     {
         "id": 309,
         "name": "Túi Xách Nữ Nâu Da Lộn Charm Mắt",
-        "price": "¥2,000",
+        "price": "¥2797",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn18.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn18.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn18.JPG"
+        ],
         "bestSeller": false,
         "purchases": 200
     },
     {
         "id": 310,
         "name": "Túi Xách Nữ Đen Tote Chain Vàng",
-        "price": "¥2,000",
+        "price": "¥2436",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn19.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn19.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn19.JPG"
+        ],
         "bestSeller": false,
         "purchases": 300
     },
     {
         "id": 311,
         "name": "Túi Xách Nữ Nâu Da Lộn Hobo",
-        "price": "¥2,000",
+        "price": "¥2660",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn20.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn20.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn20.JPG"
+        ],
         "bestSeller": false,
         "purchases": 400
     },
     {
         "id": 312,
         "name": "Túi Xách Nữ Xám Hồng Ombre",
-        "price": "¥2,000",
+        "price": "¥2412",
         "category": "tui-xach-nu",
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/txn21.JPG",
-        "images": ["assets/image/tui-xach/tui-xach-nu/txn21.JPG"],
+        "images": [
+            "assets/image/tui-xach/tui-xach-nu/txn21.JPG"
+        ],
         "bestSeller": false,
         "purchases": 100
     }
