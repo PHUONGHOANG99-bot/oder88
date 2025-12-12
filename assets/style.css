@@ -1051,6 +1051,81 @@ body {
     color: white;
 }
 
+/* Extra compact mobile categories for small phones */
+@media (max-width: 480px) {
+    .mobile-categories {
+        width: min(300px, 92vw);
+        max-width: 92vw;
+    }
+
+    .mobile-categories-header {
+        padding: 16px 14px;
+    }
+
+    .mobile-categories-header h3 {
+        font-size: 1rem;
+        gap: 8px;
+        letter-spacing: 0.2px;
+    }
+
+    .mobile-categories-header h3 i {
+        font-size: 1.15rem;
+    }
+
+    .close-mobile-menu {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .mobile-categories-list {
+        padding: 14px 12px;
+        padding-bottom: 90px;
+    }
+
+    .mobile-category-btn {
+        font-size: 0.92rem;
+        margin-bottom: 8px;
+        border-radius: 12px;
+    }
+
+    .mobile-category-image {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        border-radius: 12px 0 0 12px;
+    }
+
+    .mobile-category-icon-fallback {
+        font-size: 1.25rem;
+    }
+
+    .mobile-category-text {
+        padding: 10px 12px;
+    }
+
+    .mobile-category-btn .subcategory-arrow {
+        margin-right: 12px;
+        font-size: 0.85rem;
+    }
+
+    .subcategories {
+        margin-left: 14px;
+        padding-left: 8px;
+    }
+
+    .subcategory-btn .mobile-category-image {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .subcategory-btn .mobile-category-text {
+        padding-left: 12px;
+    }
+}
+
 /* Featured Products Wrapper - LIÊN KẾT 2 SECTIONS */
 .featured-products-wrapper {
     position: relative;
