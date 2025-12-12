@@ -340,7 +340,7 @@ body {
 }
 
 .header-brand-text::before {
-    content: "O D E R 8 8";
+    content: "ODER 88";
     position: absolute;
     top: 2px;
     left: 2px;
@@ -3685,7 +3685,7 @@ body {
 
     .header-brand-text {
         font-size: clamp(2rem, 9vw, 3rem) !important;
-        letter-spacing: clamp(4px, 2.5vw, 10px) !important;
+        letter-spacing: clamp(2px, 1.6vw, 6px) !important;
         white-space: nowrap;
         overflow: visible;
         text-overflow: clip;
