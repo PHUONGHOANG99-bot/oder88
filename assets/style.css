@@ -340,7 +340,7 @@ body {
 }
 
 .header-brand-text::before {
-    content: "ODER 88";
+    content: "ODER88";
     position: absolute;
     top: 2px;
     left: 2px;
@@ -2285,8 +2285,6 @@ body {
     z-index: 4000;
     animation: fadeIn 0.3s ease;
     touch-action: none;
-    /* Reserve space at the bottom so fixed info/thumbnails never overlap the image */
-    --gallery-bottom-reserve: clamp(220px, 30vh, 340px);
 }
 
 .product-gallery-modal.show {
@@ -2319,9 +2317,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(255, 102, 0, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(255, 102, 0, 0.02) 0%, transparent 50%),
+    background: radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 102, 0, 0.03) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 102, 0, 0.02) 0%,
+            transparent 50%
+        ),
         repeating-linear-gradient(
             0deg,
             transparent,
@@ -2371,8 +2376,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
         0 0 0 1px rgba(0, 0, 0, 0.05) inset;
 }
 
@@ -2396,28 +2400,45 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: 
-        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5) 0%, rgba(245, 247, 250, 0.3) 70%),
-        linear-gradient(135deg, rgba(250, 252, 255, 0.4) 0%, rgba(248, 250, 252, 0.4) 100%);
+    background: radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(245, 247, 250, 0.3) 70%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(250, 252, 255, 0.4) 0%,
+            rgba(248, 250, 252, 0.4) 100%
+        );
     overflow: hidden;
     touch-action: none;
-    padding-bottom: calc(var(--gallery-bottom-reserve) + env(safe-area-inset-bottom));
+    padding-bottom: 200px; /* Space for gallery-info and thumbnails */
     box-sizing: border-box;
 }
 
 .gallery-main-image-wrapper {
     position: relative;
     width: 100%;
-    height: calc(100% - var(--gallery-bottom-reserve) - env(safe-area-inset-bottom));
+    height: 100%;
+    max-height: calc(100vh - 250px); /* Ensure wrapper respects available space */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     touch-action: none;
-    background: 
-        radial-gradient(circle at center, rgba(255, 255, 255, 0.6) 0%, rgba(248, 250, 252, 0.4) 60%),
-        linear-gradient(135deg, rgba(252, 253, 255, 0.3) 0%, rgba(250, 252, 255, 0.3) 100%);
+    background: radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(248, 250, 252, 0.4) 60%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(252, 253, 255, 0.3) 0%,
+            rgba(250, 252, 255, 0.3) 100%
+        );
     cursor: grab;
+    padding: 20px; /* Add padding for better visual spacing */
+    box-sizing: border-box;
 }
 
 .gallery-main-image-wrapper::before {
@@ -2427,14 +2448,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 10px,
-            rgba(0, 0, 0, 0.008) 10px,
-            rgba(0, 0, 0, 0.008) 20px
-        );
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(0, 0, 0, 0.008) 10px,
+        rgba(0, 0, 0, 0.008) 20px
+    );
     pointer-events: none;
     opacity: 0.2;
 }
@@ -2444,15 +2464,13 @@ body {
 }
 
 .gallery-main-image {
-    max-width: 100vw;
-    max-height: calc(100vh - var(--gallery-bottom-reserve) - env(safe-area-inset-bottom));
+    max-width: 100%; /* Use full width of wrapper (which already accounts for padding) */
+    max-height: 100%; /* Use full height of wrapper (which already accounts for info section) */
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 0;
-    box-shadow: 
-        0 0 0 1px rgba(0, 0, 0, 0.05),
-        0 20px 60px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.15),
         0 0 100px rgba(0, 0, 0, 0.08);
     transition: opacity 0.3s ease, box-shadow 0.3s ease;
     cursor: grab;
@@ -2465,6 +2483,8 @@ body {
     will-change: transform;
     background: rgba(255, 255, 255, 0.3);
     padding: 2px;
+    display: block; /* Ensure proper display */
+    margin: 0 auto; /* Center the image */
 }
 
 .gallery-main-image.zoomed {
@@ -2504,8 +2524,7 @@ body {
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 5;
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
         0 0 0 1px rgba(0, 0, 0, 0.05) inset;
     opacity: 0.9;
 }
@@ -2533,7 +2552,7 @@ body {
 
 .gallery-zoom-controls {
     position: fixed;
-    bottom: calc(var(--gallery-bottom-reserve) + 12px + env(safe-area-inset-bottom));
+    bottom: 30px;
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -2547,8 +2566,7 @@ body {
     -webkit-backdrop-filter: blur(30px) saturate(180%);
     padding: 10px;
     border-radius: 30px;
-    box-shadow: 
-        0 4px 25px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15),
         0 0 0 1px rgba(0, 0, 0, 0.05) inset;
     border: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 10;
@@ -2583,7 +2601,7 @@ body {
 
 .gallery-thumbnails {
     position: fixed;
-    bottom: calc(var(--gallery-bottom-reserve) + 12px + env(safe-area-inset-bottom));
+    bottom: 200px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -2602,8 +2620,7 @@ body {
     scrollbar-width: thin;
     max-width: 90%;
     z-index: 10;
-    box-shadow: 
-        0 4px 25px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15),
         0 0 0 1px rgba(0, 0, 0, 0.05) inset;
     border: 1px solid rgba(0, 0, 0, 0.1);
     transition: bottom 0.3s ease;
@@ -2616,8 +2633,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        radial-gradient(circle at center, rgba(255, 102, 0, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 102, 0, 0.08) 0%,
+        transparent 70%
+    );
     border-radius: 30px;
     pointer-events: none;
     opacity: 0.4;
@@ -2710,12 +2730,8 @@ body {
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
     padding: 25px 20px;
-    max-height: calc(var(--gallery-bottom-reserve) + env(safe-area-inset-bottom));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
     z-index: 10;
-    box-shadow: 
-        0 -4px 30px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.15),
         0 -1px 0 rgba(0, 0, 0, 0.05) inset;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     animation: slideUpInfo 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2728,13 +2744,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255, 102, 0, 0.05) 50%,
-            transparent 100%
-        );
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 102, 0, 0.05) 50%,
+        transparent 100%
+    );
     pointer-events: none;
     opacity: 0.3;
 }
@@ -2808,10 +2823,8 @@ body {
     white-space: nowrap;
     flex-shrink: 0;
     transition: all 0.3s ease;
-    text-shadow: 
-        0 1px 2px rgba(255, 255, 255, 0.8),
-        0 0 4px rgba(255, 102, 0, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8),
+        0 0 4px rgba(255, 102, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0.3px;
@@ -2828,8 +2841,7 @@ body {
 .gallery-shipping i {
     font-size: 1rem;
     color: #ff4500;
-    filter: 
-        drop-shadow(0 1px 2px rgba(255, 255, 255, 0.6))
+    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.6))
         drop-shadow(0 0 3px rgba(255, 102, 0, 0.4));
     font-weight: 900;
 }
@@ -2840,8 +2852,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    filter: 
-        drop-shadow(0 1px 2px rgba(255, 255, 255, 0.5))
+    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.5))
         drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
     animation: flagWave 2s ease-in-out infinite;
     transform-origin: center;
@@ -2853,14 +2864,13 @@ body {
     font-size: 0.9rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-shadow: 
-        0 1px 2px rgba(255, 255, 255, 0.9),
-        0 0 4px rgba(255, 102, 0, 0.4),
-        0 2px 4px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9),
+        0 0 4px rgba(255, 102, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes flagWave {
-    0%, 100% {
+    0%,
+    100% {
         transform: rotate(0deg) scale(1);
     }
     25% {
@@ -2900,8 +2910,7 @@ body {
     border: none;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 6px 25px rgba(255, 102, 0, 0.4),
-        0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 25px rgba(255, 102, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
@@ -2930,15 +2939,13 @@ body {
 
 .gallery-order-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 35px rgba(255, 102, 0, 0.6),
-        0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 35px rgba(255, 102, 0, 0.6), 0 4px 15px rgba(0, 0, 0, 0.3);
     background: linear-gradient(135deg, #ff7700 0%, #ff6600 50%, #ff8800 100%);
 }
 
 .gallery-order-btn:active {
     transform: translateY(0);
-    box-shadow: 0 4px 20px rgba(255, 102, 0, 0.5),
-        0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 102, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-order-btn i {
@@ -2956,9 +2963,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .product-gallery-modal {
-        --gallery-bottom-reserve: clamp(190px, 32vh, 320px);
-    }
     .gallery-close-btn {
         width: 45px;
         height: 45px;
@@ -2982,7 +2986,7 @@ body {
     }
 
     .gallery-zoom-controls {
-        bottom: calc(var(--gallery-bottom-reserve) + 10px + env(safe-area-inset-bottom));
+        bottom: 20px;
         right: 15px;
         padding: 8px;
         gap: 10px;
@@ -2994,8 +2998,17 @@ body {
         font-size: 1rem;
     }
 
+    .gallery-main {
+        padding-bottom: 180px; /* Adjusted for smaller screens */
+    }
+
+    .gallery-main-image-wrapper {
+        max-height: calc(100vh - 220px); /* Adjusted for smaller screens */
+        padding: 15px; /* Slightly less padding on tablets */
+    }
+
     .gallery-thumbnails {
-        bottom: calc(var(--gallery-bottom-reserve) + 10px + env(safe-area-inset-bottom));
+        bottom: 180px;
         padding: 12px 15px;
         gap: 10px;
     }
@@ -3048,9 +3061,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .product-gallery-modal {
-        --gallery-bottom-reserve: clamp(180px, 34vh, 320px);
-    }
     .gallery-close-btn {
         width: 40px;
         height: 40px;
@@ -3074,7 +3084,7 @@ body {
     }
 
     .gallery-zoom-controls {
-        bottom: calc(var(--gallery-bottom-reserve) + 8px + env(safe-area-inset-bottom));
+        bottom: 15px;
         right: 10px;
         padding: 6px;
         gap: 8px;
@@ -3086,8 +3096,17 @@ body {
         font-size: 0.9rem;
     }
 
+    .gallery-main {
+        padding-bottom: 160px; /* Adjusted for mobile screens */
+    }
+
+    .gallery-main-image-wrapper {
+        max-height: calc(100vh - 200px); /* Adjusted for mobile screens */
+        padding: 10px; /* Minimal padding on mobile */
+    }
+
     .gallery-thumbnails {
-        bottom: calc(var(--gallery-bottom-reserve) + 8px + env(safe-area-inset-bottom));
+        bottom: 160px;
         padding: 10px 12px;
         gap: 8px;
     }
