@@ -738,7 +738,7 @@ function initCategories() {
             id: "tui-xach",
             name: "Túi xách",
             icon: "fa-shopping-bag",
-            image: "assets/image/tui-xach/tui-xach-nu/tx1.JPG",
+            image: "assets/logo/logotuixachnu.JPG",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
@@ -878,7 +878,7 @@ function initMobileCategories() {
             id: "tui-xach",
             name: "Túi xách",
             icon: "fa-shopping-bag",
-            image: "assets/image/tui-xach/tui-xach-nu/tx1.JPG",
+            image: "assets/logo/logotuixachnu.JPG",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
@@ -1012,7 +1012,7 @@ function initMobileCategories() {
                             type="button"
                         >
                             <div class="mobile-category-image">
-                                <img src="assets/image/tui-xach/tui-xach-nu/tui-xach-nu-1.jpg" alt="Túi xách nữ" loading="lazy" onerror="this.src='assets/image/tui-xach/tx1.JPG'; this.onerror=null;">
+                                <img src="assets/logo/logotuixachnu.JPG" alt="Túi xách nữ" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
                                 <div class="mobile-category-icon-fallback" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: none;">
                                     <i class="fas fa-handbag"></i>
                                 </div>
