@@ -71,7 +71,7 @@ function formatPriceWithVND(price) {
     
     return {
         yen: yenFormatted,
-        vnd: `${vndFormatted}đ`
+        vnd: `VND ${vndFormatted}`
     };
 }
 

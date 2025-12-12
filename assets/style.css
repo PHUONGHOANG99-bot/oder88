@@ -1398,7 +1398,7 @@ body {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     white-space: nowrap;
 }
 
@@ -1945,34 +1945,20 @@ body {
     transform: rotate(180deg);
 }
 
-/* Products Tabs - ULTRA MODERN DESIGN */
+/* Products Tabs - MODERN SQUARE DESIGN */
 .products-tabs {
     display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 20px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
     margin-bottom: 0;
-    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border-bottom: 2px solid #f0f0f0;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
     position: relative;
-}
-
-.products-tabs::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 102, 0, 0.1) 50%,
-        transparent 100%
-    );
 }
 
 .products-tabs::-webkit-scrollbar {
@@ -1984,78 +1970,60 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    color: #555;
+    gap: 8px;
+    padding: 14px 24px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 0;
+    color: #666;
     font-size: 0.95rem;
     font-weight: 600;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
     position: relative;
     min-width: 0;
     max-width: 100%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     overflow: hidden;
+    text-transform: uppercase;
+    font-size: 0.875rem;
 }
 
 .tab-btn::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.4) 50%,
-        transparent 100%
+        135deg,
+        rgba(255, 102, 0, 0.05),
+        rgba(255, 140, 0, 0.05)
     );
-    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .tab-btn:hover::before {
-    left: 100%;
-}
-
-.tab-btn::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 70%;
-    height: 2.5px;
-    background: linear-gradient(90deg, transparent, #ff6600, transparent);
-    border-radius: 2px 2px 0 0;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.tab-btn:hover::after {
-    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
 }
 
 .tab-btn:hover {
     color: #ff6600;
-    background: rgba(255, 245, 240, 0.9);
-    border-color: rgba(255, 102, 0, 0.25);
-    box-shadow: 0 4px 16px rgba(255, 102, 0, 0.15),
-        0 2px 8px rgba(255, 102, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.95);
-    transform: translateY(-2px) scale(1.02);
+    background: #fff5f0;
+    border-color: #ff6600;
+    transform: translateY(-1px);
+}
+
+.tab-btn:active {
+    transform: translateY(0);
 }
 
 .tab-btn i {
-    font-size: 1.1rem;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 1rem;
+    transition: all 0.3s ease;
     position: relative;
     z-index: 1;
 }
@@ -2063,80 +2031,42 @@ body {
 .tab-btn span {
     position: relative;
     z-index: 1;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.3s ease;
 }
 
 .tab-btn:hover i {
     color: #ff6600;
-    transform: scale(1.15) rotate(5deg);
+    transform: scale(1.1);
 }
 
 .tab-btn.active {
     color: #ffffff;
-    background: linear-gradient(
-        135deg,
-        #ff6600 0%,
-        #ff8533 30%,
-        #ff6600 60%,
-        #ff8533 100%
-    );
-    background-size: 200% 100%;
+    background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
     border-color: #ff6600;
     font-weight: 700;
-    letter-spacing: 0.3px;
-    box-shadow: 0 6px 20px rgba(255, 102, 0, 0.35),
-        0 3px 10px rgba(255, 102, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    transform: translateY(-3px) scale(1.03);
-    animation: gradientShift 3s ease infinite;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .tab-btn.active::before {
     background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.25) 50%,
-        transparent 100%
+        135deg,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.05)
     );
-    animation: shimmerActive 2s ease-in-out infinite;
-}
-
-@keyframes shimmerActive {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-.tab-btn.active::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.6) 0%,
-        rgba(255, 255, 255, 0.9) 50%,
-        rgba(255, 255, 255, 0.6) 100%
-    );
-    border-radius: 0 0 2px 2px;
-    transform: translateX(0) scaleX(1);
-    box-shadow: 0 -2px 8px rgba(255, 102, 0, 0.3);
+    opacity: 1;
 }
 
 .tab-btn.active i {
     color: #ffffff;
-    transform: scale(1.15);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transform: scale(1.1);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .tab-btn.active span {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes pulse {
@@ -2449,7 +2379,9 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    max-height: calc(100vh - 250px); /* Ensure wrapper respects available space */
+    max-height: calc(
+        100vh - 250px
+    ); /* Ensure wrapper respects available space */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2838,7 +2770,13 @@ body {
 }
 
 .gallery-price-yen {
-    background: linear-gradient(135deg, #ff6600 0%, #ff8c00 30%, #ff5500 60%, #ff7700 100%);
+    background: linear-gradient(
+        135deg,
+        #ff6600 0%,
+        #ff8c00 30%,
+        #ff5500 60%,
+        #ff7700 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -2857,7 +2795,11 @@ body {
     right: -6px;
     top: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 102, 0, 0.15), rgba(255, 140, 0, 0.15));
+    background: linear-gradient(
+        135deg,
+        rgba(255, 102, 0, 0.15),
+        rgba(255, 140, 0, 0.15)
+    );
     border-radius: 10px;
     z-index: -1;
 }
@@ -2870,7 +2812,7 @@ body {
     padding: 5px 12px;
     border-radius: 14px;
     box-shadow: 0 3px 10px rgba(102, 126, 234, 0.35),
-                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -2880,7 +2822,7 @@ body {
 .gallery-price-vnd:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.45),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .gallery-shipping {
@@ -3303,7 +3245,11 @@ body {
     right: -4px;
     top: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 140, 0, 0.1));
+    background: linear-gradient(
+        135deg,
+        rgba(255, 102, 0, 0.1),
+        rgba(255, 140, 0, 0.1)
+    );
     border-radius: 8px;
     z-index: -1;
     opacity: 0;
@@ -3324,7 +3270,7 @@ body {
     border-radius: 12px;
     line-height: 1.2;
     box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
@@ -3340,7 +3286,12 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
     transition: left 0.5s ease;
 }
 
@@ -3351,7 +3302,7 @@ body {
 .product-card:hover .product-price-vnd {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .product-meta-info {
@@ -3375,7 +3326,11 @@ body {
     align-items: center;
     gap: 3px;
     padding: 4px 8px;
-    background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(40, 167, 69, 0.1) 0%,
+        rgba(40, 167, 69, 0.05) 100%
+    );
     border-radius: 20px;
     border: 1px solid rgba(40, 167, 69, 0.2);
     backdrop-filter: blur(10px);
@@ -3392,7 +3347,12 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(40, 167, 69, 0.1), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(40, 167, 69, 0.1),
+        transparent
+    );
     transition: left 0.5s ease;
 }
 
@@ -3401,7 +3361,11 @@ body {
 }
 
 .product-card:hover .product-purchases {
-    background: linear-gradient(135deg, rgba(40, 167, 69, 0.15) 0%, rgba(40, 167, 69, 0.08) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(40, 167, 69, 0.15) 0%,
+        rgba(40, 167, 69, 0.08) 100%
+    );
     border-color: rgba(40, 167, 69, 0.3);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
@@ -3429,7 +3393,11 @@ body {
     align-items: center;
     gap: 3px;
     padding: 4px 8px;
-    background: linear-gradient(135deg, rgba(255, 102, 0, 0.12) 0%, rgba(255, 102, 0, 0.06) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 102, 0, 0.12) 0%,
+        rgba(255, 102, 0, 0.06) 100%
+    );
     border-radius: 20px;
     border: 1px solid rgba(255, 102, 0, 0.25);
     backdrop-filter: blur(10px);
@@ -3446,7 +3414,12 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 102, 0, 0.1),
+        transparent
+    );
     transition: left 0.5s ease;
 }
 
@@ -3455,7 +3428,11 @@ body {
 }
 
 .product-card:hover .product-delivery {
-    background: linear-gradient(135deg, rgba(255, 102, 0, 0.18) 0%, rgba(255, 102, 0, 0.1) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 102, 0, 0.18) 0%,
+        rgba(255, 102, 0, 0.1) 100%
+    );
     border-color: rgba(255, 102, 0, 0.35);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(255, 102, 0, 0.2);
@@ -3921,7 +3898,7 @@ body {
 @media (max-width: 768px) {
     .products-tabs {
         padding: 16px 20px;
-        gap: 8px;
+        gap: 12px;
         margin-bottom: 0;
     }
 
@@ -3930,7 +3907,7 @@ body {
         font-size: 0.88rem;
         min-width: 0;
         flex: 1;
-        border-radius: 10px;
+        border-radius: 0;
     }
 
     .tab-btn i {
@@ -4424,30 +4401,30 @@ body {
 
 @media (max-width: 480px) {
     .products-tabs {
-        padding: 12px 16px;
-        gap: 6px;
+        padding: 12px 14px;
+        gap: 10px;
         margin-bottom: 16px;
     }
 
     .tab-btn {
-        padding: 8px 10px;
-        font-size: 0.85rem;
-        border-radius: 6px;
-        gap: 6px;
+        padding: 10px 14px;
+        font-size: 0.75rem;
+        border-radius: 0;
+        gap: 5px;
         min-width: 0;
         flex: 1;
     }
 
     .tab-btn i {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .tab-btn:hover {
-        transform: translateY(-1px);
+        transform: translateY(0);
     }
 
     .tab-btn.active {
-        transform: translateY(-1px);
+        transform: translateY(0);
     }
 
     .categories-grid {
@@ -4668,17 +4645,17 @@ body {
 
     /* Tabs responsive */
     .products-tabs {
-        padding: 14px 16px;
-        gap: 6px;
+        padding: 12px 14px;
+        gap: 5px;
         margin-bottom: 0;
     }
 
     .tab-btn {
-        padding: 9px 14px;
-        font-size: 0.85rem;
-        border-radius: 10px;
-        gap: 6px;
-        min-width: 80px;
+        padding: 10px 12px;
+        font-size: 0.75rem;
+        border-radius: 0;
+        gap: 5px;
+        min-width: 70px;
     }
 
     .tab-btn span {
@@ -4686,15 +4663,15 @@ body {
     }
 
     .tab-btn i {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 
     .tab-btn:hover {
-        transform: translateY(-1px) scale(1.01);
+        transform: translateY(0);
     }
 
     .tab-btn.active {
-        transform: translateY(-2px) scale(1.02);
+        transform: translateY(0);
     }
 
     /* Categories responsive */
