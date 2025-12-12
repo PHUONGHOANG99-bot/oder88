@@ -2285,6 +2285,8 @@ body {
     z-index: 4000;
     animation: fadeIn 0.3s ease;
     touch-action: none;
+    /* Reserve space at the bottom so fixed info/thumbnails never overlap the image */
+    --gallery-bottom-reserve: clamp(220px, 30vh, 340px);
 }
 
 .product-gallery-modal.show {
@@ -2399,12 +2401,14 @@ body {
         linear-gradient(135deg, rgba(250, 252, 255, 0.4) 0%, rgba(248, 250, 252, 0.4) 100%);
     overflow: hidden;
     touch-action: none;
+    padding-bottom: calc(var(--gallery-bottom-reserve) + env(safe-area-inset-bottom));
+    box-sizing: border-box;
 }
 
 .gallery-main-image-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--gallery-bottom-reserve) - env(safe-area-inset-bottom));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2441,7 +2445,7 @@ body {
 
 .gallery-main-image {
     max-width: 100vw;
-    max-height: 100vh;
+    max-height: calc(100vh - var(--gallery-bottom-reserve) - env(safe-area-inset-bottom));
     width: auto;
     height: auto;
     object-fit: contain;
@@ -2529,7 +2533,7 @@ body {
 
 .gallery-zoom-controls {
     position: fixed;
-    bottom: 30px;
+    bottom: calc(var(--gallery-bottom-reserve) + 12px + env(safe-area-inset-bottom));
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -2579,7 +2583,7 @@ body {
 
 .gallery-thumbnails {
     position: fixed;
-    bottom: 200px;
+    bottom: calc(var(--gallery-bottom-reserve) + 12px + env(safe-area-inset-bottom));
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -2706,6 +2710,9 @@ body {
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
     padding: 25px 20px;
+    max-height: calc(var(--gallery-bottom-reserve) + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 10;
     box-shadow: 
         0 -4px 30px rgba(0, 0, 0, 0.15),
@@ -2949,6 +2956,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    .product-gallery-modal {
+        --gallery-bottom-reserve: clamp(190px, 32vh, 320px);
+    }
     .gallery-close-btn {
         width: 45px;
         height: 45px;
@@ -2972,7 +2982,7 @@ body {
     }
 
     .gallery-zoom-controls {
-        bottom: 20px;
+        bottom: calc(var(--gallery-bottom-reserve) + 10px + env(safe-area-inset-bottom));
         right: 15px;
         padding: 8px;
         gap: 10px;
@@ -2985,7 +2995,7 @@ body {
     }
 
     .gallery-thumbnails {
-        bottom: 180px;
+        bottom: calc(var(--gallery-bottom-reserve) + 10px + env(safe-area-inset-bottom));
         padding: 12px 15px;
         gap: 10px;
     }
@@ -3038,6 +3048,9 @@ body {
 }
 
 @media (max-width: 480px) {
+    .product-gallery-modal {
+        --gallery-bottom-reserve: clamp(180px, 34vh, 320px);
+    }
     .gallery-close-btn {
         width: 40px;
         height: 40px;
@@ -3061,7 +3074,7 @@ body {
     }
 
     .gallery-zoom-controls {
-        bottom: 15px;
+        bottom: calc(var(--gallery-bottom-reserve) + 8px + env(safe-area-inset-bottom));
         right: 10px;
         padding: 6px;
         gap: 8px;
@@ -3074,7 +3087,7 @@ body {
     }
 
     .gallery-thumbnails {
-        bottom: 160px;
+        bottom: calc(var(--gallery-bottom-reserve) + 8px + env(safe-area-inset-bottom));
         padding: 10px 12px;
         gap: 8px;
     }
