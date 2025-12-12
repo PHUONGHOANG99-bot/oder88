@@ -581,6 +581,7 @@ function showLoadingSkeleton(count = 12) {
 // ==================== HÀM MENU MOBILE ====================
 function toggleMobileMenu() {
     const mobileCategories = document.getElementById("mobileCategories");
+    if (!mobileCategories) return;
     const overlay = document.getElementById("mobileOverlay") || createOverlay();
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
     const isOpen = mobileCategories.classList.contains("show");

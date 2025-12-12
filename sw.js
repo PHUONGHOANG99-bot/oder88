@@ -1,11 +1,14 @@
 // Service Worker for PWA Support
-const CACHE_NAME = "oder88-shop-v43";
+const CACHE_NAME = "oder88-shop-v44";
+const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
+const withScope = (path) => `${SCOPE_PATH}${path}`.replace(/\/{2,}/g, "/");
+
 const urlsToCache = [
-    "/",
-    "/index.html",
-    "/assets/style.css",
-    "/assets/script.js",
-    "/assets/products.json",
+    withScope("/"),
+    withScope("/index.html"),
+    withScope("/assets/style.css"),
+    withScope("/assets/script.js"),
+    withScope("/assets/products.json"),
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
 ];
 
@@ -31,15 +34,16 @@ self.addEventListener("install", (event) => {
 // Fetch event - Always fetch fresh HTML, CSS and JS
 self.addEventListener("fetch", (event) => {
     const url = new URL(event.request.url);
+    const noQueryUrl = new URL(url.pathname, url.origin).toString();
 
     // For HTML, CSS and JS files, always fetch from network first (skip cache)
-    // Also skip cache if URL has query string (cache busting)
+    // If URL has query string (cache busting), still cache the no-query variant
     if (
         url.pathname.includes(".html") ||
         url.pathname.includes(".css") ||
         url.pathname.includes(".js") ||
         url.search.includes("v=") ||
-        url.search.includes("?")
+        url.search.length > 0
     ) {
         event.respondWith(
             fetch(event.request, {
@@ -51,21 +55,20 @@ self.addEventListener("fetch", (event) => {
                 },
             })
                 .then((response) => {
-                    // Don't cache files with query strings
-                    if (response && response.status === 200 && !url.search) {
+                    // Cache a stable (no-query) key so offline fallback works even for ?v=...
+                    if (response && response.status === 200) {
                         const responseToCache = response.clone();
                         caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, responseToCache);
+                            cache.put(noQueryUrl, responseToCache);
                         });
                     }
                     return response;
                 })
                 .catch(() => {
-                    // If network fails, try cache (but only for files without query strings)
-                    if (!url.search) {
-                        return caches.match(event.request);
-                    }
-                    return new Response("Network error", { status: 408 });
+                    // If network fails, fall back to cache using the no-query key
+                    return caches.match(noQueryUrl).then((cached) => {
+                        return cached || new Response("Network error", { status: 408 });
+                    });
                 })
         );
         return;

@@ -52,7 +52,8 @@
         />
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="assets/logo/logo1.png" />
+        <link rel="apple-touch-icon" href="assets/logo/logo1.png" />
 
         <!-- Preload critical resources -->
         <link
@@ -61,14 +62,14 @@
             as="fetch"
             crossorigin="anonymous"
         />
-        <link rel="preload" href="assets/style.css?v=43" as="style" />
+        <link rel="preload" href="assets/style.css?v=44" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             as="style"
         />
 
-        <link rel="stylesheet" href="assets/style.css?v=43" />
+        <link rel="stylesheet" href="assets/style.css?v=44" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -108,7 +109,7 @@
 
                 window.addEventListener("load", () => {
                     navigator.serviceWorker
-                        .register("/sw.js?v=43")
+                        .register("sw.js?v=44")
                         .then((registration) => {
                             console.log("SW registered: ", registration);
 
@@ -150,7 +151,7 @@
         </script>
 
         <!-- PWA Manifest -->
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="manifest.json" />
         <meta name="theme-color" content="#FF6600" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta
@@ -818,6 +819,6 @@
             </div>
         </footer>
 
-        <script src="assets/script.js?v=41"></script>
+        <script src="assets/script.js?v=44"></script>
     </body>
 </html>
