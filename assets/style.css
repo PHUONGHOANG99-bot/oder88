@@ -177,15 +177,9 @@ body {
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
-    background: linear-gradient(
-        135deg,
-        #ff7700 0%,
-        #ff6600 50%,
-        #ff8800 100%
-    );
+    background: linear-gradient(135deg, #ff7700 0%, #ff6600 50%, #ff8800 100%);
     padding: 0;
-    box-shadow: 0 4px 20px rgba(255, 102, 0, 0.3),
-        0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 102, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -257,7 +251,12 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
     transition: left 0.5s;
 }
 
@@ -336,9 +335,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     /* Shadow đơn giản, rõ nét */
-    text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.3),
-        0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
 
     transform: none;
     filter: none;
@@ -362,9 +359,7 @@ body {
 .header-brand-text:hover {
     transform: scale(1.02);
     letter-spacing: 30px;
-    text-shadow: 
-        0 3px 6px rgba(0, 0, 0, 0.4),
-        0 6px 12px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .header-brand-text:hover::before {
@@ -1642,8 +1637,8 @@ body {
 
 .category-item {
     background: #ffffff;
-    border-radius: 14px;
-    padding: 12px;
+    border-radius: 12px;
+    padding: 10px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
@@ -1652,8 +1647,8 @@ body {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    min-width: 110px;
-    max-width: 130px;
+    min-width: 90px;
+    max-width: 110px;
 }
 
 .category-item::before {
@@ -1688,9 +1683,9 @@ body {
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     background: #f8f9fa;
     display: flex;
     align-items: center;
@@ -1729,24 +1724,24 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: linear-gradient(135deg, #ff6600, #ff8c00);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1rem;
     z-index: 2;
     box-shadow: 0 3px 8px rgba(255, 102, 0, 0.4);
 }
 
 .category-name {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #333;
-    margin-top: 6px;
+    margin-top: 4px;
     transition: color 0.3s ease;
     position: relative;
     z-index: 1;
@@ -2132,7 +2127,7 @@ body {
 .product-card {
     background: var(--bg-primary);
     border-radius: 14px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -3216,12 +3211,14 @@ body {
     background: #ffffff;
     flex: 1;
     justify-content: space-between;
+    overflow: visible;
+    min-width: 0;
 }
 
 .product-price-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
     margin-bottom: 6px;
     padding-bottom: 4px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -3231,8 +3228,9 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 2px 0;
+    flex-shrink: 0;
 }
 
 .product-price {
@@ -3250,6 +3248,8 @@ body {
     text-shadow: 0 2px 8px rgba(255, 102, 0, 0.2);
     position: relative;
     padding: 3px 0;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .product-price::before {
@@ -3290,7 +3290,8 @@ body {
     white-space: nowrap;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    flex-shrink: 0;
 }
 
 .product-price-vnd::before {
@@ -3324,33 +3325,34 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 6px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-top: 0;
     margin-bottom: 0;
+    overflow: visible;
 }
 
 @media (max-width: 768px) {
     .product-meta-info {
         flex-wrap: nowrap;
         gap: 4px;
-        overflow: hidden;
+        overflow: visible;
     }
-    
+
     .product-purchases,
     .product-delivery {
-        flex-shrink: 1;
-        min-width: 0;
+        flex-shrink: 0;
+        min-width: auto;
     }
-    
+
     .product-purchases i,
     .product-delivery i {
         flex-shrink: 0;
     }
-    
+
     .product-purchases span,
     .product-delivery span {
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
         white-space: nowrap;
     }
 }
@@ -3377,7 +3379,10 @@ body {
     -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    flex-shrink: 0;
+    max-width: none;
+    width: auto;
 }
 
 .product-purchases::before {
@@ -3420,6 +3425,10 @@ body {
 .product-purchases span {
     font-weight: 600;
     letter-spacing: 0.01em;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+    max-width: none;
 }
 
 .product-delivery {
@@ -3444,7 +3453,10 @@ body {
     -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    flex-shrink: 0;
+    max-width: none;
+    width: auto;
 }
 
 .product-delivery::before {
@@ -3487,6 +3499,10 @@ body {
 .product-delivery span {
     font-weight: 600;
     letter-spacing: 0.01em;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+    max-width: none;
 }
 
 /* Badge - TAOBAO STYLE */
@@ -3807,18 +3823,14 @@ body {
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-shadow: 
-            0 2px 4px rgba(0, 0, 0, 0.3),
-            0 4px 8px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
         filter: none;
     }
 
     .header-brand-text:hover {
         transform: scale(1.02);
         letter-spacing: 20px;
-        text-shadow: 
-            0 3px 6px rgba(0, 0, 0, 0.4),
-            0 6px 12px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3);
         filter: none;
     }
 
@@ -4007,7 +4019,7 @@ body {
         height: 36px !important;
         font-size: 1rem !important;
     }
-    
+
     .category-image-wrapper {
         border-radius: 8px !important;
         margin-bottom: 4px !important;
@@ -4076,9 +4088,7 @@ body {
         text-rendering: optimizeLegibility !important;
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
-        text-shadow: 
-            0 2px 4px rgba(0, 0, 0, 0.3),
-            0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2) !important;
         filter: none !important;
     }
 
@@ -4119,9 +4129,7 @@ body {
     .header-brand-text:hover {
         transform: scale(1.02) !important;
         letter-spacing: clamp(8px, 3.5vw, 16px) !important;
-        text-shadow: 
-            0 3px 6px rgba(0, 0, 0, 0.4),
-            0 6px 12px rgba(0, 0, 0, 0.3) !important;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3) !important;
         filter: none !important;
     }
 
@@ -4415,11 +4423,14 @@ body {
         font-size: 1.3rem;
         font-weight: 900;
         margin: 0;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .product-price-vnd {
         font-size: 0.75rem;
         padding: 4px 10px;
+        flex-shrink: 0;
     }
 
     .product-meta-info {
@@ -4427,15 +4438,18 @@ body {
         margin-top: 0;
         margin-bottom: 0;
         flex-wrap: nowrap;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .product-purchases {
         font-size: 0.65rem;
         padding: 3px 6px;
         gap: 2px;
-        flex-shrink: 1;
-        min-width: 0;
+        flex-shrink: 0;
+        min-width: auto;
+        overflow: visible;
+        max-width: none;
+        width: auto;
     }
 
     .product-purchases i {
@@ -4445,17 +4459,21 @@ body {
 
     .product-purchases span {
         font-size: 0.65rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
         white-space: nowrap;
+        max-width: none;
     }
 
     .product-delivery {
         font-size: 0.65rem;
         padding: 3px 6px;
         gap: 2px;
-        flex-shrink: 1;
-        min-width: 0;
+        flex-shrink: 0;
+        min-width: auto;
+        overflow: visible;
+        max-width: none;
+        width: auto;
     }
 
     .product-delivery i {
@@ -4465,9 +4483,10 @@ body {
 
     .product-delivery span {
         font-size: 0.65rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
         white-space: nowrap;
+        max-width: none;
     }
 
     .order-btn {
@@ -4564,7 +4583,7 @@ body {
         height: 42px;
         font-size: 1.15rem;
     }
-    
+
     .category-image-wrapper {
         border-radius: 9px;
         margin-bottom: 6px;
@@ -4836,7 +4855,7 @@ body {
         height: 58px;
         font-size: 1.5rem;
     }
-    
+
     .category-image-wrapper {
         border-radius: 12px;
         margin-bottom: 8px;
@@ -4862,11 +4881,14 @@ body {
         font-size: 1.25rem;
         font-weight: 900;
         margin: 0;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .product-price-vnd {
         font-size: 0.7rem;
         padding: 3px 8px;
+        flex-shrink: 0;
     }
 
     .product-meta-info {
@@ -4874,15 +4896,18 @@ body {
         margin-top: 0;
         margin-bottom: 0;
         flex-wrap: nowrap;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .product-purchases {
         font-size: 0.6rem;
         padding: 2px 5px;
         gap: 2px;
-        flex-shrink: 1;
-        min-width: 0;
+        flex-shrink: 0;
+        min-width: auto;
+        overflow: visible;
+        max-width: none;
+        width: auto;
     }
 
     .product-purchases i {
@@ -4892,17 +4917,21 @@ body {
 
     .product-purchases span {
         font-size: 0.6rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
         white-space: nowrap;
+        max-width: none;
     }
 
     .product-delivery {
         font-size: 0.6rem;
         padding: 2px 5px;
         gap: 2px;
-        flex-shrink: 1;
-        min-width: 0;
+        flex-shrink: 0;
+        min-width: auto;
+        overflow: visible;
+        max-width: none;
+        width: auto;
     }
 
     .product-delivery i {
@@ -4912,9 +4941,10 @@ body {
 
     .product-delivery span {
         font-size: 0.6rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
         white-space: nowrap;
+        max-width: none;
     }
 
     .order-btn {

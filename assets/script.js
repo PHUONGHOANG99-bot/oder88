@@ -263,7 +263,7 @@ function handleImageError(img) {
 function createMessengerOrderLink(productName, productPrice, categoryName) {
     const message = `Xin chào ODER 88! Tôi muốn đặt hàng:\n\n👕 Sản phẩm: ${productName}\n💰 Giá: ${productPrice}\n🏷️ Danh mục: ${categoryName}\n\nVui lòng liên hệ lại với tôi để xác nhận đơn hàng.`;
     const encodedMessage = encodeURIComponent(message);
-    return `https://m.me/nekoshop68?text=${encodedMessage}`;
+    return `https://www.messenger.com/t/100090836182323?text=${encodedMessage}`;
 }
 
 function getCategoryDisplayName(categoryId, fallbackName) {
