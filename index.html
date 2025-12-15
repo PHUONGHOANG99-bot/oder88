@@ -62,14 +62,14 @@
             as="fetch"
             crossorigin="anonymous"
         />
-        <link rel="preload" href="assets/style.css?v=46" as="style" />
+        <link rel="preload" href="assets/style.css?v=57" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             as="style"
         />
 
-        <link rel="stylesheet" href="assets/style.css?v=46" />
+        <link rel="stylesheet" href="assets/style.css?v=57" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -424,6 +424,46 @@
                 <button class="mobile-category-btn" data-category="quan-dai-nu">
                     <i class="fas fa-tshirt"></i> Quần dài nữ
                 </button>
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="phu-kien"
+                        id="phuKienBtn"
+                    >
+                        <i class="fas fa-gift"></i> Phụ Kiện
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="phuKienSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="non"
+                        >
+                            <i class="fas fa-hat-cowboy"></i> Nón
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="khan"
+                        >
+                            <i class="fas fa-scarf"></i> Khăn
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="no-buoc-toc"
+                        >
+                            <i class="fas fa-ribbon"></i> Nơ Buộc tóc
+                        </button>
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="tat"
+                        >
+                            <i class="fas fa-socks"></i> Tất
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -68,10 +68,10 @@ function formatPriceWithVND(price) {
     const yenFormatted = formatPriceToYen(price);
     const vndAmount = convertYenToVND(yenAmount);
     const vndFormatted = formatVND(vndAmount);
-    
+
     return {
         yen: yenFormatted,
-        vnd: `VND ${vndFormatted}`
+        vnd: `VND ${vndFormatted}`,
     };
 }
 
@@ -271,6 +271,11 @@ function getCategoryDisplayName(categoryId, fallbackName) {
         "quan-dai-nu": "Quần Nữ",
         "quan-nam": "Quần Nam",
         "quan-jean-nam": "Quần Jean",
+        "phu-kien": "Phụ Kiện",
+        "non": "Nón",
+        "khan": "Khăn",
+        "no-buoc-toc": "Nơ Buộc tóc",
+        "tat": "Tất",
     };
     return map[categoryId] || fallbackName || "Sản phẩm";
 }
@@ -342,6 +347,9 @@ function scrollToTop() {
     // Reset về trang chủ - hiển thị tất cả sản phẩm
     resetToHome();
 
+    // Reload slider với sản phẩm ngẫu nhiên từ 30 sản phẩm bán chạy nhất
+    initSlider();
+
     // Scroll lên đầu trang
     window.scrollTo({
         top: 0,
@@ -411,11 +419,15 @@ function shuffleProducts() {
 
 // ==================== HÀM RELOAD TRANG ====================
 function reloadPage() {
+    // Reload trang - slider sẽ tự động random lại khi trang load (trong initializeApp)
     window.location.reload();
 }
 
 // ==================== HÀM SCROLL TO PRODUCTS ====================
 function scrollToProducts() {
+    // Reload slider với sản phẩm ngẫu nhiên từ 30 sản phẩm bán chạy nhất
+    initSlider();
+
     // Shuffle sản phẩm để hiển thị thứ tự khác nhau
     shuffleProducts();
 
@@ -481,7 +493,9 @@ function goBackToHome() {
 
     // Reset active category buttons
     document
-        .querySelectorAll(".category-option, .mobile-category-btn, .category-item")
+        .querySelectorAll(
+            ".category-option, .mobile-category-btn, .category-item"
+        )
         .forEach((btn) => {
             btn.classList.remove("active");
             btn.setAttribute("aria-selected", "false");
@@ -797,7 +811,7 @@ function selectCategory(category, categoryName) {
 function updateBackButton() {
     const backBtn = document.getElementById("backBtn");
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-    
+
     if (!backBtn || !mobileMenuBtn) return;
 
     // Hiển thị nút quay lại khi không ở category "all"
@@ -835,6 +849,11 @@ function updateCategoryIndicator() {
         "set-do": "Sét Đồ",
         "set-do-nu": "Sét Đồ Nữ",
         "set-do-nam": "Sét Đồ Nam",
+        "phu-kien": "Phụ Kiện",
+        "non": "Nón",
+        "khan": "Khăn",
+        "no-buoc-toc": "Nơ Buộc tóc",
+        "tat": "Tất",
     };
 
     if (categoryMap[currentCategory]) {
@@ -854,6 +873,11 @@ function updateCategoryIndicator() {
             "quan-nam": "fa-user",
             "quan-jean-nam": "fa-user",
             "ao-nu": "fa-tshirt",
+            "phu-kien": "fa-gift",
+            "non": "fa-hat-cowboy",
+            "khan": "fa-scarf",
+            "no-buoc-toc": "fa-ribbon",
+            "tat": "fa-socks",
             "ao-dong-nu": "fa-tshirt",
             giay: "fa-shoe-prints",
             "giay-nu": "fa-heart",
@@ -989,12 +1013,19 @@ function initCategories() {
             image: "assets/image/quan-dai-nu/qd1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
+        {
+            id: "phu-kien",
+            name: "Phụ Kiện",
+            icon: "fa-gift",
+            image: "assets/logo/tatca.jpg",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
     ];
 
     // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam)
     categoriesGrid.innerHTML = categories
         .map((category) => {
-            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam, giay-nu, giay-nam vì chúng là subcategories
+            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam, giay-nu, giay-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
             if (
                 category.id === "boot-nu" ||
                 category.id === "giay-the-thao" ||
@@ -1003,7 +1034,11 @@ function initCategories() {
                 category.id === "giay-sneaker-nam" ||
                 category.id === "quan-jean-nam" ||
                 category.id === "giay-nu" ||
-                category.id === "giay-nam"
+                category.id === "giay-nam" ||
+                category.id === "non" ||
+                category.id === "khan" ||
+                category.id === "no-buoc-toc" ||
+                category.id === "tat"
             ) {
                 return "";
             }
@@ -1163,6 +1198,41 @@ function initMobileCategories() {
             icon: "fa-user",
             image: "assets/logo/quannam.JPG",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "phu-kien",
+            name: "Phụ Kiện",
+            icon: "fa-gift",
+            image: "assets/logo/tatca.jpg",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "non",
+            name: "Nón",
+            icon: "fa-hat-cowboy",
+            image: "assets/logo/tatca.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "khan",
+            name: "Khăn",
+            icon: "fa-scarf",
+            image: "assets/logo/tatca.jpg",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "no-buoc-toc",
+            name: "Nơ Buộc tóc",
+            icon: "fa-ribbon",
+            image: "assets/logo/tatca.jpg",
+            color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+        },
+        {
+            id: "tat",
+            name: "Tất",
+            icon: "fa-socks",
+            image: "assets/logo/tatca.jpg",
+            color: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
         },
     ];
 
@@ -1781,6 +1851,137 @@ function initMobileCategories() {
             } else if (category.id === "giay-the-thao") {
                 // Bỏ qua category này vì đã được render trong subcategories của "giay"
                 return "";
+            } else if (category.id === "phu-kien") {
+                // Tìm các subcategories
+                const non = categories.find((c) => c.id === "non");
+                const khan = categories.find((c) => c.id === "khan");
+                const noBuocToc = categories.find((c) => c.id === "no-buoc-toc");
+                const tat = categories.find((c) => c.id === "tat");
+
+                return `
+                <div class="category-with-subcategories">
+                    <button
+                        class="mobile-category-btn"
+                        data-category="${category.id}"
+                        id="phuKienBtn"
+                        type="button"
+                    >
+                        <div class="mobile-category-image">
+                            <img src="${normalizePath(category.image)}" alt="${
+                    category.name
+                }" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                            <div class="mobile-category-icon-fallback" style="background: ${
+                                category.color
+                            }; display: none;">
+                                <i class="fas ${category.icon}"></i>
+                            </div>
+                        </div>
+                        <span class="mobile-category-text">${
+                            category.name
+                        }</span>
+                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                    </button>
+                    <div
+                        class="subcategories"
+                        id="phuKienSubcategories"
+                        style="display: none"
+                    >
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="phu-kien"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${
+                                    category.image
+                                }" alt="Tất cả" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${
+                                    category.color
+                                }; display: none;">
+                                    <i class="fas ${category.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">Tất cả</span>
+                        </button>
+                        ${
+                            non
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="non"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${non.image}" alt="${non.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${non.color}; display: none;">
+                                    <i class="fas ${non.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${non.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                        ${
+                            khan
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="khan"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${khan.image}" alt="${khan.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${khan.color}; display: none;">
+                                    <i class="fas ${khan.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${khan.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                        ${
+                            noBuocToc
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="no-buoc-toc"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${noBuocToc.image}" alt="${noBuocToc.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${noBuocToc.color}; display: none;">
+                                    <i class="fas ${noBuocToc.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${noBuocToc.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                        ${
+                            tat
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="tat"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${tat.image}" alt="${tat.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${tat.color}; display: none;">
+                                    <i class="fas ${tat.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${tat.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                    </div>
+                </div>
+            `;
             } else if (category.id === "ao-dong-nu") {
                 // Bỏ qua category này vì đã được render trong subcategories của "ao-nu"
                 return "";
@@ -1795,6 +1996,14 @@ function initMobileCategories() {
                 return "";
             } else if (category.id === "quan-jean-nam") {
                 // Bỏ qua category này vì đã được render trong subcategories của "quan-nam"
+                return "";
+            } else if (
+                category.id === "non" ||
+                category.id === "khan" ||
+                category.id === "no-buoc-toc" ||
+                category.id === "tat"
+            ) {
+                // Bỏ qua các subcategories của phụ kiện vì đã được render trong subcategories của "phu-kien"
                 return "";
             }
         })
@@ -1821,7 +2030,8 @@ function getPurchaseCount(product) {
 
 // ==================== HÀM SLIDER ====================
 function getBestSellers() {
-    const totalProducts = 20; // Tổng số sản phẩm hiển thị
+    const totalTopProducts = 30; // Lấy 30 sản phẩm bán chạy nhất
+    const displayProducts = 20; // Hiển thị 20 sản phẩm ngẫu nhiên từ 30 sản phẩm đó
 
     const sortedByPurchases = [...products].sort((a, b) => {
         const diff = getPurchaseCount(b) - getPurchaseCount(a);
@@ -1830,7 +2040,17 @@ function getBestSellers() {
         return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
     });
 
-    return sortedByPurchases.slice(0, totalProducts);
+    // Lấy 30 sản phẩm bán chạy nhất
+    const top30Products = sortedByPurchases.slice(0, totalTopProducts);
+
+    // Shuffle ngẫu nhiên và lấy 20 sản phẩm đầu tiên
+    const shuffled = [...top30Products];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled.slice(0, displayProducts);
 }
 
 function initSlider() {
@@ -1866,7 +2086,9 @@ function initSlider() {
                     <div class="slider-price">${formatPriceToYen(
                         product.price
                     )}</div>
-                    <div class="slider-price-vnd">${formatPriceWithVND(product.price).vnd}</div>
+                    <div class="slider-price-vnd">${
+                        formatPriceWithVND(product.price).vnd
+                    }</div>
                 </div>
                 <a href="${createMessengerOrderLink(
                     product.name,
@@ -2024,7 +2246,9 @@ function displayProductsPaginated(productsToShow) {
                             <div class="product-price">${formatPriceToYen(
                                 product.price
                             )}</div>
-                            <div class="product-price-vnd">${formatPriceWithVND(product.price).vnd}</div>
+                            <div class="product-price-vnd">${
+                                formatPriceWithVND(product.price).vnd
+                            }</div>
                         </div>
                         <div class="product-meta-info">
                             ${
@@ -2145,7 +2369,8 @@ function changePage(page) {
     // Scroll to products tabs section immediately (before loading)
     const productsTabs = document.querySelector(".products-tabs");
     if (productsTabs) {
-        const tabsPosition = productsTabs.getBoundingClientRect().top + window.pageYOffset;
+        const tabsPosition =
+            productsTabs.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
             top: tabsPosition - 100,
             behavior: "smooth",
@@ -2160,12 +2385,14 @@ function changePage(page) {
     setTimeout(() => {
         displayProductsPaginated(filtered);
         hidePageLoader();
-        
+
         // Ensure scroll position after products are rendered
         requestAnimationFrame(() => {
             const productsTabs = document.querySelector(".products-tabs");
             if (productsTabs) {
-                const tabsPosition = productsTabs.getBoundingClientRect().top + window.pageYOffset;
+                const tabsPosition =
+                    productsTabs.getBoundingClientRect().top +
+                    window.pageYOffset;
                 window.scrollTo({
                     top: tabsPosition - 100,
                     behavior: "smooth",
@@ -2417,6 +2644,55 @@ function getProductSearchKeywords(product) {
             "purse",
             "clutch",
         ],
+        "phu-kien": [
+            "phụ kiện",
+            "phu kien",
+            "accessories",
+            "accessory",
+        ],
+        "non": [
+            "nón",
+            "non",
+            "mũ",
+            "mu",
+            "cap",
+            "hat",
+            "nón lưỡi trai",
+            "non luoi trai",
+            "baseball cap",
+        ],
+        "khan": [
+            "khăn",
+            "khan",
+            "scarf",
+            "khăn quàng",
+            "khan quang",
+            "khăn choàng",
+            "khan choang",
+        ],
+        "no-buoc-toc": [
+            "nơ",
+            "no",
+            "buộc tóc",
+            "buoc toc",
+            "hair",
+            "hair accessory",
+            "hair tie",
+            "ribbon",
+            "bow",
+        ],
+        "tat": [
+            "tất",
+            "tat",
+            "vớ",
+            "vo",
+            "socks",
+            "stockings",
+            "tất dài",
+            "tat dai",
+            "tất ngắn",
+            "tat ngan",
+        ],
         vay: [
             "váy",
             "vay",
@@ -2544,6 +2820,16 @@ function filterProducts() {
                     p.category === "boot-nu" ||
                     p.category === "giay-the-thao" ||
                     p.category === "giay-sneaker-nam"
+            );
+        } else if (currentCategory === "phu-kien") {
+            // Hiển thị tất cả phụ kiện (bao gồm nón, khăn, nơ buộc tóc, tất)
+            filtered = filtered.filter(
+                (p) =>
+                    p.category === "phu-kien" ||
+                    p.category === "non" ||
+                    p.category === "khan" ||
+                    p.category === "no-buoc-toc" ||
+                    p.category === "tat"
             );
         } else if (currentCategory === "quan-nam") {
             // Hiển thị tất cả quần nam (bao gồm quần jean nam)
@@ -3314,6 +3600,10 @@ function setupEventListeners() {
                         btnId: "vayBtn",
                         subId: "vaySubcategories",
                     },
+                    "phu-kien": {
+                        btnId: "phuKienBtn",
+                        subId: "phuKienSubcategories",
+                    },
                     "ao-nam": {
                         btnId: "aoNamBtn",
                         subId: "aoNamSubcategories",
@@ -3403,6 +3693,11 @@ function setupEventListeners() {
                     "set-do": "Sét Đồ",
                     "set-do-nu": "Sét Đồ Nữ",
                     "set-do-nam": "Sét Đồ Nam",
+                    "phu-kien": "Phụ Kiện",
+                    "non": "Nón",
+                    "khan": "Khăn",
+                    "no-buoc-toc": "Nơ Buộc tóc",
+                    "tat": "Tất",
                 };
 
                 categoryName = categoryNames[category] || "Thời trang";
