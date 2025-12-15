@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Quần Cargo Nữ Rộng Ống Gradient",
-        "price": "¥3022",
+        "price": "¥2402",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd1.jpg",
@@ -13,7 +13,7 @@
     {
         "id": 2,
         "name": "Quần Dài Nữ Rộng Ống Xuông XinhXinh",
-        "price": "¥3110",
+        "price": "¥2417",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd2.jpg",
@@ -24,7 +24,7 @@
     {
         "id": 3,
         "name": "Quần Jean Nữ Rộng Ống Xuông LaceLace",
-        "price": "¥3839",
+        "price": "¥2458",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd3.jpg",
@@ -35,7 +35,7 @@
     {
         "id": 4,
         "name": "Quần Dài Nữ Trắng Phối Đen",
-        "price": "¥2352",
+        "price": "¥2471",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd4.jpg",
@@ -46,7 +46,7 @@
     {
         "id": 5,
         "name": "Quần Dài Nữ Rộng Ống Tie-Dye",
-        "price": "¥3822",
+        "price": "¥2447",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd5.jpg",
@@ -57,7 +57,7 @@
     {
         "id": 6,
         "name": "Quần Jean Nữ Rộng Ống Xanh Phai",
-        "price": "¥2260",
+        "price": "¥2483",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd6.jpg",
@@ -68,7 +68,7 @@
     {
         "id": 7,
         "name": "Quần Dài Nữ Rộng Ống Corduroy Xanh",
-        "price": "¥3477",
+        "price": "¥2592",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd7.jpg",
@@ -79,7 +79,7 @@
     {
         "id": 8,
         "name": "Quần Jean Nữ Rộng Ống Sọc Dọc",
-        "price": "¥2851",
+        "price": "¥2593",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd8.jpg",
@@ -90,7 +90,7 @@
     {
         "id": 9,
         "name": "Quần Dài Nữ Rộng Ống Rách Vàng",
-        "price": "¥2701",
+        "price": "¥2551",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd9.jpg",
@@ -101,7 +101,7 @@
     {
         "id": 10,
         "name": "Quần Cargo Nữ Rộng Ống Rách",
-        "price": "¥2198",
+        "price": "¥2548",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd10.jpg",
@@ -112,7 +112,7 @@
     {
         "id": 11,
         "name": "Quần Dài Nữ Rộng Ống Rách Xám",
-        "price": "¥2688",
+        "price": "¥2410",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd11.jpg",
@@ -123,7 +123,7 @@
     {
         "id": 12,
         "name": "Quần Cargo Nữ Rộng Ống Tie-Dye",
-        "price": "¥2977",
+        "price": "¥2543",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd12.jpg",
@@ -134,7 +134,7 @@
     {
         "id": 13,
         "name": "Quần Jean Nữ Rộng Ống Thêu Chó",
-        "price": "¥3725",
+        "price": "¥2430",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd13.jpg",
@@ -145,7 +145,7 @@
     {
         "id": 14,
         "name": "Quần Dài Nữ Rộng Ống Tím Rách",
-        "price": "¥3825",
+        "price": "¥2552",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd14.jpg",
@@ -156,7 +156,7 @@
     {
         "id": 15,
         "name": "Quần Cargo Nữ Rộng Ống Đen Rách",
-        "price": "¥2184",
+        "price": "¥2472",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd15.jpg",
@@ -167,7 +167,7 @@
     {
         "id": 16,
         "name": "Quần Dài Nữ Rộng Ống Rách Xanh",
-        "price": "¥2661",
+        "price": "¥2496",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd16.jpg",
@@ -178,7 +178,7 @@
     {
         "id": 17,
         "name": "Quần Cargo Nữ Rộng Ống Camo",
-        "price": "¥2929",
+        "price": "¥2585",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd17.jpg",
@@ -189,7 +189,7 @@
     {
         "id": 18,
         "name": "Quần Cargo Nữ Rộng Ống Xanh Lá",
-        "price": "¥2247",
+        "price": "¥2456",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd18.jpg",
@@ -200,7 +200,7 @@
     {
         "id": 19,
         "name": "Quần Dài Nữ Rộng Ống Đỏ Flare",
-        "price": "¥3326",
+        "price": "¥2563",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd19.jpg",
@@ -211,7 +211,7 @@
     {
         "id": 20,
         "name": "Quần Jean Nữ Rộng Ống Xanh Nhạt",
-        "price": "¥3547",
+        "price": "¥2475",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/qd20.jpg",
@@ -222,7 +222,7 @@
     {
         "id": 21,
         "name": "Boot Cao Cổ Khóa Vàng",
-        "price": "¥3275",
+        "price": "¥4794",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
@@ -233,7 +233,7 @@
     {
         "id": 22,
         "name": "Boot Cao Cổ Đen Khóa",
-        "price": "¥3023",
+        "price": "¥4713",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
@@ -255,7 +255,7 @@
     {
         "id": 24,
         "name": "Boot nữ vàng hot trend 2025",
-        "price": "¥2558",
+        "price": "¥4844",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
@@ -277,7 +277,7 @@
     {
         "id": 26,
         "name": "Boot Cao Cổ Kem Khóa Vàng",
-        "price": "¥2118",
+        "price": "¥4895",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
@@ -288,7 +288,7 @@
     {
         "id": 27,
         "name": "Boot Cao Cổ Kem Mũi Đen",
-        "price": "¥3450",
+        "price": "¥4861",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
@@ -299,7 +299,7 @@
     {
         "id": 28,
         "name": "Boot Cao Cổ Đen Khóa Vàng",
-        "price": "¥3070",
+        "price": "¥4735",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
@@ -310,7 +310,7 @@
     {
         "id": 29,
         "name": "Boot Cao Cổ Da Lộn Nâu",
-        "price": "¥2821",
+        "price": "¥4842",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
@@ -321,7 +321,7 @@
     {
         "id": 30,
         "name": "Boot Cao Cổ Lông Kem Mùa Đông",
-        "price": "¥3344",
+        "price": "¥4879",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
@@ -332,7 +332,7 @@
     {
         "id": 31,
         "name": "Boot Platform Kem Khóa Kéo",
-        "price": "¥3877",
+        "price": "¥4721",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn6.jpg",
@@ -343,7 +343,7 @@
     {
         "id": 32,
         "name": "Boot Cao Cổ Be Khóa Bạc",
-        "price": "¥3128",
+        "price": "¥4716",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn7.jpg",
@@ -354,7 +354,7 @@
     {
         "id": 33,
         "name": "Boot Platform Đen Khóa Vàng",
-        "price": "¥2960",
+        "price": "¥4890",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn8.jpg",
@@ -365,7 +365,7 @@
     {
         "id": 34,
         "name": "Boot Cao Cổ Kem Khóa Vàng Cao Cấp",
-        "price": "¥3360",
+        "price": "¥4878",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn9.jpg",
@@ -376,7 +376,7 @@
     {
         "id": 35,
         "name": "Boot Cao Cổ Kem Khóa Bạc",
-        "price": "¥3650",
+        "price": "¥4880",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn10.jpg",
@@ -387,7 +387,7 @@
     {
         "id": 36,
         "name": "Boot Cao Cổ Trắng Đen Hai Màu",
-        "price": "¥3407",
+        "price": "¥4722",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn11.jpg",
@@ -761,7 +761,7 @@
     {
         "id": 70,
         "name": "Chân váy Nữ Dài Xòe",
-        "price": "¥2008",
+        "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv1.jpg",
@@ -772,7 +772,7 @@
     {
         "id": 71,
         "name": "Chân váy Nữ Ngắn A-Line",
-        "price": "¥3458",
+        "price": "¥1903",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv2.jpg",
@@ -783,7 +783,7 @@
     {
         "id": 72,
         "name": "Chân váy Nữ Xếp Ly",
-        "price": "¥2955",
+        "price": "¥1939",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv3.jpg",
@@ -794,7 +794,7 @@
     {
         "id": 73,
         "name": "Chân váy Nữ Chữ A",
-        "price": "¥3929",
+        "price": "¥1885",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv4.jpg",
@@ -805,7 +805,7 @@
     {
         "id": 74,
         "name": "Chân váy Nữ Ôm Body",
-        "price": "¥2633",
+        "price": "¥1870",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv5.jpg",
@@ -816,7 +816,7 @@
     {
         "id": 75,
         "name": "Chân váy Nữ Midi Dài",
-        "price": "¥2387",
+        "price": "¥1851",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv6.jpg",
@@ -827,7 +827,7 @@
     {
         "id": 76,
         "name": "Chân váy Nữ Mini Ngắn",
-        "price": "¥2752",
+        "price": "¥1826",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv7.jpg",
@@ -838,7 +838,7 @@
     {
         "id": 77,
         "name": "Chân váy Nữ Maxi Dài",
-        "price": "¥2538",
+        "price": "¥1859",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv8.jpg",
@@ -849,7 +849,7 @@
     {
         "id": 78,
         "name": "Chân váy Nữ Công Sở",
-        "price": "¥3027",
+        "price": "¥1889",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv9.jpg",
@@ -860,7 +860,7 @@
     {
         "id": 79,
         "name": "Chân váy Nữ Xòe Rộng",
-        "price": "¥3548",
+        "price": "¥1912",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv10.jpg",
@@ -871,7 +871,7 @@
     {
         "id": 80,
         "name": "Chân váy Nữ Bút Chì",
-        "price": "¥2623",
+        "price": "¥1939",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv11.jpg",
@@ -882,7 +882,7 @@
     {
         "id": 81,
         "name": "Chân váy Nữ Xếp Nếp",
-        "price": "¥2249",
+        "price": "¥1826",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv12.jpg",
@@ -893,7 +893,7 @@
     {
         "id": 82,
         "name": "Chân váy Nữ Dài Thướt Tha",
-        "price": "¥3948",
+        "price": "¥1818",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv13.jpg",
@@ -904,7 +904,7 @@
     {
         "id": 83,
         "name": "Chân váy Nữ Ngắn Cá Tính",
-        "price": "¥2526",
+        "price": "¥1943",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv14.jpg",
@@ -915,7 +915,7 @@
     {
         "id": 84,
         "name": "Chân váy Nữ Xòe Phồng",
-        "price": "¥3865",
+        "price": "¥1827",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv15.jpg",
@@ -926,7 +926,7 @@
     {
         "id": 85,
         "name": "Chân váy Nữ Midi Công Sở",
-        "price": "¥3729",
+        "price": "¥2000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv16.jpg",
@@ -937,7 +937,7 @@
     {
         "id": 86,
         "name": "Chân váy Nữ Dài Xòe Rộng",
-        "price": "¥2477",
+        "price": "¥1963",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv17.jpg",
@@ -948,7 +948,7 @@
     {
         "id": 87,
         "name": "Chân váy Nữ Ngắn Xinh",
-        "price": "¥3136",
+        "price": "¥1833",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv18.jpg",
@@ -959,7 +959,7 @@
     {
         "id": 88,
         "name": "Chân váy Nữ Xếp Ly Dài",
-        "price": "¥3302",
+        "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv19.jpg",
@@ -970,7 +970,7 @@
     {
         "id": 89,
         "name": "Chân váy Nữ A-Line Dài",
-        "price": "¥2822",
+        "price": "¥1978",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv20.jpg",
@@ -981,7 +981,7 @@
     {
         "id": 90,
         "name": "Chân váy Nữ Midi Xòe",
-        "price": "¥3565",
+        "price": "¥1841",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv21.jpg",
@@ -992,7 +992,7 @@
     {
         "id": 91,
         "name": "Chân váy Nữ Ngắn Xếp Ly",
-        "price": "¥2594",
+        "price": "¥1898",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv22.jpg",
@@ -1003,7 +1003,7 @@
     {
         "id": 92,
         "name": "Chân váy Nữ Dài Thời Trang",
-        "price": "¥2082",
+        "price": "¥1834",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv23.jpg",
@@ -1014,7 +1014,7 @@
     {
         "id": 93,
         "name": "Chân váy Nữ Mini Cá Tính",
-        "price": "¥3745",
+        "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv24.jpg",
@@ -1025,7 +1025,7 @@
     {
         "id": 94,
         "name": "Chân váy Nữ Maxi Xòe",
-        "price": "¥3295",
+        "price": "¥1946",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv25.jpg",
@@ -1036,7 +1036,7 @@
     {
         "id": 95,
         "name": "Chân váy Nữ Công Sở Dài",
-        "price": "¥2748",
+        "price": "¥1850",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv26.jpg",
@@ -1047,7 +1047,7 @@
     {
         "id": 96,
         "name": "Chân váy Nữ Xòe Rộng Dài",
-        "price": "¥2517",
+        "price": "¥1842",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv27.jpg",
@@ -1058,7 +1058,7 @@
     {
         "id": 97,
         "name": "Chân váy Nữ Bút Chì Dài",
-        "price": "¥2201",
+        "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv28.jpg",
@@ -1069,7 +1069,7 @@
     {
         "id": 98,
         "name": "Chân váy Nữ Xếp Nếp Dài",
-        "price": "¥3370",
+        "price": "¥1951",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv29.jpg",
@@ -1080,7 +1080,7 @@
     {
         "id": 99,
         "name": "Chân váy Nữ Dài Thướt Tha Xòe",
-        "price": "¥3038",
+        "price": "¥1988",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv30.jpg",
@@ -1091,7 +1091,7 @@
     {
         "id": 100,
         "name": "Chân váy Nữ Ngắn Trẻ Trung",
-        "price": "¥3765",
+        "price": "¥1832",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv31.jpg",
@@ -1102,7 +1102,7 @@
     {
         "id": 101,
         "name": "Chân váy Nữ Xòe Phồng Dài",
-        "price": "¥2786",
+        "price": "¥1996",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv32.jpg",
@@ -1113,7 +1113,7 @@
     {
         "id": 102,
         "name": "Chân váy Nữ Midi Thanh Lịch",
-        "price": "¥2095",
+        "price": "¥1939",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv33.jpg",
@@ -1124,7 +1124,7 @@
     {
         "id": 103,
         "name": "Chân váy Nữ Dài Xòe Rộng Đẹp",
-        "price": "¥2036",
+        "price": "¥1856",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv34.jpg",
@@ -1135,7 +1135,7 @@
     {
         "id": 104,
         "name": "Chân váy Nữ Ngắn Xinh Xắn",
-        "price": "¥2469",
+        "price": "¥1973",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv35.jpg",
@@ -1146,7 +1146,7 @@
     {
         "id": 105,
         "name": "Chân váy Nữ Xếp Ly Midi",
-        "price": "¥2726",
+        "price": "¥1959",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv36.jpg",
@@ -1157,7 +1157,7 @@
     {
         "id": 106,
         "name": "Chân váy Nữ A-Line Midi",
-        "price": "¥2132",
+        "price": "¥1977",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv37.jpg",
@@ -1168,7 +1168,7 @@
     {
         "id": 107,
         "name": "Chân váy Nữ Midi Xòe Đẹp",
-        "price": "¥2107",
+        "price": "¥1802",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv38.jpg",
@@ -1179,7 +1179,7 @@
     {
         "id": 108,
         "name": "Chân váy Nữ Ngắn Xếp Ly Đẹp",
-        "price": "¥2004",
+        "price": "¥1925",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv39.jpg",
@@ -1190,7 +1190,7 @@
     {
         "id": 109,
         "name": "Chân váy Nữ Dài Thời Trang Xòe",
-        "price": "¥3222",
+        "price": "¥1929",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv40.jpg",
@@ -1201,7 +1201,7 @@
     {
         "id": 110,
         "name": "Chân váy Nữ Mini Trẻ Trung",
-        "price": "¥3929",
+        "price": "¥1802",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv41.jpg",
@@ -1212,7 +1212,7 @@
     {
         "id": 111,
         "name": "Chân váy Nữ Maxi Xòe Rộng",
-        "price": "¥3255",
+        "price": "¥1830",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv42.jpg",
@@ -1223,7 +1223,7 @@
     {
         "id": 112,
         "name": "Chân váy Nữ Công Sở Thanh Lịch",
-        "price": "¥2878",
+        "price": "¥1812",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv43.jpg",
@@ -1234,7 +1234,7 @@
     {
         "id": 113,
         "name": "Chân váy Nữ Xòe Rộng Thời Trang",
-        "price": "¥2524",
+        "price": "¥1975",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv44.jpg",
@@ -1245,7 +1245,7 @@
     {
         "id": 114,
         "name": "Áo Khoác Đông Nam Dày Dặn",
-        "price": "¥3510",
+        "price": "¥4332",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
@@ -1256,7 +1256,7 @@
     {
         "id": 115,
         "name": "Áo Khoác Nam Mùa Đông",
-        "price": "¥2452",
+        "price": "¥3677",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn2.jpg",
@@ -1267,7 +1267,7 @@
     {
         "id": 116,
         "name": "Áo Khoác Nam Chống Nước",
-        "price": "¥2612",
+        "price": "¥4256",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn3.jpg",
@@ -1278,7 +1278,7 @@
     {
         "id": 117,
         "name": "Áo Khoác Nam Phao",
-        "price": "¥3061",
+        "price": "¥3990",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn4.jpg",
@@ -1289,7 +1289,7 @@
     {
         "id": 118,
         "name": "Áo Khoác Nam Bomber",
-        "price": "¥2436",
+        "price": "¥3735",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn5.jpg",
@@ -1685,7 +1685,7 @@
     {
         "id": 154,
         "name": "Áo Khoác Nam Dạ Dày Cổ Lông",
-        "price": "¥2715",
+        "price": "¥3715",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn6.jpg",
@@ -1696,7 +1696,7 @@
     {
         "id": 155,
         "name": "Áo Khoác Nam Lông Vũ",
-        "price": "¥3204",
+        "price": "¥4341",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn7.jpg",
@@ -1707,7 +1707,7 @@
     {
         "id": 156,
         "name": "Áo Khoác Nam Len",
-        "price": "¥3135",
+        "price": "¥4230",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn8.jpg",
@@ -1718,7 +1718,7 @@
     {
         "id": 157,
         "name": "Áo Khoác Nam Nỉ",
-        "price": "¥3664",
+        "price": "¥3879",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn9.jpg",
@@ -1729,7 +1729,7 @@
     {
         "id": 158,
         "name": "Áo Khoác Nam Khoác Ngoài",
-        "price": "¥3537",
+        "price": "¥4229",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn10.jpg",
@@ -1740,7 +1740,7 @@
     {
         "id": 159,
         "name": "Áo Khoác Nam Thời Trang",
-        "price": "¥3617",
+        "price": "¥3546",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn11.jpg",
@@ -1751,7 +1751,7 @@
     {
         "id": 160,
         "name": "Áo Khoác Nam Có Mũ",
-        "price": "¥3029",
+        "price": "¥3953",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn12.jpg",
@@ -1762,7 +1762,7 @@
     {
         "id": 161,
         "name": "Áo Khoác Nam Dài Tay",
-        "price": "¥2676",
+        "price": "¥3535",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn13.jpg",
@@ -1773,7 +1773,7 @@
     {
         "id": 162,
         "name": "Áo Khoác Nam Form Rộng",
-        "price": "¥3226",
+        "price": "¥4437",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn14.jpg",
@@ -1784,7 +1784,7 @@
     {
         "id": 163,
         "name": "Áo Khoác Nam Cổ Tròn",
-        "price": "¥3521",
+        "price": "¥4444",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn15.jpg",
@@ -1795,7 +1795,7 @@
     {
         "id": 164,
         "name": "Áo Khoác Nam Cổ Lông",
-        "price": "¥2108",
+        "price": "¥3894",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn16.jpg",
@@ -1806,7 +1806,7 @@
     {
         "id": 165,
         "name": "Áo Khoác Nam Khóa Kéo",
-        "price": "¥3979",
+        "price": "¥3789",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn17.jpg",
@@ -1817,7 +1817,7 @@
     {
         "id": 166,
         "name": "Áo Khoác Nam Cúc Áo",
-        "price": "¥2789",
+        "price": "¥4097",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn18.jpg",
@@ -1828,7 +1828,7 @@
     {
         "id": 167,
         "name": "Áo Khoác Nam Màu Pastel",
-        "price": "¥2529",
+        "price": "¥4289",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn19.jpg",
@@ -1839,7 +1839,7 @@
     {
         "id": 168,
         "name": "Áo Khoác Nam Màu Đen",
-        "price": "¥2047",
+        "price": "¥3503",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn20.jpg",
@@ -1850,7 +1850,7 @@
     {
         "id": 169,
         "name": "Áo Khoác Nam Màu Trắng",
-        "price": "¥2767",
+        "price": "¥4351",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn21.jpg",
@@ -1861,7 +1861,7 @@
     {
         "id": 170,
         "name": "Áo Khoác Nam Màu Xám",
-        "price": "¥2152",
+        "price": "¥3956",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn22.jpg",
@@ -1872,7 +1872,7 @@
     {
         "id": 171,
         "name": "Áo Khoác Nam Màu Be",
-        "price": "¥2537",
+        "price": "¥3659",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn23.jpg",
@@ -1883,7 +1883,7 @@
     {
         "id": 172,
         "name": "Áo Khoác Nam Màu Xanh",
-        "price": "¥2579",
+        "price": "¥4477",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn24.jpg",
@@ -1894,7 +1894,7 @@
     {
         "id": 173,
         "name": "Áo Khoác Nam Màu Nâu",
-        "price": "¥3712",
+        "price": "¥4126",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn25.jpg",
@@ -1905,7 +1905,7 @@
     {
         "id": 174,
         "name": "Áo Khoác Nam Màu Cam",
-        "price": "¥2836",
+        "price": "¥4124",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn26.jpg",
@@ -1916,7 +1916,7 @@
     {
         "id": 175,
         "name": "Áo Khoác Nam Màu Tím",
-        "price": "¥3787",
+        "price": "¥3643",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn27.jpg",
@@ -1927,7 +1927,7 @@
     {
         "id": 176,
         "name": "Áo Khoác Nam Màu Đỏ",
-        "price": "¥3578",
+        "price": "¥4276",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn28.jpg",
@@ -1938,7 +1938,7 @@
     {
         "id": 177,
         "name": "Áo Khoác Nam Màu Xanh Lá",
-        "price": "¥2668",
+        "price": "¥3511",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn29.jpg",
@@ -1949,7 +1949,7 @@
     {
         "id": 178,
         "name": "Áo Khoác Nam Màu Xanh Dương",
-        "price": "¥2322",
+        "price": "¥4133",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn30.jpg",
@@ -1960,7 +1960,7 @@
     {
         "id": 179,
         "name": "Áo Khoác Nam Màu Kem",
-        "price": "¥3122",
+        "price": "¥4314",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn31.jpg",
@@ -1971,7 +1971,7 @@
     {
         "id": 180,
         "name": "Áo Khoác Nam HOT",
-        "price": "¥2676",
+        "price": "¥4055",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn32.jpg",
@@ -1982,7 +1982,7 @@
     {
         "id": 181,
         "name": "Áo Khoác Nam Màu Xám Đậm",
-        "price": "¥3142",
+        "price": "¥4315",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn33.jpg",
@@ -1993,7 +1993,7 @@
     {
         "id": 182,
         "name": "Áo Khoác Nam Phong Cách Hàn Quốc",
-        "price": "¥2476",
+        "price": "¥3782",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn34.jpg",
@@ -2004,7 +2004,7 @@
     {
         "id": 183,
         "name": "Áo Khoác Nam Phong Cách Streetwear",
-        "price": "¥3219",
+        "price": "¥3791",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn35.jpg",
@@ -2015,7 +2015,7 @@
     {
         "id": 184,
         "name": "Áo Khoác Nam Phong Cách Casual",
-        "price": "¥2412",
+        "price": "¥4463",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn36.jpg",
@@ -2026,7 +2026,7 @@
     {
         "id": 185,
         "name": "Áo Khoác Nam Phong Cách Sport",
-        "price": "¥2180",
+        "price": "¥3700",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn37.jpg",
@@ -2037,7 +2037,7 @@
     {
         "id": 186,
         "name": "Áo Khoác Nam Phong Cách Military",
-        "price": "¥3048",
+        "price": "¥4041",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn38.jpg",
@@ -2048,7 +2048,7 @@
     {
         "id": 187,
         "name": "Áo Khoác Nam Phong Cách Vintage",
-        "price": "¥3777",
+        "price": "¥3991",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn39.jpg",
@@ -2059,7 +2059,7 @@
     {
         "id": 188,
         "name": "Áo Khoác Nam Phong Cách Urban",
-        "price": "¥3669",
+        "price": "¥3988",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn40.jpg",
@@ -2070,7 +2070,7 @@
     {
         "id": 189,
         "name": "Áo Khoác Nam Phong Cách Minimalist",
-        "price": "¥3895",
+        "price": "¥4133",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn41.jpg",
@@ -2081,7 +2081,7 @@
     {
         "id": 190,
         "name": "Áo Khoác Nam Phong Cách Oversized",
-        "price": "¥3771",
+        "price": "¥4049",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn42.jpg",
@@ -2092,7 +2092,7 @@
     {
         "id": 191,
         "name": "Áo Khoác Nam Phong Cách Slim Fit",
-        "price": "¥3859",
+        "price": "¥3857",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn43.jpg",
@@ -2103,7 +2103,7 @@
     {
         "id": 192,
         "name": "Áo Khoác Nam Phong Cách Classic",
-        "price": "¥2508",
+        "price": "¥4379",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn44.jpg",
@@ -2114,7 +2114,7 @@
     {
         "id": 193,
         "name": "Áo Khoác Nam Phong Cách Modern",
-        "price": "¥3798",
+        "price": "¥3623",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn45.jpg",
@@ -2125,7 +2125,7 @@
     {
         "id": 194,
         "name": "Áo Khoác Nam Phong Cách Techwear",
-        "price": "¥3009",
+        "price": "¥4471",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn46.jpg",
@@ -2136,7 +2136,7 @@
     {
         "id": 195,
         "name": "Áo Khoác Nam Phong Cách Workwear",
-        "price": "¥2058",
+        "price": "¥3982",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn47.jpg",
@@ -2147,7 +2147,7 @@
     {
         "id": 196,
         "name": "Áo Khoác Nam Phong Cách Denim",
-        "price": "¥3010",
+        "price": "¥4312",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn48.jpg",
@@ -2158,7 +2158,7 @@
     {
         "id": 197,
         "name": "Áo Khoác Nam Phong Cách Leather",
-        "price": "¥3185",
+        "price": "¥3749",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn49.jpg",
@@ -2169,7 +2169,7 @@
     {
         "id": 198,
         "name": "Áo Khoác Nam Phong Cách Suede",
-        "price": "¥2299",
+        "price": "¥4201",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn50.jpg",
@@ -2180,7 +2180,7 @@
     {
         "id": 199,
         "name": "Áo Khoác Nam Phong Cách Corduroy",
-        "price": "¥2244",
+        "price": "¥3600",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn51.jpg",
@@ -2191,7 +2191,7 @@
     {
         "id": 200,
         "name": "Áo Khoác Nam Phong Cách Canvas",
-        "price": "¥3996",
+        "price": "¥3578",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn52.jpg",
@@ -2202,7 +2202,7 @@
     {
         "id": 201,
         "name": "Áo Khoác Nam Phong Cách Nylon",
-        "price": "¥3140",
+        "price": "¥3510",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn53.jpg",
@@ -2213,7 +2213,7 @@
     {
         "id": 202,
         "name": "Áo Khoác Nam Phong Cách Polyester",
-        "price": "¥3130",
+        "price": "¥4013",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn54.jpg",
@@ -2224,7 +2224,7 @@
     {
         "id": 203,
         "name": "Áo Khoác Nam Phong Cách Cotton",
-        "price": "¥3065",
+        "price": "¥3623",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn55.jpg",
@@ -2235,7 +2235,7 @@
     {
         "id": 204,
         "name": "Áo Khoác Nam Phong Cách Wool",
-        "price": "¥2170",
+        "price": "¥3587",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn56.jpg",
@@ -2246,7 +2246,7 @@
     {
         "id": 205,
         "name": "Áo Khoác Nam Phong Cách Fleece",
-        "price": "¥3746",
+        "price": "¥3905",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn57.jpg",
@@ -2257,7 +2257,7 @@
     {
         "id": 206,
         "name": "Áo Khoác Nam Phong Cách Quilted",
-        "price": "¥2569",
+        "price": "¥4382",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn58.jpg",
@@ -2268,7 +2268,7 @@
     {
         "id": 207,
         "name": "Áo Khoác Nam Phong Cách Puffer",
-        "price": "¥3306",
+        "price": "¥4455",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn59.jpg",
@@ -2279,7 +2279,7 @@
     {
         "id": 208,
         "name": "Áo Khoác Nam Phong Cách Windbreaker",
-        "price": "¥3810",
+        "price": "¥3660",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn60.jpg",
@@ -2290,7 +2290,7 @@
     {
         "id": 209,
         "name": "Áo Khoác Nam Phong Cách Trench",
-        "price": "¥3125",
+        "price": "¥4053",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn61.jpg",
@@ -2301,7 +2301,7 @@
     {
         "id": 210,
         "name": "Áo Khoác Nam Phong Cách Parka",
-        "price": "¥2085",
+        "price": "¥3903",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn62.jpg",
@@ -2312,7 +2312,7 @@
     {
         "id": 211,
         "name": "Áo Khoác Nam Phong Cách Anorak",
-        "price": "¥3007",
+        "price": "¥4283",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn63.jpg",
@@ -2323,7 +2323,7 @@
     {
         "id": 212,
         "name": "Áo Khoác Nam Phong Cách Hoodie",
-        "price": "¥3846",
+        "price": "¥4124",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn64.jpg",
@@ -2334,7 +2334,7 @@
     {
         "id": 213,
         "name": "Áo Khoác Nam Phong Cách Blouson",
-        "price": "¥3898",
+        "price": "¥4456",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn65.jpg",
@@ -2345,7 +2345,7 @@
     {
         "id": 214,
         "name": "Áo Khoác Nam Phong Cách Field",
-        "price": "¥2254",
+        "price": "¥4306",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn66.jpg",
@@ -2356,7 +2356,7 @@
     {
         "id": 215,
         "name": "Áo Khoác Nam Phong Cách Moto",
-        "price": "¥2239",
+        "price": "¥4001",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn67.jpg",
@@ -2367,7 +2367,7 @@
     {
         "id": 216,
         "name": "Áo Khoác Nam Phong Cách Biker",
-        "price": "¥3892",
+        "price": "¥3950",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn68.jpg",
@@ -2378,7 +2378,7 @@
     {
         "id": 217,
         "name": "Áo Khoác Nam Phong Cách Varsity",
-        "price": "¥2659",
+        "price": "¥3572",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn69.jpg",
@@ -2389,7 +2389,7 @@
     {
         "id": 218,
         "name": "Áo Khoác Nam Phong Cách Letterman",
-        "price": "¥2034",
+        "price": "¥3759",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn70.jpg",
@@ -2400,7 +2400,7 @@
     {
         "id": 219,
         "name": "Áo Khoác Nam Phong Cách Track",
-        "price": "¥3494",
+        "price": "¥3966",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn71.jpg",
@@ -2411,7 +2411,7 @@
     {
         "id": 220,
         "name": "Áo Khoác Nam Phong Cách Coach",
-        "price": "¥3543",
+        "price": "¥4456",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn72.jpg",
@@ -2422,7 +2422,7 @@
     {
         "id": 221,
         "name": "Áo Khoác Nam Phong Cách Harrington",
-        "price": "¥2841",
+        "price": "¥3983",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn73.jpg",
@@ -2433,7 +2433,7 @@
     {
         "id": 222,
         "name": "Áo Khoác Nam Phong Cách Gilet",
-        "price": "¥2708",
+        "price": "¥3822",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn74.jpg",
@@ -2444,7 +2444,7 @@
     {
         "id": 223,
         "name": "Áo Khoác Nam Phong Cách Gilet Lông",
-        "price": "¥2336",
+        "price": "¥4058",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn75.jpg",
@@ -2455,7 +2455,7 @@
     {
         "id": 224,
         "name": "Áo Khoác Nam Phong Cách Gilet Phao",
-        "price": "¥2108",
+        "price": "¥3696",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn76.jpg",
@@ -2466,7 +2466,7 @@
     {
         "id": 225,
         "name": "Áo Khoác Nam Phong Cách Gilet Len",
-        "price": "¥3373",
+        "price": "¥3864",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn77.jpg",
@@ -2477,7 +2477,7 @@
     {
         "id": 226,
         "name": "Áo Khoác Nam Phong Cách Gilet Nỉ",
-        "price": "¥2799",
+        "price": "¥3939",
         "category": "ao-dong-nam",
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adn78.jpg",
@@ -3434,7 +3434,7 @@
     {
         "id": 313,
         "name": "Giày Sneaker Nam Retro Trắng Đỏ D&S",
-        "price": "¥2850",
+        "price": "¥2673",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
@@ -3445,7 +3445,7 @@
     {
         "id": 314,
         "name": "Giày Sneaker Nam Trắng Họa Tiết LV",
-        "price": "¥3200",
+        "price": "¥2705",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0938.JPG",
@@ -3456,7 +3456,7 @@
     {
         "id": 315,
         "name": "Giày Sneaker Nam Trắng Mặt Cười Đế",
-        "price": "¥2750",
+        "price": "¥2697",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0939.JPG",
@@ -3467,7 +3467,7 @@
     {
         "id": 316,
         "name": "Giày Sneaker Nam Platform Kem Chunky",
-        "price": "¥3100",
+        "price": "¥2623",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0940.JPG",
@@ -3478,7 +3478,7 @@
     {
         "id": 317,
         "name": "Giày Sneaker Nam Đen Trắng 3 Sọc",
-        "price": "¥2650",
+        "price": "¥2693",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0941.JPG",
@@ -3489,7 +3489,7 @@
     {
         "id": 318,
         "name": "Giày Sneaker Nam Onitsuka Tiger Street Fighter",
-        "price": "¥3500",
+        "price": "¥2609",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0942.JPG",
@@ -3500,7 +3500,7 @@
     {
         "id": 319,
         "name": "Giày Sneaker Nam Vàng Mustard Đế Trắng",
-        "price": "¥2900",
+        "price": "¥2743",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0943.JPG",
@@ -3511,7 +3511,7 @@
     {
         "id": 320,
         "name": "Giày Sneaker Nam Đen Kem Platform Chunky",
-        "price": "¥3150",
+        "price": "¥2622",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0944.JPG",
@@ -3522,7 +3522,7 @@
     {
         "id": 321,
         "name": "Giày Sneaker Nam Kem Đen Sọc Vàng",
-        "price": "¥2800",
+        "price": "¥2600",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0945.JPG",
@@ -3533,7 +3533,7 @@
     {
         "id": 322,
         "name": "Giày Sneaker Nam Xanh Olive Platform",
-        "price": "¥2950",
+        "price": "¥2722",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0948.JPG",
@@ -3544,7 +3544,7 @@
     {
         "id": 323,
         "name": "Giày Sneaker Nam Nâu Da Lộn Platform Trắng",
-        "price": "¥3000",
+        "price": "¥2766",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0949.JPG",
@@ -3555,7 +3555,7 @@
     {
         "id": 324,
         "name": "Giày Sneaker Nam Đỏ Trắng Chunky Retro",
-        "price": "¥3250",
+        "price": "¥2687",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0951.JPG",
@@ -3566,7 +3566,7 @@
     {
         "id": 325,
         "name": "Giày Sneaker Nam Đen Trắng Platform 3 Sọc",
-        "price": "¥3100",
+        "price": "¥2739",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0952.JPG",
@@ -3577,7 +3577,7 @@
     {
         "id": 326,
         "name": "Giày Sneaker Nam Trắng Đen Họa Tiết",
-        "price": "¥2850",
+        "price": "¥2630",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0953.JPG",
@@ -3588,7 +3588,7 @@
     {
         "id": 327,
         "name": "Giày Sneaker Nam Trắng Đen 1987 LYXBCXC",
-        "price": "¥3200",
+        "price": "¥2794",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0954.JPG",
@@ -3599,7 +3599,7 @@
     {
         "id": 328,
         "name": "Giày Sneaker Nam Trắng ",
-        "price": "¥3400",
+        "price": "¥2639",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0955.JPG",
@@ -3610,7 +3610,7 @@
     {
         "id": 329,
         "name": "Giày Sneaker Nam Kem Đỏ Đen OLB",
-        "price": "¥2750",
+        "price": "¥2717",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0956.JPG",
@@ -3621,7 +3621,7 @@
     {
         "id": 330,
         "name": "Giày Sneaker Nam Puma Trắng Đen",
-        "price": "¥2700",
+        "price": "¥2619",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0957.JPG",
@@ -3632,7 +3632,7 @@
     {
         "id": 331,
         "name": "Giày Sneaker Nam Kem Đen Sọc Vàng",
-        "price": "¥2800",
+        "price": "¥2725",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0958.JPG",
@@ -3643,7 +3643,7 @@
     {
         "id": 332,
         "name": "Giày Sneaker Nam Xanh Teal Retro",
-        "price": "¥2900",
+        "price": "¥2744",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0959.JPG",
@@ -3654,7 +3654,7 @@
     {
         "id": 333,
         "name": "Giày Sneaker Nam Be Puma Sọc Đen",
-        "price": "¥2650",
+        "price": "¥2796",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0960.JPG",
@@ -3665,7 +3665,7 @@
     {
         "id": 334,
         "name": "Giày Sneaker Nam Trắng 1991 WANGHONGN",
-        "price": "¥3300",
+        "price": "¥2800",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0961.JPG",
@@ -3676,7 +3676,7 @@
     {
         "id": 335,
         "name": "Giày Sneaker Nam Đen Kim Cương Bạc",
-        "price": "¥3800",
+        "price": "¥2689",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0962.JPG",
@@ -3687,7 +3687,7 @@
     {
         "id": 336,
         "name": "Giày Sneaker Nam Trắng Đỏ NODA",
-        "price": "¥2750",
+        "price": "¥2735",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0964.JPG",
@@ -3698,7 +3698,7 @@
     {
         "id": 337,
         "name": "Giày Sneaker Nam Trắng Đen Onitsuka",
-        "price": "¥3000",
+        "price": "¥2658",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0965.JPG",
@@ -3709,7 +3709,7 @@
     {
         "id": 338,
         "name": "Giày Sneaker Nam Đen Kem Platform",
-        "price": "¥3100",
+        "price": "¥2710",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0966.JPG",
@@ -3720,7 +3720,7 @@
     {
         "id": 339,
         "name": "Giày Sneaker Nam Trắng Họa Tiết F",
-        "price": "¥2850",
+        "price": "¥2628",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0967.JPG",
@@ -3731,7 +3731,7 @@
     {
         "id": 340,
         "name": "Giày Sneaker Nam Trắng Họa Tiết Đen",
-        "price": "¥2950",
+        "price": "¥2720",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0968.JPG",
@@ -3742,7 +3742,7 @@
     {
         "id": 341,
         "name": "Giày Sneaker Nam Trắng Họa Tiết Đen 1987",
-        "price": "¥3200",
+        "price": "¥2675",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0969.JPG",
@@ -3753,7 +3753,7 @@
     {
         "id": 342,
         "name": "Giày Sneaker Nam Trắng Xanh Lá Platform",
-        "price": "¥3000",
+        "price": "¥2629",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0970.JPG",
@@ -3764,7 +3764,7 @@
     {
         "id": 343,
         "name": "Giày Sneaker Nam Đen Trắng TTCX",
-        "price": "¥3100",
+        "price": "¥2619",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0971.JPG",
@@ -3775,7 +3775,7 @@
     {
         "id": 344,
         "name": "Giày Sneaker Nam Trắng Mặt Cười",
-        "price": "¥2750",
+        "price": "¥2792",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0972.JPG",
@@ -3786,7 +3786,7 @@
     {
         "id": 345,
         "name": "Giày Sneaker Nam Trắng PNITTOADRN",
-        "price": "¥3400",
+        "price": "¥2678",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0973.JPG",
@@ -3797,7 +3797,7 @@
     {
         "id": 346,
         "name": "Giày Sneaker Nam Trắng Nét Vẽ Đen",
-        "price": "¥2900",
+        "price": "¥2777",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0974.JPG",
@@ -3808,7 +3808,7 @@
     {
         "id": 347,
         "name": "Giày Sneaker Nam Đen Trắng TICK",
-        "price": "¥3000",
+        "price": "¥2645",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0975.JPG",
@@ -3819,7 +3819,7 @@
     {
         "id": 348,
         "name": "Giày Sneaker Nam Trắng Xanh Lá TICK",
-        "price": "¥3050",
+        "price": "¥2604",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0976.JPG",
@@ -3830,7 +3830,7 @@
     {
         "id": 349,
         "name": "Giày Sneaker Nam Cam Bạc Sequins",
-        "price": "¥3600",
+        "price": "¥2743",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0977.JPG",
@@ -3841,7 +3841,7 @@
     {
         "id": 350,
         "name": "Giày Sneaker Nam Trắng Bạc Sequins",
-        "price": "¥3500",
+        "price": "¥2601",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0978.JPG",
@@ -3852,7 +3852,7 @@
     {
         "id": 351,
         "name": "Giày Sneaker Nam Đen Kim Cương",
-        "price": "¥3800",
+        "price": "¥2735",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0979.JPG",
@@ -3863,7 +3863,7 @@
     {
         "id": 352,
         "name": "Giày Sneaker Nam Đen Trắng REA",
-        "price": "¥2800",
+        "price": "¥2749",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0980.JPG",
@@ -3874,7 +3874,7 @@
     {
         "id": 353,
         "name": "Giày Sneaker Nam Kem Bạc Đen 1987",
-        "price": "¥3200",
+        "price": "¥2695",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0981.JPG",
@@ -3885,7 +3885,7 @@
     {
         "id": 354,
         "name": "Giày Sneaker Nam Nhiều Màu GAISIMA",
-        "price": "¥3300",
+        "price": "¥2645",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0982.JPG",
@@ -3896,7 +3896,7 @@
     {
         "id": 355,
         "name": "Giày Sneaker Nam Canvas Kem Sọc Đỏ Xanh",
-        "price": "¥2650",
+        "price": "¥2758",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0983.JPG",
@@ -3907,7 +3907,7 @@
     {
         "id": 356,
         "name": "Giày Sneaker Nam Canvas Kem Phai",
-        "price": "¥2500",
+        "price": "¥2637",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0984.JPG",
@@ -3918,7 +3918,7 @@
     {
         "id": 357,
         "name": "Giày Sneaker Nam Canvas Trắng ROX",
-        "price": "¥2700",
+        "price": "¥2663",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0985.JPG",
@@ -3929,7 +3929,7 @@
     {
         "id": 358,
         "name": "Giày Sneaker Nam Canvas Trắng BAIKUANG",
-        "price": "¥2750",
+        "price": "¥2717",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0986.JPG",
@@ -3940,7 +3940,7 @@
     {
         "id": 359,
         "name": "Giày Sneaker Nam Canvas Kem Họa Tiết IMPALA",
-        "price": "¥2900",
+        "price": "¥2722",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0987.JPG",
@@ -3951,7 +3951,7 @@
     {
         "id": 360,
         "name": "Giày Sneaker Nam Trắng Đơn Giản",
-        "price": "¥2600",
+        "price": "¥2752",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0988.JPG",
@@ -3962,7 +3962,7 @@
     {
         "id": 361,
         "name": "Giày Sneaker Nam Trắng Nhiều Màu 1987",
-        "price": "¥3200",
+        "price": "¥2677",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0989.JPG",
@@ -3973,7 +3973,7 @@
     {
         "id": 362,
         "name": "Giày Sneaker Nam Canvas Xám Họa Tiết",
-        "price": "¥2800",
+        "price": "¥2727",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0990.JPG",
@@ -3984,7 +3984,7 @@
     {
         "id": 363,
         "name": "Giày Sneaker Nam Canvas Nhiều Màu",
-        "price": "¥2900",
+        "price": "¥2762",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0991.JPG",
@@ -3995,7 +3995,7 @@
     {
         "id": 364,
         "name": "Giày Sneaker Nam Canvas Xanh Denim",
-        "price": "¥2700",
+        "price": "¥2684",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0992.JPG",
@@ -4006,7 +4006,7 @@
     {
         "id": 365,
         "name": "Giày Sneaker Nam Canvas Nhiều Màu FASHION",
-        "price": "¥3100",
+        "price": "¥2655",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0993.JPG",
@@ -4017,7 +4017,7 @@
     {
         "id": 366,
         "name": "Giày Sneaker Nam Canvas Nhiều Màu Retro",
-        "price": "¥3000",
+        "price": "¥2796",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0994.JPG",
@@ -4028,7 +4028,7 @@
     {
         "id": 367,
         "name": "Giày Sneaker Nam Trắng Đen V",
-        "price": "¥2850",
+        "price": "¥2750",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0995.JPG",
@@ -4039,7 +4039,7 @@
     {
         "id": 368,
         "name": "Giày Sneaker Nam Kem Bạc Lấp Lánh",
-        "price": "¥3400",
+        "price": "¥2635",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0996.JPG",
@@ -4050,7 +4050,7 @@
     {
         "id": 369,
         "name": "Giày Sneaker Nam Đen Bạc Kim Cương",
-        "price": "¥3700",
+        "price": "¥2660",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0997.JPG",
@@ -4061,7 +4061,7 @@
     {
         "id": 370,
         "name": "Giày Sneaker Nam Canvas Nâu",
-        "price": "¥2600",
+        "price": "¥2701",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0998.JPG",
@@ -4072,7 +4072,7 @@
     {
         "id": 371,
         "name": "Giày Sneaker Nam Canvas Nâu Retro",
-        "price": "¥2750",
+        "price": "¥2708",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_0999.JPG",
@@ -4083,7 +4083,7 @@
     {
         "id": 372,
         "name": "Giày Sneaker Nam Canvas Nâu Sọc",
-        "price": "¥2800",
+        "price": "¥2774",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1001.JPG",
@@ -4094,7 +4094,7 @@
     {
         "id": 373,
         "name": "Giày Sneaker Nam Canvas Nâu Gum",
-        "price": "¥2700",
+        "price": "¥2683",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1002.JPG",
@@ -4105,7 +4105,7 @@
     {
         "id": 374,
         "name": "Giày Sneaker Nam Canvas Nâu Be",
-        "price": "¥2650",
+        "price": "¥2737",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1003.JPG",
@@ -4116,7 +4116,7 @@
     {
         "id": 375,
         "name": "Giày Sneaker Nam Canvas Nâu Retro",
-        "price": "¥2900",
+        "price": "¥2762",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1004.JPG",
@@ -4127,7 +4127,7 @@
     {
         "id": 376,
         "name": "Giày Sneaker Nam Canvas Nâu Gum",
-        "price": "¥2750",
+        "price": "¥2743",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1005.JPG",
@@ -4138,7 +4138,7 @@
     {
         "id": 377,
         "name": "Giày Sneaker Nam NUKO Vàng Mustard",
-        "price": "¥3500",
+        "price": "¥2674",
         "category": "giay-sneaker-nam",
         "categoryName": "Sneaker Nam",
         "image": "assets/image/giay-nam/giay-sneaker-nam/IMG_1046.JPG",
