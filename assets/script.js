@@ -226,7 +226,10 @@ async function initializeApp() {
     // 7. Init bottom navigation
     initBottomNav();
 
-    // 8. Init product gallery
+    // 8. Init back button
+    updateBackButton();
+
+    // 9. Init product gallery
     initProductGallery();
 
     // 9. Init pull to refresh
@@ -444,6 +447,9 @@ function scrollToProducts() {
     // Update category indicator
     updateCategoryIndicator();
 
+    // Cập nhật hiển thị nút quay lại
+    updateBackButton();
+
     // Filter và hiển thị sản phẩm đã shuffle
     filterProducts();
 
@@ -459,6 +465,49 @@ function scrollToProducts() {
     }
 
     // Đã tắt thông báo khi load sản phẩm
+}
+
+// Hàm quay lại trang chủ
+function goBackToHome() {
+    // Reset category về "all"
+    currentCategory = "all";
+    currentPage = 1;
+    searchQuery = "";
+
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        searchInput.value = "";
+    }
+
+    // Reset active category buttons
+    document
+        .querySelectorAll(".category-option, .mobile-category-btn, .category-item")
+        .forEach((btn) => {
+            btn.classList.remove("active");
+            btn.setAttribute("aria-selected", "false");
+        });
+
+    // Set "Tất cả" button as active
+    const allButtons = document.querySelectorAll('[data-category="all"]');
+    allButtons.forEach((btn) => {
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+    });
+
+    // Update category indicator
+    updateCategoryIndicator();
+
+    // Filter và hiển thị sản phẩm
+    filterProducts();
+
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
+    // Update back button visibility
+    updateBackButton();
 }
 
 // Hàm reset về trang chủ - hiển thị tất cả sản phẩm
@@ -493,6 +542,9 @@ function resetToHome() {
 
     // Update category indicator
     updateCategoryIndicator();
+
+    // Cập nhật hiển thị nút quay lại
+    updateBackButton();
 
     // Filter và hiển thị tất cả sản phẩm
     filterProducts();
@@ -722,6 +774,9 @@ function selectCategory(category, categoryName) {
     currentCategory = category;
     updateCategoryIndicator();
 
+    // Cập nhật hiển thị nút quay lại
+    updateBackButton();
+
     // Đã tắt thông báo khi load sản phẩm
 
     filterProducts();
@@ -736,6 +791,23 @@ function selectCategory(category, categoryName) {
             });
         }
     }, 100);
+}
+
+// Hàm cập nhật hiển thị nút quay lại
+function updateBackButton() {
+    const backBtn = document.getElementById("backBtn");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    
+    if (!backBtn || !mobileMenuBtn) return;
+
+    // Hiển thị nút quay lại khi không ở category "all"
+    if (currentCategory !== "all" || searchQuery !== "") {
+        backBtn.style.display = "flex";
+        mobileMenuBtn.style.display = "none";
+    } else {
+        backBtn.style.display = "none";
+        mobileMenuBtn.style.display = "flex";
+    }
 }
 
 function updateCategoryIndicator() {
@@ -2070,6 +2142,16 @@ function changePage(page) {
     if (page < 1 || page > totalPages) return;
     currentPage = page;
 
+    // Scroll to products tabs section immediately (before loading)
+    const productsTabs = document.querySelector(".products-tabs");
+    if (productsTabs) {
+        const tabsPosition = productsTabs.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+            top: tabsPosition - 100,
+            behavior: "smooth",
+        });
+    }
+
     // Show loading spinner
     showPageLoader();
 
@@ -2078,12 +2160,19 @@ function changePage(page) {
     setTimeout(() => {
         displayProductsPaginated(filtered);
         hidePageLoader();
+        
+        // Ensure scroll position after products are rendered
+        requestAnimationFrame(() => {
+            const productsTabs = document.querySelector(".products-tabs");
+            if (productsTabs) {
+                const tabsPosition = productsTabs.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: tabsPosition - 100,
+                    behavior: "smooth",
+                });
+            }
+        });
     }, 200);
-
-    window.scrollTo({
-        top: document.querySelector(".products-section").offsetTop - 100,
-        behavior: "smooth",
-    });
 }
 
 // ==================== HÀM LỌC & TÌM KIẾM ====================
@@ -2543,6 +2632,9 @@ function handleSearch() {
     searchQuery = searchInput.value.trim();
 
     const filtered = filterProducts();
+
+    // Cập nhật hiển thị nút quay lại
+    updateBackButton();
 
     // Đã tắt thông báo khi tìm kiếm
 }

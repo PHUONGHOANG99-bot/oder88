@@ -164,13 +164,24 @@
         <header class="header">
             <div class="container">
                 <div class="header-content">
-                    <!-- Menu Button - Left Side -->
+                    <!-- Back Button & Menu Button - Left Side -->
                     <div class="header-categories">
                         <button
+                            class="back-btn"
+                            id="backBtn"
+                            aria-label="Quay lại"
+                            onclick="goBackToHome();"
+                            type="button"
+                            style="display: none"
+                        >
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            <span>Quay lại</span>
+                        </button>
+                        <button
                             class="mobile-menu-btn"
+                            id="mobileMenuBtn"
                             aria-label="Mở menu danh mục"
                             aria-expanded="false"
-                            id="mobileMenuBtn"
                             type="button"
                         >
                             <i class="fas fa-bars" aria-hidden="true"></i>
@@ -798,7 +809,7 @@
                                 Fanpage
                             </a>
                             <a
-                                href="https://www.tiktok.com/@nekoshop68"
+                                href="#!"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="social-btn tiktok"

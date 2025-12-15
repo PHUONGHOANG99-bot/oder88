@@ -262,6 +262,69 @@ body {
     position: relative;
     z-index: 3;
     min-width: 120px;
+    gap: 12px;
+}
+
+/* Back Button - Nút quay lại */
+.back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.back-btn:hover::before {
+    left: 100%;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 102, 0, 0.5);
+    color: #ff6600;
+    transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn:active {
+    transform: translateX(-1px) scale(0.98);
+}
+
+.back-btn i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover i {
+    transform: translateX(-2px);
+}
+
+.back-btn span {
+    white-space: nowrap;
 }
 
 /* Header Logo Center - Large Text - Căn giữa hoàn hảo */
@@ -301,20 +364,24 @@ body {
     display: inline-block;
     pointer-events: auto;
 
-    /* Màu trắng tinh khiết với stroke vàng cam nổi bật */
+    /* Màu trắng sáng với stroke vàng cam nổi bật, nét hơn */
     color: #ffffff;
-    -webkit-text-stroke: 4px #ff8800;
-    text-stroke: 4px #ff8800;
+    -webkit-text-stroke: 5px #ffaa00;
+    text-stroke: 5px #ffaa00;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-    /* Shadow hiện đại, dễ nhìn, tạo độ sâu */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7),
-        0 6px 12px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.5),
-        0 0 20px rgba(255, 136, 0, 0.6), 0 0 40px rgba(255, 136, 0, 0.4),
-        0 0 60px rgba(255, 136, 0, 0.3);
+    /* Chỉ giữ lại glow effect sáng, bỏ bóng đen */
+    text-shadow: 0 0 20px rgba(255, 170, 0, 0.8),
+        0 0 40px rgba(255, 170, 0, 0.6),
+        0 0 60px rgba(255, 170, 0, 0.4),
+        0 0 80px rgba(255, 200, 0, 0.3),
+        0 0 100px rgba(255, 220, 0, 0.2);
 
-    /* 3D effect nhẹ nhàng, hiện đại */
-    transform: perspective(800px) rotateX(1deg);
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+    /* Bỏ 3D effect và drop-shadow đen */
+    transform: none;
+    filter: none;
 }
 
 @keyframes textGradient {
@@ -342,27 +409,28 @@ body {
 .header-brand-text::before {
     content: "ODER88";
     position: absolute;
-    top: 2px;
-    left: 2px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    color: rgba(255, 136, 0, 0.2);
+    color: rgba(255, 200, 0, 0.3);
     z-index: -1;
-    filter: blur(3px);
-    -webkit-text-stroke: 4px rgba(255, 136, 0, 0.15);
-    text-stroke: 4px rgba(255, 136, 0, 0.15);
+    filter: blur(2px);
+    -webkit-text-stroke: 5px rgba(255, 200, 0, 0.2);
+    text-stroke: 5px rgba(255, 200, 0, 0.2);
 }
 
 .header-brand-text:hover {
-    transform: perspective(800px) rotateX(0deg) scale(1.08);
+    transform: scale(1.08);
     letter-spacing: 30px;
-    -webkit-text-stroke: 4.5px #ffaa00;
-    text-stroke: 4.5px #ffaa00;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9), 0 6px 12px rgba(0, 0, 0, 0.8),
-        0 9px 18px rgba(0, 0, 0, 0.7), 0 12px 24px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(255, 170, 0, 0.7), 0 0 60px rgba(255, 170, 0, 0.5),
-        0 0 90px rgba(255, 170, 0, 0.4);
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+    -webkit-text-stroke: 5.5px #ffcc00;
+    text-stroke: 5.5px #ffcc00;
+    text-shadow: 0 0 30px rgba(255, 200, 0, 0.9),
+        0 0 60px rgba(255, 200, 0, 0.7),
+        0 0 90px rgba(255, 220, 0, 0.5),
+        0 0 120px rgba(255, 240, 0, 0.4),
+        0 0 150px rgba(255, 255, 0, 0.3);
+    filter: none;
 }
 
 /* Floating Social Buttons - Top Right Corner */
@@ -3757,24 +3825,40 @@ body {
     .header-brand-text {
         font-size: 2.5rem;
         letter-spacing: 16px;
-        transform: perspective(400px) rotateX(1deg);
+        transform: none;
         width: auto;
         display: inline-block;
-        -webkit-text-stroke: 3px #ff8800;
-        text-stroke: 3px #ff8800;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7),
-            0 6px 12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 136, 0, 0.6),
-            0 0 40px rgba(255, 136, 0, 0.4), 0 0 60px rgba(255, 136, 0, 0.3);
+        -webkit-text-stroke: 4px #ffaa00;
+        text-stroke: 4px #ffaa00;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-shadow: 0 0 20px rgba(255, 170, 0, 0.8),
+            0 0 40px rgba(255, 170, 0, 0.6),
+            0 0 60px rgba(255, 200, 0, 0.4),
+            0 0 80px rgba(255, 220, 0, 0.3);
+        filter: none;
     }
 
     .header-brand-text:hover {
-        transform: perspective(400px) rotateX(0deg) scale(1.06);
+        transform: scale(1.06);
         letter-spacing: 18px;
-        -webkit-text-stroke: 3.5px #ffaa00;
-        text-stroke: 3.5px #ffaa00;
-        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9), 0 6px 12px rgba(0, 0, 0, 0.8),
-            0 9px 18px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 170, 0, 0.7),
-            0 0 60px rgba(255, 170, 0, 0.5), 0 0 90px rgba(255, 170, 0, 0.4);
+        -webkit-text-stroke: 4.5px #ffcc00;
+        text-stroke: 4.5px #ffcc00;
+        text-shadow: 0 0 30px rgba(255, 200, 0, 0.9),
+            0 0 60px rgba(255, 200, 0, 0.7),
+            0 0 90px rgba(255, 220, 0, 0.5),
+            0 0 120px rgba(255, 240, 0, 0.4);
+        filter: none;
+    }
+
+    .back-btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .back-btn span {
+        display: inline;
     }
 
     .header-fb-btn {
@@ -4002,14 +4086,33 @@ body {
         text-overflow: clip;
         max-width: 100%;
         width: auto;
-        -webkit-text-stroke: 3px #ff8800 !important;
-        text-stroke: 3px #ff8800 !important;
+        -webkit-text-stroke: 3px #ffaa00 !important;
+        text-stroke: 3px #ffaa00 !important;
         transform: none !important;
         display: inline-block;
         text-align: center;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7),
-            0 6px 12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 136, 0, 0.6),
-            0 0 40px rgba(255, 136, 0, 0.4), 0 0 60px rgba(255, 136, 0, 0.3) !important;
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        text-shadow: 0 0 15px rgba(255, 170, 0, 0.8),
+            0 0 30px rgba(255, 170, 0, 0.6),
+            0 0 45px rgba(255, 200, 0, 0.4),
+            0 0 60px rgba(255, 220, 0, 0.3) !important;
+        filter: none !important;
+    }
+
+    .back-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        gap: 6px;
+    }
+
+    .back-btn i {
+        font-size: 0.9rem;
+    }
+
+    .back-btn span {
+        display: none;
     }
 
     .header-right {
@@ -4035,8 +4138,13 @@ body {
     .header-brand-text:hover {
         transform: scale(1.05) !important;
         letter-spacing: 12px !important;
-        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7), 0 6px 12px rgba(0, 0, 0, 0.6),
-            0 0 25px rgba(255, 255, 0, 0.5) !important;
+        -webkit-text-stroke: 3.5px #ffcc00 !important;
+        text-stroke: 3.5px #ffcc00 !important;
+        text-shadow: 0 0 25px rgba(255, 200, 0, 0.9),
+            0 0 50px rgba(255, 220, 0, 0.7),
+            0 0 75px rgba(255, 240, 0, 0.5),
+            0 0 100px rgba(255, 255, 0, 0.4) !important;
+        filter: none !important;
     }
 
     .header-fb-btn {
