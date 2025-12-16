@@ -961,7 +961,7 @@ function initCategories() {
             id: "giay",
             name: "Giày",
             icon: "fa-shoe-prints",
-            image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+            image: "assets/logo/logogiay.JPG",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
@@ -1025,14 +1025,13 @@ function initCategories() {
     // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam)
     categoriesGrid.innerHTML = categories
         .map((category) => {
-            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam, giay-nu, giay-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
+            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, giay-nu, giay-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
             if (
                 category.id === "boot-nu" ||
                 category.id === "giay-the-thao" ||
                 category.id === "ao-dong-nu" ||
                 category.id === "ao-dong-nam" ||
                 category.id === "giay-sneaker-nam" ||
-                category.id === "quan-jean-nam" ||
                 category.id === "giay-nu" ||
                 category.id === "giay-nam" ||
                 category.id === "non" ||
@@ -1147,7 +1146,7 @@ function initMobileCategories() {
             id: "giay",
             name: "Giày",
             icon: "fa-shoe-prints",
-            image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+            image: "assets/logo/logogiay.JPG",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
@@ -2857,24 +2856,15 @@ function filterProducts() {
                 })
                 .slice(0, Math.min(filtered.length, 30));
         } else if (tab === "trending") {
-            // Sản phẩm xu hướng - sắp xếp theo lượt xem và mua gần đây
+            // Sản phẩm xu hướng - lấy top 30 sản phẩm bán chạy nhất, sau đó shuffle ngẫu nhiên
             filtered = [...filtered]
                 .sort((a, b) => {
-                    const aViews =
-                        parseInt(
-                            String(a.views || 0).replace(/[^0-9]/g, ""),
-                            10
-                        ) || 0;
-                    const bViews =
-                        parseInt(
-                            String(b.views || 0).replace(/[^0-9]/g, ""),
-                            10
-                        ) || 0;
-                    const diff = bViews - aViews;
+                    const diff = getPurchaseCount(b) - getPurchaseCount(a);
                     if (diff !== 0) return diff;
-                    return getPurchaseCount(b) - getPurchaseCount(a);
+                    return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
                 })
-                .slice(0, Math.min(filtered.length, 30));
+                .slice(0, Math.min(filtered.length, 30))
+                .sort(() => Math.random() - 0.5); // Shuffle ngẫu nhiên
         } else if (tab === "recommended") {
             // Shuffle and take top products
             filtered = [...filtered]
@@ -3827,24 +3817,15 @@ function setupEventListeners() {
                     })
                     .slice(0, Math.min(filtered.length, 30));
             } else if (tab === "trending") {
-                // Sản phẩm xu hướng - sắp xếp theo lượt xem và mua gần đây
+                // Sản phẩm xu hướng - lấy top 30 sản phẩm bán chạy nhất, sau đó shuffle ngẫu nhiên
                 filtered = [...filtered]
                     .sort((a, b) => {
-                        const aViews =
-                            parseInt(
-                                String(a.views || 0).replace(/[^0-9]/g, ""),
-                                10
-                            ) || 0;
-                        const bViews =
-                            parseInt(
-                                String(b.views || 0).replace(/[^0-9]/g, ""),
-                                10
-                            ) || 0;
-                        const diff = bViews - aViews;
+                        const diff = getPurchaseCount(b) - getPurchaseCount(a);
                         if (diff !== 0) return diff;
-                        return getPurchaseCount(b) - getPurchaseCount(a);
+                        return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
                     })
-                    .slice(0, Math.min(filtered.length, 30));
+                    .slice(0, Math.min(filtered.length, 30))
+                    .sort(() => Math.random() - 0.5); // Shuffle ngẫu nhiên
             } else if (tab === "recommended") {
                 // Shuffle and take top products
                 filtered = [...filtered]
