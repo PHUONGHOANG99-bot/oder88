@@ -259,11 +259,76 @@ function handleImageError(img) {
     };
 }
 
+// ==================== HÀM ESCAPE MESSAGE CHO HTML ====================
+function escapeMessageForHTML(message) {
+    // Escape cho việc sử dụng trong single-quoted string
+    return message
+        .replace(/\\/g, '\\\\')  // Escape backslashes trước
+        .replace(/'/g, "\\'")    // Escape single quotes
+        .replace(/\n/g, '\\n')   // Escape newlines
+        .replace(/\r/g, '\\r');  // Escape carriage returns
+}
+
+// ==================== HÀM MỞ MESSENGER APP ====================
+function openMessengerApp(message = '') {
+    const threadId = '100090836182323';
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    const isAndroid = /android/i.test(userAgent);
+    
+    let appUrl = '';
+    let webUrl = `https://www.messenger.com/t/${threadId}`;
+    
+    if (message) {
+        const encodedMessage = encodeURIComponent(message);
+        webUrl += `?text=${encodedMessage}`;
+    }
+    
+    if (isIOS) {
+        // iOS: fb-messenger-public://user-thread/{thread_id}
+        appUrl = `fb-messenger-public://user-thread/${threadId}`;
+    } else if (isAndroid) {
+        // Android: fb-messenger://user/{user_id}
+        appUrl = `fb-messenger://user/${threadId}`;
+    }
+    
+    // Thử mở app trước
+    if (appUrl) {
+        let appOpened = false;
+        let fallbackTimer;
+        
+        // Nếu page blur (user chuyển sang app), đánh dấu app đã mở
+        const blurHandler = () => {
+            appOpened = true;
+            clearTimeout(fallbackTimer);
+        };
+        window.addEventListener('blur', blurHandler, { once: true });
+        
+        // Thử mở app bằng cách tạo link ẩn và click
+        const link = document.createElement('a');
+        link.href = appUrl;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Sau 1 giây, nếu app chưa mở thì mở web
+        fallbackTimer = setTimeout(() => {
+            window.removeEventListener('blur', blurHandler);
+            if (!appOpened) {
+                window.open(webUrl, '_blank');
+            }
+        }, 1000);
+    } else {
+        // Desktop, mở web
+        window.open(webUrl, '_blank');
+    }
+}
+
 // ==================== HÀM TẠO LINK MESSENGER ====================
 function createMessengerOrderLink(productName, productPrice, categoryName) {
     const message = `Xin chào ODER 88! Tôi muốn đặt hàng:\n\n👕 Sản phẩm: ${productName}\n💰 Giá: ${productPrice}\n🏷️ Danh mục: ${categoryName}\n\nVui lòng liên hệ lại với tôi để xác nhận đơn hàng.`;
-    const encodedMessage = encodeURIComponent(message);
-    return `https://www.messenger.com/t/100090836182323?text=${encodedMessage}`;
+    return message;
 }
 
 function getCategoryDisplayName(categoryId, fallbackName) {
@@ -2089,16 +2154,15 @@ function initSlider() {
                         formatPriceWithVND(product.price).vnd
                     }</div>
                 </div>
-                <a href="${createMessengerOrderLink(
-                    product.name,
-                    formatPriceToYen(product.price),
-                    getCategoryDisplayName(
-                        product.category,
-                        product.categoryName
-                    )
-                )}" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
+                <a href="javascript:void(0)" 
+                   onclick="openMessengerApp('${escapeMessageForHTML(createMessengerOrderLink(
+                       product.name,
+                       formatPriceToYen(product.price),
+                       getCategoryDisplayName(
+                           product.category,
+                           product.categoryName
+                       )
+                   ))}'); return false;"
                    class="order-btn"
                    aria-label="Đặt hàng ${getCategoryDisplayName(
                        product.category,
@@ -2264,16 +2328,15 @@ function displayProductsPaginated(productsToShow) {
                             </div>
                         </div>
                     </div>
-                    <a href="${createMessengerOrderLink(
-                        product.name,
-                        formatPriceToYen(product.price),
-                        getCategoryDisplayName(
-                            product.category,
-                            product.categoryName
-                        )
-                    )}" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
+                    <a href="javascript:void(0)" 
+                       onclick="openMessengerApp('${escapeMessageForHTML(createMessengerOrderLink(
+                           product.name,
+                           formatPriceToYen(product.price),
+                           getCategoryDisplayName(
+                               product.category,
+                               product.categoryName
+                           )
+                       ))}'); return false;"
                        class="order-btn"
                        aria-label="Đặt hàng ${getCategoryDisplayName(
                            product.category,
@@ -3037,11 +3100,17 @@ function openProductGallery(productId, imageIndex = 0) {
 
     // Set order button link
     if (orderBtn) {
-        orderBtn.href = createMessengerOrderLink(
+        const message = createMessengerOrderLink(
             product.name,
             formatPriceToYen(product.price),
             getCategoryDisplayName(product.category, product.categoryName)
         );
+        orderBtn.href = "javascript:void(0)";
+        orderBtn.onclick = function(e) {
+            e.preventDefault();
+            openMessengerApp(message);
+            return false;
+        };
     }
 
     // Set main image
