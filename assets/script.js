@@ -127,8 +127,17 @@ async function loadProducts() {
 
         products = await response.json();
 
-        // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có
+        // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có và điều chỉnh giá
         products = products.map((product) => {
+            // Điều chỉnh giá cho áo đông nam và áo đông nữ: trừ 800 yên
+            if (product.category === "ao-dong-nam" || product.category === "ao-dong-nu") {
+                const currentYen = getYenAmount(product.price);
+                if (currentYen > 800) {
+                    const newYen = currentYen - 800;
+                    product.price = `¥${newYen}`;
+                }
+            }
+
             if (!product.purchases) {
                 // Tạo số lượt mua ngẫu nhiên là số chẵn: 100, 200, 300, 400, 500, 600, 700, 800
                 const randomMultiplier = Math.floor(Math.random() * 8) + 1; // 1-8
@@ -900,6 +909,7 @@ function updateCategoryIndicator() {
         "quan-jean-nam": "Quần Jean",
         "ao-nu": "Áo nữ",
         "ao-dong-nu": "Áo đông nữ",
+        "ao-thu-dong": "Áo thu đông",
         "tui-xach": "Túi xách",
         "tui-xach-nam": "Túi xách nam",
         "tui-xach-nu": "Túi xách nữ",
@@ -944,6 +954,7 @@ function updateCategoryIndicator() {
             "no-buoc-toc": "fa-ribbon",
             "tat": "fa-socks",
             "ao-dong-nu": "fa-tshirt",
+            "ao-thu-dong": "fa-tshirt",
             giay: "fa-shoe-prints",
             "giay-nu": "fa-heart",
             "giay-nam": "fa-shoe-prints",
@@ -984,7 +995,7 @@ function initCategories() {
             id: "set-do",
             name: "Sét Đồ",
             icon: "fa-tshirt",
-            image: "assets/image/set-do-nu/sd1.jpg",
+            image: "assets/logo/setdonu.JPG",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
@@ -999,6 +1010,13 @@ function initCategories() {
             name: "Áo đông nữ",
             icon: "fa-tshirt",
             image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+        },
+        {
+            id: "ao-thu-dong",
+            name: "Áo thu đông",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
@@ -1090,11 +1108,12 @@ function initCategories() {
     // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam)
     categoriesGrid.innerHTML = categories
         .map((category) => {
-            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, giay-nu, giay-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
+            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-thu-dong, ao-dong-nam, giay-sneaker-nam, giay-nu, giay-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
             if (
                 category.id === "boot-nu" ||
                 category.id === "giay-the-thao" ||
                 category.id === "ao-dong-nu" ||
+                category.id === "ao-thu-dong" ||
                 category.id === "ao-dong-nam" ||
                 category.id === "giay-sneaker-nam" ||
                 category.id === "giay-nu" ||
@@ -1155,14 +1174,14 @@ function initMobileCategories() {
             id: "set-do",
             name: "Sét Đồ",
             icon: "fa-tshirt",
-            image: "assets/image/set-do-nu/sd1.jpg",
+            image: "assets/logo/setdonu.JPG",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
             id: "set-do-nu",
             name: "Sét Đồ Nữ",
             icon: "fa-tshirt",
-            image: "assets/image/set-do-nu/sd1.jpg",
+            image: "assets/logo/setdonu.JPG",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
@@ -1184,6 +1203,13 @@ function initMobileCategories() {
             name: "Áo đông nữ",
             icon: "fa-tshirt",
             image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+        },
+        {
+            id: "ao-thu-dong",
+            name: "Áo thu đông",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
@@ -1503,6 +1529,7 @@ function initMobileCategories() {
             } else if (category.id === "ao-nu") {
                 // Tìm các subcategories
                 const aoDongNu = categories.find((c) => c.id === "ao-dong-nu");
+                const aoThuDong = categories.find((c) => c.id === "ao-thu-dong");
 
                 return `
                 <div class="category-with-subcategories">
@@ -1564,6 +1591,25 @@ function initMobileCategories() {
                                 </div>
                             </div>
                             <span class="mobile-category-text">${aoDongNu.name}</span>
+                        </button>
+                        `
+                                : ""
+                        }
+                        ${
+                            aoThuDong
+                                ? `
+                        <button
+                            class="mobile-category-btn subcategory-btn"
+                            data-category="ao-thu-dong"
+                            type="button"
+                        >
+                            <div class="mobile-category-image">
+                                <img src="${aoThuDong.image}" alt="${aoThuDong.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.mobile-category-icon-fallback').style.display='flex';">
+                                <div class="mobile-category-icon-fallback" style="background: ${aoThuDong.color}; display: none;">
+                                    <i class="fas ${aoThuDong.icon}"></i>
+                                </div>
+                            </div>
+                            <span class="mobile-category-text">${aoThuDong.name}</span>
                         </button>
                         `
                                 : ""
@@ -2483,6 +2529,11 @@ function removeVietnameseTones(str) {
 function getProductSearchKeywords(product) {
     if (!product) return "";
 
+    // Nếu sản phẩm đã có keywords (từ JSON), sử dụng luôn để tối ưu hiệu năng
+    if (product.keywords) {
+        return product.keywords.toLowerCase();
+    }
+
     const keywords = [];
 
     // Thêm tên sản phẩm
@@ -2859,9 +2910,9 @@ function filterProducts() {
                 (p) => p.category === "vay" || p.category === "chan-vay"
             );
         } else if (currentCategory === "ao-nu") {
-            // Hiển thị tất cả áo nữ (bao gồm áo đông nữ)
+            // Hiển thị tất cả áo nữ (bao gồm áo đông nữ và áo thu đông)
             filtered = filtered.filter(
-                (p) => p.category === "ao-nu" || p.category === "ao-dong-nu"
+                (p) => p.category === "ao-nu" || p.category === "ao-dong-nu" || p.category === "ao-thu-dong"
             );
         } else if (currentCategory === "ao-nam") {
             // Hiển thị tất cả áo nam (bao gồm áo đông nam)
@@ -2981,6 +3032,7 @@ function handleSearch() {
 // ==================== PRODUCT IMAGE GALLERY ====================
 let currentGalleryImages = [];
 let currentGalleryIndex = 0;
+let currentGalleryProductId = null;
 let galleryZoomLevel = 1;
 let panX = 0;
 let panY = 0;
@@ -3060,6 +3112,7 @@ function openProductGallery(productId, imageIndex = 0) {
     if (!product) return;
 
     currentGalleryImages = getProductImages(productId);
+    currentGalleryProductId = productId; // Store current product ID
     if (currentGalleryImages.length === 0) {
         // Đã tắt thông báo
         return;
@@ -3113,11 +3166,88 @@ function openProductGallery(productId, imageIndex = 0) {
         };
     }
 
-    // Set main image
-    mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
-    mainImage.style.transform = "scale(1)";
-    mainImage.style.transformOrigin = "center center";
-    mainImage.classList.remove("zoomed");
+    // Handle video if product has video - show video first instead of image
+    const mainVideo = document.getElementById("galleryMainVideo");
+    const videoContainer = document.getElementById("galleryVideoContainer");
+    const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
+    const videoToggle = document.getElementById("galleryVideoToggle");
+    
+    if (product.video && mainVideo && videoContainer && videoPlayOverlay) {
+        // Set video source and poster (first image as thumbnail)
+        mainVideo.src = normalizePath(product.video);
+        mainVideo.poster = normalizePath(currentGalleryImages[0]);
+        mainVideo.controls = false; // Hide controls initially
+        
+        // Show video container, hide image
+        videoContainer.style.display = "flex";
+        mainImage.style.display = "none";
+        videoPlayOverlay.style.display = "flex";
+        
+        // Show toggle button to switch back to image
+        if (videoToggle) {
+            videoToggle.style.display = "flex";
+            videoToggle.innerHTML = '<i class="fas fa-image" aria-hidden="true"></i><span>Xem ảnh</span>';
+            videoToggle.onclick = function(e) {
+                e.stopPropagation();
+                switchToImage();
+            };
+        }
+        
+        // Play video when clicking play overlay
+        videoPlayOverlay.onclick = function(e) {
+            e.stopPropagation();
+            playVideo();
+        };
+        
+        // Also allow clicking on video to play
+        mainVideo.onclick = function(e) {
+            e.stopPropagation();
+            if (mainVideo.paused) {
+                playVideo();
+            }
+        };
+        
+        // Hide play overlay when video starts playing
+        mainVideo.addEventListener('play', function() {
+            videoPlayOverlay.style.display = "none";
+            mainVideo.controls = true;
+        });
+        
+        // Show play overlay when video is paused
+        mainVideo.addEventListener('pause', function() {
+            videoPlayOverlay.style.display = "flex";
+            mainVideo.controls = false;
+        });
+        
+        // Show play overlay when video ends
+        mainVideo.addEventListener('ended', function() {
+            videoPlayOverlay.style.display = "flex";
+            mainVideo.controls = false;
+            mainVideo.currentTime = 0;
+        });
+        
+        // Limit video playback to 10 seconds maximum
+        mainVideo.addEventListener('timeupdate', function() {
+            if (mainVideo.currentTime >= 10) {
+                mainVideo.pause();
+                mainVideo.currentTime = 0;
+                if (videoPlayOverlay) {
+                    videoPlayOverlay.style.display = "flex";
+                }
+                mainVideo.controls = false;
+            }
+        });
+    } else {
+        // No video - show image normally
+        mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
+        mainImage.style.transform = "scale(1)";
+        mainImage.style.transformOrigin = "center center";
+        mainImage.classList.remove("zoomed");
+        mainImage.style.display = "block";
+        
+        if (videoContainer) videoContainer.style.display = "none";
+        if (videoToggle) videoToggle.style.display = "none";
+    }
 
     // Create thumbnails
     if (thumbnailsContainer) {
@@ -3150,7 +3280,11 @@ function closeProductGallery() {
         galleryZoomLevel = 1;
         panX = 0;
         panY = 0;
+        currentGalleryProductId = null;
         const mainImage = document.getElementById("galleryMainImage");
+        const mainVideo = document.getElementById("galleryMainVideo");
+        const videoContainer = document.getElementById("galleryVideoContainer");
+        const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
         const mainImageWrapper = document.querySelector(
             ".gallery-main-image-wrapper"
         );
@@ -3158,6 +3292,18 @@ function closeProductGallery() {
             mainImage.style.transform = "scale(1)";
             mainImage.style.transformOrigin = "center center";
             mainImage.classList.remove("zoomed");
+            mainImage.style.display = "block";
+        }
+        if (mainVideo) {
+            mainVideo.pause();
+            mainVideo.currentTime = 0;
+            mainVideo.controls = false;
+        }
+        if (videoContainer) {
+            videoContainer.style.display = "none";
+        }
+        if (videoPlayOverlay) {
+            videoPlayOverlay.style.display = "flex";
         }
         if (mainImageWrapper) {
             mainImageWrapper.classList.remove("panning");
@@ -3174,23 +3320,64 @@ function goToGalleryImage(index) {
     panY = 0;
 
     const mainImage = document.getElementById("galleryMainImage");
+    const mainVideo = document.getElementById("galleryMainVideo");
+    const videoContainer = document.getElementById("galleryVideoContainer");
+    const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
     const mainImageWrapper = document.querySelector(
         ".gallery-main-image-wrapper"
     );
     const currentIndexSpan = document.getElementById("galleryCurrentIndex");
     const thumbnails = document.querySelectorAll(".gallery-thumbnail");
 
-    if (mainImage) {
-        mainImage.style.opacity = "0";
-        setTimeout(() => {
-            mainImage.src = normalizePath(
-                currentGalleryImages[currentGalleryIndex]
-            );
-            mainImage.style.transform = "scale(1)";
-            mainImage.style.transformOrigin = "center center";
-            mainImage.style.opacity = "1";
-            mainImage.classList.remove("zoomed");
-        }, 150);
+    // Reset video if showing
+    if (mainVideo && videoContainer && videoContainer.style.display !== "none") {
+        mainVideo.pause();
+        mainVideo.currentTime = 0;
+        mainVideo.controls = false;
+        if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
+    }
+
+    // Get current product to check if it has video
+    const currentProduct = currentGalleryProductId ? 
+        products.find((p) => p.id === currentGalleryProductId) : null;
+
+    // If switching to first image (index 0) and product has video, show video
+    if (index === 0 && currentProduct && currentProduct.video) {
+        // Show video container
+        if (videoContainer) {
+            videoContainer.style.display = "flex";
+            if (mainVideo) {
+                mainVideo.poster = normalizePath(currentGalleryImages[0]);
+                mainVideo.pause();
+                mainVideo.currentTime = 0;
+                mainVideo.controls = false;
+            }
+            if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
+        }
+        if (mainImage) mainImage.style.display = "none";
+    } else {
+        // Show image for other indices
+        if (videoContainer) videoContainer.style.display = "none";
+        if (mainVideo) {
+            mainVideo.pause();
+            mainVideo.currentTime = 0;
+            mainVideo.controls = false;
+        }
+        if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
+        
+        if (mainImage) {
+            mainImage.style.opacity = "0";
+            setTimeout(() => {
+                mainImage.src = normalizePath(
+                    currentGalleryImages[currentGalleryIndex]
+                );
+                mainImage.style.transform = "scale(1)";
+                mainImage.style.transformOrigin = "center center";
+                mainImage.style.opacity = "1";
+                mainImage.classList.remove("zoomed");
+                mainImage.style.display = "block";
+            }, 150);
+        }
     }
 
     if (mainImageWrapper) {
@@ -3205,6 +3392,82 @@ function goToGalleryImage(index) {
     thumbnails.forEach((thumb, i) => {
         thumb.classList.toggle("active", i === currentGalleryIndex);
     });
+}
+
+// Play video
+function playVideo() {
+    const mainVideo = document.getElementById("galleryMainVideo");
+    const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
+    
+    if (!mainVideo) return;
+    
+    mainVideo.play().catch(err => {
+        console.error("Error playing video:", err);
+    });
+}
+
+// Switch from video to image
+function switchToImage() {
+    const mainImage = document.getElementById("galleryMainImage");
+    const mainVideo = document.getElementById("galleryMainVideo");
+    const videoContainer = document.getElementById("galleryVideoContainer");
+    const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
+    const videoToggle = document.getElementById("galleryVideoToggle");
+    
+    if (!mainImage || !mainVideo || !videoContainer) return;
+    
+    // Pause and reset video
+    mainVideo.pause();
+    mainVideo.currentTime = 0;
+    mainVideo.controls = false;
+    if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
+    
+    // Hide video container, show image
+    videoContainer.style.display = "none";
+    mainImage.style.display = "block";
+    mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
+    mainImage.style.transform = "scale(1)";
+    mainImage.style.transformOrigin = "center center";
+    mainImage.classList.remove("zoomed");
+    
+    // Update toggle button
+    if (videoToggle) {
+        videoToggle.innerHTML = '<i class="fas fa-video" aria-hidden="true"></i><span>Xem video</span>';
+        videoToggle.onclick = function(e) {
+            e.stopPropagation();
+            switchToVideo();
+        };
+    }
+}
+
+// Switch from image to video
+function switchToVideo() {
+    const mainImage = document.getElementById("galleryMainImage");
+    const mainVideo = document.getElementById("galleryMainVideo");
+    const videoContainer = document.getElementById("galleryVideoContainer");
+    const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
+    const videoToggle = document.getElementById("galleryVideoToggle");
+    
+    if (!mainImage || !mainVideo || !videoContainer) return;
+    
+    // Hide image, show video container
+    mainImage.style.display = "none";
+    videoContainer.style.display = "flex";
+    if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
+    
+    // Reset video
+    mainVideo.pause();
+    mainVideo.currentTime = 0;
+    mainVideo.controls = false;
+    
+    // Update toggle button
+    if (videoToggle) {
+        videoToggle.innerHTML = '<i class="fas fa-image" aria-hidden="true"></i><span>Xem ảnh</span>';
+        videoToggle.onclick = function(e) {
+            e.stopPropagation();
+            switchToImage();
+        };
+    }
 }
 
 function nextGalleryImage() {
@@ -3842,7 +4105,8 @@ function setupEventListeners() {
                     filtered = filtered.filter(
                         (p) =>
                             p.category === "ao-nu" ||
-                            p.category === "ao-dong-nu"
+                            p.category === "ao-dong-nu" ||
+                            p.category === "ao-thu-dong"
                     );
                 } else if (currentCategory === "ao-nam") {
                     filtered = filtered.filter(
