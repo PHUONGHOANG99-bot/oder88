@@ -181,12 +181,13 @@
                             // Check for updates immediately
                             registration.update();
 
-                            // Check for updates every 30 seconds (more frequent for faster updates)
+                            // Check for updates mỗi 5 phút (giảm tần suất để tránh loop)
                             setInterval(() => {
                                 registration.update();
-                            }, 30000);
+                            }, 300000);
 
                             // Listen for updates
+                            let hasReloaded = false;
                             registration.addEventListener("updatefound", () => {
                                 const newWorker = registration.installing;
                                 if (!newWorker) return;
@@ -194,37 +195,31 @@
                                 newWorker.addEventListener(
                                     "statechange",
                                     () => {
+                                        // Chỉ reload một lần khi có update thực sự
                                         if (
                                             newWorker.state === "installed" &&
-                                            navigator.serviceWorker.controller
+                                            navigator.serviceWorker
+                                                .controller &&
+                                            !hasReloaded
                                         ) {
-                                            // New service worker available, reload page immediately
+                                            // New service worker available, reload page once
                                             console.log(
                                                 "🔄 New SW version detected, reloading..."
                                             );
-                                            // Force reload immediately
-                                            window.location.reload(true);
-                                        } else if (
-                                            newWorker.state === "activated"
-                                        ) {
-                                            // Service worker activated, reload to use new version
-                                            console.log(
-                                                "✅ SW activated, reloading..."
-                                            );
-                                            window.location.reload(true);
+                                            hasReloaded = true;
+                                            // Delay reload để tránh loop
+                                            setTimeout(() => {
+                                                window.location.reload();
+                                            }, 500);
                                         }
                                     }
                                 );
                             });
 
-                            // Also check when service worker becomes active (after skipWaiting)
-                            if (registration.waiting) {
-                                // There's already a waiting service worker, reload immediately
-                                console.log(
-                                    "🔄 Waiting SW found, reloading..."
-                                );
-                                window.location.reload(true);
-                            }
+                            // Không reload ngay khi có waiting worker, để user tự quyết định
+                            // if (registration.waiting) {
+                            //     console.log("🔄 Waiting SW found");
+                            // }
 
                             // Also check on page visibility change (user returns to tab)
                             document.addEventListener(
@@ -245,12 +240,21 @@
                 });
 
                 // Listen for messages from service worker
+                let reloadMessageReceived = false;
                 navigator.serviceWorker.addEventListener("message", (event) => {
-                    if (event.data && event.data.type === "SW_UPDATED") {
+                    if (
+                        event.data &&
+                        event.data.type === "SW_UPDATED" &&
+                        !reloadMessageReceived
+                    ) {
                         console.log(
                             "🔄 SW update message received, reloading..."
                         );
-                        window.location.reload(true);
+                        reloadMessageReceived = true;
+                        // Delay reload để tránh loop
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 500);
                     }
                 });
 

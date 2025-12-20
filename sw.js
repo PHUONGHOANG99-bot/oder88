@@ -124,6 +124,7 @@ self.addEventListener("activate", (event) => {
         self.clients.claim().then(() => {
             // Delete all old caches
             return caches.keys().then((cacheNames) => {
+                const hasOldCache = cacheNames.some(name => name !== CACHE_NAME);
                 return Promise.all(
                     cacheNames.map((cacheName) => {
                         if (cacheName !== CACHE_NAME) {
@@ -131,21 +132,24 @@ self.addEventListener("activate", (event) => {
                             return caches.delete(cacheName);
                         }
                     })
-                );
+                ).then(() => hasOldCache);
             });
         })
-        .then(() => {
-            // Notify all clients to reload
-            return self.clients.matchAll({ includeUncontrolled: true }).then((clients) => {
-                console.log("📢 Notifying", clients.length, "clients to reload");
-                clients.forEach((client) => {
-                    client.postMessage({
-                        type: "SW_UPDATED",
-                        action: "reload",
-                        version: CACHE_NAME,
+        .then((hadOldCache) => {
+            // Chỉ notify clients nếu có cache cũ được xóa (tức là có update thực sự)
+            // Không notify nếu đây là lần đầu install
+            if (hadOldCache) {
+                return self.clients.matchAll({ includeUncontrolled: true }).then((clients) => {
+                    console.log("📢 Notifying", clients.length, "clients to reload");
+                    clients.forEach((client) => {
+                        client.postMessage({
+                            type: "SW_UPDATED",
+                            action: "reload",
+                            version: CACHE_NAME,
+                        });
                     });
                 });
-            });
+            }
         })
     );
 });

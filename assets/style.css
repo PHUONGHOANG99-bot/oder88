@@ -6680,17 +6680,19 @@ input:focus-visible {
 
 .cart-clear-btn {
     flex: 1;
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-    border-right: 1px solid rgba(255, 102, 0, 0.2);
+    background: linear-gradient(135deg, #ff4757, #ff6348);
+    color: #ffffff;
+    border-right: 1px solid rgba(255, 71, 87, 0.3);
     border-radius: 0;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.2);
 }
 
 .cart-clear-btn:hover {
-    background: rgba(255, 102, 0, 0.1);
+    background: linear-gradient(135deg, #ff3838, #ff5252);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
 }
 
 .cart-checkout-btn {
