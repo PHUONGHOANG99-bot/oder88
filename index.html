@@ -288,6 +288,27 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- Desktop Cart - Right side actions -->
+                        <div class="header-actions">
+                            <button
+                                class="header-cart-btn"
+                                aria-label="Giỏ hàng"
+                                onclick="toggleCart();"
+                                type="button"
+                                id="headerCartBtn"
+                            >
+                                <i
+                                    class="fas fa-shopping-cart"
+                                    aria-hidden="true"
+                                ></i>
+                                <span
+                                    class="cart-badge"
+                                    id="cartBadgeDesktop"
+                                    style="display: none"
+                                    >0</span
+                                >
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -733,7 +754,11 @@
                             class="gallery-main-image"
                             alt="Ảnh sản phẩm"
                         />
-                        <div class="gallery-video-container" id="galleryVideoContainer" style="display: none;">
+                        <div
+                            class="gallery-video-container"
+                            id="galleryVideoContainer"
+                            style="display: none"
+                        >
                             <video
                                 id="galleryMainVideo"
                                 class="gallery-main-video"
@@ -756,7 +781,7 @@
                             id="galleryVideoToggle"
                             aria-label="Xem ảnh"
                             type="button"
-                            style="display: none;"
+                            style="display: none"
                         >
                             <i class="fas fa-image" aria-hidden="true"></i>
                             <span>Xem ảnh</span>
@@ -830,18 +855,33 @@
                             <span id="galleryTotalImages">4</span>
                         </p>
                     </div>
-                    <a
-                        id="galleryOrderBtn"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="gallery-order-btn"
-                        aria-label="Đặt hàng sản phẩm"
-                    >
-                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                        <span>ĐẶT HÀNG NGAY</span>
-                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+                    <div class="product-actions gallery-product-actions">
+                        <button
+                            id="galleryAddToCartBtn"
+                            class="add-to-cart-btn"
+                            aria-label="Thêm vào giỏ hàng"
+                            type="button"
+                        >
+                            <span class="cart-icon-wrap" aria-hidden="true">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-plus-badge">+</span>
+                            </span>
+                        </button>
+                        <a
+                            id="galleryOrderBtn"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="order-btn"
+                            aria-label="Đặt hàng sản phẩm"
+                        >
+                            <i
+                                class="fas fa-shopping-cart"
+                                aria-hidden="true"
+                            ></i>
+                            <span>ĐẶT HÀNG NGAY</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -873,12 +913,16 @@
             </a>
             <button
                 class="bottom-nav-item"
-                aria-label="Tìm kiếm"
-                onclick="focusSearch();"
+                aria-label="Giỏ hàng"
+                onclick="toggleCart();"
                 type="button"
+                id="cartBtn"
             >
-                <i class="fas fa-search" aria-hidden="true"></i>
-                <span>Tìm kiếm</span>
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                <span>Giỏ hàng</span>
+                <span class="cart-badge" id="cartBadge" style="display: none"
+                    >0</span
+                >
             </button>
             <button
                 class="bottom-nav-trend-btn"
@@ -904,6 +948,71 @@
                 <span>Danh mục</span>
             </button>
         </nav>
+
+        <!-- Shopping Cart Modal -->
+        <div class="cart-modal" id="cartModal">
+            <div class="cart-overlay" onclick="closeCart();"></div>
+            <div class="cart-content">
+                <div class="cart-header">
+                    <h2>
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        Giỏ hàng của tôi
+                    </h2>
+                    <button
+                        class="cart-close-btn"
+                        onclick="closeCart();"
+                        aria-label="Đóng giỏ hàng"
+                        type="button"
+                    >
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="cart-body" id="cartBody">
+                    <div class="cart-empty" id="cartEmpty">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <p>Giỏ hàng của bạn đang trống</p>
+                        <button
+                            class="cart-continue-shopping"
+                            onclick="closeCart();"
+                        >
+                            Tiếp tục mua sắm
+                        </button>
+                    </div>
+                    <div class="cart-items" id="cartItems"></div>
+                </div>
+                <div class="cart-footer" id="cartFooter" style="display: none">
+                    <div class="cart-total">
+                        <div class="cart-total-row">
+                            <span>Tổng cộng:</span>
+                            <span class="cart-total-price" id="cartTotalPrice"
+                                >¥0</span
+                            >
+                        </div>
+                        <div class="cart-total-vnd" id="cartTotalVND">
+                            VND 0
+                        </div>
+                    </div>
+                    <div class="cart-actions">
+                        <button
+                            class="cart-clear-btn"
+                            onclick="clearCart();"
+                            type="button"
+                        >
+                            <i class="fas fa-trash" aria-hidden="true"></i>
+                            Xóa tất cả
+                        </button>
+                        <button
+                            class="cart-checkout-btn"
+                            onclick="checkoutCart();"
+                            type="button"
+                        >
+                            <i class="fas fa-check" aria-hidden="true"></i>
+                            Đặt hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
