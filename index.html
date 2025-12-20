@@ -129,6 +129,13 @@
             as="fetch"
             crossorigin="anonymous"
         />
+        <!-- Google Fonts - Inter (hỗ trợ tiếng Việt tốt) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
         <link rel="preload" href="assets/style.css?v=47" as="style" />
         <link
             rel="preload"
@@ -405,210 +412,61 @@
                     &times;
                 </button>
             </div>
-            <div class="mobile-categories-list">
-                <button class="mobile-category-btn active" data-category="all">
-                    <i class="fas fa-border-all"></i> Tất cả
-                </button>
-                <div class="category-with-subcategories">
+            <div class="mobile-categories-wrapper">
+                <!-- Left Column: Main Categories List -->
+                <div class="mobile-categories-list">
                     <button
-                        class="mobile-category-btn"
-                        data-category="set-do"
-                        id="setDoBtn"
+                        class="mobile-category-btn active"
+                        data-category="all"
                     >
-                        <i class="fas fa-tshirt"></i> Sét Đồ
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                        <i class="fas fa-border-all"></i> Tất cả
                     </button>
-                    <div
-                        class="subcategories"
-                        id="setDoSubcategories"
-                        style="display: none"
-                    >
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="set-do-nu"
-                        >
-                            <i class="fas fa-tshirt"></i> Sét Đồ Nữ
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="set-do-nam"
-                        >
-                            <i class="fas fa-tshirt"></i> Sét Đồ Nam
-                        </button>
-                    </div>
-                </div>
-                <div class="category-with-subcategories">
+                    <button class="mobile-category-btn" data-category="set-do">
+                        <i class="fas fa-tshirt"></i> Sét Đồ
+                    </button>
+                    <button class="mobile-category-btn" data-category="ao-nu">
+                        <i class="fas fa-tshirt"></i> Áo nữ
+                    </button>
+                    <button class="mobile-category-btn" data-category="ao-nam">
+                        <i class="fas fa-tshirt"></i> Áo Nam
+                    </button>
                     <button
                         class="mobile-category-btn"
                         data-category="tui-xach"
-                        id="tuiXachBtn"
                     >
                         <i class="fas fa-shopping-bag"></i> Túi xách
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
                     </button>
-                    <div
-                        class="subcategories"
-                        id="tuiXachSubcategories"
-                        style="display: none"
-                    >
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="tui-xach-nam"
-                        >
-                            <i class="fas fa-briefcase"></i> Túi xách nam
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="tui-xach-nu"
-                        >
-                            <i class="fas fa-handbag"></i> Túi xách nữ
-                        </button>
-                    </div>
-                </div>
-                <div class="category-with-subcategories">
-                    <button
-                        class="mobile-category-btn"
-                        data-category="giay"
-                        id="giayBtn"
-                    >
+                    <button class="mobile-category-btn" data-category="giay">
                         <i class="fas fa-shoe-prints"></i> Giày
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
                     </button>
-                    <div
-                        class="subcategories"
-                        id="giaySubcategories"
-                        style="display: none"
-                    >
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="giay-nu"
-                        >
-                            <i class="fas fa-heart"></i> Giày nữ
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="boot-nu"
-                        >
-                            <i class="fas fa-shoe-prints"></i> Boot nữ
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="giay-the-thao"
-                        >
-                            <i class="fas fa-running"></i> Sneaker Nữ
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="giay-nam"
-                        >
-                            <i class="fas fa-shoe-prints"></i> Giày Nam
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="giay-sneaker-nam"
-                        >
-                            <i class="fas fa-running"></i> Sneaker Nam
-                        </button>
-                    </div>
-                </div>
-                <div class="category-with-subcategories">
+                    <button class="mobile-category-btn" data-category="vay">
+                        <i class="fas fa-heart"></i> Váy
+                    </button>
                     <button
                         class="mobile-category-btn"
-                        data-category="vay"
-                        id="vayBtn"
+                        data-category="quan-dai-nu"
                     >
-                        <i class="fas fa-tshirt"></i> Váy
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                        <i class="fas fa-female"></i> Quần dài nữ
                     </button>
-                    <div
-                        class="subcategories"
-                        id="vaySubcategories"
-                        style="display: none"
-                    >
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="vay"
-                        >
-                            <i class="fas fa-tshirt"></i> Tất cả
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="chan-vay"
-                        >
-                            <i class="fas fa-tshirt"></i> Chân váy
-                        </button>
-                    </div>
-                </div>
-                <div class="category-with-subcategories">
                     <button
                         class="mobile-category-btn"
-                        data-category="ao-nam"
-                        id="aoNamBtn"
+                        data-category="quan-nam"
                     >
-                        <i class="fas fa-tshirt"></i> Áo Nam
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
+                        <i class="fas fa-user"></i> Quần Nam
                     </button>
-                    <div
-                        class="subcategories"
-                        id="aoNamSubcategories"
-                        style="display: none"
-                    >
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="ao-dong-nam"
-                        >
-                            <i class="fas fa-tshirt"></i> Áo đông nam
-                        </button>
-                    </div>
-                </div>
-                <button class="mobile-category-btn" data-category="quan-dai-nu">
-                    <i class="fas fa-tshirt"></i> Quần dài nữ
-                </button>
-                <button
-                    class="mobile-category-btn"
-                    data-category="quan-jean-nam"
-                >
-                    <i class="fas fa-tshirt"></i> Quần Jean
-                </button>
-                <div class="category-with-subcategories">
                     <button
                         class="mobile-category-btn"
                         data-category="phu-kien"
-                        id="phuKienBtn"
                     >
                         <i class="fas fa-gift"></i> Phụ Kiện
-                        <i class="fas fa-chevron-right subcategory-arrow"></i>
                     </button>
-                    <div
-                        class="subcategories"
-                        id="phuKienSubcategories"
-                        style="display: none"
-                    >
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="non"
-                        >
-                            <i class="fas fa-hat-cowboy"></i> Mũ
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="khan"
-                        >
-                            <i class="fas fa-scarf"></i> Khăn
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="no-buoc-toc"
-                        >
-                            <i class="fas fa-ribbon"></i> Nơ Buộc tóc
-                        </button>
-                        <button
-                            class="mobile-category-btn subcategory-btn"
-                            data-category="tat"
-                        >
-                            <i class="fas fa-socks"></i> Tất
-                        </button>
-                    </div>
+                </div>
+                <!-- Right Column: Subcategories Grid -->
+                <div
+                    class="mobile-subcategories-panel"
+                    id="mobileSubcategoriesPanel"
+                >
+                    <!-- Subcategories will be displayed here dynamically -->
                 </div>
             </div>
         </div>
@@ -672,8 +530,13 @@
                         SÁCH SẢN PHẨM
                     </h2>
                 </div>
-                <div class="categories-grid" id="categoriesGrid">
-                    <!-- Categories will be loaded dynamically -->
+                <div class="categories-wrapper">
+                    <div class="categories-grid" id="categoriesGrid">
+                        <!-- Categories will be loaded dynamically -->
+                    </div>
+                    <div class="subcategories-panel" id="subcategoriesPanel">
+                        <!-- Subcategories will be displayed here when a category is clicked -->
+                    </div>
                 </div>
             </div>
         </section>

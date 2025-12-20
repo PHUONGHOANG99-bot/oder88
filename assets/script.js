@@ -8,6 +8,150 @@ const productsPerPage = 40;
 let currentSlide = 0;
 const itemsPerSlide = 3;
 
+// ==================== FIX TEXT ENCODING (MOJIBAKE) ====================
+// Nhiều file JSON bị lỗi kiểu: "Quáº§n dÃ i..." hoặc giá "Â¥2402"
+// Nguyên nhân phổ biến: chuỗi UTF-8 bị đọc nhầm theo Latin-1 (ISO-8859-1) rồi lưu lại.
+// Convert string that was (wrongly) decoded as a single-byte encoding back to bytes.
+// Supports ISO-8859-1 AND Windows-1252 (needed because bytes 0x80-0x9F map to chars like ™, ƒ,...)
+const WIN1252_CHAR_TO_BYTE = {
+    "\u20AC": 0x80, // €
+    "\u201A": 0x82, // ‚
+    "\u0192": 0x83, // ƒ
+    "\u201E": 0x84, // „
+    "\u2026": 0x85, // …
+    "\u2020": 0x86, // †
+    "\u2021": 0x87, // ‡
+    "\u02C6": 0x88, // ˆ
+    "\u2030": 0x89, // ‰
+    "\u0160": 0x8a, // Š
+    "\u2039": 0x8b, // ‹
+    "\u0152": 0x8c, // Œ
+    "\u017D": 0x8e, // Ž
+    "\u2018": 0x91, // ‘
+    "\u2019": 0x92, // ’
+    "\u201C": 0x93, // “
+    "\u201D": 0x94, // ”
+    "\u2022": 0x95, // •
+    "\u2013": 0x96, // –
+    "\u2014": 0x97, // —
+    "\u02DC": 0x98, // ˜
+    "\u2122": 0x99, // ™
+    "\u0161": 0x9a, // š
+    "\u203A": 0x9b, // ›
+    "\u0153": 0x9c, // œ
+    "\u017E": 0x9e, // ž
+    "\u0178": 0x9f, // Ÿ
+};
+
+function singleByteBytesFromString(str) {
+    if (typeof str !== "string") return null;
+    const bytes = new Uint8Array(str.length);
+    for (let i = 0; i < str.length; i++) {
+        const code = str.charCodeAt(i);
+        if (code <= 255) {
+            bytes[i] = code;
+            continue;
+        }
+        const mapped = WIN1252_CHAR_TO_BYTE[str[i]];
+        if (mapped === undefined) return null;
+        bytes[i] = mapped;
+    }
+    return bytes;
+}
+
+function repairUtf8Mojibake(input) {
+    if (typeof input !== "string") return input;
+
+    // Quick checks để tránh tốn CPU trên dữ liệu sạch
+    const looksBroken =
+        /Ã|Â|Ä|Å|Æ|Ç|Ð|Ñ|Ø|Þ/.test(input) ||
+        input.includes("áº") ||
+        input.includes("á»") ||
+        input.includes("�");
+    if (!looksBroken) return input;
+
+    try {
+        const decoder = new TextDecoder("utf-8", { fatal: false });
+        const bytes = singleByteBytesFromString(input);
+
+        // Nếu chuỗi có ký tự > 255 (ví dụ ™), ta thử repair theo từng đoạn <=255
+        // để vẫn cứu được phần mojibake mà không phá ký tự Unicode hợp lệ.
+        let decoded = "";
+        if (bytes) {
+            decoded = decoder.decode(bytes);
+        } else {
+            let out = "";
+            let chunk = [];
+            for (let i = 0; i < input.length; i++) {
+                const code = input.charCodeAt(i);
+                const mapped =
+                    code <= 255 ? code : WIN1252_CHAR_TO_BYTE[input[i]];
+                if (mapped !== undefined) {
+                    chunk.push(mapped);
+                } else {
+                    if (chunk.length) {
+                        out += decoder.decode(Uint8Array.from(chunk));
+                        chunk = [];
+                    }
+                    out += input[i];
+                }
+            }
+            if (chunk.length) {
+                out += decoder.decode(Uint8Array.from(chunk));
+            }
+            decoded = out;
+        }
+
+        if (!decoded || decoded === input) return input;
+
+        // Heuristic: nếu decoded giảm "dấu hiệu lỗi" thì nhận
+        const score = (s) =>
+            (s.match(/Ã/g) || []).length +
+            (s.match(/Â/g) || []).length +
+            (s.match(/áº/g) || []).length +
+            (s.match(/á»/g) || []).length +
+            (s.includes("�") ? 10 : 0);
+        return score(decoded) < score(input) ? decoded : input;
+    } catch (e) {
+        return input;
+    }
+}
+
+function normalizeWhitespace(str) {
+    if (typeof str !== "string") return str;
+    // NBSP (U+00A0) hay gây ra "Â " khi bị sai encoding.
+    return str
+        .replace(/\u00a0/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+function normalizePriceString(price) {
+    if (price === undefined || price === null) return price;
+    let s = normalizeWhitespace(repairUtf8Mojibake(String(price)));
+
+    // Chỉ xoá "Â" khi nó xuất hiện như ký tự rác trước ký hiệu tiền tệ
+    // (tránh xoá chữ "Â" hợp lệ trong tiếng Việt nếu có)
+    s = s.replace(/Â(?=\s*[¥₫đ])/g, "");
+
+    return s;
+}
+
+function sanitizeProduct(product) {
+    if (!product || typeof product !== "object") return product;
+    return {
+        ...product,
+        name: normalizeWhitespace(repairUtf8Mojibake(product.name ?? "")),
+        categoryName: normalizeWhitespace(
+            repairUtf8Mojibake(product.categoryName ?? "")
+        ),
+        keywords: normalizeWhitespace(
+            repairUtf8Mojibake(product.keywords ?? "")
+        ),
+        price: normalizePriceString(product.price ?? ""),
+    };
+}
+
 // ==================== HÀM FORMAT GIÁ TIỀN ====================
 // Tỷ giá: 1¥ = 170 VND (theo App dcom)
 const YEN_TO_VND_RATE = 170;
@@ -37,7 +181,7 @@ function formatPriceToYen(price) {
 
     // Chuyển đổi từ VND sang Yên Nhật
     // Loại bỏ các ký tự không phải số và dấu chấm
-    let priceStr = String(price);
+    let priceStr = normalizePriceString(String(price));
 
     // Nếu đã có ký hiệu yên (¥ hoặc y), giữ nguyên
     if (
@@ -125,12 +269,19 @@ async function loadProducts() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        products = await response.json();
+        // NOTE: `products.json` có thể có UTF-8 BOM (\uFEFF) -> một số môi trường parse JSON sẽ lỗi.
+        const text = await response.text();
+        const safeText = text.replace(/^\uFEFF/, "");
+        const raw = JSON.parse(safeText);
+        products = Array.isArray(raw) ? raw.map(sanitizeProduct) : [];
 
         // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có và điều chỉnh giá
         products = products.map((product) => {
             // Điều chỉnh giá cho áo đông nam và áo đông nữ: trừ 800 yên
-            if (product.category === "ao-dong-nam" || product.category === "ao-dong-nu") {
+            if (
+                product.category === "ao-dong-nam" ||
+                product.category === "ao-dong-nu"
+            ) {
                 const currentYen = getYenAmount(product.price);
                 if (currentYen > 800) {
                     const newYen = currentYen - 800;
@@ -210,48 +361,52 @@ function getDefaultProducts() {
 // ==================== HÀM HIỂN THỊ SẢN PHẨM MỚI ====================
 // ==================== KHỞI TẠO ỨNG DỤNG ====================
 async function initializeApp() {
-    // 1. Show loading spinner
-    showPageLoader();
+    try {
+        // 1. Show loading spinner
+        showPageLoader();
 
-    // 2. Show loading skeleton
-    showLoadingSkeleton(20);
+        // 2. Show loading skeleton
+        showLoadingSkeleton(20);
 
-    // 3. Load sản phẩm từ JSON
-    await loadProducts();
+        // 3. Load sản phẩm từ JSON
+        await loadProducts();
 
-    // 4. Khởi tạo các component
-    initSlider();
-    initCategories();
-    initMobileCategories();
-    filterProducts();
-    updateCategoryIndicator();
+        // 4. Khởi tạo các component
+        initSlider();
+        initCategories();
+        initMobileCategories();
+        filterProducts();
+        updateCategoryIndicator();
 
-    // 5. Gắn sự kiện
-    setupEventListeners();
+        // 5. Gắn sự kiện
+        setupEventListeners();
 
-    // 6. Init scroll to top
-    initScrollToTop();
+        // 6. Init scroll to top
+        initScrollToTop();
 
-    // 7. Init bottom navigation
-    initBottomNav();
+        // 7. Init bottom navigation
+        initBottomNav();
 
-    // 8. Init back button
-    updateBackButton();
+        // 8. Init back button
+        updateBackButton();
 
-    // 9. Init product gallery
-    initProductGallery();
+        // 9. Init product gallery
+        initProductGallery();
 
-    // 9. Init pull to refresh
-    initPullToRefresh();
+        // 9. Init pull to refresh
+        initPullToRefresh();
 
-    // 10. Load shopping cart
-    loadCart();
+        // 10. Load shopping cart
+        loadCart();
 
-    // 11. Hide loading spinner
-    hidePageLoader();
-
-    console.log("✅ Ứng dụng đã khởi tạo thành công!");
-    // Đã tắt thông báo khi load sản phẩm
+        console.log("✅ Ứng dụng đã khởi tạo thành công!");
+        // Đã tắt thông báo khi load sản phẩm
+    } catch (error) {
+        console.error("❌ Lỗi khi khởi tạo ứng dụng:", error);
+    } finally {
+        // 11. Hide loading spinner - LUÔN gọi để đảm bảo không bị kẹt loading
+        hidePageLoader();
+    }
 }
 
 // ==================== HÀM XỬ LÝ ẢNH ====================
@@ -275,28 +430,28 @@ function handleImageError(img) {
 function escapeMessageForHTML(message) {
     // Escape cho việc sử dụng trong single-quoted string
     return message
-        .replace(/\\/g, '\\\\')  // Escape backslashes trước
-        .replace(/'/g, "\\'")    // Escape single quotes
-        .replace(/\n/g, '\\n')   // Escape newlines
-        .replace(/\r/g, '\\r');  // Escape carriage returns
+        .replace(/\\/g, "\\\\") // Escape backslashes trước
+        .replace(/'/g, "\\'") // Escape single quotes
+        .replace(/\n/g, "\\n") // Escape newlines
+        .replace(/\r/g, "\\r"); // Escape carriage returns
 }
 
 // ==================== HÀM MỞ MESSENGER APP ====================
-function openMessengerApp(message = '') {
+function openMessengerApp(message = "") {
     // Facebook page username của oder88shop
-    const pageUsername = 'oder88shop';
-    
+    const pageUsername = "oder88shop";
+
     // URL để mở Messenger page (m.me tự động mở app nếu có, nếu không thì mở web)
     let messengerUrl = `https://m.me/${pageUsername}`;
-    
+
     // Thêm message vào URL nếu có
     if (message) {
         const encodedMessage = encodeURIComponent(message);
         messengerUrl += `?text=${encodedMessage}`;
     }
-    
+
     // Mở Messenger (Facebook sẽ tự động xử lý: mở app nếu có, nếu không thì mở web)
-    window.open(messengerUrl, '_blank');
+    window.open(messengerUrl, "_blank");
 }
 
 // ==================== HÀM TẠO LINK MESSENGER ====================
@@ -311,10 +466,10 @@ function getCategoryDisplayName(categoryId, fallbackName) {
         "quan-nam": "Quần Nam",
         "quan-jean-nam": "Quần Jean",
         "phu-kien": "Phụ Kiện",
-        "non": "Mũ",
-        "khan": "Khăn",
+        non: "Mũ",
+        khan: "Khăn",
         "no-buoc-toc": "Nơ Buộc tóc",
-        "tat": "Tất",
+        tat: "Tất",
     };
     return map[categoryId] || fallbackName || "Sản phẩm";
 }
@@ -385,7 +540,7 @@ function showToast(message, type = "info", duration = 3000) {
 function scrollToTop() {
     // Đảm bảo cart được lưu trước khi scroll
     saveCart();
-    
+
     // Reset về trang chủ - hiển thị tất cả sản phẩm
     resetToHome();
 
@@ -556,6 +711,16 @@ function goBackToHome() {
     // Update category indicator
     updateCategoryIndicator();
 
+    // Ẩn subcategories panel khi về "all" - giữ nguyên layout
+    // renderSubcategories("all");
+    const subcategoriesPanel = document.getElementById("subcategoriesPanel");
+    const categoriesWrapper = document.querySelector(".categories-wrapper");
+    if (subcategoriesPanel && categoriesWrapper) {
+        subcategoriesPanel.classList.remove("active");
+        categoriesWrapper.classList.remove("has-subcategories");
+        subcategoriesPanel.innerHTML = "";
+    }
+
     // Filter và hiển thị sản phẩm
     filterProducts();
 
@@ -601,6 +766,16 @@ function resetToHome() {
 
     // Update category indicator
     updateCategoryIndicator();
+
+    // Ẩn subcategories panel khi về "all" - giữ nguyên layout
+    // renderSubcategories("all");
+    const subcategoriesPanel = document.getElementById("subcategoriesPanel");
+    const categoriesWrapper = document.querySelector(".categories-wrapper");
+    if (subcategoriesPanel && categoriesWrapper) {
+        subcategoriesPanel.classList.remove("active");
+        categoriesWrapper.classList.remove("has-subcategories");
+        subcategoriesPanel.innerHTML = "";
+    }
 
     // Cập nhật hiển thị nút quay lại
     updateBackButton();
@@ -759,7 +934,8 @@ function toggleMobileMenu() {
 
     mobileCategories.classList.toggle("show");
     overlay.classList.toggle("show");
-    document.body.style.overflow = isOpen ? "" : "hidden";
+    // Không set body overflow hidden để không ảnh hưởng đến categories section
+    // document.body.style.overflow = isOpen ? "" : "hidden";
 
     // Update ARIA attributes
     if (mobileCategories) {
@@ -772,7 +948,7 @@ function toggleMobileMenu() {
     overlay.onclick = () => {
         mobileCategories.classList.remove("show");
         overlay.classList.remove("show");
-        document.body.style.overflow = "";
+        // document.body.style.overflow = "";
         if (mobileCategories)
             mobileCategories.setAttribute("aria-hidden", "true");
         if (mobileMenuBtn) mobileMenuBtn.setAttribute("aria-expanded", "false");
@@ -818,7 +994,8 @@ function selectCategory(category, categoryName) {
         mobileCategories.setAttribute("aria-hidden", "true");
         if (overlay) overlay.classList.remove("show");
         if (mobileMenuBtn) mobileMenuBtn.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
+        // Không cần set body overflow vì đã bỏ overflow hidden khi mở menu
+        // document.body.style.overflow = "";
     }
 
     // Đóng dropdown desktop
@@ -834,17 +1011,17 @@ function selectCategory(category, categoryName) {
         }
     }
 
-    // Cập nhật active - bao gồm cả category-item
+    // Cập nhật active - bao gồm cả category-item và subcategory-item
     document
         .querySelectorAll(
-            ".category-option, .mobile-category-btn, .category-item"
+            ".category-option, .mobile-category-btn, .category-item, .subcategory-item"
         )
         .forEach((btn) => {
             btn.classList.remove("active");
             btn.setAttribute("aria-selected", "false");
         });
 
-    const activeSelectors = `.category-option[data-category="${category}"], .mobile-category-btn[data-category="${category}"], .category-item[data-category="${category}"]`;
+    const activeSelectors = `.category-option[data-category="${category}"], .mobile-category-btn[data-category="${category}"], .category-item[data-category="${category}"], .subcategory-item[data-category="${category}"]`;
     document.querySelectorAll(activeSelectors).forEach((btn) => {
         btn.classList.add("active");
         btn.setAttribute("aria-selected", "true");
@@ -854,6 +1031,23 @@ function selectCategory(category, categoryName) {
     currentCategory = category;
     updateCategoryIndicator();
 
+    // Không hiển thị subcategories panel - giữ nguyên layout categories section
+    // renderSubcategories(category);
+    // Đảm bảo subcategories panel luôn ẩn và không để lại khoảng trắng
+    const subcategoriesPanel = document.getElementById("subcategoriesPanel");
+    const categoriesWrapper = document.querySelector(".categories-wrapper");
+    if (subcategoriesPanel && categoriesWrapper) {
+        // Xóa class và nội dung trước
+        subcategoriesPanel.classList.remove("active");
+        categoriesWrapper.classList.remove("has-subcategories");
+        subcategoriesPanel.innerHTML = "";
+        // Đảm bảo panel không chiếm không gian
+        subcategoriesPanel.style.width = "0";
+        subcategoriesPanel.style.maxWidth = "0";
+        subcategoriesPanel.style.padding = "0";
+        subcategoriesPanel.style.margin = "0";
+    }
+
     // Cập nhật hiển thị nút quay lại
     updateBackButton();
 
@@ -861,16 +1055,26 @@ function selectCategory(category, categoryName) {
 
     filterProducts();
 
-    // Scroll
+    // Scroll đến phần hiển thị sản phẩm (products section hoặc products-tabs)
     setTimeout(() => {
+        // Ưu tiên scroll đến products-tabs (phần tabs + grid)
+        const productsTabs = document.querySelector(".products-tabs");
+        const productsGrid = document.getElementById("productsGrid");
         const productsSection = document.querySelector(".products-section");
-        if (productsSection) {
+
+        let targetElement = productsTabs || productsGrid || productsSection;
+
+        if (targetElement) {
+            const targetPosition =
+                targetElement.getBoundingClientRect().top +
+                window.pageYOffset -
+                80;
             window.scrollTo({
-                top: productsSection.offsetTop - 80,
+                top: targetPosition,
                 behavior: "smooth",
             });
         }
-    }, 100);
+    }, 150);
 }
 
 // Hàm cập nhật hiển thị nút quay lại
@@ -917,10 +1121,10 @@ function updateCategoryIndicator() {
         "set-do-nu": "Sét Đồ Nữ",
         "set-do-nam": "Sét Đồ Nam",
         "phu-kien": "Phụ Kiện",
-        "non": "Mũ",
-        "khan": "Khăn",
+        non: "Mũ",
+        khan: "Khăn",
         "no-buoc-toc": "Nơ Buộc tóc",
-        "tat": "Tất",
+        tat: "Tất",
     };
 
     if (categoryMap[currentCategory]) {
@@ -936,15 +1140,15 @@ function updateCategoryIndicator() {
     if (sectionTitle) {
         const iconMap = {
             all: "fa-star",
-            "quan-dai-nu": "fa-tshirt",
+            "quan-dai-nu": "fa-female",
             "quan-nam": "fa-user",
             "quan-jean-nam": "fa-user",
             "ao-nu": "fa-tshirt",
             "phu-kien": "fa-gift",
-            "non": "fa-hat-cowboy",
-            "khan": "fa-scarf",
+            non: "fa-hat-cowboy",
+            khan: "fa-scarf",
             "no-buoc-toc": "fa-ribbon",
-            "tat": "fa-socks",
+            tat: "fa-socks",
             "ao-dong-nu": "fa-tshirt",
             "ao-thu-dong": "fa-tshirt",
             giay: "fa-shoe-prints",
@@ -953,8 +1157,8 @@ function updateCategoryIndicator() {
             "boot-nu": "fa-shoe-prints",
             "giay-the-thao": "fa-running",
             "giay-sneaker-nam": "fa-running",
-            vay: "fa-tshirt",
-            "chan-vay": "fa-tshirt",
+            vay: "fa-heart",
+            "chan-vay": "fa-heart",
             "tui-xach": "fa-shopping-bag",
             "set-do": "fa-tshirt",
             "set-do-nu": "fa-tshirt",
@@ -1056,7 +1260,7 @@ function initCategories() {
         {
             id: "vay",
             name: "Váy",
-            icon: "fa-tshirt",
+            icon: "fa-heart",
             image: "assets/image/vay/chan-vay/cv1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
@@ -1084,7 +1288,7 @@ function initCategories() {
         {
             id: "quan-dai-nu",
             name: "Quần Nữ",
-            icon: "fa-tshirt",
+            icon: "fa-female",
             image: "assets/image/quan-dai-nu/qd1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
@@ -1092,7 +1296,7 @@ function initCategories() {
             id: "phu-kien",
             name: "Phụ Kiện",
             icon: "fa-gift",
-            image: "assets/logo/tatca.jpg",
+            image: "assets/image/phu-kien/mu/IMG_1236.JPG",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
     ];
@@ -1100,7 +1304,7 @@ function initCategories() {
     // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam)
     categoriesGrid.innerHTML = categories
         .map((category) => {
-            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-thu-dong, ao-dong-nam, giay-sneaker-nam, giay-nu, giay-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
+            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-thu-dong, ao-dong-nam, giay-sneaker-nam, giay-nu, giay-nam, quan-jean-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
             if (
                 category.id === "boot-nu" ||
                 category.id === "giay-the-thao" ||
@@ -1110,6 +1314,7 @@ function initCategories() {
                 category.id === "giay-sneaker-nam" ||
                 category.id === "giay-nu" ||
                 category.id === "giay-nam" ||
+                category.id === "quan-jean-nam" ||
                 category.id === "non" ||
                 category.id === "khan" ||
                 category.id === "no-buoc-toc" ||
@@ -1144,10 +1349,241 @@ function initCategories() {
         .join("");
 
     // Event listeners sẽ được gắn trong setupEventListeners()
+
+    // Đảm bảo subcategories panel được ẩn ban đầu
+    const subcategoriesPanel = document.getElementById("subcategoriesPanel");
+    const categoriesWrapper = document.querySelector(".categories-wrapper");
+    if (subcategoriesPanel && categoriesWrapper) {
+        subcategoriesPanel.classList.remove("active");
+        categoriesWrapper.classList.remove("has-subcategories");
+    }
+}
+
+// Hàm render subcategories bên phải
+function renderSubcategories(categoryId) {
+    const subcategoriesPanel = document.getElementById("subcategoriesPanel");
+    const categoriesWrapper = document.querySelector(".categories-wrapper");
+    if (!subcategoriesPanel || !categoriesWrapper) {
+        console.warn(
+            "Subcategories panel hoặc categories wrapper không tìm thấy!"
+        );
+        return;
+    }
+    console.log("renderSubcategories được gọi với categoryId:", categoryId);
+
+    // Định nghĩa subcategories cho mỗi category
+    const subcategoriesMap = {
+        "set-do": [
+            {
+                id: "set-do-nu",
+                name: "Sét Đồ Nữ",
+                icon: "fa-tshirt",
+                image: "assets/logo/setdonu.JPG",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            },
+            {
+                id: "set-do-nam",
+                name: "Sét Đồ Nam",
+                icon: "fa-tshirt",
+                image: "assets/image/set-do-nu/sd1.jpg",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+        ],
+        "tui-xach": [
+            {
+                id: "tui-xach-nam",
+                name: "Túi xách nam",
+                icon: "fa-briefcase",
+                image: "assets/logo/logotuixachnam.JPG",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+            {
+                id: "tui-xach-nu",
+                name: "Túi xách nữ",
+                icon: "fa-handbag",
+                image: "assets/logo/logotuixachnu.JPG",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            },
+        ],
+        giay: [
+            {
+                id: "boot-nu",
+                name: "Boot nữ",
+                icon: "fa-shoe-prints",
+                image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+                color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+            },
+            {
+                id: "giay-the-thao",
+                name: "Sneaker Nữ",
+                icon: "fa-running",
+                image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "giay-sneaker-nam",
+                name: "Sneaker Nam",
+                icon: "fa-running",
+                image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+        ],
+        "ao-nam": [
+            {
+                id: "ao-dong-nam",
+                name: "Áo đông nam",
+                icon: "fa-tshirt",
+                image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+        ],
+        "ao-nu": [
+            {
+                id: "ao-dong-nu",
+                name: "Áo đông nữ",
+                icon: "fa-tshirt",
+                image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+                color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+            },
+            {
+                id: "ao-thu-dong",
+                name: "Áo thu đông",
+                icon: "fa-tshirt",
+                image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
+                color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+            },
+        ],
+        "quan-nam": [
+            {
+                id: "quan-jean-nam",
+                name: "Quần Jean",
+                icon: "fa-user",
+                image: "assets/logo/quannam.JPG",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+        ],
+        "phu-kien": [
+            {
+                id: "non",
+                name: "Mũ",
+                icon: "fa-hat-cowboy",
+                image: "assets/image/phu-kien/mu/IMG_1236.JPG",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "khan",
+                name: "Khăn",
+                icon: "fa-scarf",
+                image: "assets/logo/tatca.jpg",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "no-buoc-toc",
+                name: "Nơ Buộc tóc",
+                icon: "fa-ribbon",
+                image: "assets/image/phu-kien/no-toc/IMG_1182.JPG",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "tat",
+                name: "Tất",
+                icon: "fa-socks",
+                image: "assets/logo/tatca.jpg",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+        ],
+        vay: [
+            {
+                id: "chan-vay",
+                name: "Chân váy",
+                icon: "fa-tshirt",
+                image: "assets/image/vay/chan-vay/cv1.jpg",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            },
+        ],
+    };
+
+    let subcategories = subcategoriesMap[categoryId];
+
+    // Nếu là "all", gom tất cả subcategories từ tất cả categories
+    if (categoryId === "all") {
+        subcategories = [];
+        Object.values(subcategoriesMap).forEach((subcats) => {
+            subcategories.push(...subcats);
+        });
+    }
+
+    if (subcategories && subcategories.length > 0) {
+        // Render subcategories
+        const subcategoriesHTML = subcategories
+            .map(
+                (sub) => `
+            <div class="subcategory-item" data-category="${
+                sub.id
+            }" role="button" tabindex="0">
+                <div class="category-image-wrapper">
+                    <div class="category-image-bg" style="background: ${
+                        sub.color
+                    }"></div>
+                    <img 
+                        src="${normalizePath(sub.image)}" 
+                        alt="${sub.name}"
+                        class="category-image"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.parentElement.querySelector('.category-icon').style.display='flex';"
+                    >
+                    <div class="category-icon" style="display: none;">
+                        <i class="fas ${sub.icon}"></i>
+                    </div>
+                </div>
+                <div class="category-name">${sub.name}</div>
+            </div>
+        `
+            )
+            .join("");
+
+        subcategoriesPanel.innerHTML = `<div class="subcategories-panel-content">${subcategoriesHTML}</div>`;
+        subcategoriesPanel.classList.add("active");
+        categoriesWrapper.classList.add("has-subcategories");
+
+        // Gắn event listeners cho subcategories
+        subcategoriesPanel
+            .querySelectorAll(".subcategory-item")
+            .forEach((item) => {
+                item.addEventListener("click", () => {
+                    const subCategory = item.dataset.category;
+                    const subCategoryName =
+                        subcategories.find((s) => s.id === subCategory)?.name ||
+                        "";
+                    selectCategory(subCategory, subCategoryName);
+                });
+                item.addEventListener("keypress", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        const subCategory = item.dataset.category;
+                        const subCategoryName =
+                            subcategories.find((s) => s.id === subCategory)
+                                ?.name || "";
+                        selectCategory(subCategory, subCategoryName);
+                    }
+                });
+            });
+    } else {
+        // Ẩn subcategories panel nếu không có subcategories
+        subcategoriesPanel.classList.remove("active");
+        categoriesWrapper.classList.remove("has-subcategories");
+        subcategoriesPanel.innerHTML = "";
+    }
 }
 
 // ==================== HÀM MOBILE CATEGORIES ====================
 function initMobileCategories() {
+    // Setup event listeners for mobile category buttons (HTML is already in index.html)
+    setupMobileCategoryListeners();
+}
+
+// OLD CODE - Keeping for reference but not used anymore
+function initMobileCategories_OLD() {
     const mobileCategoriesList = document.querySelector(
         ".mobile-categories-list"
     );
@@ -1249,7 +1685,7 @@ function initMobileCategories() {
         {
             id: "vay",
             name: "Váy",
-            icon: "fa-tshirt",
+            icon: "fa-heart",
             image: "assets/image/vay/chan-vay/cv1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
@@ -1263,7 +1699,7 @@ function initMobileCategories() {
         {
             id: "quan-dai-nu",
             name: "Quần Nữ",
-            icon: "fa-tshirt",
+            icon: "fa-female",
             image: "assets/image/quan-dai-nu/qd1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
@@ -1285,7 +1721,7 @@ function initMobileCategories() {
             id: "phu-kien",
             name: "Phụ Kiện",
             icon: "fa-gift",
-            image: "assets/logo/tatca.jpg",
+            image: "assets/image/phu-kien/mu/IMG_1236.JPG",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
@@ -1521,7 +1957,9 @@ function initMobileCategories() {
             } else if (category.id === "ao-nu") {
                 // Tìm các subcategories
                 const aoDongNu = categories.find((c) => c.id === "ao-dong-nu");
-                const aoThuDong = categories.find((c) => c.id === "ao-thu-dong");
+                const aoThuDong = categories.find(
+                    (c) => c.id === "ao-thu-dong"
+                );
 
                 return `
                 <div class="category-with-subcategories">
@@ -1957,7 +2395,9 @@ function initMobileCategories() {
                 // Tìm các subcategories
                 const non = categories.find((c) => c.id === "non");
                 const khan = categories.find((c) => c.id === "khan");
-                const noBuocToc = categories.find((c) => c.id === "no-buoc-toc");
+                const noBuocToc = categories.find(
+                    (c) => c.id === "no-buoc-toc"
+                );
                 const tat = categories.find((c) => c.id === "tat");
 
                 return `
@@ -2115,7 +2555,293 @@ function initMobileCategories() {
     // Cập nhật HTML
     mobileCategoriesList.innerHTML = categoriesHTML;
 
-    // Event listeners sẽ được gắn trong setupEventListeners()
+    // Setup event listeners for mobile category buttons
+    setupMobileCategoryListeners();
+}
+
+// Function to render mobile subcategories in the right panel
+function renderMobileSubcategories(categoryId) {
+    const subcategoriesPanel = document.getElementById(
+        "mobileSubcategoriesPanel"
+    );
+    if (!subcategoriesPanel) return;
+
+    // Use the same subcategoriesMap from renderSubcategories function
+    const subcategoriesMap = {
+        "set-do": [
+            {
+                id: "set-do-nu",
+                name: "Sét Đồ Nữ",
+                icon: "fa-tshirt",
+                image: "assets/logo/setdonu.JPG",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            },
+            {
+                id: "set-do-nam",
+                name: "Sét Đồ Nam",
+                icon: "fa-tshirt",
+                image: "assets/image/set-do-nu/sd1.jpg",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+        ],
+        "tui-xach": [
+            {
+                id: "tui-xach-nam",
+                name: "Túi xách nam",
+                icon: "fa-briefcase",
+                image: "assets/logo/logotuixachnam.JPG",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+            {
+                id: "tui-xach-nu",
+                name: "Túi xách nữ",
+                icon: "fa-handbag",
+                image: "assets/logo/logotuixachnu.JPG",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            },
+        ],
+        giay: [
+            {
+                id: "boot-nu",
+                name: "Boot nữ",
+                icon: "fa-shoe-prints",
+                image: "assets/image/giay-nu/boot-nu/bn1.jpg",
+                color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+            },
+            {
+                id: "giay-the-thao",
+                name: "Sneaker Nữ",
+                icon: "fa-running",
+                image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "giay-sneaker-nam",
+                name: "Sneaker Nam",
+                icon: "fa-running",
+                image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+        ],
+        "ao-nam": [
+            {
+                id: "ao-dong-nam",
+                name: "Áo đông nam",
+                icon: "fa-tshirt",
+                image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+        ],
+        "ao-nu": [
+            {
+                id: "ao-dong-nu",
+                name: "Áo đông nữ",
+                icon: "fa-tshirt",
+                image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+                color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+            },
+            {
+                id: "ao-thu-dong",
+                name: "Áo thu đông",
+                icon: "fa-tshirt",
+                image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
+                color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+            },
+        ],
+        vay: [
+            {
+                id: "chan-vay",
+                name: "Chân váy",
+                icon: "fa-tshirt",
+                image: "assets/image/vay/chan-vay/cv1.jpg",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            },
+        ],
+        "quan-nam": [
+            {
+                id: "quan-jean-nam",
+                name: "Quần Jean",
+                icon: "fa-user",
+                image: "assets/logo/quannam.JPG",
+                color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            },
+        ],
+        "phu-kien": [
+            {
+                id: "non",
+                name: "Mũ",
+                icon: "fa-hat-cowboy",
+                image: "assets/image/phu-kien/mu/IMG_1236.JPG",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "khan",
+                name: "Khăn",
+                icon: "fa-scarf",
+                image: "assets/logo/tatca.jpg",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "no-buoc-toc",
+                name: "Nơ Buộc tóc",
+                icon: "fa-ribbon",
+                image: "assets/image/phu-kien/no-toc/IMG_1182.JPG",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "tat",
+                name: "Tất",
+                icon: "fa-socks",
+                image: "assets/logo/tatca.jpg",
+                color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+        ],
+    };
+
+    let subcategories = subcategoriesMap[categoryId];
+
+    // Nếu là "all", gom tất cả subcategories từ tất cả categories
+    if (categoryId === "all") {
+        subcategories = [];
+        Object.values(subcategoriesMap).forEach((subcats) => {
+            subcategories.push(...subcats);
+        });
+    }
+
+    if (subcategories && subcategories.length > 0) {
+        // Render subcategories in grid format
+        const subcategoriesHTML = `
+            <div class="mobile-subcategories-grid">
+                ${subcategories
+                    .map(
+                        (sub) => `
+                    <div class="mobile-subcategory-item" data-category="${
+                        sub.id
+                    }" role="button" tabindex="0">
+                        <div class="subcategory-image-wrapper">
+                            <img 
+                                src="${normalizePath(sub.image)}" 
+                                alt="${sub.name}"
+                                class="subcategory-image"
+                                loading="lazy"
+                                onerror="this.style.display='none';"
+                            >
+                        </div>
+                        <div class="subcategory-name">${sub.name}</div>
+                    </div>
+                `
+                    )
+                    .join("")}
+            </div>
+        `;
+
+        subcategoriesPanel.innerHTML = subcategoriesHTML;
+        subcategoriesPanel.classList.add("active");
+
+        // Add event listeners for subcategory items
+        subcategoriesPanel
+            .querySelectorAll(".mobile-subcategory-item")
+            .forEach((item) => {
+                item.addEventListener("click", () => {
+                    const subCategory = item.dataset.category;
+                    const subCategoryName =
+                        subcategories.find((s) => s.id === subCategory)?.name ||
+                        "";
+                    // Close mobile menu và overlay
+                    const mobileCategories =
+                        document.getElementById("mobileCategories");
+                    const overlay = document.getElementById("mobileOverlay");
+                    const mobileMenuBtn =
+                        document.getElementById("mobileMenuBtn");
+
+                    if (mobileCategories) {
+                        mobileCategories.classList.remove("show");
+                        mobileCategories.setAttribute("aria-hidden", "true");
+                    }
+                    if (overlay) {
+                        overlay.classList.remove("show");
+                    }
+                    if (mobileMenuBtn) {
+                        mobileMenuBtn.setAttribute("aria-expanded", "false");
+                    }
+                    // Select category
+                    selectCategory(subCategory, subCategoryName);
+                });
+                item.addEventListener("keypress", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        item.click();
+                    }
+                });
+            });
+    } else {
+        // Hide panel if no subcategories
+        subcategoriesPanel.classList.remove("active");
+        subcategoriesPanel.innerHTML = "";
+    }
+}
+
+// Setup event listeners for mobile category buttons
+function setupMobileCategoryListeners() {
+    const mobileCategoryButtons = document.querySelectorAll(
+        ".mobile-categories-list .mobile-category-btn"
+    );
+
+    // Categories that don't have subcategories (should close menu and select category)
+    const categoriesWithoutSubcategories = ["quan-dai-nu"];
+
+    mobileCategoryButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault(); // Ngăn chặn hành vi mặc định
+            const categoryId = btn.dataset.category;
+            const categoryName = btn.textContent.trim();
+
+            // Update active state
+            mobileCategoryButtons.forEach((b) => {
+                b.classList.remove("active");
+                b.setAttribute("aria-selected", "false");
+            });
+            btn.classList.add("active");
+            btn.setAttribute("aria-selected", "true");
+
+            // Chỉ hiển thị subcategories panel, KHÔNG mở sản phẩm
+            // Chỉ mở sản phẩm khi click vào subcategory
+            if (categoriesWithoutSubcategories.includes(categoryId)) {
+                // Categories không có subcategories: đóng menu và chọn category
+                const subcategoriesPanel = document.getElementById(
+                    "mobileSubcategoriesPanel"
+                );
+                if (subcategoriesPanel) {
+                    subcategoriesPanel.classList.remove("active");
+                    subcategoriesPanel.innerHTML = "";
+                }
+
+                // Close mobile menu và overlay
+                const mobileCategories =
+                    document.getElementById("mobileCategories");
+                const overlay = document.getElementById("mobileOverlay");
+                const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+
+                if (mobileCategories) {
+                    mobileCategories.classList.remove("show");
+                    mobileCategories.setAttribute("aria-hidden", "true");
+                }
+                if (overlay) {
+                    overlay.classList.remove("show");
+                }
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.setAttribute("aria-expanded", "false");
+                }
+
+                // Chỉ select category cho các category không có subcategories
+                selectCategory(categoryId, categoryName);
+            } else {
+                // Categories có subcategories: CHỈ hiển thị subcategories panel
+                // KHÔNG gọi selectCategory() - chỉ hiển thị panel để user chọn subcategory
+                renderMobileSubcategories(categoryId);
+            }
+        });
+    });
 }
 
 // ==================== HELPERS ====================
@@ -2204,14 +2930,16 @@ function initSlider() {
                         </span>
                     </button>
                     <a href="javascript:void(0)" 
-                       onclick="openMessengerApp('${escapeMessageForHTML(createMessengerOrderLink(
-                           product.name,
-                           formatPriceToYen(product.price),
-                           getCategoryDisplayName(
-                               product.category,
-                               product.categoryName
+                       onclick="openMessengerApp('${escapeMessageForHTML(
+                           createMessengerOrderLink(
+                               product.name,
+                               formatPriceToYen(product.price),
+                               getCategoryDisplayName(
+                                   product.category,
+                                   product.categoryName
+                               )
                            )
-                       ))}'); return false;"
+                       )}'); return false;"
                        class="order-btn"
                        aria-label="Đặt hàng ${getCategoryDisplayName(
                            product.category,
@@ -2390,14 +3118,16 @@ function displayProductsPaginated(productsToShow) {
                             </span>
                         </button>
                         <a href="javascript:void(0)" 
-                           onclick="openMessengerApp('${escapeMessageForHTML(createMessengerOrderLink(
-                               product.name,
-                               formatPriceToYen(product.price),
-                               getCategoryDisplayName(
-                                   product.category,
-                                   product.categoryName
+                           onclick="openMessengerApp('${escapeMessageForHTML(
+                               createMessengerOrderLink(
+                                   product.name,
+                                   formatPriceToYen(product.price),
+                                   getCategoryDisplayName(
+                                       product.category,
+                                       product.categoryName
+                                   )
                                )
-                           ))}'); return false;"
+                           )}'); return false;"
                            class="order-btn"
                            aria-label="Đặt hàng ${getCategoryDisplayName(
                                product.category,
@@ -2501,29 +3231,23 @@ function changePage(page) {
         });
     }
 
-    // Show loading spinner
-    showPageLoader();
+    // Không show loading spinner khi chuyển trang - render quá nhanh, không cần thiết
+    // (chỉ giữ loading khi load trang đầu tiên)
 
-    // Show loading briefly
-    showLoadingSkeleton(productsPerPage);
-    setTimeout(() => {
-        displayProductsPaginated(filtered);
-        hidePageLoader();
+    displayProductsPaginated(filtered);
 
-        // Ensure scroll position after products are rendered
-        requestAnimationFrame(() => {
-            const productsTabs = document.querySelector(".products-tabs");
-            if (productsTabs) {
-                const tabsPosition =
-                    productsTabs.getBoundingClientRect().top +
-                    window.pageYOffset;
-                window.scrollTo({
-                    top: tabsPosition - 100,
-                    behavior: "smooth",
-                });
-            }
-        });
-    }, 200);
+    // Ensure scroll position after products are rendered
+    requestAnimationFrame(() => {
+        const productsTabs = document.querySelector(".products-tabs");
+        if (productsTabs) {
+            const tabsPosition =
+                productsTabs.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+                top: tabsPosition - 100,
+                behavior: "smooth",
+            });
+        }
+    });
 }
 
 // ==================== HÀM LỌC & TÌM KIẾM ====================
@@ -2773,13 +3497,8 @@ function getProductSearchKeywords(product) {
             "purse",
             "clutch",
         ],
-        "phu-kien": [
-            "phụ kiện",
-            "phu kien",
-            "accessories",
-            "accessory",
-        ],
-        "non": [
+        "phu-kien": ["phụ kiện", "phu kien", "accessories", "accessory"],
+        non: [
             "nón",
             "non",
             "mũ",
@@ -2790,7 +3509,7 @@ function getProductSearchKeywords(product) {
             "non luoi trai",
             "baseball cap",
         ],
-        "khan": [
+        khan: [
             "khăn",
             "khan",
             "scarf",
@@ -2810,7 +3529,7 @@ function getProductSearchKeywords(product) {
             "ribbon",
             "bow",
         ],
-        "tat": [
+        tat: [
             "tất",
             "tat",
             "vớ",
@@ -2903,11 +3622,10 @@ function productMatchesSearch(product, searchQuery) {
 }
 
 function filterProducts() {
-    // Show loading spinner nếu đang filter
-    const loader = document.getElementById("pageLoader");
-    if (loader && !loader.classList.contains("active")) {
-        showPageLoader();
-    }
+    // KHÔNG show loading spinner trong filterProducts() vì:
+    // - Nó được gọi từ nhiều nơi (search, category change, page change)
+    // - Loading spinner nên được show ở các hàm gọi filterProducts() khi cần
+    // - Tránh hiển thị loading mỗi khi nhấn space trong search box
 
     let filtered = products;
     if (currentCategory !== "all") {
@@ -2928,7 +3646,10 @@ function filterProducts() {
         } else if (currentCategory === "ao-nu") {
             // Hiển thị tất cả áo nữ (bao gồm áo đông nữ và áo thu đông)
             filtered = filtered.filter(
-                (p) => p.category === "ao-nu" || p.category === "ao-dong-nu" || p.category === "ao-thu-dong"
+                (p) =>
+                    p.category === "ao-nu" ||
+                    p.category === "ao-dong-nu" ||
+                    p.category === "ao-thu-dong"
             );
         } else if (currentCategory === "ao-nam") {
             // Hiển thị tất cả áo nam (bao gồm áo đông nam)
@@ -3024,10 +3745,8 @@ function filterProducts() {
 
     displayProductsPaginated(filtered);
 
-    // Hide loading spinner sau khi hiển thị xong
-    setTimeout(() => {
-        hidePageLoader();
-    }, 300);
+    // Không cần hide loading spinner vì không show loading khi filter/search
+    // (loading spinner chỉ hiển thị khi load trang đầu tiên)
 
     return filtered;
 }
@@ -3035,7 +3754,16 @@ function filterProducts() {
 function handleSearch() {
     const searchInput = document.getElementById("searchInput");
     if (!searchInput) return;
-    searchQuery = searchInput.value.trim();
+
+    const newQuery = searchInput.value.trim();
+
+    // Bỏ qua nếu query không thay đổi (sau khi trim)
+    if (newQuery === searchQuery) return;
+
+    // Bỏ qua nếu query chỉ là khoảng trắng hoặc rỗng và query cũ cũng rỗng
+    if (!newQuery && !searchQuery) return;
+
+    searchQuery = newQuery;
 
     const filtered = filterProducts();
 
@@ -3176,7 +3904,7 @@ function openProductGallery(productId, imageIndex = 0) {
             getCategoryDisplayName(product.category, product.categoryName)
         );
         orderBtn.href = "javascript:void(0)";
-        orderBtn.onclick = function(e) {
+        orderBtn.onclick = function (e) {
             e.preventDefault();
             openMessengerApp(message);
             return false;
@@ -3197,63 +3925,64 @@ function openProductGallery(productId, imageIndex = 0) {
     const videoContainer = document.getElementById("galleryVideoContainer");
     const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
     const videoToggle = document.getElementById("galleryVideoToggle");
-    
+
     if (product.video && mainVideo && videoContainer && videoPlayOverlay) {
         // Set video source and poster (first image as thumbnail)
         mainVideo.src = normalizePath(product.video);
         mainVideo.poster = normalizePath(currentGalleryImages[0]);
         mainVideo.controls = false; // Hide controls initially
-        
+
         // Show video container, hide image
         videoContainer.style.display = "flex";
         mainImage.style.display = "none";
         videoPlayOverlay.style.display = "flex";
-        
+
         // Show toggle button to switch back to image
         if (videoToggle) {
             videoToggle.style.display = "flex";
-            videoToggle.innerHTML = '<i class="fas fa-image" aria-hidden="true"></i><span>Xem ảnh</span>';
-            videoToggle.onclick = function(e) {
+            videoToggle.innerHTML =
+                '<i class="fas fa-image" aria-hidden="true"></i><span>Xem ảnh</span>';
+            videoToggle.onclick = function (e) {
                 e.stopPropagation();
                 switchToImage();
             };
         }
-        
+
         // Play video when clicking play overlay
-        videoPlayOverlay.onclick = function(e) {
+        videoPlayOverlay.onclick = function (e) {
             e.stopPropagation();
             playVideo();
         };
-        
+
         // Also allow clicking on video to play
-        mainVideo.onclick = function(e) {
+        mainVideo.onclick = function (e) {
             e.stopPropagation();
             if (mainVideo.paused) {
                 playVideo();
             }
         };
-        
+
         // Hide play overlay when video starts playing
-        mainVideo.addEventListener('play', function() {
+        mainVideo.addEventListener("play", function () {
             videoPlayOverlay.style.display = "none";
             mainVideo.controls = true;
         });
-        
+
         // Show play overlay when video is paused
-        mainVideo.addEventListener('pause', function() {
+        mainVideo.addEventListener("pause", function () {
             videoPlayOverlay.style.display = "flex";
             mainVideo.controls = false;
         });
-        
+
         // Show play overlay when video ends
-        mainVideo.addEventListener('ended', function() {
+        mainVideo.addEventListener("ended", function () {
             videoPlayOverlay.style.display = "flex";
             mainVideo.controls = false;
             mainVideo.currentTime = 0;
         });
-        
+
         // Limit video playback to 10 seconds maximum
-        mainVideo.addEventListener('timeupdate', function() {
+        mainVideo.addEventListener("timeupdate", function () {
             if (mainVideo.currentTime >= 10) {
                 mainVideo.pause();
                 mainVideo.currentTime = 0;
@@ -3265,12 +3994,14 @@ function openProductGallery(productId, imageIndex = 0) {
         });
     } else {
         // No video - show image normally
-        mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
+        mainImage.src = normalizePath(
+            currentGalleryImages[currentGalleryIndex]
+        );
         mainImage.style.transform = "scale(1)";
         mainImage.style.transformOrigin = "center center";
         mainImage.classList.remove("zoomed");
         mainImage.style.display = "block";
-        
+
         if (videoContainer) videoContainer.style.display = "none";
         if (videoToggle) videoToggle.style.display = "none";
     }
@@ -3310,7 +4041,9 @@ function closeProductGallery() {
         const mainImage = document.getElementById("galleryMainImage");
         const mainVideo = document.getElementById("galleryMainVideo");
         const videoContainer = document.getElementById("galleryVideoContainer");
-        const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
+        const videoPlayOverlay = document.getElementById(
+            "galleryVideoPlayOverlay"
+        );
         const mainImageWrapper = document.querySelector(
             ".gallery-main-image-wrapper"
         );
@@ -3356,7 +4089,11 @@ function goToGalleryImage(index) {
     const thumbnails = document.querySelectorAll(".gallery-thumbnail");
 
     // Reset video if showing
-    if (mainVideo && videoContainer && videoContainer.style.display !== "none") {
+    if (
+        mainVideo &&
+        videoContainer &&
+        videoContainer.style.display !== "none"
+    ) {
         mainVideo.pause();
         mainVideo.currentTime = 0;
         mainVideo.controls = false;
@@ -3364,8 +4101,9 @@ function goToGalleryImage(index) {
     }
 
     // Get current product to check if it has video
-    const currentProduct = currentGalleryProductId ? 
-        products.find((p) => p.id === currentGalleryProductId) : null;
+    const currentProduct = currentGalleryProductId
+        ? products.find((p) => p.id === currentGalleryProductId)
+        : null;
 
     // If switching to first image (index 0) and product has video, show video
     if (index === 0 && currentProduct && currentProduct.video) {
@@ -3390,7 +4128,7 @@ function goToGalleryImage(index) {
             mainVideo.controls = false;
         }
         if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
-        
+
         if (mainImage) {
             mainImage.style.opacity = "0";
             setTimeout(() => {
@@ -3424,10 +4162,10 @@ function goToGalleryImage(index) {
 function playVideo() {
     const mainVideo = document.getElementById("galleryMainVideo");
     const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
-    
+
     if (!mainVideo) return;
-    
-    mainVideo.play().catch(err => {
+
+    mainVideo.play().catch((err) => {
         console.error("Error playing video:", err);
     });
 }
@@ -3439,15 +4177,15 @@ function switchToImage() {
     const videoContainer = document.getElementById("galleryVideoContainer");
     const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
     const videoToggle = document.getElementById("galleryVideoToggle");
-    
+
     if (!mainImage || !mainVideo || !videoContainer) return;
-    
+
     // Pause and reset video
     mainVideo.pause();
     mainVideo.currentTime = 0;
     mainVideo.controls = false;
     if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
-    
+
     // Hide video container, show image
     videoContainer.style.display = "none";
     mainImage.style.display = "block";
@@ -3455,11 +4193,12 @@ function switchToImage() {
     mainImage.style.transform = "scale(1)";
     mainImage.style.transformOrigin = "center center";
     mainImage.classList.remove("zoomed");
-    
+
     // Update toggle button
     if (videoToggle) {
-        videoToggle.innerHTML = '<i class="fas fa-video" aria-hidden="true"></i><span>Xem video</span>';
-        videoToggle.onclick = function(e) {
+        videoToggle.innerHTML =
+            '<i class="fas fa-video" aria-hidden="true"></i><span>Xem video</span>';
+        videoToggle.onclick = function (e) {
             e.stopPropagation();
             switchToVideo();
         };
@@ -3473,23 +4212,24 @@ function switchToVideo() {
     const videoContainer = document.getElementById("galleryVideoContainer");
     const videoPlayOverlay = document.getElementById("galleryVideoPlayOverlay");
     const videoToggle = document.getElementById("galleryVideoToggle");
-    
+
     if (!mainImage || !mainVideo || !videoContainer) return;
-    
+
     // Hide image, show video container
     mainImage.style.display = "none";
     videoContainer.style.display = "flex";
     if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
-    
+
     // Reset video
     mainVideo.pause();
     mainVideo.currentTime = 0;
     mainVideo.controls = false;
-    
+
     // Update toggle button
     if (videoToggle) {
-        videoToggle.innerHTML = '<i class="fas fa-image" aria-hidden="true"></i><span>Xem ảnh</span>';
-        videoToggle.onclick = function(e) {
+        videoToggle.innerHTML =
+            '<i class="fas fa-image" aria-hidden="true"></i><span>Xem ảnh</span>';
+        videoToggle.onclick = function (e) {
             e.stopPropagation();
             switchToImage();
         };
@@ -3906,11 +4646,16 @@ function setupEventListeners() {
     // }
 
     // Category selection - bao gồm cả category-item trong categories section
+    // LƯU Ý: .mobile-category-btn trong mobile menu đã có event listener riêng trong setupMobileCategoryListeners()
+    // Nên chỉ gắn event listener cho .category-option và .category-item (KHÔNG gắn cho .mobile-category-btn)
     document
-        .querySelectorAll(
-            ".category-option, .mobile-category-btn, .category-item"
-        )
+        .querySelectorAll(".category-option, .category-item")
         .forEach((btn) => {
+            // Bỏ qua nếu là mobile-category-btn (đã có handler riêng trong setupMobileCategoryListeners)
+            if (btn.classList.contains("mobile-category-btn")) {
+                return;
+            }
+
             btn.setAttribute("role", "button");
             btn.setAttribute("tabindex", "0");
             btn.setAttribute(
@@ -4042,10 +4787,10 @@ function setupEventListeners() {
                     "set-do-nu": "Sét Đồ Nữ",
                     "set-do-nam": "Sét Đồ Nam",
                     "phu-kien": "Phụ Kiện",
-                    "non": "Mũ",
-                    "khan": "Khăn",
+                    non: "Mũ",
+                    khan: "Khăn",
                     "no-buoc-toc": "Nơ Buộc tóc",
-                    "tat": "Tất",
+                    tat: "Tất",
                 };
 
                 categoryName = categoryNames[category] || "Thời trang";
@@ -4070,7 +4815,36 @@ function setupEventListeners() {
                     }
                 });
 
-                selectCategory(category, categoryName);
+                // Nếu là "all" hoặc category có subcategories, hiển thị subcategories panel
+                const categoriesWithSubcategories = [
+                    "all",
+                    "set-do",
+                    "tui-xach",
+                    "giay",
+                    "vay",
+                    "ao-nam",
+                    "ao-nu",
+                    "quan-nam",
+                    "phu-kien",
+                ];
+
+                if (
+                    categoriesWithSubcategories.includes(category) &&
+                    btn.classList.contains("category-item")
+                ) {
+                    // Hiển thị subcategories panel (không filter sản phẩm ngay)
+                    renderSubcategories(category);
+                    // Cập nhật active state cho button
+                    document.querySelectorAll(".category-item").forEach((b) => {
+                        b.classList.remove("active");
+                        b.setAttribute("aria-selected", "false");
+                    });
+                    btn.classList.add("active");
+                    btn.setAttribute("aria-selected", "true");
+                } else {
+                    // Chọn category trực tiếp (không có subcategories hoặc không phải desktop)
+                    selectCategory(category, categoryName);
+                }
 
                 // Scroll to products nếu là category-item (từ categories section)
                 if (btn.classList.contains("category-item")) {
@@ -4237,9 +5011,19 @@ function setupEventListeners() {
         });
     document
         .getElementById("searchInput")
-        ?.addEventListener("input", function () {
+        ?.addEventListener("input", function (e) {
             clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(handleSearch, 500);
+            // Debounce search với delay 500ms, nhưng chỉ search khi có nội dung thực sự
+            const currentValue = e.target.value.trim();
+            if (currentValue || searchQuery) {
+                // Chỉ search nếu có text hoặc đang clear search
+                searchTimeout = setTimeout(handleSearch, 500);
+            } else {
+                // Nếu đang xóa hết, reset ngay lập tức không cần debounce
+                searchQuery = "";
+                const filtered = filterProducts();
+                updateBackButton();
+            }
         });
 
     // Slider controls
@@ -4544,48 +5328,79 @@ function normalizeId(id) {
 // Check if category needs size selection
 function needsSize(category) {
     if (!category) return false;
-    
+
     // Quần áo categories
     const clothingCategories = [
-        'ao-nam', 'ao-nu', 'ao-dong-nam', 'ao-dong-nu', 'ao-thu-dong',
-        'quan-nam', 'quan-dai-nu', 'quan-nu', 'quan-bo-nam',
-        'set-do', 'set-do-nam', 'set-do-nu',
-        'vay', 'chan-vay'
+        "ao-nam",
+        "ao-nu",
+        "ao-dong-nam",
+        "ao-dong-nu",
+        "ao-thu-dong",
+        "quan-nam",
+        "quan-dai-nu",
+        "quan-nu",
+        "quan-bo-nam",
+        "set-do",
+        "set-do-nam",
+        "set-do-nu",
+        "vay",
+        "chan-vay",
     ];
-    
+
     // Giày dép categories
     const shoeCategories = [
-        'giay', 'giay-nam', 'giay-nu',
-        'boot-nu', 'giay-the-thao', 'giay-sneaker-nam'
+        "giay",
+        "giay-nam",
+        "giay-nu",
+        "boot-nu",
+        "giay-the-thao",
+        "giay-sneaker-nam",
     ];
-    
-    return clothingCategories.includes(category) || shoeCategories.includes(category);
+
+    return (
+        clothingCategories.includes(category) ||
+        shoeCategories.includes(category)
+    );
 }
 
 // Get available sizes for category
 function getSizesForCategory(category) {
     if (!category) return [];
-    
+
     // Quần áo: S, M, L, XL
     const clothingCategories = [
-        'ao-nam', 'ao-nu', 'ao-dong-nam', 'ao-dong-nu', 'ao-thu-dong',
-        'quan-nam', 'quan-dai-nu', 'quan-nu', 'quan-bo-nam',
-        'set-do', 'set-do-nam', 'set-do-nu',
-        'vay', 'chan-vay'
+        "ao-nam",
+        "ao-nu",
+        "ao-dong-nam",
+        "ao-dong-nu",
+        "ao-thu-dong",
+        "quan-nam",
+        "quan-dai-nu",
+        "quan-nu",
+        "quan-bo-nam",
+        "set-do",
+        "set-do-nam",
+        "set-do-nu",
+        "vay",
+        "chan-vay",
     ];
-    
+
     // Giày dép: 35-44
     const shoeCategories = [
-        'giay', 'giay-nam', 'giay-nu',
-        'boot-nu', 'giay-the-thao', 'giay-sneaker-nam'
+        "giay",
+        "giay-nam",
+        "giay-nu",
+        "boot-nu",
+        "giay-the-thao",
+        "giay-sneaker-nam",
     ];
-    
+
     if (clothingCategories.includes(category)) {
-        return ['S', 'M', 'L', 'XL'];
+        return ["S", "M", "L", "XL"];
     } else if (shoeCategories.includes(category)) {
-        return ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'];
+        return ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44"];
     }
-    
+
     return [];
 }
 
@@ -4598,13 +5413,19 @@ function normalizeCartItem(raw) {
         id,
         quantity: Number.isFinite(quantity) ? quantity : 1,
         size: raw.size || null, // Preserve size if exists
+        // Repair old cached mojibake strings in cart as well
+        name: normalizeWhitespace(repairUtf8Mojibake(raw.name ?? "")),
+        categoryName: normalizeWhitespace(
+            repairUtf8Mojibake(raw.categoryName ?? "")
+        ),
+        price: normalizePriceString(raw.price ?? ""),
     };
 }
 
 // Load cart from localStorage
 function loadCart() {
     try {
-        const savedCart = localStorage.getItem('shoppingCart');
+        const savedCart = localStorage.getItem("shoppingCart");
         if (savedCart) {
             const parsed = JSON.parse(savedCart);
             cart = Array.isArray(parsed)
@@ -4615,7 +5436,7 @@ function loadCart() {
             updateCartUI();
         }
     } catch (error) {
-        console.error('Error loading cart:', error);
+        console.error("Error loading cart:", error);
         cart = [];
     }
 }
@@ -4623,10 +5444,10 @@ function loadCart() {
 // Save cart to localStorage
 function saveCart() {
     try {
-        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        localStorage.setItem("shoppingCart", JSON.stringify(cart));
         updateCartUI();
     } catch (error) {
-        console.error('Error saving cart:', error);
+        console.error("Error saving cart:", error);
     }
 }
 
@@ -4634,25 +5455,27 @@ function saveCart() {
 // Animate product flying to cart icon
 function animateProductToCart(triggerButton) {
     if (!triggerButton) return;
-    
+
     // Get cart button position (mobile or desktop)
-    const cartBtn = document.getElementById('cartBtn') || document.getElementById('headerCartBtn');
+    const cartBtn =
+        document.getElementById("cartBtn") ||
+        document.getElementById("headerCartBtn");
     if (!cartBtn) return;
-    
+
     const buttonRect = triggerButton.getBoundingClientRect();
     const cartRect = cartBtn.getBoundingClientRect();
-    
+
     // Create flying element
-    const flyingElement = document.createElement('div');
-    flyingElement.className = 'product-flying-to-cart';
+    const flyingElement = document.createElement("div");
+    flyingElement.className = "product-flying-to-cart";
     flyingElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
-    
+
     // Set initial position (center of button)
     const startX = buttonRect.left + buttonRect.width / 2;
     const startY = buttonRect.top + buttonRect.height / 2;
     const endX = cartRect.left + cartRect.width / 2;
     const endY = cartRect.top + cartRect.height / 2;
-    
+
     flyingElement.style.cssText = `
         position: fixed;
         left: ${startX}px;
@@ -4671,21 +5494,22 @@ function animateProductToCart(triggerButton) {
         box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
         transform: translate(-50%, -50%);
     `;
-    
+
     document.body.appendChild(flyingElement);
-    
+
     // Force reflow
     flyingElement.offsetHeight;
-    
+
     // Animate to cart
     requestAnimationFrame(() => {
-        flyingElement.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        flyingElement.style.transition =
+            "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
         flyingElement.style.left = `${endX}px`;
         flyingElement.style.top = `${endY}px`;
-        flyingElement.style.transform = 'translate(-50%, -50%) scale(0.5)';
-        flyingElement.style.opacity = '0.8';
+        flyingElement.style.transform = "translate(-50%, -50%) scale(0.5)";
+        flyingElement.style.opacity = "0.8";
     });
-    
+
     // Remove element after animation
     setTimeout(() => {
         if (flyingElement.parentNode) {
@@ -4696,12 +5520,12 @@ function animateProductToCart(triggerButton) {
 
 function addToCartById(productId, event, selectedSize = null) {
     const pid = normalizeId(productId);
-    const product = products.find(p => normalizeId(p.id) === pid);
+    const product = products.find((p) => normalizeId(p.id) === pid);
     if (!product) {
-        showToast('Không tìm thấy sản phẩm!', 'error');
+        showToast("Không tìm thấy sản phẩm!", "error");
         return;
     }
-    
+
     // Check if size is needed
     if (needsSize(product.category)) {
         if (!selectedSize) {
@@ -4710,9 +5534,11 @@ function addToCartById(productId, event, selectedSize = null) {
             return;
         }
     }
-    
+
     // Get the button that was clicked
-    const button = event ? (event.currentTarget || event.target.closest('.add-to-cart-btn')) : null;
+    const button = event
+        ? event.currentTarget || event.target.closest(".add-to-cart-btn")
+        : null;
     addToCart(product, button, selectedSize);
 }
 
@@ -4721,14 +5547,16 @@ function showSizeSelectionModal(product, event) {
     const sizes = getSizesForCategory(product.category);
     if (sizes.length === 0) {
         // No size needed, add directly
-        const button = event ? (event.currentTarget || event.target.closest('.add-to-cart-btn')) : null;
+        const button = event
+            ? event.currentTarget || event.target.closest(".add-to-cart-btn")
+            : null;
         addToCart(product, button, null);
         return;
     }
-    
+
     // Create modal
-    const modal = document.createElement('div');
-    modal.className = 'size-selection-modal';
+    const modal = document.createElement("div");
+    modal.className = "size-selection-modal";
     modal.innerHTML = `
         <div class="size-selection-overlay" onclick="this.closest('.size-selection-modal').remove()"></div>
         <div class="size-selection-content">
@@ -4739,36 +5567,45 @@ function showSizeSelectionModal(product, event) {
                 </button>
             </div>
             <div class="size-selection-product">
-                <img src="${normalizePath(product.image)}" alt="${product.name}" onerror="this.src='assets/logo/favicon.png';">
+                <img src="${normalizePath(product.image)}" alt="${
+        product.name
+    }" onerror="this.src='assets/logo/favicon.png';">
                 <p>${product.name}</p>
             </div>
             <div class="size-selection-options">
-                ${sizes.map(size => `
+                ${sizes
+                    .map(
+                        (size) => `
                     <button class="size-option" data-size="${size}" type="button">${size}</button>
-                `).join('')}
+                `
+                    )
+                    .join("")}
             </div>
             <button class="size-selection-confirm" type="button" disabled>Xác nhận</button>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
+
     let selectedSize = null;
-    const sizeOptions = modal.querySelectorAll('.size-option');
-    const confirmBtn = modal.querySelector('.size-selection-confirm');
-    
-    sizeOptions.forEach(btn => {
-        btn.addEventListener('click', function() {
-            sizeOptions.forEach(b => b.classList.remove('selected'));
-            this.classList.add('selected');
+    const sizeOptions = modal.querySelectorAll(".size-option");
+    const confirmBtn = modal.querySelector(".size-selection-confirm");
+
+    sizeOptions.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            sizeOptions.forEach((b) => b.classList.remove("selected"));
+            this.classList.add("selected");
             selectedSize = this.dataset.size;
             confirmBtn.disabled = false;
         });
     });
-    
-    confirmBtn.addEventListener('click', function() {
+
+    confirmBtn.addEventListener("click", function () {
         if (selectedSize) {
-            const button = event ? (event.currentTarget || event.target.closest('.add-to-cart-btn')) : null;
+            const button = event
+                ? event.currentTarget ||
+                  event.target.closest(".add-to-cart-btn")
+                : null;
             addToCart(product, button, selectedSize);
             modal.remove();
         }
@@ -4778,57 +5615,59 @@ function showSizeSelectionModal(product, event) {
 // Add product to cart
 function addToCart(product, triggerButton = null, selectedSize = null) {
     const pid = normalizeId(product.id);
-    
+
     // For items with size, check if same product + same size exists
     // For items without size, check if same product exists
-    const existingItem = cart.find(item => {
+    const existingItem = cart.find((item) => {
         if (normalizeId(item.id) !== pid) return false;
         if (needsSize(product.category)) {
             return item.size === selectedSize;
         }
         return true; // Same product, no size needed
     });
-    
+
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
         cart.push({
             id: pid,
-            name: product.name || getCategoryDisplayName(product.category, product.categoryName),
+            name:
+                product.name ||
+                getCategoryDisplayName(product.category, product.categoryName),
             price: product.price,
             image: product.image,
             category: product.category,
             categoryName: product.categoryName,
             quantity: 1,
-            size: needsSize(product.category) ? selectedSize : null
+            size: needsSize(product.category) ? selectedSize : null,
         });
     }
-    
+
     saveCart();
     // Đã tắt thông báo toast
-    
+
     // Animate product flying to cart
     if (triggerButton) {
         animateProductToCart(triggerButton);
     }
-    
+
     // Animate cart badge
-    document.querySelectorAll('.cart-badge').forEach((badge) => {
-        badge.style.animation = 'none';
+    document.querySelectorAll(".cart-badge").forEach((badge) => {
+        badge.style.animation = "none";
         setTimeout(() => {
-            badge.style.animation = 'cartBadgePulse 0.3s ease-out';
+            badge.style.animation = "cartBadgePulse 0.3s ease-out";
         }, 10);
     });
-    
+
     updateCartUI();
 }
 
 // Remove product from cart
 function removeFromCart(productId) {
     const pid = normalizeId(productId);
-    cart = cart.filter(item => normalizeId(item.id) !== pid);
+    cart = cart.filter((item) => normalizeId(item.id) !== pid);
     saveCart();
-    showToast('Đã xóa khỏi giỏ hàng', 'info');
+    showToast("Đã xóa khỏi giỏ hàng", "info");
 }
 
 // Update product quantity in cart
@@ -4836,8 +5675,8 @@ function updateCartQuantity(productId, newQuantity) {
     const pid = normalizeId(productId);
     // Không xóa khi bấm dấu trừ về 0: chỉ cho giảm tối thiểu = 1
     if (newQuantity < 1) newQuantity = 1;
-    
-    const item = cart.find(item => normalizeId(item.id) === pid);
+
+    const item = cart.find((item) => normalizeId(item.id) === pid);
     if (item) {
         item.quantity = newQuantity;
         saveCart();
@@ -4848,15 +5687,15 @@ function updateCartQuantity(productId, newQuantity) {
 // Change size of cart item
 function changeCartItemSize(productId, category) {
     const pid = normalizeId(productId);
-    const item = cart.find(item => normalizeId(item.id) === pid);
+    const item = cart.find((item) => normalizeId(item.id) === pid);
     if (!item) return;
-    
+
     const sizes = getSizesForCategory(category);
     if (sizes.length === 0) return;
-    
+
     // Create modal to change size
-    const modal = document.createElement('div');
-    modal.className = 'size-selection-modal';
+    const modal = document.createElement("div");
+    modal.className = "size-selection-modal";
     modal.innerHTML = `
         <div class="size-selection-overlay" onclick="this.closest('.size-selection-modal').remove()"></div>
         <div class="size-selection-content">
@@ -4867,50 +5706,58 @@ function changeCartItemSize(productId, category) {
                 </button>
             </div>
             <div class="size-selection-product">
-                <img src="${normalizePath(item.image)}" alt="${item.name}" onerror="this.src='assets/logo/favicon.png';">
+                <img src="${normalizePath(item.image)}" alt="${
+        item.name
+    }" onerror="this.src='assets/logo/favicon.png';">
                 <p>${item.name}</p>
             </div>
             <div class="size-selection-options">
-                ${sizes.map(size => `
-                    <button class="size-option ${item.size === size ? 'selected' : ''}" data-size="${size}" type="button">${size}</button>
-                `).join('')}
+                ${sizes
+                    .map(
+                        (size) => `
+                    <button class="size-option ${
+                        item.size === size ? "selected" : ""
+                    }" data-size="${size}" type="button">${size}</button>
+                `
+                    )
+                    .join("")}
             </div>
             <button class="size-selection-confirm" type="button" disabled>Xác nhận</button>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
+
     let selectedSize = item.size;
-    const sizeOptions = modal.querySelectorAll('.size-option');
-    const confirmBtn = modal.querySelector('.size-selection-confirm');
-    
-    sizeOptions.forEach(btn => {
-        btn.addEventListener('click', function() {
-            sizeOptions.forEach(b => b.classList.remove('selected'));
-            this.classList.add('selected');
+    const sizeOptions = modal.querySelectorAll(".size-option");
+    const confirmBtn = modal.querySelector(".size-selection-confirm");
+
+    sizeOptions.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            sizeOptions.forEach((b) => b.classList.remove("selected"));
+            this.classList.add("selected");
             selectedSize = this.dataset.size;
             confirmBtn.disabled = false;
         });
     });
-    
-    confirmBtn.addEventListener('click', function() {
+
+    confirmBtn.addEventListener("click", function () {
         if (selectedSize && selectedSize !== item.size) {
             // Check if same product + new size already exists
-            const existingItem = cart.find(cartItem => {
+            const existingItem = cart.find((cartItem) => {
                 if (normalizeId(cartItem.id) !== pid) return false;
                 return cartItem.size === selectedSize;
             });
-            
+
             if (existingItem) {
                 // Merge quantities
                 existingItem.quantity += item.quantity;
-                cart = cart.filter(cartItem => cartItem !== item);
+                cart = cart.filter((cartItem) => cartItem !== item);
             } else {
                 // Just update size
                 item.size = selectedSize;
             }
-            
+
             saveCart();
             updateCartUI();
             modal.remove();
@@ -4918,7 +5765,7 @@ function changeCartItemSize(productId, category) {
             modal.remove();
         }
     });
-    
+
     // Enable confirm if size is already selected
     if (item.size) {
         confirmBtn.disabled = false;
@@ -4928,11 +5775,11 @@ function changeCartItemSize(productId, category) {
 // Clear all items from cart
 function clearCart() {
     if (cart.length === 0) return;
-    
-    if (confirm('Bạn có chắc muốn xóa tất cả sản phẩm khỏi giỏ hàng?')) {
+
+    if (confirm("Bạn có chắc muốn xóa tất cả sản phẩm khỏi giỏ hàng?")) {
         cart = [];
         saveCart();
-        showToast('Đã xóa tất cả sản phẩm', 'info');
+        showToast("Đã xóa tất cả sản phẩm", "info");
     }
 }
 
@@ -4940,42 +5787,43 @@ function clearCart() {
 function updateCartUI() {
     // Update badge
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.querySelectorAll('.cart-badge').forEach((badge) => {
+    document.querySelectorAll(".cart-badge").forEach((badge) => {
         if (totalItems > 0) {
-            badge.textContent = totalItems > 99 ? '99+' : totalItems;
-            badge.style.display = 'flex';
+            badge.textContent = totalItems > 99 ? "99+" : totalItems;
+            badge.style.display = "flex";
         } else {
-            badge.style.display = 'none';
+            badge.style.display = "none";
         }
     });
-    
+
     // Update cart modal content
     updateCartModal();
 }
 
 // Update cart modal content
 function updateCartModal() {
-    const cartEmpty = document.getElementById('cartEmpty');
-    const cartItems = document.getElementById('cartItems');
-    const cartFooter = document.getElementById('cartFooter');
-    
+    const cartEmpty = document.getElementById("cartEmpty");
+    const cartItems = document.getElementById("cartItems");
+    const cartFooter = document.getElementById("cartFooter");
+
     if (!cartEmpty || !cartItems || !cartFooter) return;
-    
+
     if (cart.length === 0) {
-        cartEmpty.style.display = 'flex';
-        cartItems.innerHTML = '';
-        cartFooter.style.display = 'none';
+        cartEmpty.style.display = "flex";
+        cartItems.innerHTML = "";
+        cartFooter.style.display = "none";
     } else {
-        cartEmpty.style.display = 'none';
-        cartFooter.style.display = 'block';
-        
+        cartEmpty.style.display = "none";
+        cartFooter.style.display = "block";
+
         // Render cart items
-        cartItems.innerHTML = cart.map(item => {
-            const priceInfo = formatPriceWithVND(item.price);
-            const totalYen = getYenAmount(item.price) * item.quantity;
-            const totalVND = convertYenToVND(totalYen);
-            
-            return `
+        cartItems.innerHTML = cart
+            .map((item) => {
+                const priceInfo = formatPriceWithVND(item.price);
+                const totalYen = getYenAmount(item.price) * item.quantity;
+                const totalVND = convertYenToVND(totalYen);
+
+                return `
                 <div class="cart-item" data-product-id="${item.id}">
                     <img src="${normalizePath(item.image)}" 
                          alt="${item.name}" 
@@ -4983,22 +5831,34 @@ function updateCartModal() {
                          onerror="this.src='assets/logo/favicon.png';">
                     <div class="cart-item-info">
                         <h3 class="cart-item-name">${item.name}</h3>
-                        ${needsSize(item.category) ? (
-                            item.size 
-                                ? `<p class="cart-item-size">Size: <span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; text-decoration: underline;">${item.size}</span></p>`
-                                : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
-                        ) : ''}
-                        <p class="cart-item-price">${formatPriceToYen(item.price)}</p>
+                        ${
+                            needsSize(item.category)
+                                ? item.size
+                                    ? `<p class="cart-item-size">Size: <span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; text-decoration: underline;">${item.size}</span></p>`
+                                    : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
+                                : ""
+                        }
+                        <p class="cart-item-price">${formatPriceToYen(
+                            item.price
+                        )}</p>
                         <p class="cart-item-price-vnd">${priceInfo.vnd}</p>
                     </div>
                     <div class="cart-item-quantity-wrapper">
                         <div class="cart-item-quantity">
                             <button class="cart-quantity-btn" 
-                                    onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})"
-                                    type="button" ${item.quantity <= 1 ? "disabled" : ""}>-</button>
-                            <span class="cart-quantity-value">${item.quantity}</span>
+                                    onclick="updateCartQuantity(${item.id}, ${
+                    item.quantity - 1
+                })"
+                                    type="button" ${
+                                        item.quantity <= 1 ? "disabled" : ""
+                                    }>-</button>
+                            <span class="cart-quantity-value">${
+                                item.quantity
+                            }</span>
                             <button class="cart-quantity-btn" 
-                                    onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})"
+                                    onclick="updateCartQuantity(${item.id}, ${
+                    item.quantity + 1
+                })"
                                     type="button">+</button>
                         </div>
                         <button class="cart-item-remove" 
@@ -5010,17 +5870,18 @@ function updateCartModal() {
                     </div>
                 </div>
             `;
-        }).join('');
-        
+            })
+            .join("");
+
         // Update total
         const totalYen = cart.reduce((sum, item) => {
-            return sum + (getYenAmount(item.price) * item.quantity);
+            return sum + getYenAmount(item.price) * item.quantity;
         }, 0);
         const totalVND = convertYenToVND(totalYen);
-        
-        const cartTotalPrice = document.getElementById('cartTotalPrice');
-        const cartTotalVND = document.getElementById('cartTotalVND');
-        
+
+        const cartTotalPrice = document.getElementById("cartTotalPrice");
+        const cartTotalVND = document.getElementById("cartTotalVND");
+
         if (cartTotalPrice) {
             cartTotalPrice.textContent = `¥${formatVND(totalYen)}`;
         }
@@ -5045,7 +5906,7 @@ function rememberBottomNavActiveBeforeCart() {
         "Danh mục": "category",
         "Tìm kiếm": "search",
         "Liên hệ": "contact",
-        "Fanpage": "fanpage",
+        Fanpage: "fanpage",
         "Ngẫu nhiên": "random",
     };
     lastNonCartBottomNavActive = map[label] || "home";
@@ -5081,60 +5942,67 @@ function toggleCart() {
 // Checkout cart (send to Messenger)
 function checkoutCart() {
     if (cart.length === 0) {
-        showToast('Giỏ hàng trống!', 'warning');
+        showToast("Giỏ hàng trống!", "warning");
         return;
     }
-    
+
     // Build order message - format ngắn gọn, đầy đủ thông tin
-    let message = '[GIO HANG] DAT HANG - ODER88\n================================\n';
-    
+    let message =
+        "[GIO HANG] DAT HANG - ODER88\n================================\n";
+
     cart.forEach((item, index) => {
         const yenAmount = getYenAmount(item.price);
         const itemTotalYen = yenAmount * item.quantity;
         const itemTotalVND = convertYenToVND(itemTotalYen);
         const priceInfo = formatPriceWithVND(item.price);
-        
+
         message += `${index + 1}. ${item.name}\n`;
-        
+
         // Hiển thị size nếu có
         if (item.size) {
             message += `   Size: ${item.size}\n`;
         }
-        
-        message += `   Gia: ${formatPriceToYen(item.price)} (${priceInfo.vnd})\n`;
+
+        message += `   Gia: ${formatPriceToYen(item.price)} (${
+            priceInfo.vnd
+        })\n`;
         message += `   So luong: ${item.quantity}\n`;
-        message += `   Thanh tien: ¥${formatVND(itemTotalYen)} (VND ${formatVND(itemTotalVND)})\n`;
+        message += `   Thanh tien: ¥${formatVND(itemTotalYen)} (VND ${formatVND(
+            itemTotalVND
+        )})\n`;
     });
-    
+
     // Tính tổng cộng
     const totalYen = cart.reduce((sum, item) => {
-        return sum + (getYenAmount(item.price) * item.quantity);
+        return sum + getYenAmount(item.price) * item.quantity;
     }, 0);
     const totalVND = convertYenToVND(totalYen);
-    
-    message += '================================\n';
-    message += `TONG CONG: ¥${formatVND(totalYen)} (VND ${formatVND(totalVND)})\n`;
-    message += 'Vui long xac nhan don hang. Cam on ban!';
-    
+
+    message += "================================\n";
+    message += `TONG CONG: ¥${formatVND(totalYen)} (VND ${formatVND(
+        totalVND
+    )})\n`;
+    message += "Vui long xac nhan don hang. Cam on ban!";
+
     // Open Messenger with order
     openMessengerApp(message);
 }
 
 // Show shipping info modal
 function showShippingInfo() {
-    const modal = document.getElementById('shippingInfoModal');
+    const modal = document.getElementById("shippingInfoModal");
     if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
     }
 }
 
 // Close shipping info modal
 function closeShippingInfo() {
-    const modal = document.getElementById('shippingInfoModal');
+    const modal = document.getElementById("shippingInfoModal");
     if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
     }
 }
 
@@ -5152,5 +6020,5 @@ window.debug = {
     clearCart: () => {
         cart = [];
         saveCart();
-    }
+    },
 };
