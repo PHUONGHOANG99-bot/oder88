@@ -1,5 +1,5 @@
 // Service Worker for PWA Support
-const CACHE_NAME = "oder88-shop-v46";
+const CACHE_NAME = "oder88-shop-v47";
 const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
 const withScope = (path) => `${SCOPE_PATH}${path}`.replace(/\/{2,}/g, "/");
 
@@ -14,12 +14,13 @@ const urlsToCache = [
 
 // Install event
 self.addEventListener("install", (event) => {
-    // Skip waiting to activate immediately
+    console.log("🔄 New SW version installing:", CACHE_NAME);
+    // Skip waiting to activate immediately - this ensures new version takes over right away
     self.skipWaiting();
 
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
-            console.log("Opened cache");
+            console.log("✅ Opened new cache:", CACHE_NAME);
             // Only cache files without query strings
             const urlsWithoutQuery = urlsToCache.map((url) => {
                 const urlObj = new URL(url, self.location.origin);
@@ -36,8 +37,8 @@ self.addEventListener("fetch", (event) => {
     const url = new URL(event.request.url);
     const noQueryUrl = new URL(url.pathname, url.origin).toString();
 
-    // For HTML, CSS and JS files, always fetch from network first (skip cache)
-    // If URL has query string (cache busting), still cache the no-query variant
+    // For HTML, CSS and JS files, ALWAYS fetch from network first (never use cache)
+    // This ensures users always get the latest version when version number changes
     if (
         url.pathname.includes(".html") ||
         url.pathname.includes(".css") ||
@@ -55,19 +56,25 @@ self.addEventListener("fetch", (event) => {
                 },
             })
                 .then((response) => {
-                    // Cache a stable (no-query) key so offline fallback works even for ?v=...
+                    // Only cache if response is successful
+                    // Use the full URL with query string as cache key to prevent version conflicts
                     if (response && response.status === 200) {
                         const responseToCache = response.clone();
                         caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(noQueryUrl, responseToCache);
+                            // Cache with full URL (including version) to avoid serving old version
+                            cache.put(event.request.url, responseToCache);
                         });
                     }
                     return response;
                 })
                 .catch(() => {
-                    // If network fails, fall back to cache using the no-query key
-                    return caches.match(noQueryUrl).then((cached) => {
-                        return cached || new Response("Network error", { status: 408 });
+                    // If network fails, try to get from cache (for offline support)
+                    // But prefer exact URL match first, then fallback to no-query
+                    return caches.match(event.request.url).then((cached) => {
+                        if (cached) return cached;
+                        return caches.match(noQueryUrl).then((cached) => {
+                            return cached || new Response("Network error", { status: 408 });
+                        });
                     });
                 })
         );
@@ -107,49 +114,50 @@ self.addEventListener("fetch", (event) => {
     );
 });
 
-// Activate event - Clear old caches
+// Activate event - Clear old caches and notify clients
 self.addEventListener("activate", (event) => {
+    console.log("✅ SW activated:", CACHE_NAME);
     const cacheWhitelist = [CACHE_NAME];
 
     event.waitUntil(
-        caches
-            .keys()
-            .then((cacheNames) => {
+        // First, claim all clients immediately
+        self.clients.claim().then(() => {
+            // Delete all old caches
+            return caches.keys().then((cacheNames) => {
                 return Promise.all(
                     cacheNames.map((cacheName) => {
-                        if (cacheWhitelist.indexOf(cacheName) === -1) {
-                            console.log("Deleting old cache:", cacheName);
+                        if (cacheName !== CACHE_NAME) {
+                            console.log("🗑️ Deleting old cache:", cacheName);
                             return caches.delete(cacheName);
                         }
                     })
                 );
-            })
-            .then(() => {
-                // Force update all clients immediately
-                return self.clients.claim().then(() => {
-                    // Send message to all clients to reload
-                    return self.clients.matchAll().then((clients) => {
-                        clients.forEach((client) => {
-                            client.postMessage({
-                                type: "SW_UPDATED",
-                                action: "reload",
-                            });
-                        });
+            });
+        })
+        .then(() => {
+            // Notify all clients to reload
+            return self.clients.matchAll({ includeUncontrolled: true }).then((clients) => {
+                console.log("📢 Notifying", clients.length, "clients to reload");
+                clients.forEach((client) => {
+                    client.postMessage({
+                        type: "SW_UPDATED",
+                        action: "reload",
+                        version: CACHE_NAME,
                     });
                 });
-            })
-            .then(() => {
-                // Delete all old caches
-                return caches.keys().then((cacheNames) => {
-                    return Promise.all(
-                        cacheNames.map((cacheName) => {
-                            if (cacheName !== CACHE_NAME) {
-                                console.log("Deleting old cache:", cacheName);
-                                return caches.delete(cacheName);
-                            }
-                        })
-                    );
-                });
-            })
+            });
+        })
     );
+});
+
+// Listen for messages from clients
+self.addEventListener("message", (event) => {
+    if (event.data && event.data.type === "CHECK_UPDATE") {
+        // Client is asking to check for updates
+        event.waitUntil(
+            self.registration.update().then(() => {
+                console.log("✅ Update check completed");
+            })
+        );
+    }
 });

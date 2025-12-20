@@ -283,58 +283,20 @@ function escapeMessageForHTML(message) {
 
 // ==================== HÀM MỞ MESSENGER APP ====================
 function openMessengerApp(message = '') {
-    const threadId = '100090836182323';
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-    const isAndroid = /android/i.test(userAgent);
+    // Facebook page username của oder88shop
+    const pageUsername = 'oder88shop';
     
-    let appUrl = '';
-    let webUrl = `https://www.messenger.com/t/${threadId}`;
+    // URL để mở Messenger page (m.me tự động mở app nếu có, nếu không thì mở web)
+    let messengerUrl = `https://m.me/${pageUsername}`;
     
+    // Thêm message vào URL nếu có
     if (message) {
         const encodedMessage = encodeURIComponent(message);
-        webUrl += `?text=${encodedMessage}`;
+        messengerUrl += `?text=${encodedMessage}`;
     }
     
-    if (isIOS) {
-        // iOS: fb-messenger-public://user-thread/{thread_id}
-        appUrl = `fb-messenger-public://user-thread/${threadId}`;
-    } else if (isAndroid) {
-        // Android: fb-messenger://user/{user_id}
-        appUrl = `fb-messenger://user/${threadId}`;
-    }
-    
-    // Thử mở app trước
-    if (appUrl) {
-        let appOpened = false;
-        let fallbackTimer;
-        
-        // Nếu page blur (user chuyển sang app), đánh dấu app đã mở
-        const blurHandler = () => {
-            appOpened = true;
-            clearTimeout(fallbackTimer);
-        };
-        window.addEventListener('blur', blurHandler, { once: true });
-        
-        // Thử mở app bằng cách tạo link ẩn và click
-        const link = document.createElement('a');
-        link.href = appUrl;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        // Sau 1 giây, nếu app chưa mở thì mở web
-        fallbackTimer = setTimeout(() => {
-            window.removeEventListener('blur', blurHandler);
-            if (!appOpened) {
-                window.open(webUrl, '_blank');
-            }
-        }, 1000);
-    } else {
-        // Desktop, mở web
-        window.open(webUrl, '_blank');
-    }
+    // Mở Messenger (Facebook sẽ tự động xử lý: mở app nếu có, nếu không thì mở web)
+    window.open(messengerUrl, '_blank');
 }
 
 // ==================== HÀM TẠO LINK MESSENGER ====================
@@ -421,6 +383,9 @@ function showToast(message, type = "info", duration = 3000) {
 
 // ==================== HÀM SCROLL TO TOP ====================
 function scrollToTop() {
+    // Đảm bảo cart được lưu trước khi scroll
+    saveCart();
+    
     // Reset về trang chủ - hiển thị tất cả sản phẩm
     resetToHome();
 
@@ -496,7 +461,10 @@ function shuffleProducts() {
 
 // ==================== HÀM RELOAD TRANG ====================
 function reloadPage() {
+    // Đảm bảo cart được lưu trước khi reload
+    saveCart();
     // Reload trang - slider sẽ tự động random lại khi trang load (trong initializeApp)
+    // Cart sẽ được load lại từ localStorage trong initializeApp()
     window.location.reload();
 }
 
@@ -2226,7 +2194,7 @@ function initSlider() {
                 </div>
                 <div class="product-actions">
                     <button 
-                       onclick="addToCartById(${product.id});"
+                       onclick="addToCartById(${product.id}, event);"
                        class="add-to-cart-btn"
                        aria-label="Thêm vào giỏ hàng"
                        type="button">
@@ -2249,7 +2217,7 @@ function initSlider() {
                            product.category,
                            product.categoryName
                        )}">
-                        <i class="fas fa-shopping-cart" aria-hidden="true"></i> ORDER NGAY
+ORDER NGAY
                     </a>
                 </div>
             </div>
@@ -2412,7 +2380,7 @@ function displayProductsPaginated(productsToShow) {
                     </div>
                     <div class="product-actions">
                         <button 
-                           onclick="addToCartById(${product.id});"
+                           onclick="addToCartById(${product.id}, event);"
                            class="add-to-cart-btn"
                            aria-label="Thêm vào giỏ hàng"
                            type="button">
@@ -2435,7 +2403,7 @@ function displayProductsPaginated(productsToShow) {
                                product.category,
                                product.categoryName
                            )}">
-                            <i class="fas fa-shopping-cart" aria-hidden="true"></i> ORDER NGAY
+    ORDER NGAY
                         </a>
                     </div>
                 </div>
@@ -3219,7 +3187,7 @@ function openProductGallery(productId, imageIndex = 0) {
     if (addToCartBtn) {
         addToCartBtn.onclick = function (e) {
             e.preventDefault();
-            addToCartById(productId);
+            addToCartById(productId, e);
             return false;
         };
     }
@@ -4336,6 +4304,9 @@ function setupEventListeners() {
 
 // ==================== KHỞI ĐỘNG ỨNG DỤNG ====================
 document.addEventListener("DOMContentLoaded", function () {
+    // Load cart ngay lập tức để đảm bảo không mất khi reload
+    loadCart();
+
     // Tạo overlay
     createOverlay();
 
@@ -4570,6 +4541,54 @@ function normalizeId(id) {
     return Number.isFinite(n) ? n : id;
 }
 
+// Check if category needs size selection
+function needsSize(category) {
+    if (!category) return false;
+    
+    // Quần áo categories
+    const clothingCategories = [
+        'ao-nam', 'ao-nu', 'ao-dong-nam', 'ao-dong-nu', 'ao-thu-dong',
+        'quan-nam', 'quan-dai-nu', 'quan-nu', 'quan-bo-nam',
+        'set-do', 'set-do-nam', 'set-do-nu',
+        'vay', 'chan-vay'
+    ];
+    
+    // Giày dép categories
+    const shoeCategories = [
+        'giay', 'giay-nam', 'giay-nu',
+        'boot-nu', 'giay-the-thao', 'giay-sneaker-nam'
+    ];
+    
+    return clothingCategories.includes(category) || shoeCategories.includes(category);
+}
+
+// Get available sizes for category
+function getSizesForCategory(category) {
+    if (!category) return [];
+    
+    // Quần áo: S, M, L, XL
+    const clothingCategories = [
+        'ao-nam', 'ao-nu', 'ao-dong-nam', 'ao-dong-nu', 'ao-thu-dong',
+        'quan-nam', 'quan-dai-nu', 'quan-nu', 'quan-bo-nam',
+        'set-do', 'set-do-nam', 'set-do-nu',
+        'vay', 'chan-vay'
+    ];
+    
+    // Giày dép: 35-44
+    const shoeCategories = [
+        'giay', 'giay-nam', 'giay-nu',
+        'boot-nu', 'giay-the-thao', 'giay-sneaker-nam'
+    ];
+    
+    if (clothingCategories.includes(category)) {
+        return ['S', 'M', 'L', 'XL'];
+    } else if (shoeCategories.includes(category)) {
+        return ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'];
+    }
+    
+    return [];
+}
+
 function normalizeCartItem(raw) {
     if (!raw || typeof raw !== "object") return null;
     const id = normalizeId(raw.id);
@@ -4578,6 +4597,7 @@ function normalizeCartItem(raw) {
         ...raw,
         id,
         quantity: Number.isFinite(quantity) ? quantity : 1,
+        size: raw.size || null, // Preserve size if exists
     };
 }
 
@@ -4611,20 +4631,163 @@ function saveCart() {
 }
 
 // Add product to cart by product ID
-function addToCartById(productId) {
+// Animate product flying to cart icon
+function animateProductToCart(triggerButton) {
+    if (!triggerButton) return;
+    
+    // Get cart button position (mobile or desktop)
+    const cartBtn = document.getElementById('cartBtn') || document.getElementById('headerCartBtn');
+    if (!cartBtn) return;
+    
+    const buttonRect = triggerButton.getBoundingClientRect();
+    const cartRect = cartBtn.getBoundingClientRect();
+    
+    // Create flying element
+    const flyingElement = document.createElement('div');
+    flyingElement.className = 'product-flying-to-cart';
+    flyingElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+    
+    // Set initial position (center of button)
+    const startX = buttonRect.left + buttonRect.width / 2;
+    const startY = buttonRect.top + buttonRect.height / 2;
+    const endX = cartRect.left + cartRect.width / 2;
+    const endY = cartRect.top + cartRect.height / 2;
+    
+    flyingElement.style.cssText = `
+        position: fixed;
+        left: ${startX}px;
+        top: ${startY}px;
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(135deg, #ff9933, #ffaa66);
+        color: #ff6600;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        pointer-events: none;
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+        transform: translate(-50%, -50%);
+    `;
+    
+    document.body.appendChild(flyingElement);
+    
+    // Force reflow
+    flyingElement.offsetHeight;
+    
+    // Animate to cart
+    requestAnimationFrame(() => {
+        flyingElement.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        flyingElement.style.left = `${endX}px`;
+        flyingElement.style.top = `${endY}px`;
+        flyingElement.style.transform = 'translate(-50%, -50%) scale(0.5)';
+        flyingElement.style.opacity = '0.8';
+    });
+    
+    // Remove element after animation
+    setTimeout(() => {
+        if (flyingElement.parentNode) {
+            flyingElement.parentNode.removeChild(flyingElement);
+        }
+    }, 600);
+}
+
+function addToCartById(productId, event, selectedSize = null) {
     const pid = normalizeId(productId);
     const product = products.find(p => normalizeId(p.id) === pid);
     if (!product) {
         showToast('Không tìm thấy sản phẩm!', 'error');
         return;
     }
-    addToCart(product);
+    
+    // Check if size is needed
+    if (needsSize(product.category)) {
+        if (!selectedSize) {
+            // Show size selection modal
+            showSizeSelectionModal(product, event);
+            return;
+        }
+    }
+    
+    // Get the button that was clicked
+    const button = event ? (event.currentTarget || event.target.closest('.add-to-cart-btn')) : null;
+    addToCart(product, button, selectedSize);
+}
+
+// Show size selection modal
+function showSizeSelectionModal(product, event) {
+    const sizes = getSizesForCategory(product.category);
+    if (sizes.length === 0) {
+        // No size needed, add directly
+        const button = event ? (event.currentTarget || event.target.closest('.add-to-cart-btn')) : null;
+        addToCart(product, button, null);
+        return;
+    }
+    
+    // Create modal
+    const modal = document.createElement('div');
+    modal.className = 'size-selection-modal';
+    modal.innerHTML = `
+        <div class="size-selection-overlay" onclick="this.closest('.size-selection-modal').remove()"></div>
+        <div class="size-selection-content">
+            <div class="size-selection-header">
+                <h3>Chọn size</h3>
+                <button class="size-selection-close" onclick="this.closest('.size-selection-modal').remove()" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="size-selection-product">
+                <img src="${normalizePath(product.image)}" alt="${product.name}" onerror="this.src='assets/logo/favicon.png';">
+                <p>${product.name}</p>
+            </div>
+            <div class="size-selection-options">
+                ${sizes.map(size => `
+                    <button class="size-option" data-size="${size}" type="button">${size}</button>
+                `).join('')}
+            </div>
+            <button class="size-selection-confirm" type="button" disabled>Xác nhận</button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    let selectedSize = null;
+    const sizeOptions = modal.querySelectorAll('.size-option');
+    const confirmBtn = modal.querySelector('.size-selection-confirm');
+    
+    sizeOptions.forEach(btn => {
+        btn.addEventListener('click', function() {
+            sizeOptions.forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedSize = this.dataset.size;
+            confirmBtn.disabled = false;
+        });
+    });
+    
+    confirmBtn.addEventListener('click', function() {
+        if (selectedSize) {
+            const button = event ? (event.currentTarget || event.target.closest('.add-to-cart-btn')) : null;
+            addToCart(product, button, selectedSize);
+            modal.remove();
+        }
+    });
 }
 
 // Add product to cart
-function addToCart(product) {
+function addToCart(product, triggerButton = null, selectedSize = null) {
     const pid = normalizeId(product.id);
-    const existingItem = cart.find(item => normalizeId(item.id) === pid);
+    
+    // For items with size, check if same product + same size exists
+    // For items without size, check if same product exists
+    const existingItem = cart.find(item => {
+        if (normalizeId(item.id) !== pid) return false;
+        if (needsSize(product.category)) {
+            return item.size === selectedSize;
+        }
+        return true; // Same product, no size needed
+    });
     
     if (existingItem) {
         existingItem.quantity += 1;
@@ -4636,12 +4799,18 @@ function addToCart(product) {
             image: product.image,
             category: product.category,
             categoryName: product.categoryName,
-            quantity: 1
+            quantity: 1,
+            size: needsSize(product.category) ? selectedSize : null
         });
     }
     
     saveCart();
-    showToast('Đã thêm vào giỏ hàng!', 'success');
+    // Đã tắt thông báo toast
+    
+    // Animate product flying to cart
+    if (triggerButton) {
+        animateProductToCart(triggerButton);
+    }
     
     // Animate cart badge
     document.querySelectorAll('.cart-badge').forEach((badge) => {
@@ -4650,6 +4819,8 @@ function addToCart(product) {
             badge.style.animation = 'cartBadgePulse 0.3s ease-out';
         }, 10);
     });
+    
+    updateCartUI();
 }
 
 // Remove product from cart
@@ -4670,6 +4841,87 @@ function updateCartQuantity(productId, newQuantity) {
     if (item) {
         item.quantity = newQuantity;
         saveCart();
+        updateCartUI();
+    }
+}
+
+// Change size of cart item
+function changeCartItemSize(productId, category) {
+    const pid = normalizeId(productId);
+    const item = cart.find(item => normalizeId(item.id) === pid);
+    if (!item) return;
+    
+    const sizes = getSizesForCategory(category);
+    if (sizes.length === 0) return;
+    
+    // Create modal to change size
+    const modal = document.createElement('div');
+    modal.className = 'size-selection-modal';
+    modal.innerHTML = `
+        <div class="size-selection-overlay" onclick="this.closest('.size-selection-modal').remove()"></div>
+        <div class="size-selection-content">
+            <div class="size-selection-header">
+                <h3>Chọn size mới</h3>
+                <button class="size-selection-close" onclick="this.closest('.size-selection-modal').remove()" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="size-selection-product">
+                <img src="${normalizePath(item.image)}" alt="${item.name}" onerror="this.src='assets/logo/favicon.png';">
+                <p>${item.name}</p>
+            </div>
+            <div class="size-selection-options">
+                ${sizes.map(size => `
+                    <button class="size-option ${item.size === size ? 'selected' : ''}" data-size="${size}" type="button">${size}</button>
+                `).join('')}
+            </div>
+            <button class="size-selection-confirm" type="button" disabled>Xác nhận</button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    let selectedSize = item.size;
+    const sizeOptions = modal.querySelectorAll('.size-option');
+    const confirmBtn = modal.querySelector('.size-selection-confirm');
+    
+    sizeOptions.forEach(btn => {
+        btn.addEventListener('click', function() {
+            sizeOptions.forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedSize = this.dataset.size;
+            confirmBtn.disabled = false;
+        });
+    });
+    
+    confirmBtn.addEventListener('click', function() {
+        if (selectedSize && selectedSize !== item.size) {
+            // Check if same product + new size already exists
+            const existingItem = cart.find(cartItem => {
+                if (normalizeId(cartItem.id) !== pid) return false;
+                return cartItem.size === selectedSize;
+            });
+            
+            if (existingItem) {
+                // Merge quantities
+                existingItem.quantity += item.quantity;
+                cart = cart.filter(cartItem => cartItem !== item);
+            } else {
+                // Just update size
+                item.size = selectedSize;
+            }
+            
+            saveCart();
+            updateCartUI();
+            modal.remove();
+        } else {
+            modal.remove();
+        }
+    });
+    
+    // Enable confirm if size is already selected
+    if (item.size) {
+        confirmBtn.disabled = false;
     }
 }
 
@@ -4731,25 +4983,30 @@ function updateCartModal() {
                          onerror="this.src='assets/logo/favicon.png';">
                     <div class="cart-item-info">
                         <h3 class="cart-item-name">${item.name}</h3>
+                        ${needsSize(item.category) ? (
+                            item.size 
+                                ? `<p class="cart-item-size">Size: <span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; text-decoration: underline;">${item.size}</span></p>`
+                                : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
+                        ) : ''}
                         <p class="cart-item-price">${formatPriceToYen(item.price)}</p>
                         <p class="cart-item-price-vnd">${priceInfo.vnd}</p>
-                        <div class="cart-item-actions">
-                            <div class="cart-item-quantity">
-                                <button class="cart-quantity-btn" 
-                                        onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})"
-                                        type="button" ${item.quantity <= 1 ? "disabled" : ""}>-</button>
-                                <span class="cart-quantity-value">${item.quantity}</span>
-                                <button class="cart-quantity-btn" 
-                                        onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})"
-                                        type="button">+</button>
-                            </div>
-                            <button class="cart-item-remove" 
-                                    onclick="removeFromCart(${item.id})"
-                                    aria-label="Xóa sản phẩm"
-                                    type="button">
-                                <i class="fas fa-trash" aria-hidden="true"></i>
-                            </button>
+                    </div>
+                    <div class="cart-item-quantity-wrapper">
+                        <div class="cart-item-quantity">
+                            <button class="cart-quantity-btn" 
+                                    onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})"
+                                    type="button" ${item.quantity <= 1 ? "disabled" : ""}>-</button>
+                            <span class="cart-quantity-value">${item.quantity}</span>
+                            <button class="cart-quantity-btn" 
+                                    onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})"
+                                    type="button">+</button>
                         </div>
+                        <button class="cart-item-remove" 
+                                onclick="removeFromCart(${item.id})"
+                                aria-label="Xóa sản phẩm"
+                                type="button">
+                            <i class="fas fa-trash" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             `;
@@ -4828,27 +5085,57 @@ function checkoutCart() {
         return;
     }
     
-    // Build order message
-    let message = '🎉 ĐẶT HÀNG TỪ GIỎ HÀNG 🎉\n\n';
+    // Build order message - format ngắn gọn, đầy đủ thông tin
+    let message = '[GIO HANG] DAT HANG - ODER88\n================================\n';
     
     cart.forEach((item, index) => {
+        const yenAmount = getYenAmount(item.price);
+        const itemTotalYen = yenAmount * item.quantity;
+        const itemTotalVND = convertYenToVND(itemTotalYen);
         const priceInfo = formatPriceWithVND(item.price);
+        
         message += `${index + 1}. ${item.name}\n`;
-        message += `   Giá: ${formatPriceToYen(item.price)} (${priceInfo.vnd})\n`;
-        message += `   Số lượng: ${item.quantity}\n`;
-        message += `   Thành tiền: ${formatPriceToYen(item.price)} x ${item.quantity}\n\n`;
+        
+        // Hiển thị size nếu có
+        if (item.size) {
+            message += `   Size: ${item.size}\n`;
+        }
+        
+        message += `   Gia: ${formatPriceToYen(item.price)} (${priceInfo.vnd})\n`;
+        message += `   So luong: ${item.quantity}\n`;
+        message += `   Thanh tien: ¥${formatVND(itemTotalYen)} (VND ${formatVND(itemTotalVND)})\n`;
     });
     
+    // Tính tổng cộng
     const totalYen = cart.reduce((sum, item) => {
         return sum + (getYenAmount(item.price) * item.quantity);
     }, 0);
     const totalVND = convertYenToVND(totalYen);
     
-    message += `💰 TỔNG CỘNG: ¥${formatVND(totalYen)} (VND ${formatVND(totalVND)})\n\n`;
-    message += 'Cảm ơn bạn đã đặt hàng! ❤️';
+    message += '================================\n';
+    message += `TONG CONG: ¥${formatVND(totalYen)} (VND ${formatVND(totalVND)})\n`;
+    message += 'Vui long xac nhan don hang. Cam on ban!';
     
     // Open Messenger with order
-    openMessengerApp(encodeURIComponent(message));
+    openMessengerApp(message);
+}
+
+// Show shipping info modal
+function showShippingInfo() {
+    const modal = document.getElementById('shippingInfoModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Close shipping info modal
+function closeShippingInfo() {
+    const modal = document.getElementById('shippingInfoModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 }
 
 // ==================== DEBUG ====================

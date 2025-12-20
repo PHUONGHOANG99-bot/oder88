@@ -21,7 +21,10 @@
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://nekoshop68.com/" />
+        <meta
+            property="og:url"
+            content="https://PHUONGHOANG99-bot.github.io/oder88/"
+        />
         <meta
             property="og:title"
             content="ODER 88 - Thời Trang Nam Nữ Cao Cấp"
@@ -32,12 +35,15 @@
         />
         <meta
             property="og:image"
-            content="https://nekoshop68.com/assets/image/logo.jpg"
+            content="https://PHUONGHOANG99-bot.github.io/oder88/assets/image/logo.jpg"
         />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://nekoshop68.com/" />
+        <meta
+            property="twitter:url"
+            content="https://PHUONGHOANG99-bot.github.io/oder88/"
+        />
         <meta
             property="twitter:title"
             content="ODER 88 - Thời Trang Nam Nữ Cao Cấp"
@@ -48,7 +54,7 @@
         />
         <meta
             property="twitter:image"
-            content="https://nekoshop68.com/assets/image/logo.jpg"
+            content="https://PHUONGHOANG99-bot.github.io/oder88/assets/image/logo.jpg"
         />
 
         <!-- Favicon -->
@@ -56,63 +62,63 @@
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="shortcut icon"
             type="image/png"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="152x152"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="144x144"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="120x120"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="114x114"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="76x76"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="72x72"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="60x60"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link
             rel="apple-touch-icon"
             sizes="57x57"
-            href="assets/logo/favicon.png"
+            href="assets/logo/oder88.png"
         />
         <link rel="apple-touch-icon" href="assets/logo/favicon.png" />
 
@@ -123,14 +129,14 @@
             as="fetch"
             crossorigin="anonymous"
         />
-        <link rel="preload" href="assets/style.css?v=62" as="style" />
+        <link rel="preload" href="assets/style.css?v=47" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             as="style"
         />
 
-        <link rel="stylesheet" href="assets/style.css?v=62" />
+        <link rel="stylesheet" href="assets/style.css?v=47" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -159,9 +165,7 @@
                         registrations.forEach((registration) => {
                             if (
                                 registration.active &&
-                                registration.active.scriptURL.includes(
-                                    "neko-shop"
-                                )
+                                registration.active.scriptURL.includes("oder88")
                             ) {
                                 registration.unregister();
                             }
@@ -170,16 +174,23 @@
 
                 window.addEventListener("load", () => {
                     navigator.serviceWorker
-                        .register("sw.js?v=46")
+                        .register("sw.js?v=47")
                         .then((registration) => {
                             console.log("SW registered: ", registration);
 
-                            // Check for updates every time
+                            // Check for updates immediately
                             registration.update();
+
+                            // Check for updates every 30 seconds (more frequent for faster updates)
+                            setInterval(() => {
+                                registration.update();
+                            }, 30000);
 
                             // Listen for updates
                             registration.addEventListener("updatefound", () => {
                                 const newWorker = registration.installing;
+                                if (!newWorker) return;
+
                                 newWorker.addEventListener(
                                     "statechange",
                                     () => {
@@ -187,12 +198,43 @@
                                             newWorker.state === "installed" &&
                                             navigator.serviceWorker.controller
                                         ) {
-                                            // New service worker available, reload page
-                                            window.location.reload();
+                                            // New service worker available, reload page immediately
+                                            console.log(
+                                                "🔄 New SW version detected, reloading..."
+                                            );
+                                            // Force reload immediately
+                                            window.location.reload(true);
+                                        } else if (
+                                            newWorker.state === "activated"
+                                        ) {
+                                            // Service worker activated, reload to use new version
+                                            console.log(
+                                                "✅ SW activated, reloading..."
+                                            );
+                                            window.location.reload(true);
                                         }
                                     }
                                 );
                             });
+
+                            // Also check when service worker becomes active (after skipWaiting)
+                            if (registration.waiting) {
+                                // There's already a waiting service worker, reload immediately
+                                console.log(
+                                    "🔄 Waiting SW found, reloading..."
+                                );
+                                window.location.reload(true);
+                            }
+
+                            // Also check on page visibility change (user returns to tab)
+                            document.addEventListener(
+                                "visibilitychange",
+                                () => {
+                                    if (!document.hidden) {
+                                        registration.update();
+                                    }
+                                }
+                            );
                         })
                         .catch((registrationError) => {
                             console.log(
@@ -205,7 +247,19 @@
                 // Listen for messages from service worker
                 navigator.serviceWorker.addEventListener("message", (event) => {
                     if (event.data && event.data.type === "SW_UPDATED") {
-                        window.location.reload();
+                        console.log(
+                            "🔄 SW update message received, reloading..."
+                        );
+                        window.location.reload(true);
+                    }
+                });
+
+                // Force check for updates on focus (user returns to tab/window)
+                window.addEventListener("focus", () => {
+                    if (navigator.serviceWorker.controller) {
+                        navigator.serviceWorker.controller.postMessage({
+                            type: "CHECK_UPDATE",
+                        });
                     }
                 });
             }
@@ -875,10 +929,6 @@
                             class="order-btn"
                             aria-label="Đặt hàng sản phẩm"
                         >
-                            <i
-                                class="fas fa-shopping-cart"
-                                aria-hidden="true"
-                            ></i>
                             <span>ĐẶT HÀNG NGAY</span>
                         </a>
                     </div>
@@ -991,6 +1041,30 @@
                         <div class="cart-total-vnd" id="cartTotalVND">
                             VND 0
                         </div>
+                        <div class="cart-shipping-notice">
+                            <span class="shipping-notice-text"
+                                >Lưu ý: Giá trên chưa bao gồm phí vận
+                                chuyển</span
+                            >
+                        </div>
+                        <div class="cart-shipping-row">
+                            <button
+                                class="cart-shipping-btn"
+                                onclick="showShippingInfo();"
+                                type="button"
+                                aria-label="Xem chi phí ship"
+                            >
+                                <i
+                                    class="fas fa-shipping-fast"
+                                    aria-hidden="true"
+                                ></i>
+                                Chi Phí Ship
+                                <i
+                                    class="fas fa-chevron-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="cart-actions">
                         <button
@@ -1009,6 +1083,126 @@
                             <i class="fas fa-check" aria-hidden="true"></i>
                             Đặt hàng
                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Info Modal -->
+        <div class="shipping-info-modal" id="shippingInfoModal">
+            <div
+                class="shipping-info-overlay"
+                onclick="closeShippingInfo();"
+            ></div>
+            <div class="shipping-info-content">
+                <div class="shipping-info-header">
+                    <h3>
+                        <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+                        Chi Phí Ship & Cách Thức Đặt Hàng
+                    </h3>
+                    <button
+                        class="shipping-info-close"
+                        onclick="closeShippingInfo();"
+                        aria-label="Đóng"
+                        type="button"
+                    >
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="shipping-info-body" id="shippingInfoBody">
+                    <div class="shipping-section">
+                        <h4 class="shipping-section-title">
+                            <i class="fas fa-shopping-cart"></i>
+                            Cách thức đặt hàng
+                        </h4>
+                        <ul class="shipping-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Thêm sản phẩm vào giỏ hàng → nhấn Đặt Hàng
+                            </li>
+                            <li>
+                                <i class="fas fa-bolt"></i>
+                                Mua 1 sản phẩm có thể nhấn Oder ngay để gửi đơn
+                                nhanh
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shipping-section">
+                        <h4 class="shipping-section-title">
+                            <i class="fas fa-truck"></i>
+                            Chi phí & vận chuyển
+                        </h4>
+                        <ul class="shipping-list">
+                            <li>
+                                <i class="fas fa-money-bill-wave"></i>
+                                Giá trên website là giá sản phẩm (chưa gồm phí
+                                ship)
+                            </li>
+                            <li>
+                                <i class="fas fa-box"></i>
+                                Phí ship tính theo cân nặng & kích thước
+                            </li>
+                            <li>
+                                <i class="fab fa-facebook-messenger"></i>
+                                Gửi đơn qua Messenger, shop sẽ báo phí ship
+                                chính xác
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Phí ship đã gồm phí nội địa, không phát sinh
+                                thêm
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                Oder càng nhiều, phí ship càng rẻ
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shipping-section">
+                        <h4 class="shipping-section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Ví dụ phí ship
+                        </h4>
+                        <div class="shipping-examples">
+                            <div class="shipping-example-item">
+                                <span class="example-label">1 SP:</span>
+                                <span class="example-value"
+                                    >~40 tệ (≈ 840 yên)</span
+                                >
+                            </div>
+                            <div class="shipping-example-item">
+                                <span class="example-label">2 SP:</span>
+                                <span class="example-value"
+                                    >~60 tệ (≈ 1.260 yên)</span
+                                >
+                            </div>
+                            <div class="shipping-example-item">
+                                <span class="example-label">3 SP:</span>
+                                <span class="example-value"
+                                    >~70 tệ (≈ 1.470 yên)</span
+                                >
+                            </div>
+                        </div>
+                        <p class="shipping-note">
+                            <i class="fas fa-info-circle"></i>
+                            Phí thực tế tùy cân nặng sản phẩm
+                        </p>
+                    </div>
+
+                    <div class="shipping-section">
+                        <h4 class="shipping-section-title">
+                            <i class="fas fa-clock"></i>
+                            Thời gian giao hàng
+                        </h4>
+                        <div class="shipping-time">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span
+                                >Giao tận tay tại Nhật 7–12 ngày (thường 7–10
+                                ngày)</span
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1072,6 +1266,6 @@
             </div>
         </footer>
 
-        <script src="assets/script.js?v=46"></script>
+        <script src="assets/script.js?v=47"></script>
     </body>
 </html>
