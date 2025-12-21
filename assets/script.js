@@ -4052,6 +4052,7 @@ function openProductGallery(productId, imageIndex = 0) {
                 mainVideo.src = videoUrl;
                 mainVideo.poster = normalizePath(currentGalleryImages[0]);
                 mainVideo.controls = false; // Hide controls initially
+                mainVideo.muted = false; // Ensure video is not muted so sound plays
 
                 // Also allow clicking on video to play
                 mainVideo.onclick = function (e) {
@@ -4116,8 +4117,8 @@ function openProductGallery(productId, imageIndex = 0) {
             if (isYouTube && mainVideoIframe) {
                 // Show iframe and load video with autoplay
                 mainVideoIframe.style.display = "block";
-                // Create URL with autoplay and mute (mute required for mobile autoplay)
-                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true);
+                // Create URL with autoplay but without mute (user clicked play, so sound is allowed)
+                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true, false);
                 mainVideoIframe.src = autoplayUrl;
                 // Hide overlay to show video
                 videoPlayOverlay.style.display = "none";
@@ -4360,7 +4361,7 @@ function isYouTubeUrl(url) {
 }
 
 // Helper function to convert YouTube URL to embed format with autoplay
-function convertToYouTubeEmbed(url, autoplay = true) {
+function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
     if (!url) return url;
     
     // Extract video ID from various YouTube URL formats
@@ -4398,7 +4399,7 @@ function convertToYouTubeEmbed(url, autoplay = true) {
         // - origin: Cho phép postMessage
         const params = new URLSearchParams({
             autoplay: autoplay ? '1' : '0',
-            mute: autoplay ? '1' : '0',  // Mute required for autoplay on mobile
+            mute: mute ? '1' : '0',  // Cho phép bật/tắt mute
             rel: '0',  // Không hiển thị video liên quan
             modestbranding: '1',  // Ẩn logo YouTube và branding
             controls: '1',
@@ -4433,7 +4434,7 @@ function playVideo() {
             const productVideoUrl = normalizePath(currentProduct.video);
             const isYouTube = isYouTubeUrl(productVideoUrl);
             if (isYouTube) {
-                const newUrl = convertToYouTubeEmbed(productVideoUrl, true);
+                const newUrl = convertToYouTubeEmbed(productVideoUrl, true, false);
                 mainVideoIframe.src = newUrl;
                 if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
                 
@@ -4450,7 +4451,8 @@ function playVideo() {
             }
         }
     } else if (mainVideo) {
-        // Regular video element
+        // Regular video element - ensure it's unmuted before playing
+        mainVideo.muted = false;
         mainVideo.play().catch((err) => {
             console.error("Error playing video:", err);
         });
@@ -4579,8 +4581,8 @@ function switchToVideo() {
                     e.stopPropagation();
                 }
                 
-                // Create URL with autoplay and mute (mute required for mobile autoplay)
-                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true);
+                // Create URL with autoplay but without mute (user clicked play, so sound is allowed)
+                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true, false);
                 mainVideoIframe.src = autoplayUrl;
                 // Hide overlay to show video
                 videoPlayOverlay.style.display = "none";
