@@ -4066,6 +4066,7 @@ function openProductGallery(productId, imageIndex = 0) {
         }
 
         // Function to handle video play (used for both click and touch)
+        // Store original videoUrl in closure to use when playing
         const handlePlayVideo = function(e) {
             if (e) {
                 e.preventDefault();
@@ -4073,28 +4074,13 @@ function openProductGallery(productId, imageIndex = 0) {
             }
             
             if (isYouTube && mainVideoIframe) {
-                // For YouTube iframe, reload with autoplay parameter
-                // Note: Autoplay may be blocked by browser on mobile, but we try anyway
-                const currentSrc = mainVideoIframe.src;
-                if (currentSrc) {
-                    // Extract video ID and rebuild URL with autoplay
-                    const embedMatch = currentSrc.match(/youtube\.com\/embed\/([^?&#]+)/);
-                    if (embedMatch) {
-                        const videoId = embedMatch[1];
-                        const newUrl = convertToYouTubeEmbed(`https://www.youtube.com/embed/${videoId}`, true);
-                        // Reload iframe with autoplay
-                        mainVideoIframe.src = newUrl;
-                        // Hide overlay to show video
-                        videoPlayOverlay.style.display = "none";
-                    } else {
-                        // Fallback: try to add/update autoplay parameter
-                        const newSrc = currentSrc.includes("?") 
-                            ? currentSrc.replace(/autoplay=\d/, "autoplay=1") + (currentSrc.includes("autoplay") ? "" : "&autoplay=1")
-                            : currentSrc + "?autoplay=1";
-                        mainVideoIframe.src = newSrc;
-                        videoPlayOverlay.style.display = "none";
-                    }
-                }
+                // Use the original videoUrl from product, not currentSrc from iframe
+                // This ensures we play the correct video for this product
+                const newUrl = convertToYouTubeEmbed(videoUrl, true);
+                // Reload iframe with autoplay using the correct video URL
+                mainVideoIframe.src = newUrl;
+                // Hide overlay to show video
+                videoPlayOverlay.style.display = "none";
             } else {
                 playVideo();
             }
@@ -4368,23 +4354,21 @@ function playVideo() {
 
     // Check if it's YouTube (iframe) or regular video
     if (mainVideoIframe && mainVideoIframe.style.display !== "none") {
-        // YouTube iframe - reload with autoplay
-        const currentSrc = mainVideoIframe.src;
-        if (currentSrc) {
-            // Extract video ID and rebuild URL with autoplay
-            const embedMatch = currentSrc.match(/youtube\.com\/embed\/([^?&#]+)/);
-            if (embedMatch) {
-                const videoId = embedMatch[1];
-                const newUrl = convertToYouTubeEmbed(`https://www.youtube.com/embed/${videoId}`, true);
+        // YouTube iframe - get the original video URL from current product
+        // This ensures we play the correct video for this product
+        const currentProduct = currentGalleryProductId
+            ? products.find((p) => p.id === currentGalleryProductId)
+            : null;
+        
+        if (currentProduct && currentProduct.video) {
+            const productVideoUrl = normalizePath(currentProduct.video);
+            const isYouTube = isYouTubeUrl(productVideoUrl);
+            if (isYouTube) {
+                const newUrl = convertToYouTubeEmbed(productVideoUrl, true);
                 mainVideoIframe.src = newUrl;
-            } else {
-                // Fallback: try to replace autoplay parameter
-                if (!currentSrc.includes("autoplay=1")) {
-                    mainVideoIframe.src = currentSrc.replace(/autoplay=0/, "autoplay=1").replace(/\?([^&]*)$/, "?$1&autoplay=1");
-                }
+                if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
             }
         }
-        if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
     } else if (mainVideo) {
         // Regular video element
         mainVideo.play().catch((err) => {
