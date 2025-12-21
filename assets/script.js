@@ -4044,12 +4044,25 @@ function openProductGallery(productId, imageIndex = 0) {
             if (isYouTube && mainVideoIframe) {
                 // Show iframe and load video with autoplay
                 mainVideoIframe.style.display = "block";
-                // Use stored embed URL or create new one with autoplay
-                const embedUrl = mainVideoIframe._embedUrl || convertToYouTubeEmbed(videoUrl, true);
+                // Create URL with autoplay and mute (mute required for mobile autoplay)
                 const autoplayUrl = convertToYouTubeEmbed(videoUrl, true);
                 mainVideoIframe.src = autoplayUrl;
                 // Hide overlay to show video
                 videoPlayOverlay.style.display = "none";
+                
+                // Try to play using YouTube IFrame API if available
+                // This helps ensure playback starts on mobile
+                try {
+                    if (mainVideoIframe.contentWindow && mainVideoIframe.contentWindow.postMessage) {
+                        // Send play command via postMessage (YouTube IFrame API)
+                        // Wait a bit for iframe to load
+                        setTimeout(() => {
+                            mainVideoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                        }, 100);
+                    }
+                } catch (e) {
+                    // Fallback: just rely on autoplay parameter
+                }
             } else {
                 playVideo();
             }
@@ -4313,6 +4326,7 @@ function convertToYouTubeEmbed(url, autoplay = true) {
         // - origin: Cho phép postMessage
         const params = new URLSearchParams({
             autoplay: autoplay ? '1' : '0',
+            mute: autoplay ? '1' : '0',  // Mute required for autoplay on mobile
             rel: '0',  // Không hiển thị video liên quan
             modestbranding: '1',  // Ẩn logo YouTube và branding
             controls: '1',
@@ -4350,6 +4364,17 @@ function playVideo() {
                 const newUrl = convertToYouTubeEmbed(productVideoUrl, true);
                 mainVideoIframe.src = newUrl;
                 if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
+                
+                // Try to play using YouTube IFrame API for mobile
+                try {
+                    if (mainVideoIframe.contentWindow && mainVideoIframe.contentWindow.postMessage) {
+                        setTimeout(() => {
+                            mainVideoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                        }, 200);
+                    }
+                } catch (e) {
+                    // Fallback: just rely on autoplay parameter
+                }
             }
         }
     } else if (mainVideo) {
