@@ -905,19 +905,19 @@
         <div class="cart-modal" id="cartModal">
             <div class="cart-overlay" onclick="closeCart();"></div>
             <div class="cart-content">
+                <button
+                    class="cart-close-btn"
+                    onclick="closeCart();"
+                    aria-label="Đóng giỏ hàng"
+                    type="button"
+                >
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
                 <div class="cart-header">
                     <h2>
                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                         Giỏ hàng của tôi
                     </h2>
-                    <button
-                        class="cart-close-btn"
-                        onclick="closeCart();"
-                        aria-label="Đóng giỏ hàng"
-                        type="button"
-                    >
-                        <i class="fas fa-times" aria-hidden="true"></i>
-                    </button>
                 </div>
                 <div class="cart-body" id="cartBody">
                     <div class="cart-empty" id="cartEmpty">
@@ -933,56 +933,56 @@
                     <div class="cart-items" id="cartItems"></div>
                 </div>
                 <div class="cart-footer" id="cartFooter" style="display: none">
-                    <div class="cart-total">
-                        <div class="cart-total-row">
-                            <span>Tổng cộng:</span>
-                            <span class="cart-total-price" id="cartTotalPrice"
-                                >¥0</span
-                            >
-                        </div>
-                        <div class="cart-total-vnd" id="cartTotalVND">
-                            VND 0
-                        </div>
-                        <div class="cart-shipping-notice">
-                            <span class="shipping-notice-text"
-                                >Lưu ý: Giá trên chưa bao gồm phí vận
-                                chuyển</span
-                            >
-                        </div>
-                        <div class="cart-shipping-row">
-                            <button
-                                class="cart-shipping-btn"
-                                onclick="showShippingInfo();"
-                                type="button"
-                                aria-label="Xem cách thức đặt hàng và phí ship"
-                            >
-                                <i
-                                    class="fas fa-shipping-fast"
-                                    aria-hidden="true"
-                                ></i>
-                                Cách thức đặt hàng và Phí Ship
-                                <i
-                                    class="fas fa-chevron-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="cart-actions">
+                    <div class="cart-shipping-row">
                         <button
-                            class="cart-clear-btn"
-                            onclick="clearCart();"
+                            class="cart-shipping-btn"
+                            onclick="showShippingInfo();"
                             type="button"
+                            aria-label="Xem cách thức đặt hàng và phí ship"
                         >
-                            <i class="fas fa-trash" aria-hidden="true"></i>
-                            Xóa tất cả
+                            <i
+                                class="fas fa-shipping-fast"
+                                aria-hidden="true"
+                            ></i>
+                            Cách thức đặt hàng và Phí Ship
+                            <i
+                                class="fas fa-chevron-right"
+                                aria-hidden="true"
+                            ></i>
                         </button>
+                    </div>
+                    <div class="cart-footer-content">
+                        <button
+                            class="cart-select-all-btn"
+                            onclick="toggleSelectAll();"
+                            type="button"
+                            aria-label="Chọn tất cả sản phẩm"
+                        >
+                            <i
+                                class="fas fa-check-square"
+                                id="selectAllIcon"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Chọn tất cả</span>
+                        </button>
+                        <div class="cart-total-info">
+                            <div class="cart-total-label">Tổng:</div>
+                            <div class="cart-total-prices">
+                                <span
+                                    class="cart-total-price"
+                                    id="cartTotalPrice"
+                                    >¥0</span
+                                >
+                                <span class="cart-total-vnd" id="cartTotalVND"
+                                    >VND 0</span
+                                >
+                            </div>
+                        </div>
                         <button
                             class="cart-checkout-btn"
                             onclick="checkoutCart();"
                             type="button"
                         >
-                            <i class="fas fa-check" aria-hidden="true"></i>
                             Đặt hàng
                         </button>
                     </div>

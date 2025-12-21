@@ -5702,6 +5702,7 @@ function handleResize() {
 
 // ==================== SHOPPING CART FUNCTIONS ====================
 let cart = [];
+let selectedItems = new Set(); // Lưu các item ID được chọn
 
 function normalizeId(id) {
     const n = Number(id);
@@ -6048,6 +6049,14 @@ function addToCart(product, triggerButton = null, selectedSize = null) {
 // Remove product from cart
 function removeFromCart(productId) {
     const pid = normalizeId(productId);
+    const item = cart.find((item) => normalizeId(item.id) === pid);
+    
+    // Xóa item khỏi selectedItems
+    if (item) {
+        const itemKey = `${item.id}_${item.size || 'nosize'}`;
+        selectedItems.delete(itemKey);
+    }
+    
     cart = cart.filter((item) => normalizeId(item.id) !== pid);
     saveCart();
     showToast("Đã xóa khỏi giỏ hàng", "info");
@@ -6126,6 +6135,10 @@ function changeCartItemSize(productId, category) {
 
     confirmBtn.addEventListener("click", function () {
         if (selectedSize && selectedSize !== item.size) {
+            // Xóa item key cũ khỏi selectedItems
+            const oldItemKey = `${item.id}_${item.size || 'nosize'}`;
+            const wasSelected = selectedItems.has(oldItemKey);
+            
             // Check if same product + new size already exists
             const existingItem = cart.find((cartItem) => {
                 if (normalizeId(cartItem.id) !== pid) return false;
@@ -6136,9 +6149,21 @@ function changeCartItemSize(productId, category) {
                 // Merge quantities
                 existingItem.quantity += item.quantity;
                 cart = cart.filter((cartItem) => cartItem !== item);
+                
+                // Cập nhật selectedItems cho item merged
+                if (wasSelected) {
+                    const newItemKey = `${existingItem.id}_${existingItem.size || 'nosize'}`;
+                    selectedItems.delete(oldItemKey);
+                    selectedItems.add(newItemKey);
+                }
             } else {
                 // Just update size
+                selectedItems.delete(oldItemKey);
                 item.size = selectedSize;
+                if (wasSelected) {
+                    const newItemKey = `${item.id}_${item.size || 'nosize'}`;
+                    selectedItems.add(newItemKey);
+                }
             }
 
             saveCart();
@@ -6161,6 +6186,7 @@ function clearCart() {
 
     if (confirm("Bạn có chắc muốn xóa tất cả sản phẩm khỏi giỏ hàng?")) {
         cart = [];
+        selectedItems.clear();
         saveCart();
         showToast("Đã xóa tất cả sản phẩm", "info");
     }
@@ -6206,8 +6232,19 @@ function updateCartModal() {
                 const totalYen = getYenAmount(item.price) * item.quantity;
                 const totalVND = convertYenToVND(totalYen);
 
+                const itemKey = `${item.id}_${item.size || 'nosize'}`;
+                const isSelected = selectedItems.has(itemKey);
+
                 return `
-                <div class="cart-item" data-product-id="${item.id}">
+                <div class="cart-item" data-product-id="${item.id}" data-item-key="${itemKey}">
+                    <label class="cart-item-checkbox-wrapper">
+                        <input type="checkbox" 
+                               class="cart-item-checkbox" 
+                               ${isSelected ? 'checked' : ''}
+                               onchange="toggleSelectItem('${itemKey}');"
+                               aria-label="Chọn sản phẩm">
+                        <span class="cart-item-checkbox-custom"></span>
+                    </label>
                     <img src="${normalizePath(item.image)}" 
                          alt="${item.name}" 
                          class="cart-item-image"
@@ -6256,21 +6293,9 @@ function updateCartModal() {
             })
             .join("");
 
-        // Update total
-        const totalYen = cart.reduce((sum, item) => {
-            return sum + getYenAmount(item.price) * item.quantity;
-        }, 0);
-        const totalVND = convertYenToVND(totalYen);
-
-        const cartTotalPrice = document.getElementById("cartTotalPrice");
-        const cartTotalVND = document.getElementById("cartTotalVND");
-
-        if (cartTotalPrice) {
-            cartTotalPrice.textContent = `¥${formatVND(totalYen)}`;
-        }
-        if (cartTotalVND) {
-            cartTotalVND.textContent = `VND ${formatVND(totalVND)}`;
-        }
+        // Update total và select all button state
+        updateCartTotal();
+        updateSelectAllButton();
     }
 }
 
@@ -6323,9 +6348,92 @@ function toggleCart() {
 }
 
 // Checkout cart (send to Messenger)
+// Toggle select all items
+function toggleSelectAll() {
+    const allSelected = selectedItems.size === cart.length && cart.length > 0;
+    
+    if (allSelected) {
+        // Bỏ chọn tất cả
+        selectedItems.clear();
+    } else {
+        // Chọn tất cả
+        cart.forEach((item) => {
+            const itemKey = `${item.id}_${item.size || 'nosize'}`;
+            selectedItems.add(itemKey);
+        });
+    }
+    
+    // Update UI
+    updateCartModal();
+}
+
+// Toggle select individual item
+function toggleSelectItem(itemKey) {
+    if (selectedItems.has(itemKey)) {
+        selectedItems.delete(itemKey);
+    } else {
+        selectedItems.add(itemKey);
+    }
+    
+    // Update total and select all button
+    updateCartTotal();
+    updateSelectAllButton();
+}
+
+// Update select all button state
+function updateSelectAllButton() {
+    const selectAllBtn = document.querySelector('.cart-select-all-btn');
+    const selectAllIcon = document.getElementById('selectAllIcon');
+    
+    if (!selectAllBtn || !selectAllIcon) return;
+    
+    const allSelected = selectedItems.size === cart.length && cart.length > 0;
+    
+    if (allSelected) {
+        selectAllBtn.classList.add('selected');
+        selectAllIcon.className = 'fas fa-check-square';
+    } else {
+        selectAllBtn.classList.remove('selected');
+        selectAllIcon.className = 'far fa-square';
+    }
+}
+
+// Update cart total (chỉ tính các item được chọn)
+function updateCartTotal() {
+    const totalYen = cart.reduce((sum, item) => {
+        const itemKey = `${item.id}_${item.size || 'nosize'}`;
+        if (selectedItems.has(itemKey)) {
+            return sum + getYenAmount(item.price) * item.quantity;
+        }
+        return sum;
+    }, 0);
+    const totalVND = convertYenToVND(totalYen);
+
+    const cartTotalPrice = document.getElementById("cartTotalPrice");
+    const cartTotalVND = document.getElementById("cartTotalVND");
+
+    if (cartTotalPrice) {
+        cartTotalPrice.textContent = `¥${formatVND(totalYen)}`;
+    }
+    if (cartTotalVND) {
+        cartTotalVND.textContent = `VND ${formatVND(totalVND)}`;
+    }
+}
+
 function checkoutCart() {
     if (cart.length === 0) {
         showToast("Giỏ hàng trống!", "warning");
+        return;
+    }
+    
+    // Lọc chỉ các item được chọn
+    const selectedCartItems = cart.filter((item) => {
+        const itemKey = `${item.id}_${item.size || 'nosize'}`;
+        return selectedItems.has(itemKey);
+    });
+    
+    if (selectedCartItems.length === 0) {
+        showToast("Vui lòng chọn ít nhất một sản phẩm!", "warning");
         return;
     }
 
@@ -6333,7 +6441,7 @@ function checkoutCart() {
     let message =
         "[GIO HANG] DAT HANG - ODER88\n================================\n";
 
-    cart.forEach((item, index) => {
+    selectedCartItems.forEach((item, index) => {
         const yenAmount = getYenAmount(item.price);
         const itemTotalYen = yenAmount * item.quantity;
         const itemTotalVND = convertYenToVND(itemTotalYen);
@@ -6355,8 +6463,8 @@ function checkoutCart() {
         )})\n`;
     });
 
-    // Tính tổng cộng
-    const totalYen = cart.reduce((sum, item) => {
+    // Tính tổng cộng (chỉ các item được chọn)
+    const totalYen = selectedCartItems.reduce((sum, item) => {
         return sum + getYenAmount(item.price) * item.quantity;
     }, 0);
     const totalVND = convertYenToVND(totalYen);
