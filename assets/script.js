@@ -277,7 +277,7 @@ async function loadProducts() {
 
         // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có và điều chỉnh giá
         products = products.map((product) => {
-            // Điều chỉnh giá cho áo đông nam và áo đông nữ: trừ 800 yên
+            // Điều chỉnh giá cho áo đông nam và áo khoác đông nữ: trừ 800 yên
             if (
                 product.category === "ao-dong-nam" ||
                 product.category === "ao-dong-nu"
@@ -945,6 +945,26 @@ function toggleMobileMenu() {
         mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "false" : "true");
     }
 
+    // Khi mở menu, tự động hiển thị tất cả mục con cho "Tất cả"
+    if (!isOpen) {
+        // Đảm bảo "Tất cả" button được set active
+        const allButton = document.querySelector('.mobile-category-btn[data-category="all"]');
+        if (allButton) {
+            // Remove active từ tất cả buttons
+            document.querySelectorAll(".mobile-category-btn").forEach((btn) => {
+                btn.classList.remove("active");
+                btn.setAttribute("aria-selected", "false");
+            });
+            // Set active cho "Tất cả"
+            allButton.classList.add("active");
+            allButton.setAttribute("aria-selected", "true");
+        }
+        // Hiển thị tất cả mục con bên phải
+        setTimeout(() => {
+            renderMobileSubcategories("all");
+        }, 100); // Delay nhỏ để đảm bảo menu đã render xong
+    }
+
     overlay.onclick = () => {
         mobileCategories.classList.remove("show");
         overlay.classList.remove("show");
@@ -1104,8 +1124,8 @@ function updateCategoryIndicator() {
         "quan-nam": "Quần Nam",
         "quan-jean-nam": "Quần Jean",
         "ao-nu": "Áo nữ",
-        "ao-dong-nu": "Áo đông nữ",
-        "ao-thu-dong": "Áo thu đông",
+        "ao-dong-nu": "Áo Khoác đông nữ",
+        "ao-thu-dong": "Thu Đông Nữ",
         "tui-xach": "Túi xách",
         "tui-xach-nam": "Túi xách nam",
         "tui-xach-nu": "Túi xách nữ",
@@ -1203,16 +1223,16 @@ function initCategories() {
         },
         {
             id: "ao-dong-nu",
-            name: "Áo đông nữ",
+            name: "Áo Khoác đông nữ",
             icon: "fa-tshirt",
             image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
             id: "ao-thu-dong",
-            name: "Áo thu đông",
+            name: "Thu Đông Nữ",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
+            image: "assets/image/ao-nu/thu-dong-nu/TDG1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
@@ -1268,7 +1288,7 @@ function initCategories() {
             id: "giay-sneaker-nam",
             name: "Sneaker Nam",
             icon: "fa-running",
-            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+            image: "assets/image/giay-nam/giay-sneaker-nam/GST1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
@@ -1424,7 +1444,7 @@ function renderSubcategories(categoryId) {
                 id: "giay-sneaker-nam",
                 name: "Sneaker Nam",
                 icon: "fa-running",
-                image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+                image: "assets/image/giay-nam/giay-sneaker-nam/GST1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             },
         ],
@@ -1440,16 +1460,16 @@ function renderSubcategories(categoryId) {
         "ao-nu": [
             {
                 id: "ao-dong-nu",
-                name: "Áo đông nữ",
+                name: "Áo Khoác đông nữ",
                 icon: "fa-tshirt",
                 image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
                 color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
             },
             {
                 id: "ao-thu-dong",
-                name: "Áo thu đông",
+                name: "Thu Đông Nữ",
                 icon: "fa-tshirt",
-                image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
+                image: "assets/image/ao-nu/thu-dong-nu/TDG1.jpg",
                 color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
             },
         ],
@@ -1628,16 +1648,16 @@ function initMobileCategories_OLD() {
         },
         {
             id: "ao-dong-nu",
-            name: "Áo đông nữ",
+            name: "Áo Khoác đông nữ",
             icon: "fa-tshirt",
             image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
             id: "ao-thu-dong",
-            name: "Áo thu đông",
+            name: "Thu Đông Nữ",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
+            image: "assets/image/ao-nu/thu-dong-nu/TDG1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
@@ -1693,7 +1713,7 @@ function initMobileCategories_OLD() {
             id: "giay-sneaker-nam",
             name: "Sneaker Nam",
             icon: "fa-running",
-            image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+            image: "assets/image/giay-nam/giay-sneaker-nam/GST1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
@@ -2619,7 +2639,7 @@ function renderMobileSubcategories(categoryId) {
                 id: "giay-sneaker-nam",
                 name: "Sneaker Nam",
                 icon: "fa-running",
-                image: "assets/image/giay-nam/giay-sneaker-nam/IMG_0937.JPG",
+                image: "assets/image/giay-nam/giay-sneaker-nam/GST1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             },
         ],
@@ -2635,16 +2655,16 @@ function renderMobileSubcategories(categoryId) {
         "ao-nu": [
             {
                 id: "ao-dong-nu",
-                name: "Áo đông nữ",
+                name: "Áo Khoác đông nữ",
                 icon: "fa-tshirt",
                 image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
                 color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
             },
             {
                 id: "ao-thu-dong",
-                name: "Áo thu đông",
+                name: "Thu Đông Nữ",
                 icon: "fa-tshirt",
-                image: "assets/image/ao-nu/thu-dong-nu/1.JPG",
+                image: "assets/image/ao-nu/thu-dong-nu/TDG1.jpg",
                 color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
             },
         ],
@@ -2803,6 +2823,13 @@ function setupMobileCategoryListeners() {
             });
             btn.classList.add("active");
             btn.setAttribute("aria-selected", "true");
+
+            // Xử lý đặc biệt cho "Tất cả" - hiển thị tất cả mục con bên phải
+            if (categoryId === "all") {
+                // Hiển thị tất cả subcategories bên phải
+                renderMobileSubcategories(categoryId);
+                return;
+            }
 
             // Chỉ hiển thị subcategories panel, KHÔNG mở sản phẩm
             // Chỉ mở sản phẩm khi click vào subcategory
@@ -3644,7 +3671,7 @@ function filterProducts() {
                 (p) => p.category === "vay" || p.category === "chan-vay"
             );
         } else if (currentCategory === "ao-nu") {
-            // Hiển thị tất cả áo nữ (bao gồm áo đông nữ và áo thu đông)
+            // Hiển thị tất cả áo nữ (bao gồm áo khoác đông nữ và thu đông nữ)
             filtered = filtered.filter(
                 (p) =>
                     p.category === "ao-nu" ||
@@ -3728,6 +3755,30 @@ function filterProducts() {
     if (currentCategory === "all" && activeTabName === "all") {
         const seed = getShuffleSeed();
         filtered = seededShuffle(filtered, seed);
+    }
+
+    // Khi chọn danh mục (không phải "all") và tab là "all", sắp xếp lẫn lộn nhưng ưu tiên sản phẩm bán chạy
+    if (currentCategory !== "all" && activeTabName === "all") {
+        // Tách thành 2 nhóm: sản phẩm bán chạy và sản phẩm khác
+        const hotProducts = [];
+        const otherProducts = [];
+        
+        filtered.forEach(product => {
+            const purchaseCount = getPurchaseCount(product);
+            // Sản phẩm bán chạy: có bestSeller = true hoặc purchaseCount >= 100
+            if (product.bestSeller || purchaseCount >= 100) {
+                hotProducts.push(product);
+            } else {
+                otherProducts.push(product);
+            }
+        });
+        
+        // Shuffle mỗi nhóm ngẫu nhiên
+        const shuffledHot = [...hotProducts].sort(() => Math.random() - 0.5);
+        const shuffledOther = [...otherProducts].sort(() => Math.random() - 0.5);
+        
+        // Ghép lại: nhóm bán chạy ở trước, nhóm khác ở sau
+        filtered = [...shuffledHot, ...shuffledOther];
     }
 
     if (searchQuery)
@@ -4396,11 +4447,10 @@ function switchToImage() {
 
     if (!mainImage || !videoContainer) return;
 
-    // Get current product to check video type
+    // Get current product
     const currentProduct = currentGalleryProductId
         ? products.find((p) => p.id === currentGalleryProductId)
         : null;
-    const isYouTube = currentProduct && currentProduct.video && isYouTubeUrl(normalizePath(currentProduct.video));
 
     // Pause and reset video (regular video element)
     if (mainVideo) {
@@ -4445,14 +4495,19 @@ function switchToImage() {
         }
     }
 
-    // Update toggle button
+    // Update toggle button - only show if product has video
     if (videoToggle) {
-        videoToggle.innerHTML =
-            '<i class="fas fa-video" aria-hidden="true"></i><span>Xem video</span>';
-        videoToggle.onclick = function (e) {
-            e.stopPropagation();
-            switchToVideo();
-        };
+        if (currentProduct && currentProduct.video) {
+            videoToggle.style.display = "flex";
+            videoToggle.innerHTML =
+                '<i class="fas fa-video" aria-hidden="true"></i><span>Xem video</span>';
+            videoToggle.onclick = function (e) {
+                e.stopPropagation();
+                switchToVideo();
+            };
+        } else {
+            videoToggle.style.display = "none";
+        }
     }
 }
 
@@ -4472,7 +4527,10 @@ function switchToVideo() {
         ? products.find((p) => p.id === currentGalleryProductId)
         : null;
     
-    if (!currentProduct || !currentProduct.video) return;
+    if (!currentProduct || !currentProduct.video) {
+        // No video available, don't switch
+        return;
+    }
 
     const videoUrl = normalizePath(currentProduct.video);
     const isYouTube = isYouTubeUrl(videoUrl);
@@ -4492,11 +4550,44 @@ function switchToVideo() {
         if (videoPlayOverlay) {
             videoPlayOverlay.classList.add("youtube-style");
             videoPlayOverlay.style.display = "flex";
+            
+            // Setup play button handler for YouTube
+            const handlePlayVideo = function(e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                
+                // Create URL with autoplay and mute (mute required for mobile autoplay)
+                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true);
+                mainVideoIframe.src = autoplayUrl;
+                // Hide overlay to show video
+                videoPlayOverlay.style.display = "none";
+                
+                // Try to play using YouTube IFrame API if available
+                try {
+                    if (mainVideoIframe.contentWindow && mainVideoIframe.contentWindow.postMessage) {
+                        setTimeout(() => {
+                            mainVideoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                        }, 100);
+                    }
+                } catch (e) {
+                    // Fallback: just rely on autoplay parameter
+                }
+            };
+            
+            videoPlayOverlay.onclick = handlePlayVideo;
+            videoPlayOverlay.ontouchstart = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                handlePlayVideo(e);
+            };
         }
     } else if (mainVideo) {
         // Show regular video
         if (mainVideoIframe) mainVideoIframe.style.display = "none";
         mainVideo.style.display = "block";
+        mainVideo.src = videoUrl;
         mainVideo.poster = normalizePath(currentGalleryImages && currentGalleryImages.length > 0 ? currentGalleryImages[0] : currentProduct.image);
         mainVideo.pause();
         mainVideo.currentTime = 0;
@@ -4505,11 +4596,26 @@ function switchToVideo() {
         if (videoPlayOverlay) {
             videoPlayOverlay.classList.remove("youtube-style");
             videoPlayOverlay.style.display = "flex";
+            
+            // Setup play button handler for regular video
+            videoPlayOverlay.onclick = function(e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                playVideo();
+            };
+            videoPlayOverlay.ontouchstart = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                playVideo();
+            };
         }
     }
 
     // Update toggle button
     if (videoToggle) {
+        videoToggle.style.display = "flex";
         videoToggle.innerHTML =
             '<i class="fas fa-image" aria-hidden="true"></i><span>Xem ảnh</span>';
         videoToggle.onclick = function (e) {
@@ -5098,36 +5204,9 @@ function setupEventListeners() {
                     }
                 });
 
-                // Nếu là "all" hoặc category có subcategories, hiển thị subcategories panel
-                const categoriesWithSubcategories = [
-                    "all",
-                    "set-do",
-                    "tui-xach",
-                    "giay",
-                    "vay",
-                    "ao-nam",
-                    "ao-nu",
-                    "quan-nam",
-                    "phu-kien",
-                ];
-
-                if (
-                    categoriesWithSubcategories.includes(category) &&
-                    btn.classList.contains("category-item")
-                ) {
-                    // Hiển thị subcategories panel (không filter sản phẩm ngay)
-                    renderSubcategories(category);
-                    // Cập nhật active state cho button
-                    document.querySelectorAll(".category-item").forEach((b) => {
-                        b.classList.remove("active");
-                        b.setAttribute("aria-selected", "false");
-                    });
-                    btn.classList.add("active");
-                    btn.setAttribute("aria-selected", "true");
-                } else {
-                    // Chọn category trực tiếp (không có subcategories hoặc không phải desktop)
-                    selectCategory(category, categoryName);
-                }
+                // Luôn chọn category trực tiếp - hiển thị tất cả sản phẩm của category đó
+                // Không hiển thị subcategories panel
+                selectCategory(category, categoryName);
 
                 // Scroll to products nếu là category-item (từ categories section)
                 if (btn.classList.contains("category-item")) {
