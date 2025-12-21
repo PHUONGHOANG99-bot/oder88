@@ -37,12 +37,13 @@ self.addEventListener("fetch", (event) => {
     const url = new URL(event.request.url);
     const noQueryUrl = new URL(url.pathname, url.origin).toString();
 
-    // For HTML, CSS and JS files, ALWAYS fetch from network first (never use cache)
+    // For HTML, CSS, JS (và JSON dữ liệu), ALWAYS fetch from network first (never use cache)
     // This ensures users always get the latest version when version number changes
     if (
         url.pathname.includes(".html") ||
         url.pathname.includes(".css") ||
         url.pathname.includes(".js") ||
+        url.pathname.includes(".json") ||
         url.search.includes("v=") ||
         url.search.length > 0
     ) {
@@ -138,15 +139,21 @@ self.addEventListener("activate", (event) => {
         .then((hadOldCache) => {
             // Chỉ notify clients nếu có cache cũ được xóa (tức là có update thực sự)
             // Không notify nếu đây là lần đầu install
+            // Và chỉ notify một lần để tránh loop
             if (hadOldCache) {
-                return self.clients.matchAll({ includeUncontrolled: true }).then((clients) => {
-                    console.log("📢 Notifying", clients.length, "clients to reload");
-                    clients.forEach((client) => {
-                        client.postMessage({
-                            type: "SW_UPDATED",
-                            action: "reload",
-                            version: CACHE_NAME,
-                        });
+                // Đợi một chút để đảm bảo client đã sẵn sàng
+                return new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
+                    return self.clients.matchAll({ includeUncontrolled: true }).then((clients) => {
+                        if (clients.length > 0) {
+                            console.log("📢 Notifying", clients.length, "clients to reload");
+                            clients.forEach((client) => {
+                                client.postMessage({
+                                    type: "SW_UPDATED",
+                                    action: "reload",
+                                    version: CACHE_NAME,
+                                });
+                            });
+                        }
                     });
                 });
             }
@@ -158,10 +165,8 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("message", (event) => {
     if (event.data && event.data.type === "CHECK_UPDATE") {
         // Client is asking to check for updates
-        event.waitUntil(
-            self.registration.update().then(() => {
-                console.log("✅ Update check completed");
-            })
-        );
+        // Không tự động check update để tránh loop
+        // Chỉ check khi user thực sự cần (không tự động trigger)
+        console.log("ℹ️ Update check requested (ignored to prevent loop)");
     }
 });

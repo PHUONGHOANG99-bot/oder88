@@ -165,114 +165,140 @@
         <!-- Service Worker Registration -->
         <script>
             if ("serviceWorker" in navigator) {
-                // Unregister old service workers first
-                navigator.serviceWorker
-                    .getRegistrations()
-                    .then((registrations) => {
-                        registrations.forEach((registration) => {
-                            if (
-                                registration.active &&
-                                registration.active.scriptURL.includes("oder88")
-                            ) {
-                                registration.unregister();
-                            }
-                        });
-                    });
+                // Kiểm tra xem đã reload gần đây chưa (trong vòng 10 giây) để tránh loop
+                const lastReloadTime = sessionStorage.getItem("lastSWReload");
+                const now = Date.now();
+                const RELOAD_COOLDOWN = 10000; // 10 giây
 
-                window.addEventListener("load", () => {
-                    navigator.serviceWorker
-                        .register("sw.js?v=47")
-                        .then((registration) => {
-                            console.log("SW registered: ", registration);
+                if (
+                    lastReloadTime &&
+                    now - parseInt(lastReloadTime) < RELOAD_COOLDOWN
+                ) {
+                    console.log(
+                        "⏸️ Reload cooldown active, skipping SW registration"
+                    );
+                } else {
+                    // Xóa flag sau khi hết cooldown
+                    if (lastReloadTime) {
+                        sessionStorage.removeItem("lastSWReload");
+                    }
 
-                            // Check for updates immediately
-                            registration.update();
+                    window.addEventListener("load", () => {
+                        navigator.serviceWorker
+                            .register("sw.js?v=47")
+                            .then((registration) => {
+                                console.log("SW registered: ", registration);
 
-                            // Check for updates mỗi 5 phút (giảm tần suất để tránh loop)
-                            setInterval(() => {
-                                registration.update();
-                            }, 300000);
+                                // Chỉ check update một lần khi load, không check liên tục
+                                // Để tránh loop, chỉ check khi user thực sự cần (không tự động)
 
-                            // Listen for updates
-                            let hasReloaded = false;
-                            registration.addEventListener("updatefound", () => {
-                                const newWorker = registration.installing;
-                                if (!newWorker) return;
-
-                                newWorker.addEventListener(
-                                    "statechange",
+                                // Listen for updates - chỉ reload khi có update thực sự
+                                let hasReloaded = false;
+                                registration.addEventListener(
+                                    "updatefound",
                                     () => {
-                                        // Chỉ reload một lần khi có update thực sự
-                                        if (
-                                            newWorker.state === "installed" &&
-                                            navigator.serviceWorker
-                                                .controller &&
-                                            !hasReloaded
-                                        ) {
-                                            // New service worker available, reload page once
-                                            console.log(
-                                                "🔄 New SW version detected, reloading..."
-                                            );
-                                            hasReloaded = true;
-                                            // Delay reload để tránh loop
-                                            setTimeout(() => {
-                                                window.location.reload();
-                                            }, 500);
-                                        }
+                                        const newWorker =
+                                            registration.installing;
+                                        if (!newWorker) return;
+
+                                        newWorker.addEventListener(
+                                            "statechange",
+                                            () => {
+                                                // Chỉ reload một lần khi có update thực sự
+                                                if (
+                                                    newWorker.state ===
+                                                        "installed" &&
+                                                    navigator.serviceWorker
+                                                        .controller &&
+                                                    !hasReloaded
+                                                ) {
+                                                    // Kiểm tra cooldown trước khi reload
+                                                    const lastReload =
+                                                        sessionStorage.getItem(
+                                                            "lastSWReload"
+                                                        );
+                                                    if (
+                                                        lastReload &&
+                                                        now -
+                                                            parseInt(
+                                                                lastReload
+                                                            ) <
+                                                            RELOAD_COOLDOWN
+                                                    ) {
+                                                        console.log(
+                                                            "⏸️ Reload cooldown active, skipping"
+                                                        );
+                                                        return;
+                                                    }
+
+                                                    console.log(
+                                                        "🔄 New SW version detected, reloading..."
+                                                    );
+                                                    hasReloaded = true;
+                                                    sessionStorage.setItem(
+                                                        "lastSWReload",
+                                                        Date.now().toString()
+                                                    );
+
+                                                    // Delay reload để tránh loop
+                                                    setTimeout(() => {
+                                                        window.location.reload();
+                                                    }, 1000);
+                                                }
+                                            }
+                                        );
                                     }
                                 );
+                            })
+                            .catch((registrationError) => {
+                                console.log(
+                                    "SW registration failed: ",
+                                    registrationError
+                                );
                             });
+                    });
 
-                            // Không reload ngay khi có waiting worker, để user tự quyết định
-                            // if (registration.waiting) {
-                            //     console.log("🔄 Waiting SW found");
-                            // }
-
-                            // Also check on page visibility change (user returns to tab)
-                            document.addEventListener(
-                                "visibilitychange",
-                                () => {
-                                    if (!document.hidden) {
-                                        registration.update();
-                                    }
+                    // Listen for messages from service worker
+                    let reloadMessageReceived = false;
+                    navigator.serviceWorker.addEventListener(
+                        "message",
+                        (event) => {
+                            if (
+                                event.data &&
+                                event.data.type === "SW_UPDATED" &&
+                                !reloadMessageReceived
+                            ) {
+                                // Kiểm tra cooldown trước khi reload
+                                const lastReload =
+                                    sessionStorage.getItem("lastSWReload");
+                                if (
+                                    lastReload &&
+                                    Date.now() - parseInt(lastReload) <
+                                        RELOAD_COOLDOWN
+                                ) {
+                                    console.log(
+                                        "⏸️ Reload cooldown active, skipping reload"
+                                    );
+                                    return;
                                 }
-                            );
-                        })
-                        .catch((registrationError) => {
-                            console.log(
-                                "SW registration failed: ",
-                                registrationError
-                            );
-                        });
-                });
 
-                // Listen for messages from service worker
-                let reloadMessageReceived = false;
-                navigator.serviceWorker.addEventListener("message", (event) => {
-                    if (
-                        event.data &&
-                        event.data.type === "SW_UPDATED" &&
-                        !reloadMessageReceived
-                    ) {
-                        console.log(
-                            "🔄 SW update message received, reloading..."
-                        );
-                        reloadMessageReceived = true;
-                        // Delay reload để tránh loop
-                        setTimeout(() => {
-                            window.location.reload();
-                        }, 500);
-                    }
-                });
+                                console.log(
+                                    "🔄 SW update message received, reloading..."
+                                );
+                                reloadMessageReceived = true;
+                                sessionStorage.setItem(
+                                    "lastSWReload",
+                                    Date.now().toString()
+                                );
 
-                // Force check for updates on focus (user returns to tab/window)
-                window.addEventListener("focus", () => {
-                    if (navigator.serviceWorker.controller) {
-                        navigator.serviceWorker.controller.postMessage({
-                            type: "CHECK_UPDATE",
-                        });
-                    }
-                });
+                                // Delay reload để tránh loop
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 1000);
+                            }
+                        }
+                    );
+                }
             }
         </script>
 
