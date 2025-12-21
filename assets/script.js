@@ -4068,7 +4068,32 @@ function openProductGallery(productId, imageIndex = 0) {
         // Play video when clicking play overlay
         videoPlayOverlay.onclick = function (e) {
             e.stopPropagation();
-            playVideo();
+            if (isYouTube && mainVideoIframe) {
+                // For YouTube iframe, reload with autoplay parameter
+                // Note: Autoplay may be blocked by browser, but we try anyway
+                const currentSrc = mainVideoIframe.src;
+                if (currentSrc) {
+                    // Extract video ID and rebuild URL with autoplay
+                    const embedMatch = currentSrc.match(/youtube\.com\/embed\/([^?&#]+)/);
+                    if (embedMatch) {
+                        const videoId = embedMatch[1];
+                        const newUrl = convertToYouTubeEmbed(`https://www.youtube.com/embed/${videoId}`, true);
+                        // Reload iframe with autoplay
+                        mainVideoIframe.src = newUrl;
+                        // Hide overlay to show video
+                        videoPlayOverlay.style.display = "none";
+                    } else {
+                        // Fallback: try to add/update autoplay parameter
+                        const newSrc = currentSrc.includes("?") 
+                            ? currentSrc.replace(/autoplay=\d/, "autoplay=1") + (currentSrc.includes("autoplay") ? "" : "&autoplay=1")
+                            : currentSrc + "?autoplay=1";
+                        mainVideoIframe.src = newSrc;
+                        videoPlayOverlay.style.display = "none";
+                    }
+                }
+            } else {
+                playVideo();
+            }
         };
     } else {
         // No video - show image normally
