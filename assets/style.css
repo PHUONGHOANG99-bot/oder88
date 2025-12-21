@@ -2805,6 +2805,10 @@ body {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.15),
         0 0 100px rgba(0, 0, 0, 0.08);
     background: #000;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    -webkit-touch-callout: default;
 }
 
 @media (max-width: 768px) {
@@ -2820,6 +2824,8 @@ body {
     transform: translate(-50%, -50%);
     z-index: 10;
     pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
     width: 80px;
     height: 80px;
     background: linear-gradient(

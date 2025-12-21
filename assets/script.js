@@ -4065,12 +4065,16 @@ function openProductGallery(productId, imageIndex = 0) {
             };
         }
 
-        // Play video when clicking play overlay
-        videoPlayOverlay.onclick = function (e) {
-            e.stopPropagation();
+        // Function to handle video play (used for both click and touch)
+        const handlePlayVideo = function(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
             if (isYouTube && mainVideoIframe) {
                 // For YouTube iframe, reload with autoplay parameter
-                // Note: Autoplay may be blocked by browser, but we try anyway
+                // Note: Autoplay may be blocked by browser on mobile, but we try anyway
                 const currentSrc = mainVideoIframe.src;
                 if (currentSrc) {
                     // Extract video ID and rebuild URL with autoplay
@@ -4094,6 +4098,14 @@ function openProductGallery(productId, imageIndex = 0) {
             } else {
                 playVideo();
             }
+        };
+        
+        // Add both click and touch event handlers for mobile compatibility
+        videoPlayOverlay.onclick = handlePlayVideo;
+        videoPlayOverlay.ontouchstart = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            handlePlayVideo(e);
         };
     } else {
         // No video - show image normally
