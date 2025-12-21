@@ -4611,28 +4611,28 @@ body {
     }
 
     .category-item {
-        padding: 8px !important;
-        min-width: 90px !important;
-        max-width: 110px !important;
-        border-radius: 12px !important;
+        padding: 6px !important;
+        min-width: 70px !important;
+        max-width: 80px !important;
+        border-radius: 10px !important;
     }
 
     .category-name {
-        font-size: 0.75rem !important;
-        margin-top: 4px !important;
+        font-size: 0.7rem !important;
+        margin-top: 3px !important;
         line-height: 1.2 !important;
         font-weight: 600 !important;
     }
 
     .category-icon {
-        width: 36px !important;
-        height: 36px !important;
-        font-size: 1rem !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.85rem !important;
     }
 
     .category-image-wrapper {
-        border-radius: 8px !important;
-        margin-bottom: 4px !important;
+        border-radius: 6px !important;
+        margin-bottom: 3px !important;
     }
 
     .categories-header h2 {
