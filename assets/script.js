@@ -3785,70 +3785,23 @@ function getProductImages(productId) {
     const product = products.find((p) => p.id === productId);
     if (!product) return [];
 
-    // Nếu có mảng images, dùng nó (đảm bảo có ít nhất 1 ảnh)
+    // Nếu có mảng images, dùng nó (chỉ trả về ảnh thực tế)
     if (
         product.images &&
         Array.isArray(product.images) &&
         product.images.length > 0
     ) {
-        return product.images.slice(0, 4); // Chỉ lấy tối đa 4 ảnh
+        return product.images; // Trả về tất cả ảnh thực tế, không giới hạn
     }
 
-    // Nếu không, tạo 4 ảnh từ ảnh hiện có và các ảnh khác
-    const allImages = [
-        "assets/image/1.jpeg",
-        "assets/image/2.jpg",
-        "assets/image/3.jpeg",
-        "assets/image/4.png",
-        "assets/image/5.jpg",
-        "assets/image/6.jpg",
-        "assets/image/7.JPG",
-        "assets/image/8.JPG",
-        "assets/image/9.jpg",
-        "assets/image/10.jpg",
-        "assets/image/11.jpg",
-        "assets/image/g1.jpg",
-        "assets/image/g2.jpg",
-        "assets/image/g2.jpeg",
-        "assets/image/giay-converse-da-bong-5.jpg",
-    ];
-
-    // Tìm index của ảnh hiện tại (hoặc dùng index 0 nếu không tìm thấy)
-    let productImageIndex = allImages.findIndex(
-        (img) =>
-            img.toLowerCase() === product.image.toLowerCase() ||
-            img.includes(product.image.split("/").pop())
-    );
-
-    if (productImageIndex === -1) {
-        productImageIndex = 0;
+    // Nếu không có mảng images, chỉ trả về ảnh chính của sản phẩm
+    // Không tạo thêm ảnh giả để tránh hiển thị ảnh không liên quan
+    if (product.image) {
+        return [product.image];
     }
 
-    const generatedImages = [product.image];
-
-    // Thêm 3 ảnh khác (không trùng với ảnh chính)
-    let added = 1;
-    let attempts = 0;
-    while (added < 4 && attempts < allImages.length * 2) {
-        const imgIndex = (productImageIndex + added) % allImages.length;
-        const candidateImage = allImages[imgIndex];
-
-        if (
-            candidateImage !== product.image &&
-            !generatedImages.includes(candidateImage)
-        ) {
-            generatedImages.push(candidateImage);
-            added++;
-        }
-        attempts++;
-    }
-
-    // Đảm bảo có đủ 4 ảnh (nếu không đủ, lặp lại ảnh đầu)
-    while (generatedImages.length < 4) {
-        generatedImages.push(generatedImages[0]);
-    }
-
-    return generatedImages.slice(0, 4);
+    // Nếu không có ảnh nào, trả về mảng rỗng
+    return [];
 }
 
 function openProductGallery(productId, imageIndex = 0) {
@@ -3934,18 +3887,29 @@ function openProductGallery(productId, imageIndex = 0) {
         // Show video container, hide image
         videoContainer.style.display = "flex";
         mainImage.style.display = "none";
-        videoPlayOverlay.style.display = "flex";
+        // Show play overlay for all videos (including YouTube with custom style)
+        if (isYouTube) {
+            // Add YouTube style class for custom red play button
+            videoPlayOverlay.classList.add("youtube-style");
+            videoPlayOverlay.style.display = "flex";
+        } else {
+            // Remove YouTube style for regular videos
+            videoPlayOverlay.classList.remove("youtube-style");
+            videoPlayOverlay.style.display = "flex";
+        }
 
         if (isYouTube) {
             // Handle YouTube video with iframe
             if (mainVideoIframe) {
                 // Hide regular video element, show iframe
                 if (mainVideo) mainVideo.style.display = "none";
+                // Load iframe without autoplay to show thumbnail
                 mainVideoIframe.style.display = "block";
                 
-                // Set iframe source with enablejsapi to allow postMessage events
+                // Load iframe with autoplay=0 to show thumbnail
                 const embedUrl = convertToYouTubeEmbed(videoUrl, false);
                 mainVideoIframe.src = embedUrl;
+                mainVideoIframe._embedUrl = embedUrl;
                 
                 // Setup message listener to detect when video ends
                 // YouTube iframe with enablejsapi=1 sends postMessage events
@@ -3975,8 +3939,9 @@ function openProductGallery(productId, imageIndex = 0) {
                                 // State values: -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (cued)
                                 const state = data.info !== undefined ? data.info : data.data;
                                 if (state === 0) {
-                                    // Video ended - show play button
-                                    if (videoPlayOverlay) {
+                                    // Video ended - don't show play button for YouTube (YouTube has its own controls)
+                                    // Only show for regular videos
+                                    if (videoPlayOverlay && !isYouTube) {
                                         videoPlayOverlay.style.display = "flex";
                                     }
                                 } else if (state === 1) {
@@ -4000,6 +3965,9 @@ function openProductGallery(productId, imageIndex = 0) {
                 // Store handler reference and add new listener
                 mainVideoIframe._messageHandler = messageHandler;
                 window.addEventListener("message", messageHandler);
+                
+                // Also setup click handler on iframe container to show iframe when play button is clicked
+                // This is handled in handlePlayVideo function
             }
         } else {
             // Handle regular video file with video element
@@ -4074,11 +4042,12 @@ function openProductGallery(productId, imageIndex = 0) {
             }
             
             if (isYouTube && mainVideoIframe) {
-                // Use the original videoUrl from product, not currentSrc from iframe
-                // This ensures we play the correct video for this product
-                const newUrl = convertToYouTubeEmbed(videoUrl, true);
-                // Reload iframe with autoplay using the correct video URL
-                mainVideoIframe.src = newUrl;
+                // Show iframe and load video with autoplay
+                mainVideoIframe.style.display = "block";
+                // Use stored embed URL or create new one with autoplay
+                const embedUrl = mainVideoIframe._embedUrl || convertToYouTubeEmbed(videoUrl, true);
+                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true);
+                mainVideoIframe.src = autoplayUrl;
                 // Hide overlay to show video
                 videoPlayOverlay.style.display = "none";
             } else {
@@ -4087,6 +4056,7 @@ function openProductGallery(productId, imageIndex = 0) {
         };
         
         // Add both click and touch event handlers for mobile compatibility
+        // Now works for both YouTube and regular videos
         videoPlayOverlay.onclick = handlePlayVideo;
         videoPlayOverlay.ontouchstart = function(e) {
             e.preventDefault();
@@ -4117,7 +4087,9 @@ function openProductGallery(productId, imageIndex = 0) {
                 }" 
                      data-index="${index}"
                      onclick="goToGalleryImage(${index})">
-                    <img src="${normalizePath(img)}" alt="Ảnh ${index + 1}" />
+                    <img src="${normalizePath(img)}" 
+                         alt="Ảnh ${index + 1}" 
+                         onerror="this.parentElement.style.display='none';" />
                     <div class="thumbnail-overlay"></div>
                 </div>
             `
@@ -4169,8 +4141,9 @@ function closeProductGallery() {
         if (videoContainer) {
             videoContainer.style.display = "none";
         }
+        // Don't show overlay when closing - it will be set correctly when opening gallery again
         if (videoPlayOverlay) {
-            videoPlayOverlay.style.display = "flex";
+            videoPlayOverlay.style.display = "none";
         }
         if (mainImageWrapper) {
             mainImageWrapper.classList.remove("panning");
@@ -4229,11 +4202,17 @@ function goToGalleryImage(index) {
             mainImage.style.display = "none";
             
             if (isYouTube && mainVideoIframe) {
-                // Show YouTube iframe
+                // Show YouTube iframe with thumbnail (no autoplay)
                 if (mainVideo) mainVideo.style.display = "none";
                 mainVideoIframe.style.display = "block";
                 const embedUrl = convertToYouTubeEmbed(videoUrl, false);
                 mainVideoIframe.src = embedUrl;
+                mainVideoIframe._embedUrl = embedUrl;
+                // Show custom play overlay for YouTube
+                if (videoPlayOverlay) {
+                    videoPlayOverlay.classList.add("youtube-style");
+                    videoPlayOverlay.style.display = "flex";
+                }
             } else if (mainVideo) {
                 // Show regular video
                 if (mainVideoIframe) mainVideoIframe.style.display = "none";
@@ -4242,8 +4221,12 @@ function goToGalleryImage(index) {
                 mainVideo.pause();
                 mainVideo.currentTime = 0;
                 mainVideo.controls = false;
+                // Show play overlay for regular videos
+                if (videoPlayOverlay) {
+                    videoPlayOverlay.classList.remove("youtube-style");
+                    videoPlayOverlay.style.display = "flex";
+                }
             }
-            if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
         }
         if (mainImage) mainImage.style.display = "none";
     } else {
@@ -4388,31 +4371,54 @@ function switchToImage() {
 
     if (!mainImage || !videoContainer) return;
 
+    // Get current product to check video type
+    const currentProduct = currentGalleryProductId
+        ? products.find((p) => p.id === currentGalleryProductId)
+        : null;
+    const isYouTube = currentProduct && currentProduct.video && isYouTubeUrl(normalizePath(currentProduct.video));
+
     // Pause and reset video (regular video element)
     if (mainVideo) {
         mainVideo.pause();
         mainVideo.currentTime = 0;
         mainVideo.controls = false;
+        mainVideo.style.display = "none";
     }
     
-    // Stop YouTube iframe (remove src to stop playback)
-    if (mainVideoIframe && mainVideoIframe.style.display !== "none") {
-        const currentSrc = mainVideoIframe.src;
-        if (currentSrc) {
-            // Remove autoplay and save the base URL
-            mainVideoIframe.src = currentSrc.replace(/[?&]autoplay=1/g, "").replace("autoplay=1", "");
-        }
+    // Hide YouTube iframe
+    if (mainVideoIframe) {
+        mainVideoIframe.style.display = "none";
     }
     
-    if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
+    // Hide play overlay
+    if (videoPlayOverlay) {
+        videoPlayOverlay.style.display = "none";
+    }
 
     // Hide video container, show image
     videoContainer.style.display = "none";
-    mainImage.style.display = "block";
-    mainImage.src = normalizePath(currentGalleryImages[currentGalleryIndex]);
-    mainImage.style.transform = "scale(1)";
-    mainImage.style.transformOrigin = "center center";
-    mainImage.classList.remove("zoomed");
+    
+    // Ensure we have images to show
+    if (currentGalleryImages && currentGalleryImages.length > 0) {
+        // Make sure index is valid
+        const imageIndex = Math.max(0, Math.min(currentGalleryIndex, currentGalleryImages.length - 1));
+        mainImage.src = normalizePath(currentGalleryImages[imageIndex]);
+        mainImage.style.display = "block";
+        mainImage.style.transform = "scale(1)";
+        mainImage.style.transformOrigin = "center center";
+        mainImage.style.opacity = "1";
+        mainImage.classList.remove("zoomed");
+    } else {
+        // If no images, try to get product image
+        if (currentProduct && currentProduct.image) {
+            mainImage.src = normalizePath(currentProduct.image);
+            mainImage.style.display = "block";
+            mainImage.style.transform = "scale(1)";
+            mainImage.style.transformOrigin = "center center";
+            mainImage.style.opacity = "1";
+            mainImage.classList.remove("zoomed");
+        }
+    }
 
     // Update toggle button
     if (videoToggle) {
@@ -4439,7 +4445,10 @@ function switchToVideo() {
     // Hide image, show video container
     mainImage.style.display = "none";
     videoContainer.style.display = "flex";
-    if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
+    
+    // Check if video is YouTube to decide whether to show overlay
+    const isYouTube = currentProduct && currentProduct.video && isYouTubeUrl(normalizePath(currentProduct.video));
+    if (videoPlayOverlay) videoPlayOverlay.style.display = isYouTube ? "none" : "flex";
 
     // Reset video (regular video element)
     if (mainVideo) {
