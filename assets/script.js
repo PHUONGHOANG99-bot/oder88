@@ -6251,17 +6251,21 @@ function updateCartModal() {
                          onerror="this.src='assets/logo/favicon.png';">
                     <div class="cart-item-info">
                         <h3 class="cart-item-name">${item.name}</h3>
-                        ${
-                            needsSize(item.category)
-                                ? item.size
-                                    ? `<p class="cart-item-size">Size: <span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; text-decoration: underline;">${item.size}</span></p>`
-                                    : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
-                                : ""
-                        }
-                        <p class="cart-item-price">${formatPriceToYen(
-                            item.price
-                        )}</p>
-                        <p class="cart-item-price-vnd">${priceInfo.vnd}</p>
+                        <div class="cart-item-details-row">
+                            <div class="cart-item-price-wrapper">
+                                <p class="cart-item-price">${formatPriceToYen(
+                                    item.price
+                                )}</p>
+                                <p class="cart-item-price-vnd">${priceInfo.vnd}</p>
+                            </div>
+                            ${
+                                needsSize(item.category)
+                                    ? item.size
+                                        ? `<p class="cart-item-size">Size: <span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; text-decoration: underline;">${item.size}</span></p>`
+                                        : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
+                                    : ""
+                            }
+                        </div>
                     </div>
                     <div class="cart-item-quantity-wrapper">
                         <div class="cart-item-quantity">
