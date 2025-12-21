@@ -4467,26 +4467,44 @@ function switchToVideo() {
 
     if (!mainImage || !videoContainer) return;
 
+    // Get current product to check video type
+    const currentProduct = currentGalleryProductId
+        ? products.find((p) => p.id === currentGalleryProductId)
+        : null;
+    
+    if (!currentProduct || !currentProduct.video) return;
+
+    const videoUrl = normalizePath(currentProduct.video);
+    const isYouTube = isYouTubeUrl(videoUrl);
+
     // Hide image, show video container
     mainImage.style.display = "none";
     videoContainer.style.display = "flex";
-    
-    // Check if video is YouTube to decide whether to show overlay
-    const isYouTube = currentProduct && currentProduct.video && isYouTubeUrl(normalizePath(currentProduct.video));
-    if (videoPlayOverlay) videoPlayOverlay.style.display = isYouTube ? "none" : "flex";
 
-    // Reset video (regular video element)
-    if (mainVideo) {
+    if (isYouTube && mainVideoIframe) {
+        // Show YouTube iframe with thumbnail (no autoplay)
+        if (mainVideo) mainVideo.style.display = "none";
+        mainVideoIframe.style.display = "block";
+        const embedUrl = convertToYouTubeEmbed(videoUrl, false);
+        mainVideoIframe.src = embedUrl;
+        mainVideoIframe._embedUrl = embedUrl;
+        // Show custom play overlay for YouTube
+        if (videoPlayOverlay) {
+            videoPlayOverlay.classList.add("youtube-style");
+            videoPlayOverlay.style.display = "flex";
+        }
+    } else if (mainVideo) {
+        // Show regular video
+        if (mainVideoIframe) mainVideoIframe.style.display = "none";
+        mainVideo.style.display = "block";
+        mainVideo.poster = normalizePath(currentGalleryImages && currentGalleryImages.length > 0 ? currentGalleryImages[0] : currentProduct.image);
         mainVideo.pause();
         mainVideo.currentTime = 0;
         mainVideo.controls = false;
-    }
-    
-    // Reset YouTube iframe (remove autoplay)
-    if (mainVideoIframe && mainVideoIframe.style.display !== "none") {
-        const currentSrc = mainVideoIframe.src;
-        if (currentSrc) {
-            mainVideoIframe.src = currentSrc.replace(/[?&]autoplay=1/g, "").replace("autoplay=1", "");
+        // Show play overlay for regular videos
+        if (videoPlayOverlay) {
+            videoPlayOverlay.classList.remove("youtube-style");
+            videoPlayOverlay.style.display = "flex";
         }
     }
 
