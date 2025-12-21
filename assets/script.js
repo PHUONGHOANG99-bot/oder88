@@ -450,8 +450,18 @@ function openMessengerApp(message = "") {
         messengerUrl += `?text=${encodedMessage}`;
     }
 
-    // Mở Messenger (Facebook sẽ tự động xử lý: mở app nếu có, nếu không thì mở web)
-    window.open(messengerUrl, "_blank");
+    // Kiểm tra xem có phải mobile không
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Trên mobile, sử dụng window.location.href để đảm bảo mở được Messenger app
+    // Trên desktop, sử dụng window.open để mở tab mới
+    if (isMobile) {
+        // Trên mobile: chuyển hướng trực tiếp để mở Messenger app
+        window.location.href = messengerUrl;
+    } else {
+        // Trên desktop: mở tab mới
+        window.open(messengerUrl, "_blank");
+    }
 }
 
 // ==================== HÀM TẠO LINK MESSENGER ====================
@@ -540,6 +550,17 @@ function showToast(message, type = "info", duration = 3000) {
 function scrollToTop() {
     // Đảm bảo cart được lưu trước khi scroll
     saveCart();
+
+    // Đóng menu mobile categories nếu đang mở
+    const mobileCategories = document.getElementById("mobileCategories");
+    const overlay = document.getElementById("mobileOverlay");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    if (mobileCategories && mobileCategories.classList.contains("show")) {
+        mobileCategories.classList.remove("show");
+        mobileCategories.setAttribute("aria-hidden", "true");
+        if (overlay) overlay.classList.remove("show");
+        if (mobileMenuBtn) mobileMenuBtn.setAttribute("aria-expanded", "false");
+    }
 
     // Reset về trang chủ - hiển thị tất cả sản phẩm
     resetToHome();
