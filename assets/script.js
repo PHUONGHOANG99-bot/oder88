@@ -3983,13 +3983,13 @@ function openProductGallery(productId, imageIndex = 0) {
         // Show video container, hide image
         videoContainer.style.display = "flex";
         mainImage.style.display = "none";
-        // Show play overlay for all videos (including YouTube with custom style)
+        // Show play overlay for regular videos only, hide for YouTube
         if (isYouTube) {
-            // Add YouTube style class for custom red play button
-            videoPlayOverlay.classList.add("youtube-style");
-            videoPlayOverlay.style.display = "flex";
+            // Hide play overlay for YouTube - YouTube has its own controls
+            videoPlayOverlay.classList.remove("youtube-style");
+            videoPlayOverlay.style.display = "none";
         } else {
-            // Remove YouTube style for regular videos
+            // Show play overlay for regular videos
             videoPlayOverlay.classList.remove("youtube-style");
             videoPlayOverlay.style.display = "flex";
         }
@@ -4038,10 +4038,10 @@ function openProductGallery(productId, imageIndex = 0) {
                                         ? data.info
                                         : data.data;
                                 if (state === 0) {
-                                    // Video ended - don't show play button for YouTube (YouTube has its own controls)
-                                    // Only show for regular videos
-                                    if (videoPlayOverlay && !isYouTube) {
-                                        videoPlayOverlay.style.display = "flex";
+                                    // Video ended - don't show play button (YouTube has its own controls, regular videos don't need play button)
+                                    // Hide play button for all videos
+                                    if (videoPlayOverlay) {
+                                        videoPlayOverlay.style.display = "none";
                                     }
                                 } else if (state === 1) {
                                     // Video playing - hide play button
@@ -4098,16 +4098,16 @@ function openProductGallery(productId, imageIndex = 0) {
                     mainVideo.controls = true;
                 });
 
-                // Show play overlay when video is paused
+                // Don't show play overlay for regular videos - use native controls
                 mainVideo.addEventListener("pause", function () {
-                    videoPlayOverlay.style.display = "flex";
-                    mainVideo.controls = false;
+                    videoPlayOverlay.style.display = "none";
+                    mainVideo.controls = true;
                 });
 
-                // Show play overlay when video ends
+                // Don't show play overlay when video ends
                 mainVideo.addEventListener("ended", function () {
-                    videoPlayOverlay.style.display = "flex";
-                    mainVideo.controls = false;
+                    videoPlayOverlay.style.display = "none";
+                    mainVideo.controls = true;
                     mainVideo.currentTime = 0;
                 });
 
@@ -4117,9 +4117,9 @@ function openProductGallery(productId, imageIndex = 0) {
                         mainVideo.pause();
                         mainVideo.currentTime = 0;
                         if (videoPlayOverlay) {
-                            videoPlayOverlay.style.display = "flex";
+                            videoPlayOverlay.style.display = "none";
                         }
-                        mainVideo.controls = false;
+                        mainVideo.controls = true;
                     }
                 });
             }
@@ -4305,7 +4305,7 @@ function goToGalleryImage(index) {
         if (mainVideo) {
             mainVideo.pause();
             mainVideo.currentTime = 0;
-            mainVideo.controls = false;
+            mainVideo.controls = true;
         }
         if (mainVideoIframe) {
             const currentSrc = mainVideoIframe.src;
@@ -4315,7 +4315,21 @@ function goToGalleryImage(index) {
                     .replace("autoplay=1", "");
             }
         }
-        if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
+        // Only show play overlay for YouTube, hide for regular videos
+        if (videoPlayOverlay) {
+            const currentProduct = currentGalleryProductId
+                ? products.find((p) => p.id === currentGalleryProductId)
+                : null;
+            if (currentProduct && currentProduct.video) {
+                const videoUrl = normalizePath(currentProduct.video);
+                const isYouTube = isYouTubeUrl(videoUrl);
+                if (isYouTube) {
+                    videoPlayOverlay.style.display = "none";
+                } else {
+                    videoPlayOverlay.style.display = "flex";
+                }
+            }
+        }
     }
 
     // Get current product to check if it has video
@@ -4340,10 +4354,10 @@ function goToGalleryImage(index) {
                 const embedUrl = convertToYouTubeEmbed(videoUrl, false);
                 mainVideoIframe.src = embedUrl;
                 mainVideoIframe._embedUrl = embedUrl;
-                // Show custom play overlay for YouTube
+                // Hide play overlay for YouTube - YouTube has its own controls
                 if (videoPlayOverlay) {
-                    videoPlayOverlay.classList.add("youtube-style");
-                    videoPlayOverlay.style.display = "flex";
+                    videoPlayOverlay.classList.remove("youtube-style");
+                    videoPlayOverlay.style.display = "none";
                 }
             } else if (mainVideo) {
                 // Show regular video
@@ -4352,11 +4366,11 @@ function goToGalleryImage(index) {
                 mainVideo.poster = normalizePath(currentGalleryImages[0]);
                 mainVideo.pause();
                 mainVideo.currentTime = 0;
-                mainVideo.controls = false;
-                // Show play overlay for regular videos
+                mainVideo.controls = true;
+                // Hide play overlay for regular videos - use native controls
                 if (videoPlayOverlay) {
                     videoPlayOverlay.classList.remove("youtube-style");
-                    videoPlayOverlay.style.display = "flex";
+                    videoPlayOverlay.style.display = "none";
                 }
             }
         }
@@ -4630,52 +4644,10 @@ function switchToVideo() {
         const embedUrl = convertToYouTubeEmbed(videoUrl, false);
         mainVideoIframe.src = embedUrl;
         mainVideoIframe._embedUrl = embedUrl;
-        // Show custom play overlay for YouTube
+        // Hide play overlay for YouTube - YouTube has its own controls
         if (videoPlayOverlay) {
-            videoPlayOverlay.classList.add("youtube-style");
-            videoPlayOverlay.style.display = "flex";
-
-            // Setup play button handler for YouTube
-            const handlePlayVideo = function (e) {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-
-                // Create URL with autoplay but without mute (user clicked play, so sound is allowed)
-                const autoplayUrl = convertToYouTubeEmbed(
-                    videoUrl,
-                    true,
-                    false
-                );
-                mainVideoIframe.src = autoplayUrl;
-                // Hide overlay to show video
-                videoPlayOverlay.style.display = "none";
-
-                // Try to play using YouTube IFrame API if available
-                try {
-                    if (
-                        mainVideoIframe.contentWindow &&
-                        mainVideoIframe.contentWindow.postMessage
-                    ) {
-                        setTimeout(() => {
-                            mainVideoIframe.contentWindow.postMessage(
-                                '{"event":"command","func":"playVideo","args":""}',
-                                "*"
-                            );
-                        }, 100);
-                    }
-                } catch (e) {
-                    // Fallback: just rely on autoplay parameter
-                }
-            };
-
-            videoPlayOverlay.onclick = handlePlayVideo;
-            videoPlayOverlay.ontouchstart = function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                handlePlayVideo(e);
-            };
+            videoPlayOverlay.classList.remove("youtube-style");
+            videoPlayOverlay.style.display = "none";
         }
     } else if (mainVideo) {
         // Show regular video
@@ -4689,25 +4661,11 @@ function switchToVideo() {
         );
         mainVideo.pause();
         mainVideo.currentTime = 0;
-        mainVideo.controls = false;
-        // Show play overlay for regular videos
+        mainVideo.controls = true;
+        // Hide play overlay for regular videos - use native controls
         if (videoPlayOverlay) {
             videoPlayOverlay.classList.remove("youtube-style");
-            videoPlayOverlay.style.display = "flex";
-
-            // Setup play button handler for regular video
-            videoPlayOverlay.onclick = function (e) {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                playVideo();
-            };
-            videoPlayOverlay.ontouchstart = function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                playVideo();
-            };
+            videoPlayOverlay.style.display = "none";
         }
     }
 
