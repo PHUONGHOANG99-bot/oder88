@@ -6252,7 +6252,26 @@ function updateCartModal() {
                          class="cart-item-image"
                          onerror="this.src='assets/logo/favicon.png';">
                     <div class="cart-item-info">
-                        <h3 class="cart-item-name">${item.name}</h3>
+                        <div class="cart-item-header-row">
+                            <h3 class="cart-item-name">${item.name}</h3>
+                            <div class="cart-item-quantity">
+                                <button class="cart-quantity-btn" 
+                                        onclick="updateCartQuantity(${item.id}, ${
+                    item.quantity - 1
+                })"
+                                        type="button" ${
+                                            item.quantity <= 1 ? "disabled" : ""
+                                        }>-</button>
+                                <span class="cart-quantity-value">${
+                                    item.quantity
+                                }</span>
+                                <button class="cart-quantity-btn" 
+                                        onclick="updateCartQuantity(${item.id}, ${
+                    item.quantity + 1
+                })"
+                                        type="button">+</button>
+                            </div>
+                        </div>
                         <div class="cart-item-details-row">
                             <div class="cart-item-price-wrapper">
                                 <p class="cart-item-price">${formatPriceToYen(
@@ -6267,32 +6286,13 @@ function updateCartModal() {
                                         : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
                                     : ""
                             }
+                            <button class="cart-item-remove" 
+                                    onclick="removeFromCart(${item.id})"
+                                    aria-label="Xóa sản phẩm"
+                                    type="button">
+                                <i class="fas fa-trash" aria-hidden="true"></i>
+                            </button>
                         </div>
-                    </div>
-                    <div class="cart-item-quantity-wrapper">
-                        <div class="cart-item-quantity">
-                            <button class="cart-quantity-btn" 
-                                    onclick="updateCartQuantity(${item.id}, ${
-                    item.quantity - 1
-                })"
-                                    type="button" ${
-                                        item.quantity <= 1 ? "disabled" : ""
-                                    }>-</button>
-                            <span class="cart-quantity-value">${
-                                item.quantity
-                            }</span>
-                            <button class="cart-quantity-btn" 
-                                    onclick="updateCartQuantity(${item.id}, ${
-                    item.quantity + 1
-                })"
-                                    type="button">+</button>
-                        </div>
-                        <button class="cart-item-remove" 
-                                onclick="removeFromCart(${item.id})"
-                                aria-label="Xóa sản phẩm"
-                                type="button">
-                            <i class="fas fa-trash" aria-hidden="true"></i>
-                        </button>
                     </div>
                 </div>
             `;
@@ -6389,18 +6389,15 @@ function toggleSelectItem(itemKey) {
 // Update select all button state
 function updateSelectAllButton() {
     const selectAllBtn = document.querySelector('.cart-select-all-btn');
-    const selectAllIcon = document.getElementById('selectAllIcon');
     
-    if (!selectAllBtn || !selectAllIcon) return;
+    if (!selectAllBtn) return;
     
     const allSelected = selectedItems.size === cart.length && cart.length > 0;
     
     if (allSelected) {
         selectAllBtn.classList.add('selected');
-        selectAllIcon.className = 'fas fa-check-square';
     } else {
         selectAllBtn.classList.remove('selected');
-        selectAllIcon.className = 'far fa-square';
     }
 }
 
