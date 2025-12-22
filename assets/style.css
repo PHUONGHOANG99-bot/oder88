@@ -6807,7 +6807,7 @@ input:focus-visible {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 1rem;
     width: 100%;
 }
 
@@ -6941,19 +6941,19 @@ input:focus-visible {
     background: linear-gradient(135deg, #ff4757, #ff6348);
     border: none;
     color: white;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     flex-shrink: 0;
     margin: 0;
     margin-top: 0.5rem; /* Dịch nút xóa xuống một chút */
-    margin-left: auto; /* Đẩy nút xóa về bên phải */
+    margin-left: 1.5rem; /* Tách xa nút tăng giảm */
     padding: 0;
     box-shadow: 0 2px 6px rgba(255, 71, 87, 0.3);
 }
@@ -7322,7 +7322,7 @@ input:focus-visible {
 
     .cart-item-details-row {
         flex-wrap: wrap;
-        gap: 0.75rem;
+        gap: 1rem;
         margin-top: 0.25rem; /* Giảm khoảng cách trên mobile */
         align-items: center;
     }
@@ -7332,10 +7332,10 @@ input:focus-visible {
     }
 
     .cart-item-remove {
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
-        margin-left: auto;
+        width: 26px;
+        height: 26px;
+        font-size: 0.7rem;
+        margin-left: 1.25rem;
     }
 
     .cart-header {
@@ -7527,7 +7527,7 @@ input:focus-visible {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 0.25rem; /* Giảm khoảng cách từ tên xuống giá */
     flex-wrap: wrap;
 }

@@ -477,7 +477,7 @@ function getCategoryDisplayName(categoryId, fallbackName) {
     const map = {
         "quan-dai-nu": "Quần Nữ",
         "quan-nam": "Quần Nam",
-        "quan-jean-nam": "Quần Jean",
+        "quan-jean-nam": "Jean Nam",
         "phu-kien": "Phụ Kiện",
         "non-nam": "Nón nam",
         "non-nu": "Nón nữ",
@@ -1149,7 +1149,7 @@ function updateCategoryIndicator() {
     const categoryMap = {
         "quan-dai-nu": "Quần Nữ",
         "quan-nam": "Quần Nam",
-        "quan-jean-nam": "Quần Jean",
+        "quan-jean-nam": "Jean Nam",
         "ao-nu": "Áo nữ",
         "ao-dong-nu": "Áo Khoác đông nữ",
         "ao-thu-dong": "Thu Đông Nữ",
@@ -1329,7 +1329,7 @@ function initCategories() {
         },
         {
             id: "quan-jean-nam",
-            name: "Quần Jean",
+            name: "Jean Nam",
             icon: "fa-user",
             image: "assets/logo/quannam.JPG",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -1505,7 +1505,7 @@ function renderSubcategories(categoryId) {
         "quan-nam": [
             {
                 id: "quan-jean-nam",
-                name: "Quần Jean",
+                name: "Jean Nam",
                 icon: "fa-user",
                 image: "assets/logo/quannam.JPG",
                 color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -1768,7 +1768,7 @@ function initMobileCategories_OLD() {
         },
         {
             id: "quan-jean-nam",
-            name: "Quần Jean",
+            name: "Jean Nam",
             icon: "fa-user",
             image: "assets/logo/quannam.JPG",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -2716,7 +2716,7 @@ function renderMobileSubcategories(categoryId) {
         "quan-nam": [
             {
                 id: "quan-jean-nam",
-                name: "Quần Jean",
+                name: "Jean Nam",
                 icon: "fa-user",
                 image: "assets/logo/quannam.JPG",
                 color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -5258,7 +5258,7 @@ function setupEventListeners() {
                     all: "Tất cả thời trang",
                     "quan-dai-nu": "Quần Nữ",
                     "quan-nam": "Quần Nam",
-                    "quan-jean-nam": "Quần Jean",
+                    "quan-jean-nam": "Jean Nam",
                     "tui-xach": "Túi xách",
                     "tui-xach-nam": "Túi xách nam",
                     "tui-xach-nu": "Túi xách nữ",
@@ -5798,6 +5798,7 @@ function needsSize(category) {
         "ao-dong-nu",
         "ao-thu-dong",
         "quan-nam",
+        "quan-jean-nam",
         "quan-dai-nu",
         "quan-nu",
         "quan-bo-nam",
