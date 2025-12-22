@@ -6335,7 +6335,7 @@ function updateCartModal() {
                     <div class="cart-item-info">
                         <div class="cart-item-header-row">
                             <h3 class="cart-item-name">${item.name}</h3>
-                            <div class="cart-item-quantity-and-remove">
+                            <div class="cart-item-quantity-and-size">
                                 <div class="cart-item-quantity">
                                     <button class="cart-quantity-btn" 
                                             onclick="updateCartQuantity(${
@@ -6353,12 +6353,13 @@ function updateCartModal() {
                                             }, ${item.quantity + 1})"
                                             type="button">+</button>
                                 </div>
-                                <button class="cart-item-remove" 
-                                        onclick="removeFromCart(${item.id})"
-                                        aria-label="Xóa sản phẩm"
-                                        type="button">
-                                    <i class="fas fa-trash" aria-hidden="true"></i>
-                                </button>
+                                ${
+                                    needsSize(item.category)
+                                        ? item.size
+                                            ? `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; text-decoration: underline;">${item.size}</span></p>`
+                                            : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
+                                        : ""
+                                }
                             </div>
                         </div>
                         <div class="cart-item-details-row">
@@ -6370,13 +6371,12 @@ function updateCartModal() {
                                     priceInfo.vnd
                                 }</p>
                             </div>
-                            ${
-                                needsSize(item.category)
-                                    ? item.size
-                                        ? `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; text-decoration: underline;">${item.size}</span></p>`
-                                        : `<p class="cart-item-size"><span class="size-value" onclick="changeCartItemSize(${item.id}, '${item.category}')" style="cursor: pointer; color: #ff6600; font-weight: 700;">Chọn size</span></p>`
-                                    : ""
-                            }
+                            <button class="cart-item-remove" 
+                                    onclick="removeFromCart(${item.id})"
+                                    aria-label="Xóa sản phẩm"
+                                    type="button">
+                                <i class="fas fa-trash" aria-hidden="true"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
