@@ -451,8 +451,11 @@ function openMessengerApp(message = "") {
     }
 
     // Kiểm tra xem có phải mobile không
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
+    const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        );
+
     // Trên mobile, sử dụng window.location.href để đảm bảo mở được Messenger app
     // Trên desktop, sử dụng window.open để mở tab mới
     if (isMobile) {
@@ -476,7 +479,8 @@ function getCategoryDisplayName(categoryId, fallbackName) {
         "quan-nam": "Quần Nam",
         "quan-jean-nam": "Quần Jean",
         "phu-kien": "Phụ Kiện",
-        non: "Mũ",
+        "non-nam": "Nón nam",
+        "non-nu": "Nón nữ",
         khan: "Khăn",
         "no-buoc-toc": "Nơ Buộc tóc",
         tat: "Tất",
@@ -969,7 +973,9 @@ function toggleMobileMenu() {
     // Khi mở menu, tự động hiển thị tất cả mục con cho "Tất cả"
     if (!isOpen) {
         // Đảm bảo "Tất cả" button được set active
-        const allButton = document.querySelector('.mobile-category-btn[data-category="all"]');
+        const allButton = document.querySelector(
+            '.mobile-category-btn[data-category="all"]'
+        );
         if (allButton) {
             // Remove active từ tất cả buttons
             document.querySelectorAll(".mobile-category-btn").forEach((btn) => {
@@ -1162,7 +1168,8 @@ function updateCategoryIndicator() {
         "set-do-nu": "Sét Đồ Nữ",
         "set-do-nam": "Sét Đồ Nam",
         "phu-kien": "Phụ Kiện",
-        non: "Mũ",
+        "non-nam": "Nón nam",
+        "non-nu": "Nón nữ",
         khan: "Khăn",
         "no-buoc-toc": "Nơ Buộc tóc",
         tat: "Tất",
@@ -1186,7 +1193,8 @@ function updateCategoryIndicator() {
             "quan-jean-nam": "fa-user",
             "ao-nu": "fa-tshirt",
             "phu-kien": "fa-gift",
-            non: "fa-hat-cowboy",
+            "non-nam": "fa-hat-cowboy",
+            "non-nu": "fa-hat-cowboy",
             khan: "fa-scarf",
             "no-buoc-toc": "fa-ribbon",
             tat: "fa-socks",
@@ -1239,14 +1247,14 @@ function initCategories() {
             id: "ao-nu",
             name: "Áo nữ",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            image: "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
             id: "ao-dong-nu",
             name: "Áo Khoác đông nữ",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            image: "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
@@ -1260,14 +1268,14 @@ function initCategories() {
             id: "ao-nam",
             name: "Áo Nam",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
             id: "ao-dong-nam",
             name: "Áo đông nam",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
@@ -1295,7 +1303,7 @@ function initCategories() {
             id: "giay-the-thao",
             name: "Sneaker Nữ",
             icon: "fa-running",
-            image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+            image: "assets/image/giay-nu/giay-the-thao/gsg1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
@@ -1458,7 +1466,7 @@ function renderSubcategories(categoryId) {
                 id: "giay-the-thao",
                 name: "Sneaker Nữ",
                 icon: "fa-running",
-                image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+                image: "assets/image/giay-nu/giay-the-thao/gsg1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             },
             {
@@ -1474,7 +1482,7 @@ function renderSubcategories(categoryId) {
                 id: "ao-dong-nam",
                 name: "Áo đông nam",
                 icon: "fa-tshirt",
-                image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+                image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
                 color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
             },
         ],
@@ -1483,7 +1491,7 @@ function renderSubcategories(categoryId) {
                 id: "ao-dong-nu",
                 name: "Áo Khoác đông nữ",
                 icon: "fa-tshirt",
-                image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+                image: "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
                 color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
             },
             {
@@ -1505,11 +1513,18 @@ function renderSubcategories(categoryId) {
         ],
         "phu-kien": [
             {
-                id: "non",
-                name: "Mũ",
+                id: "non-nam",
+                name: "Nón nam",
                 icon: "fa-hat-cowboy",
                 image: "assets/image/phu-kien/mu/IMG_1236.JPG",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "non-nu",
+                name: "Nón nữ",
+                icon: "fa-hat-cowboy",
+                image: "assets/image/phu-kien/non-nu/NG1.jpg",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
             },
             {
                 id: "khan",
@@ -1664,14 +1679,14 @@ function initMobileCategories_OLD() {
             id: "ao-nu",
             name: "Áo nữ",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            image: "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
             id: "ao-dong-nu",
             name: "Áo Khoác đông nữ",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+            image: "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
             color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
         },
         {
@@ -1685,14 +1700,14 @@ function initMobileCategories_OLD() {
             id: "ao-nam",
             name: "Áo Nam",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
             id: "ao-dong-nam",
             name: "Áo đông nam",
             icon: "fa-tshirt",
-            image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+            image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         },
         {
@@ -1720,7 +1735,7 @@ function initMobileCategories_OLD() {
             id: "giay-the-thao",
             name: "Sneaker Nữ",
             icon: "fa-running",
-            image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+            image: "assets/image/giay-nu/giay-the-thao/gsg1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
@@ -2653,7 +2668,7 @@ function renderMobileSubcategories(categoryId) {
                 id: "giay-the-thao",
                 name: "Sneaker Nữ",
                 icon: "fa-running",
-                image: "assets/image/giay-nu/giay-the-thao/gtt1.jpg",
+                image: "assets/image/giay-nu/giay-the-thao/gsg1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             },
             {
@@ -2669,7 +2684,7 @@ function renderMobileSubcategories(categoryId) {
                 id: "ao-dong-nam",
                 name: "Áo đông nam",
                 icon: "fa-tshirt",
-                image: "assets/image/ao-nam/ao-dong-nam/adn1.jpg",
+                image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
                 color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
             },
         ],
@@ -2678,7 +2693,7 @@ function renderMobileSubcategories(categoryId) {
                 id: "ao-dong-nu",
                 name: "Áo Khoác đông nữ",
                 icon: "fa-tshirt",
-                image: "assets/image/ao-nu/ao-dong-nu/adn1.jpg",
+                image: "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
                 color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
             },
             {
@@ -2709,11 +2724,18 @@ function renderMobileSubcategories(categoryId) {
         ],
         "phu-kien": [
             {
-                id: "non",
-                name: "Mũ",
+                id: "non-nam",
+                name: "Nón nam",
                 icon: "fa-hat-cowboy",
                 image: "assets/image/phu-kien/mu/IMG_1236.JPG",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "non-nu",
+                name: "Nón nữ",
+                icon: "fa-hat-cowboy",
+                image: "assets/image/phu-kien/non-nu/NG1.jpg",
+                color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
             },
             {
                 id: "khan",
@@ -3783,8 +3805,8 @@ function filterProducts() {
         // Tách thành 2 nhóm: sản phẩm bán chạy và sản phẩm khác
         const hotProducts = [];
         const otherProducts = [];
-        
-        filtered.forEach(product => {
+
+        filtered.forEach((product) => {
             const purchaseCount = getPurchaseCount(product);
             // Sản phẩm bán chạy: có bestSeller = true hoặc purchaseCount >= 100
             if (product.bestSeller || purchaseCount >= 100) {
@@ -3793,11 +3815,13 @@ function filterProducts() {
                 otherProducts.push(product);
             }
         });
-        
+
         // Shuffle mỗi nhóm ngẫu nhiên
         const shuffledHot = [...hotProducts].sort(() => Math.random() - 0.5);
-        const shuffledOther = [...otherProducts].sort(() => Math.random() - 0.5);
-        
+        const shuffledOther = [...otherProducts].sort(
+            () => Math.random() - 0.5
+        );
+
         // Ghép lại: nhóm bán chạy ở trước, nhóm khác ở sau
         filtered = [...shuffledHot, ...shuffledOther];
     }
@@ -3955,7 +3979,7 @@ function openProductGallery(productId, imageIndex = 0) {
     if (product.video && videoContainer && videoPlayOverlay) {
         const videoUrl = normalizePath(product.video);
         const isYouTube = isYouTubeUrl(videoUrl);
-        
+
         // Show video container, hide image
         videoContainer.style.display = "flex";
         mainImage.style.display = "none";
@@ -3977,23 +4001,23 @@ function openProductGallery(productId, imageIndex = 0) {
                 if (mainVideo) mainVideo.style.display = "none";
                 // Load iframe without autoplay to show thumbnail
                 mainVideoIframe.style.display = "block";
-                
+
                 // Load iframe with autoplay=0 to show thumbnail
                 const embedUrl = convertToYouTubeEmbed(videoUrl, false);
                 mainVideoIframe.src = embedUrl;
                 mainVideoIframe._embedUrl = embedUrl;
-                
+
                 // Setup message listener to detect when video ends
                 // YouTube iframe with enablejsapi=1 sends postMessage events
-                const messageHandler = function(event) {
+                const messageHandler = function (event) {
                     // Verify origin is from YouTube
                     if (event.origin !== "https://www.youtube.com") return;
-                    
+
                     // Parse the message data
                     if (event.data) {
                         try {
                             let data = null;
-                            
+
                             // YouTube sends different message formats
                             if (typeof event.data === "string") {
                                 try {
@@ -4005,11 +4029,14 @@ function openProductGallery(productId, imageIndex = 0) {
                             } else if (typeof event.data === "object") {
                                 data = event.data;
                             }
-                            
+
                             // Check for state change events from YouTube IFrame API
                             if (data && data.event === "onStateChange") {
                                 // State values: -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (cued)
-                                const state = data.info !== undefined ? data.info : data.data;
+                                const state =
+                                    data.info !== undefined
+                                        ? data.info
+                                        : data.data;
                                 if (state === 0) {
                                     // Video ended - don't show play button for YouTube (YouTube has its own controls)
                                     // Only show for regular videos
@@ -4028,16 +4055,19 @@ function openProductGallery(productId, imageIndex = 0) {
                         }
                     }
                 };
-                
+
                 // Remove previous listener if exists
                 if (mainVideoIframe._messageHandler) {
-                    window.removeEventListener("message", mainVideoIframe._messageHandler);
+                    window.removeEventListener(
+                        "message",
+                        mainVideoIframe._messageHandler
+                    );
                 }
-                
+
                 // Store handler reference and add new listener
                 mainVideoIframe._messageHandler = messageHandler;
                 window.addEventListener("message", messageHandler);
-                
+
                 // Also setup click handler on iframe container to show iframe when play button is clicked
                 // This is handled in handlePlayVideo function
             }
@@ -4047,7 +4077,7 @@ function openProductGallery(productId, imageIndex = 0) {
                 // Hide iframe, show video element
                 if (mainVideoIframe) mainVideoIframe.style.display = "none";
                 mainVideo.style.display = "block";
-                
+
                 // Set video source and poster (first image as thumbnail)
                 mainVideo.src = videoUrl;
                 mainVideo.poster = normalizePath(currentGalleryImages[0]);
@@ -4108,29 +4138,39 @@ function openProductGallery(productId, imageIndex = 0) {
 
         // Function to handle video play (used for both click and touch)
         // Store original videoUrl in closure to use when playing
-        const handlePlayVideo = function(e) {
+        const handlePlayVideo = function (e) {
             if (e) {
                 e.preventDefault();
                 e.stopPropagation();
             }
-            
+
             if (isYouTube && mainVideoIframe) {
                 // Show iframe and load video with autoplay
                 mainVideoIframe.style.display = "block";
                 // Create URL with autoplay but without mute (user clicked play, so sound is allowed)
-                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true, false);
+                const autoplayUrl = convertToYouTubeEmbed(
+                    videoUrl,
+                    true,
+                    false
+                );
                 mainVideoIframe.src = autoplayUrl;
                 // Hide overlay to show video
                 videoPlayOverlay.style.display = "none";
-                
+
                 // Try to play using YouTube IFrame API if available
                 // This helps ensure playback starts on mobile
                 try {
-                    if (mainVideoIframe.contentWindow && mainVideoIframe.contentWindow.postMessage) {
+                    if (
+                        mainVideoIframe.contentWindow &&
+                        mainVideoIframe.contentWindow.postMessage
+                    ) {
                         // Send play command via postMessage (YouTube IFrame API)
                         // Wait a bit for iframe to load
                         setTimeout(() => {
-                            mainVideoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                            mainVideoIframe.contentWindow.postMessage(
+                                '{"event":"command","func":"playVideo","args":""}',
+                                "*"
+                            );
                         }, 100);
                     }
                 } catch (e) {
@@ -4140,11 +4180,11 @@ function openProductGallery(productId, imageIndex = 0) {
                 playVideo();
             }
         };
-        
+
         // Add both click and touch event handlers for mobile compatibility
         // Now works for both YouTube and regular videos
         videoPlayOverlay.onclick = handlePlayVideo;
-        videoPlayOverlay.ontouchstart = function(e) {
+        videoPlayOverlay.ontouchstart = function (e) {
             e.preventDefault();
             e.stopPropagation();
             handlePlayVideo(e);
@@ -4217,11 +4257,15 @@ function closeProductGallery() {
             mainVideo.currentTime = 0;
             mainVideo.controls = false;
         }
-        const mainVideoIframe = document.getElementById("galleryMainVideoIframe");
+        const mainVideoIframe = document.getElementById(
+            "galleryMainVideoIframe"
+        );
         if (mainVideoIframe) {
             const currentSrc = mainVideoIframe.src;
             if (currentSrc) {
-                mainVideoIframe.src = currentSrc.replace(/[?&]autoplay=1/g, "").replace("autoplay=1", "");
+                mainVideoIframe.src = currentSrc
+                    .replace(/[?&]autoplay=1/g, "")
+                    .replace("autoplay=1", "");
             }
         }
         if (videoContainer) {
@@ -4266,7 +4310,9 @@ function goToGalleryImage(index) {
         if (mainVideoIframe) {
             const currentSrc = mainVideoIframe.src;
             if (currentSrc) {
-                mainVideoIframe.src = currentSrc.replace(/[?&]autoplay=1/g, "").replace("autoplay=1", "");
+                mainVideoIframe.src = currentSrc
+                    .replace(/[?&]autoplay=1/g, "")
+                    .replace("autoplay=1", "");
             }
         }
         if (videoPlayOverlay) videoPlayOverlay.style.display = "flex";
@@ -4281,12 +4327,12 @@ function goToGalleryImage(index) {
     if (index === 0 && currentProduct && currentProduct.video) {
         const videoUrl = normalizePath(currentProduct.video);
         const isYouTube = isYouTubeUrl(videoUrl);
-        
+
         // Show video container
         if (videoContainer) {
             videoContainer.style.display = "flex";
             mainImage.style.display = "none";
-            
+
             if (isYouTube && mainVideoIframe) {
                 // Show YouTube iframe with thumbnail (no autoplay)
                 if (mainVideo) mainVideo.style.display = "none";
@@ -4357,16 +4403,18 @@ function goToGalleryImage(index) {
 // Helper function to detect if URL is YouTube
 function isYouTubeUrl(url) {
     if (!url) return false;
-    return /youtube\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=/.test(url);
+    return /youtube\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=/.test(
+        url
+    );
 }
 
 // Helper function to convert YouTube URL to embed format with autoplay
 function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
     if (!url) return url;
-    
+
     // Extract video ID from various YouTube URL formats
     let videoId = null;
-    
+
     // youtube.com/embed/VIDEO_ID
     const embedMatch = url.match(/youtube\.com\/embed\/([^?&#]+)/);
     if (embedMatch) {
@@ -4386,7 +4434,7 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
             }
         }
     }
-    
+
     if (videoId) {
         // Tham số để ẩn branding và video liên quan:
         // - modestbranding=1: Ẩn logo YouTube và tên tài khoản
@@ -4398,21 +4446,21 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
         // - enablejsapi=1: Bật JavaScript API để lắng nghe events
         // - origin: Cho phép postMessage
         const params = new URLSearchParams({
-            autoplay: autoplay ? '1' : '0',
-            mute: mute ? '1' : '0',  // Cho phép bật/tắt mute
-            rel: '0',  // Không hiển thị video liên quan
-            modestbranding: '1',  // Ẩn logo YouTube và branding
-            controls: '1',
-            fs: '1',
-            cc_load_policy: '0',
-            iv_load_policy: '3',  // Ẩn video annotations
-            playsinline: '1',
-            enablejsapi: '1'  // Bật JavaScript API để lắng nghe events
+            autoplay: autoplay ? "1" : "0",
+            mute: mute ? "1" : "0", // Cho phép bật/tắt mute
+            rel: "0", // Không hiển thị video liên quan
+            modestbranding: "1", // Ẩn logo YouTube và branding
+            controls: "1",
+            fs: "1",
+            cc_load_policy: "0",
+            iv_load_policy: "3", // Ẩn video annotations
+            playsinline: "1",
+            enablejsapi: "1", // Bật JavaScript API để lắng nghe events
         });
-        
+
         return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
     }
-    
+
     return url;
 }
 
@@ -4429,20 +4477,30 @@ function playVideo() {
         const currentProduct = currentGalleryProductId
             ? products.find((p) => p.id === currentGalleryProductId)
             : null;
-        
+
         if (currentProduct && currentProduct.video) {
             const productVideoUrl = normalizePath(currentProduct.video);
             const isYouTube = isYouTubeUrl(productVideoUrl);
             if (isYouTube) {
-                const newUrl = convertToYouTubeEmbed(productVideoUrl, true, false);
+                const newUrl = convertToYouTubeEmbed(
+                    productVideoUrl,
+                    true,
+                    false
+                );
                 mainVideoIframe.src = newUrl;
                 if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
-                
+
                 // Try to play using YouTube IFrame API for mobile
                 try {
-                    if (mainVideoIframe.contentWindow && mainVideoIframe.contentWindow.postMessage) {
+                    if (
+                        mainVideoIframe.contentWindow &&
+                        mainVideoIframe.contentWindow.postMessage
+                    ) {
                         setTimeout(() => {
-                            mainVideoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                            mainVideoIframe.contentWindow.postMessage(
+                                '{"event":"command","func":"playVideo","args":""}',
+                                "*"
+                            );
                         }, 200);
                     }
                 } catch (e) {
@@ -4482,12 +4540,12 @@ function switchToImage() {
         mainVideo.controls = false;
         mainVideo.style.display = "none";
     }
-    
+
     // Hide YouTube iframe
     if (mainVideoIframe) {
         mainVideoIframe.style.display = "none";
     }
-    
+
     // Hide play overlay
     if (videoPlayOverlay) {
         videoPlayOverlay.style.display = "none";
@@ -4495,11 +4553,14 @@ function switchToImage() {
 
     // Hide video container, show image
     videoContainer.style.display = "none";
-    
+
     // Ensure we have images to show
     if (currentGalleryImages && currentGalleryImages.length > 0) {
         // Make sure index is valid
-        const imageIndex = Math.max(0, Math.min(currentGalleryIndex, currentGalleryImages.length - 1));
+        const imageIndex = Math.max(
+            0,
+            Math.min(currentGalleryIndex, currentGalleryImages.length - 1)
+        );
         mainImage.src = normalizePath(currentGalleryImages[imageIndex]);
         mainImage.style.display = "block";
         mainImage.style.transform = "scale(1)";
@@ -4549,7 +4610,7 @@ function switchToVideo() {
     const currentProduct = currentGalleryProductId
         ? products.find((p) => p.id === currentGalleryProductId)
         : null;
-    
+
     if (!currentProduct || !currentProduct.video) {
         // No video available, don't switch
         return;
@@ -4573,34 +4634,44 @@ function switchToVideo() {
         if (videoPlayOverlay) {
             videoPlayOverlay.classList.add("youtube-style");
             videoPlayOverlay.style.display = "flex";
-            
+
             // Setup play button handler for YouTube
-            const handlePlayVideo = function(e) {
+            const handlePlayVideo = function (e) {
                 if (e) {
                     e.preventDefault();
                     e.stopPropagation();
                 }
-                
+
                 // Create URL with autoplay but without mute (user clicked play, so sound is allowed)
-                const autoplayUrl = convertToYouTubeEmbed(videoUrl, true, false);
+                const autoplayUrl = convertToYouTubeEmbed(
+                    videoUrl,
+                    true,
+                    false
+                );
                 mainVideoIframe.src = autoplayUrl;
                 // Hide overlay to show video
                 videoPlayOverlay.style.display = "none";
-                
+
                 // Try to play using YouTube IFrame API if available
                 try {
-                    if (mainVideoIframe.contentWindow && mainVideoIframe.contentWindow.postMessage) {
+                    if (
+                        mainVideoIframe.contentWindow &&
+                        mainVideoIframe.contentWindow.postMessage
+                    ) {
                         setTimeout(() => {
-                            mainVideoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                            mainVideoIframe.contentWindow.postMessage(
+                                '{"event":"command","func":"playVideo","args":""}',
+                                "*"
+                            );
                         }, 100);
                     }
                 } catch (e) {
                     // Fallback: just rely on autoplay parameter
                 }
             };
-            
+
             videoPlayOverlay.onclick = handlePlayVideo;
-            videoPlayOverlay.ontouchstart = function(e) {
+            videoPlayOverlay.ontouchstart = function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 handlePlayVideo(e);
@@ -4611,7 +4682,11 @@ function switchToVideo() {
         if (mainVideoIframe) mainVideoIframe.style.display = "none";
         mainVideo.style.display = "block";
         mainVideo.src = videoUrl;
-        mainVideo.poster = normalizePath(currentGalleryImages && currentGalleryImages.length > 0 ? currentGalleryImages[0] : currentProduct.image);
+        mainVideo.poster = normalizePath(
+            currentGalleryImages && currentGalleryImages.length > 0
+                ? currentGalleryImages[0]
+                : currentProduct.image
+        );
         mainVideo.pause();
         mainVideo.currentTime = 0;
         mainVideo.controls = false;
@@ -4619,16 +4694,16 @@ function switchToVideo() {
         if (videoPlayOverlay) {
             videoPlayOverlay.classList.remove("youtube-style");
             videoPlayOverlay.style.display = "flex";
-            
+
             // Setup play button handler for regular video
-            videoPlayOverlay.onclick = function(e) {
+            videoPlayOverlay.onclick = function (e) {
                 if (e) {
                     e.preventDefault();
                     e.stopPropagation();
                 }
                 playVideo();
             };
-            videoPlayOverlay.ontouchstart = function(e) {
+            videoPlayOverlay.ontouchstart = function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 playVideo();
@@ -6052,13 +6127,13 @@ function addToCart(product, triggerButton = null, selectedSize = null) {
 function removeFromCart(productId) {
     const pid = normalizeId(productId);
     const item = cart.find((item) => normalizeId(item.id) === pid);
-    
+
     // Xóa item khỏi selectedItems
     if (item) {
-        const itemKey = `${item.id}_${item.size || 'nosize'}`;
+        const itemKey = `${item.id}_${item.size || "nosize"}`;
         selectedItems.delete(itemKey);
     }
-    
+
     cart = cart.filter((item) => normalizeId(item.id) !== pid);
     saveCart();
     showToast("Đã xóa khỏi giỏ hàng", "info");
@@ -6138,9 +6213,9 @@ function changeCartItemSize(productId, category) {
     confirmBtn.addEventListener("click", function () {
         if (selectedSize && selectedSize !== item.size) {
             // Xóa item key cũ khỏi selectedItems
-            const oldItemKey = `${item.id}_${item.size || 'nosize'}`;
+            const oldItemKey = `${item.id}_${item.size || "nosize"}`;
             const wasSelected = selectedItems.has(oldItemKey);
-            
+
             // Check if same product + new size already exists
             const existingItem = cart.find((cartItem) => {
                 if (normalizeId(cartItem.id) !== pid) return false;
@@ -6151,10 +6226,12 @@ function changeCartItemSize(productId, category) {
                 // Merge quantities
                 existingItem.quantity += item.quantity;
                 cart = cart.filter((cartItem) => cartItem !== item);
-                
+
                 // Cập nhật selectedItems cho item merged
                 if (wasSelected) {
-                    const newItemKey = `${existingItem.id}_${existingItem.size || 'nosize'}`;
+                    const newItemKey = `${existingItem.id}_${
+                        existingItem.size || "nosize"
+                    }`;
                     selectedItems.delete(oldItemKey);
                     selectedItems.add(newItemKey);
                 }
@@ -6163,7 +6240,7 @@ function changeCartItemSize(productId, category) {
                 selectedItems.delete(oldItemKey);
                 item.size = selectedSize;
                 if (wasSelected) {
-                    const newItemKey = `${item.id}_${item.size || 'nosize'}`;
+                    const newItemKey = `${item.id}_${item.size || "nosize"}`;
                     selectedItems.add(newItemKey);
                 }
             }
@@ -6234,15 +6311,17 @@ function updateCartModal() {
                 const totalYen = getYenAmount(item.price) * item.quantity;
                 const totalVND = convertYenToVND(totalYen);
 
-                const itemKey = `${item.id}_${item.size || 'nosize'}`;
+                const itemKey = `${item.id}_${item.size || "nosize"}`;
                 const isSelected = selectedItems.has(itemKey);
 
                 return `
-                <div class="cart-item" data-product-id="${item.id}" data-item-key="${itemKey}">
+                <div class="cart-item" data-product-id="${
+                    item.id
+                }" data-item-key="${itemKey}">
                     <label class="cart-item-checkbox-wrapper">
                         <input type="checkbox" 
                                class="cart-item-checkbox" 
-                               ${isSelected ? 'checked' : ''}
+                               ${isSelected ? "checked" : ""}
                                onchange="toggleSelectItem('${itemKey}');"
                                aria-label="Chọn sản phẩm">
                         <span class="cart-item-checkbox-custom"></span>
@@ -6256,9 +6335,9 @@ function updateCartModal() {
                             <h3 class="cart-item-name">${item.name}</h3>
                             <div class="cart-item-quantity">
                                 <button class="cart-quantity-btn" 
-                                        onclick="updateCartQuantity(${item.id}, ${
-                    item.quantity - 1
-                })"
+                                        onclick="updateCartQuantity(${
+                                            item.id
+                                        }, ${item.quantity - 1})"
                                         type="button" ${
                                             item.quantity <= 1 ? "disabled" : ""
                                         }>-</button>
@@ -6266,9 +6345,9 @@ function updateCartModal() {
                                     item.quantity
                                 }</span>
                                 <button class="cart-quantity-btn" 
-                                        onclick="updateCartQuantity(${item.id}, ${
-                    item.quantity + 1
-                })"
+                                        onclick="updateCartQuantity(${
+                                            item.id
+                                        }, ${item.quantity + 1})"
                                         type="button">+</button>
                             </div>
                         </div>
@@ -6277,7 +6356,9 @@ function updateCartModal() {
                                 <p class="cart-item-price">${formatPriceToYen(
                                     item.price
                                 )}</p>
-                                <p class="cart-item-price-vnd">${priceInfo.vnd}</p>
+                                <p class="cart-item-price-vnd">${
+                                    priceInfo.vnd
+                                }</p>
                             </div>
                             ${
                                 needsSize(item.category)
@@ -6357,18 +6438,18 @@ function toggleCart() {
 // Toggle select all items
 function toggleSelectAll() {
     const allSelected = selectedItems.size === cart.length && cart.length > 0;
-    
+
     if (allSelected) {
         // Bỏ chọn tất cả
         selectedItems.clear();
     } else {
         // Chọn tất cả
         cart.forEach((item) => {
-            const itemKey = `${item.id}_${item.size || 'nosize'}`;
+            const itemKey = `${item.id}_${item.size || "nosize"}`;
             selectedItems.add(itemKey);
         });
     }
-    
+
     // Update UI
     updateCartModal();
 }
@@ -6380,7 +6461,7 @@ function toggleSelectItem(itemKey) {
     } else {
         selectedItems.add(itemKey);
     }
-    
+
     // Update total and select all button
     updateCartTotal();
     updateSelectAllButton();
@@ -6388,23 +6469,23 @@ function toggleSelectItem(itemKey) {
 
 // Update select all button state
 function updateSelectAllButton() {
-    const selectAllBtn = document.querySelector('.cart-select-all-btn');
-    
+    const selectAllBtn = document.querySelector(".cart-select-all-btn");
+
     if (!selectAllBtn) return;
-    
+
     const allSelected = selectedItems.size === cart.length && cart.length > 0;
-    
+
     if (allSelected) {
-        selectAllBtn.classList.add('selected');
+        selectAllBtn.classList.add("selected");
     } else {
-        selectAllBtn.classList.remove('selected');
+        selectAllBtn.classList.remove("selected");
     }
 }
 
 // Update cart total (chỉ tính các item được chọn)
 function updateCartTotal() {
     const totalYen = cart.reduce((sum, item) => {
-        const itemKey = `${item.id}_${item.size || 'nosize'}`;
+        const itemKey = `${item.id}_${item.size || "nosize"}`;
         if (selectedItems.has(itemKey)) {
             return sum + getYenAmount(item.price) * item.quantity;
         }
@@ -6428,13 +6509,13 @@ function checkoutCart() {
         showToast("Giỏ hàng trống!", "warning");
         return;
     }
-    
+
     // Lọc chỉ các item được chọn
     const selectedCartItems = cart.filter((item) => {
-        const itemKey = `${item.id}_${item.size || 'nosize'}`;
+        const itemKey = `${item.id}_${item.size || "nosize"}`;
         return selectedItems.has(itemKey);
     });
-    
+
     if (selectedCartItems.length === 0) {
         showToast("Vui lòng chọn ít nhất một sản phẩm!", "warning");
         return;

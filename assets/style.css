@@ -6985,19 +6985,20 @@ input:focus-visible {
     .cart-item-quantity {
         border-width: 1.5px;
         border-radius: 6px;
+        max-width: fit-content;
     }
 
     .cart-quantity-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1.1rem;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
     }
 
     .cart-quantity-value {
-        min-width: 45px;
-        width: 45px;
-        font-size: 1rem;
-        padding: 0 6px;
+        min-width: 38px;
+        width: 38px;
+        font-size: 0.95rem;
+        padding: 0 4px;
     }
 
     /* Overlay & content vẫn phủ full trong phạm vi modal */
