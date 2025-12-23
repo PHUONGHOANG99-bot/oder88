@@ -665,6 +665,12 @@ function scrollToProducts() {
     if (searchInput) {
         searchInput.value = "";
     }
+    
+    // Hide clear button
+    const searchClearBtn = document.getElementById("searchClearBtn");
+    if (searchClearBtn) {
+        searchClearBtn.style.display = "none";
+    }
 
     // Reset active category buttons
     document
@@ -714,6 +720,12 @@ function goBackToHome() {
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.value = "";
+    }
+    
+    // Hide clear button
+    const searchClearBtn = document.getElementById("searchClearBtn");
+    if (searchClearBtn) {
+        searchClearBtn.style.display = "none";
     }
 
     // Reset active category buttons
@@ -769,6 +781,12 @@ function resetToHome() {
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.value = "";
+    }
+    
+    // Hide clear button
+    const searchClearBtn = document.getElementById("searchClearBtn");
+    if (searchClearBtn) {
+        searchClearBtn.style.display = "none";
     }
 
     // Reset về trang 1
@@ -5419,6 +5437,33 @@ function setupEventListeners() {
 
     // Search
     let searchTimeout;
+    const searchInput = document.getElementById("searchInput");
+    const searchClearBtn = document.getElementById("searchClearBtn");
+    
+    // Function to toggle clear button visibility
+    function toggleClearButton() {
+        if (searchInput && searchClearBtn) {
+            if (searchInput.value.trim().length > 0) {
+                searchClearBtn.style.display = "flex";
+            } else {
+                searchClearBtn.style.display = "none";
+            }
+        }
+    }
+    
+    // Clear button click handler
+    searchClearBtn?.addEventListener("click", function () {
+        if (searchInput) {
+            searchInput.value = "";
+            searchInput.focus();
+            toggleClearButton();
+            // Clear search immediately
+            searchQuery = "";
+            const filtered = filterProducts();
+            updateBackButton();
+        }
+    });
+    
     document
         .getElementById("searchBtn")
         ?.addEventListener("click", handleSearch);
@@ -5430,6 +5475,7 @@ function setupEventListeners() {
     document
         .getElementById("searchInput")
         ?.addEventListener("input", function (e) {
+            toggleClearButton();
             clearTimeout(searchTimeout);
             // Debounce search với delay 500ms, nhưng chỉ search khi có nội dung thực sự
             const currentValue = e.target.value.trim();
@@ -5443,6 +5489,9 @@ function setupEventListeners() {
                 updateBackButton();
             }
         });
+    
+    // Initialize clear button visibility on page load
+    toggleClearButton();
 
     // Slider controls
     document.querySelector(".next-btn")?.addEventListener("click", nextSlide);
