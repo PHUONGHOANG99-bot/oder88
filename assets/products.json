@@ -6461,7 +6461,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG57.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/m118SdL1Y6w"
     },
     {
         "id": 556,
@@ -6471,7 +6472,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG58.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/fstGnSJ5cGM"
     },
     {
         "id": 557,
@@ -6481,7 +6483,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG59.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/CxlnOzWcH_M"
     },
     {
         "id": 558,
@@ -6491,7 +6494,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG60.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 500,
+        "video": "https://www.youtube.com/embed/92XdFlcucck"
     },
     {
         "id": 559,
@@ -6501,7 +6505,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG61.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/1G8QX-dXdyA"
     },
     {
         "id": 560,
@@ -6511,7 +6516,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG62.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/3a_t2nRNHXk"
     },
     {
         "id": 561,
@@ -6521,7 +6527,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG63.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/AqZsjS7eYNE"
     },
     {
         "id": 562,
@@ -6531,7 +6538,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG64.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/F6i9BzsTzAE"
     },
     {
         "id": 563,
@@ -6541,7 +6549,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG65.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/I_wEuVX1C8g"
     },
     {
         "id": 564,
@@ -6551,7 +6560,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG66.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/hu4Sx5Qc1zU"
     },
     {
         "id": 565,
@@ -6561,7 +6571,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG67.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/vTGGINHjVQ8"
     },
     {
         "id": 566,
@@ -6571,7 +6582,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG68.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 500,
+        "video": "https://www.youtube.com/embed/WpMi4vfc4BQ"
     },
     {
         "id": 567,
@@ -6581,7 +6593,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG69.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/FS6qUcM12oM"
     },
     {
         "id": 568,
@@ -6591,7 +6604,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG70.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/H-nUxwW1a_8"
     },
     {
         "id": 569,
@@ -6601,7 +6615,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG71.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/7tLGX-NFojw"
     },
     {
         "id": 570,
@@ -6611,7 +6626,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG72.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/1B79YMQOgds"
     },
     {
         "id": 571,
@@ -6621,7 +6637,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG73.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/vcsSrWS3Hc4"
     },
     {
         "id": 572,
@@ -6631,7 +6648,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG74.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/5cu5wXGpZ-o"
     },
     {
         "id": 573,
@@ -6641,7 +6659,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG75.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/hBT3z4HsUSw"
     },
     {
         "id": 574,
@@ -6651,7 +6670,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG76.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 500,
+        "video": "https://www.youtube.com/embed/YVYQDMHJiKE"
     },
     {
         "id": 575,
@@ -6661,7 +6681,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG77.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/6Diz0Y9ZAvM"
     },
     {
         "id": 576,
@@ -6671,7 +6692,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG78.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/TYYd8liWY2k"
     },
     {
         "id": 577,
@@ -6681,7 +6703,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG79.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/aR9lZ9-Lguk"
     },
     {
         "id": 578,
@@ -6691,7 +6714,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG80.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/tuYiiGECPZQ"
     },
     {
         "id": 579,
@@ -6701,7 +6725,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG81.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/7GFfZPspXJQ"
     },
     {
         "id": 580,
@@ -6711,7 +6736,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG82.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/JCDoCjuWPO0"
     },
     {
         "id": 581,
@@ -6721,7 +6747,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG83.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/k3evCsWN404"
     },
     {
         "id": 582,
@@ -6731,7 +6758,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG84.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 500,
+        "video": "https://www.youtube.com/embed/7BxjXPQRYxo"
     },
     {
         "id": 583,
@@ -6741,7 +6769,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG85.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/apL2F36tpbo"
     },
     {
         "id": 584,
@@ -6751,7 +6780,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG86.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/hfeM_ro-434"
     },
     {
         "id": 585,
@@ -6761,7 +6791,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG87.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/gfNgn0rcq70"
     },
     {
         "id": 586,
@@ -6771,7 +6802,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG88.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/YfC-fhuz3iw"
     },
     {
         "id": 587,
@@ -6781,7 +6813,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG89.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/YkooXcA8GgY"
     },
     {
         "id": 588,
@@ -6791,7 +6824,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG90.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/Twfs1L-5UJI"
     },
     {
         "id": 589,
@@ -6801,7 +6835,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG91.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/Yo5wUmUSC58"
     },
     {
         "id": 590,
@@ -6811,7 +6846,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG92.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 500,
+        "video": "https://www.youtube.com/embed/w3v7p4i0AOI"
     },
     {
         "id": 591,
@@ -6821,7 +6857,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG93.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/wibEDF-H6Bg"
     },
     {
         "id": 592,
@@ -6831,7 +6868,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG94.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/AMLDyhHofak"
     },
     {
         "id": 593,
@@ -6841,7 +6879,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG95.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/TGoHwyii6UM"
     },
     {
         "id": 594,
@@ -6851,7 +6890,8 @@
         "categoryName": "Túi xách nữ",
         "image": "assets/image/tui-xach/tui-xach-nu/TXG96.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/7qz-fIHe8Vw"
     },
     {
         "id": 595,
