@@ -1402,6 +1402,9 @@ function initCategories() {
                     alt="${category.name}"
                     class="category-image"
                     loading="lazy"
+                    decoding="async"
+                    width="200"
+                    height="200"
                     onerror="this.style.display='none'; this.parentElement.querySelector('.category-icon').style.display='flex';"
                 >
                 <div class="category-icon" style="display: none;">
@@ -2994,6 +2997,10 @@ function initSlider() {
                      class="slider-img" 
                      data-product-id="${product.id}"
                      loading="${index < 3 ? "eager" : "lazy"}"
+                     decoding="async"
+                     fetchpriority="${index < 3 ? "high" : "auto"}"
+                     width="400"
+                     height="400"
                      onerror="handleImageError(this)"
                      style="cursor: pointer;">
             </div>
@@ -3151,7 +3158,9 @@ function displayProductsPaginated(productsToShow) {
             </div>
         `;
     } else {
-        grid.innerHTML = pageProducts
+        // Batch DOM updates for better performance
+        requestAnimationFrame(() => {
+            grid.innerHTML = pageProducts
             .map(
                 (product, index) => `
             <div class="product-card" role="listitem" aria-label="Sản phẩm ${
@@ -3166,6 +3175,10 @@ function displayProductsPaginated(productsToShow) {
                          class="product-image" 
                          data-product-id="${product.id}"
                          loading="${index < 4 ? "eager" : "lazy"}"
+                         decoding="async"
+                         fetchpriority="${index < 4 ? "high" : "auto"}"
+                         width="400"
+                         height="400"
                          onerror="handleImageError(this)"
                          style="cursor: pointer;">
                 </div>
@@ -3229,18 +3242,21 @@ function displayProductsPaginated(productsToShow) {
         `
             )
             .join("");
+            
+            // Observe new product cards for animation after DOM update
+            requestAnimationFrame(() => {
+                if (scrollObserver) {
+                    document.querySelectorAll(".product-card").forEach((card) => {
+                        if (!card.classList.contains("animate-in")) {
+                            scrollObserver.observe(card);
+                        }
+                    });
+                }
+            });
+        });
     }
 
     displayPagination(productsToShow.length, totalPages);
-
-    // Observe new product cards for animation
-    if (scrollObserver) {
-        document.querySelectorAll(".product-card").forEach((card) => {
-            if (!card.classList.contains("animate-in")) {
-                scrollObserver.observe(card);
-            }
-        });
-    }
 }
 
 function displayPagination(totalProducts, totalPages) {
@@ -5578,6 +5594,8 @@ document.addEventListener("DOMContentLoaded", function () {
     initThemeToggle();
     initIntersectionObserver();
     initPerformanceOptimizations();
+    initPWAInstall();
+    initShareAPI();
 
     // Thêm CSS cho page dots và skeleton
     const style = document.createElement("style");
@@ -5677,7 +5695,7 @@ function initIntersectionObserver() {
             scrollObserver.observe(el);
         });
 
-    // Lazy load images with Intersection Observer
+    // Lazy load images with Intersection Observer - Improved version
     if ("IntersectionObserver" in window) {
         imageObserver = new IntersectionObserver(
             (entries) => {
@@ -5694,13 +5712,21 @@ function initIntersectionObserver() {
                 });
             },
             {
-                rootMargin: "50px",
+                rootMargin: "100px", // Load images earlier for smoother experience
+                threshold: 0.01,
             }
         );
 
         // Observe all images with data-src
         document.querySelectorAll("img[data-src]").forEach((img) => {
             imageObserver.observe(img);
+        });
+        
+        // Also observe lazy-loaded images for better performance
+        document.querySelectorAll("img[loading='lazy']").forEach((img) => {
+            if (!img.complete) {
+                imageObserver.observe(img);
+            }
         });
     }
 }
@@ -5753,12 +5779,19 @@ function preloadNextPageImages() {
         (currentPage + 1) * productsPerPage
     );
 
-    nextPageProducts.forEach((product) => {
-        const link = document.createElement("link");
-        link.rel = "prefetch";
-        link.href = product.image;
-        document.head.appendChild(link);
-    });
+    // Use requestIdleCallback to preload images when browser is idle
+    if ("requestIdleCallback" in window) {
+        requestIdleCallback(() => {
+            nextPageProducts.forEach((product) => {
+                if (product && product.image) {
+                    const link = document.createElement("link");
+                    link.rel = "prefetch";
+                    link.href = normalizePath(product.image);
+                    document.head.appendChild(link);
+                }
+            });
+        }, { timeout: 2000 });
+    }
 }
 
 function updateScrollEffects() {
@@ -5782,6 +5815,399 @@ function handleResize() {
     } else {
         document.body.classList.remove("mobile-view");
     }
+}
+
+// ==================== PWA INSTALL PROMPT ====================
+let deferredPrompt;
+let installButton = null;
+
+function initPWAInstall() {
+    // Tạo install button
+    createInstallButton();
+    
+    // Lắng nghe beforeinstallprompt event
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Ngăn trình duyệt tự động hiển thị prompt
+        e.preventDefault();
+        // Lưu event để dùng sau
+        deferredPrompt = e;
+        // Hiển thị install button
+        showInstallButton();
+    });
+
+    // Kiểm tra nếu app đã được cài đặt
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        // App đã được cài đặt, ẩn install button
+        hideInstallButton();
+    }
+
+    // Lắng nghe khi app được cài đặt
+    window.addEventListener('appinstalled', () => {
+        console.log('✅ PWA đã được cài đặt');
+        deferredPrompt = null;
+        hideInstallButton();
+        showToast('🎉 Ứng dụng đã được cài đặt thành công!', 'success');
+    });
+}
+
+function createInstallButton() {
+    // Kiểm tra xem đã có button chưa
+    if (document.getElementById('pwaInstallBtn')) return;
+
+    const installBtn = document.createElement('button');
+    installBtn.id = 'pwaInstallBtn';
+    installBtn.className = 'pwa-install-btn';
+    installBtn.innerHTML = '<i class="fas fa-download"></i> <span>Cài đặt App</span>';
+    installBtn.setAttribute('aria-label', 'Cài đặt ứng dụng ODER 88');
+    installBtn.style.cssText = `
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background: linear-gradient(135deg, #FF6600, #FF8C00);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 4px 20px rgba(255, 102, 0, 0.4);
+        cursor: pointer;
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        animation: slideUp 0.5s ease;
+    `;
+    
+    installBtn.addEventListener('click', installPWA);
+    installBtn.addEventListener('mouseenter', () => {
+        installBtn.style.transform = 'translateY(-2px)';
+        installBtn.style.boxShadow = '0 6px 25px rgba(255, 102, 0, 0.5)';
+    });
+    installBtn.addEventListener('mouseleave', () => {
+        installBtn.style.transform = 'translateY(0)';
+        installBtn.style.boxShadow = '0 4px 20px rgba(255, 102, 0, 0.4)';
+    });
+
+    document.body.appendChild(installBtn);
+    installButton = installBtn;
+
+    // Thêm CSS animation
+    if (!document.getElementById('pwaInstallStyles')) {
+        const style = document.createElement('style');
+        style.id = 'pwaInstallStyles';
+        style.textContent = `
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @media (max-width: 768px) {
+                .pwa-install-btn {
+                    bottom: 100px !important;
+                    right: 15px !important;
+                    padding: 10px 20px !important;
+                    font-size: 0.85rem !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+function showInstallButton() {
+    if (installButton && deferredPrompt) {
+        installButton.style.display = 'flex';
+    }
+}
+
+function hideInstallButton() {
+    if (installButton) {
+        installButton.style.display = 'none';
+    }
+}
+
+async function installPWA() {
+    if (!deferredPrompt) {
+        // Nếu không có prompt, hướng dẫn người dùng cài đặt thủ công
+        showInstallInstructions();
+        return;
+    }
+
+    // Hiển thị install prompt
+    deferredPrompt.prompt();
+    
+    // Đợi người dùng phản hồi
+    const { outcome } = await deferredPrompt.userChoice;
+    
+    if (outcome === 'accepted') {
+        console.log('✅ Người dùng đã chấp nhận cài đặt PWA');
+        showToast('🎉 Đang cài đặt ứng dụng...', 'success');
+    } else {
+        console.log('❌ Người dùng đã từ chối cài đặt PWA');
+    }
+    
+    // Xóa prompt
+    deferredPrompt = null;
+    hideInstallButton();
+}
+
+function showInstallInstructions() {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isAndroid = /Android/.test(navigator.userAgent);
+    
+    let instructions = '';
+    if (isIOS) {
+        instructions = `
+            <h3><i class="fas fa-mobile-alt"></i> Cài đặt trên iOS</h3>
+            <ol>
+                <li>Nhấn nút <strong>Share</strong> <i class="fas fa-share"></i> ở thanh dưới cùng</li>
+                <li>Chọn <strong>"Thêm vào Màn hình chính"</strong></li>
+                <li>Nhấn <strong>"Thêm"</strong> để hoàn tất</li>
+            </ol>
+        `;
+    } else if (isAndroid) {
+        instructions = `
+            <h3><i class="fab fa-android"></i> Cài đặt trên Android</h3>
+            <ol>
+                <li>Nhấn menu <i class="fas fa-ellipsis-vertical"></i> ở góc trên bên phải</li>
+                <li>Chọn <strong>"Cài đặt ứng dụng"</strong> hoặc <strong>"Thêm vào màn hình chính"</strong></li>
+                <li>Xác nhận cài đặt</li>
+            </ol>
+        `;
+    } else {
+        instructions = `
+            <h3><i class="fas fa-desktop"></i> Cài đặt trên Desktop</h3>
+            <ol>
+                <li>Nhấn biểu tượng <i class="fas fa-plus"></i> hoặc <i class="fas fa-download"></i> trên thanh địa chỉ</li>
+                <li>Chọn <strong>"Cài đặt"</strong> hoặc <strong>"Install"</strong></li>
+            </ol>
+        `;
+    }
+
+    showToast(instructions, 'info', 8000);
+}
+
+// ==================== SHARE API ====================
+function initShareAPI() {
+    // Thêm nút share vào product cards (sẽ được thêm khi render products)
+    // Kiểm tra xem browser có hỗ trợ Web Share API không
+    if (navigator.share) {
+        // Thêm share button vào header
+        addShareButton();
+    }
+}
+
+function addShareButton() {
+    // Kiểm tra xem đã có button chưa
+    if (document.getElementById('shareBtn')) return;
+
+    const shareBtn = document.createElement('button');
+    shareBtn.id = 'shareBtn';
+    shareBtn.className = 'share-btn';
+    shareBtn.innerHTML = '<i class="fas fa-share-alt"></i>';
+    shareBtn.setAttribute('aria-label', 'Chia sẻ ứng dụng');
+    shareBtn.style.cssText = `
+        background: rgba(255, 102, 0, 0.1);
+        border: 1px solid rgba(255, 102, 0, 0.3);
+        color: var(--color-primary);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+    `;
+    
+    shareBtn.addEventListener('click', shareApp);
+    shareBtn.addEventListener('mouseenter', () => {
+        shareBtn.style.background = 'rgba(255, 102, 0, 0.2)';
+        shareBtn.style.transform = 'scale(1.1)';
+    });
+    shareBtn.addEventListener('mouseleave', () => {
+        shareBtn.style.background = 'rgba(255, 102, 0, 0.1)';
+        shareBtn.style.transform = 'scale(1)';
+    });
+
+    // Thêm vào header actions
+    const headerActions = document.querySelector('.header-actions');
+    if (headerActions) {
+        headerActions.insertBefore(shareBtn, headerActions.firstChild);
+    }
+}
+
+async function shareApp() {
+    const shareData = {
+        title: 'ODER 88 - Thời Trang Cao Cấp',
+        text: 'Khám phá bộ sưu tập thời trang nam nữ cao cấp tại ODER 88!',
+        url: window.location.href,
+    };
+
+    try {
+        await navigator.share(shareData);
+        console.log('✅ Chia sẻ thành công');
+    } catch (err) {
+        // Người dùng đã hủy hoặc có lỗi
+        if (err.name !== 'AbortError') {
+            console.error('❌ Lỗi khi chia sẻ:', err);
+            // Fallback: copy link
+            copyToClipboard(window.location.href);
+            showToast('📋 Đã sao chép link vào clipboard!', 'success');
+        }
+    }
+}
+
+function shareProduct(product) {
+    if (!navigator.share) {
+        // Fallback: copy link
+        const productUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
+        copyToClipboard(productUrl);
+        showToast('📋 Đã sao chép link sản phẩm!', 'success');
+        return;
+    }
+
+    const shareData = {
+        title: product.name,
+        text: `${product.name} - ${formatPriceToYen(product.price)}`,
+        url: `${window.location.origin}${window.location.pathname}?product=${product.id}`,
+    };
+
+    navigator.share(shareData).catch((err) => {
+        if (err.name !== 'AbortError') {
+            console.error('Lỗi khi chia sẻ sản phẩm:', err);
+        }
+    });
+}
+
+function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+    } else {
+        // Fallback cho browser cũ
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+    }
+}
+
+// ==================== APP UPDATE NOTIFICATION ====================
+function showUpdateNotification(onUpdate) {
+    // Kiểm tra xem đã có notification chưa
+    if (document.getElementById('updateNotification')) return;
+
+    const notification = document.createElement('div');
+    notification.id = 'updateNotification';
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #FF6600, #FF8C00);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 50px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        max-width: 90%;
+        animation: slideUpNotification 0.5s ease;
+    `;
+    
+    notification.innerHTML = `
+        <i class="fas fa-sync-alt" style="font-size: 1.2rem;"></i>
+        <div style="flex: 1;">
+            <div style="font-weight: 600; margin-bottom: 4px;">Có phiên bản mới!</div>
+            <div style="font-size: 0.85rem; opacity: 0.9;">Nhấn để cập nhật ứng dụng</div>
+        </div>
+        <button id="updateBtn" style="
+            background: white;
+            color: #FF6600;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        ">Cập nhật</button>
+        <button id="dismissUpdateBtn" style="
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        ">×</button>
+    `;
+
+    // Thêm CSS animation
+    if (!document.getElementById('updateNotificationStyles')) {
+        const style = document.createElement('style');
+        style.id = 'updateNotificationStyles';
+        style.textContent = `
+            @keyframes slideUpNotification {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+            @media (max-width: 768px) {
+                #updateNotification {
+                    bottom: 100px !important;
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    document.body.appendChild(notification);
+
+    // Event handlers
+    const updateBtn = document.getElementById('updateBtn');
+    const dismissBtn = document.getElementById('dismissUpdateBtn');
+
+    updateBtn.addEventListener('click', () => {
+        if (onUpdate) onUpdate();
+        notification.remove();
+    });
+
+    dismissBtn.addEventListener('click', () => {
+        notification.remove();
+    });
+
+    // Auto dismiss sau 10 giây
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.animation = 'slideUpNotification 0.5s ease reverse';
+            setTimeout(() => notification.remove(), 500);
+        }
+    }, 10000);
 }
 
 // ==================== SHOPPING CART FUNCTIONS ====================

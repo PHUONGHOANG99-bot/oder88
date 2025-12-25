@@ -9,6 +9,7 @@ const urlsToCache = [
     withScope("/assets/style.css"),
     withScope("/assets/script.js"),
     withScope("/assets/products.json"),
+    withScope("/offline.html"),
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
 ];
 
@@ -76,6 +77,68 @@ self.addEventListener("fetch", (event) => {
                         return caches.match(noQueryUrl).then((cached) => {
                             return cached || new Response("Network error", { status: 408 });
                         });
+                    });
+                })
+        );
+        return;
+    }
+
+    // For images, use cache first with network fallback (stale-while-revalidate)
+    if (url.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg|ico)$/i)) {
+        event.respondWith(
+            caches.match(event.request).then((cachedResponse) => {
+                // Return cached image immediately if available
+                if (cachedResponse) {
+                    // Fetch fresh version in background for next time
+                    fetch(event.request).then((networkResponse) => {
+                        if (networkResponse && networkResponse.status === 200) {
+                            const responseToCache = networkResponse.clone();
+                            caches.open(CACHE_NAME).then((cache) => {
+                                cache.put(event.request, responseToCache);
+                            });
+                        }
+                    }).catch(() => {
+                        // Ignore network errors for background update
+                    });
+                    return cachedResponse;
+                }
+                // If not cached, fetch from network
+                return fetch(event.request).then((response) => {
+                    if (response && response.status === 200) {
+                        const responseToCache = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(event.request, responseToCache);
+                        });
+                    }
+                    return response;
+                });
+            })
+        );
+        return;
+    }
+
+    // For HTML pages, try network first, fallback to cache, then offline page
+    if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+        event.respondWith(
+            fetch(event.request)
+                .then((response) => {
+                    // Cache successful responses
+                    if (response && response.status === 200) {
+                        const responseToCache = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(event.request, responseToCache);
+                        });
+                    }
+                    return response;
+                })
+                .catch(() => {
+                    // Network failed, try cache
+                    return caches.match(event.request).then((cachedResponse) => {
+                        if (cachedResponse) {
+                            return cachedResponse;
+                        }
+                        // If no cache, return offline page
+                        return caches.match(withScope('/offline.html'));
                     });
                 })
         );

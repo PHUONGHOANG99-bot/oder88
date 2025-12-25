@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Không có kết nối - ODER 88</title>
+    <link rel="stylesheet" href="assets/style.css?v=47">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .offline-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .offline-icon {
+            font-size: 5rem;
+            color: #FF6600;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .offline-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .offline-message {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        .offline-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .offline-btn {
+            background: linear-gradient(135deg, #FF6600, #FF8C00);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .offline-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+        }
+        .offline-btn.secondary {
+            background: white;
+            color: #FF6600;
+            border: 2px solid #FF6600;
+        }
+        .offline-btn.secondary:hover {
+            background: #FF6600;
+            color: white;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">
+            <i class="fas fa-wifi-slash"></i>
+        </div>
+        <h1 class="offline-title">Không có kết nối Internet</h1>
+        <p class="offline-message">
+            Bạn đang offline. Vui lòng kiểm tra kết nối mạng và thử lại.
+        </p>
+        <div class="offline-actions">
+            <button class="offline-btn" onclick="window.location.reload()">
+                <i class="fas fa-sync-alt"></i>
+                Thử lại
+            </button>
+            <button class="offline-btn secondary" onclick="window.history.back()">
+                <i class="fas fa-arrow-left"></i>
+                Quay lại
+            </button>
+        </div>
+    </div>
+    <script>
+        // Tự động reload khi có kết nối lại
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
+

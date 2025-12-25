@@ -122,6 +122,15 @@
         />
         <link rel="apple-touch-icon" href="assets/logo/favicon.png" />
 
+        <!-- DNS Prefetch & Preconnect for external resources -->
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+        
         <!-- Preload critical resources -->
         <link
             rel="preload"
@@ -130,8 +139,6 @@
             crossorigin="anonymous"
         />
         <!-- Google Fonts - Inter (hỗ trợ tiếng Việt tốt) -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
@@ -189,6 +196,11 @@
                             .then((registration) => {
                                 console.log("SW registered: ", registration);
 
+                                // Check for updates periodically (every 1 hour)
+                                setInterval(() => {
+                                    registration.update();
+                                }, 3600000); // 1 hour
+
                                 // Chỉ check update một lần khi load, không check liên tục
                                 // Để tránh loop, chỉ check khi user thực sự cần (không tự động)
 
@@ -231,19 +243,37 @@
                                                         return;
                                                     }
 
-                                                    console.log(
-                                                        "🔄 New SW version detected, reloading..."
-                                                    );
-                                                    hasReloaded = true;
-                                                    sessionStorage.setItem(
-                                                        "lastSWReload",
-                                                        Date.now().toString()
-                                                    );
+                                                    // Hiển thị thông báo update thay vì tự động reload
+                                                    if (typeof showUpdateNotification === 'function') {
+                                                        showUpdateNotification(() => {
+                                                        console.log(
+                                                            "🔄 New SW version detected, reloading..."
+                                                        );
+                                                        hasReloaded = true;
+                                                        sessionStorage.setItem(
+                                                            "lastSWReload",
+                                                            Date.now().toString()
+                                                        );
 
-                                                    // Delay reload để tránh loop
-                                                    setTimeout(() => {
-                                                        window.location.reload();
-                                                    }, 1000);
+                                                        // Delay reload để tránh loop
+                                                        setTimeout(() => {
+                                                            window.location.reload();
+                                                        }, 1000);
+                                                        });
+                                                    } else {
+                                                        // Fallback nếu hàm chưa load
+                                                        console.log(
+                                                            "🔄 New SW version detected, reloading..."
+                                                        );
+                                                        hasReloaded = true;
+                                                        sessionStorage.setItem(
+                                                            "lastSWReload",
+                                                            Date.now().toString()
+                                                        );
+                                                        setTimeout(() => {
+                                                            window.location.reload();
+                                                        }, 1000);
+                                                    }
                                                 }
                                             }
                                         );

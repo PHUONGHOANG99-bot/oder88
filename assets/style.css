@@ -1414,6 +1414,10 @@ body {
     position: relative;
     border: 1px solid rgba(255, 102, 0, 0.1);
     opacity: 1;
+    /* Performance optimizations */
+    will-change: transform, box-shadow;
+    contain: layout style paint;
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .slider-item:hover {
@@ -1456,6 +1460,10 @@ body {
     object-position: center;
     display: block;
     transition: transform 0.3s ease;
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Prevent flickering */
 }
 
 .slider-item:hover .slider-img,
@@ -2002,6 +2010,10 @@ body {
     flex-shrink: 0;
     min-width: 90px;
     max-width: 110px;
+    /* Performance optimizations */
+    will-change: transform, box-shadow;
+    contain: layout style paint;
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .category-item::before {
@@ -2494,6 +2506,10 @@ body {
     width: 100%;
     box-sizing: border-box;
     min-width: 0;
+    /* Performance optimizations */
+    will-change: transform, box-shadow;
+    contain: layout style paint;
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .product-card.animate-in {
@@ -2516,6 +2532,10 @@ body {
     z-index: 1;
     transition: transform 0.3s ease;
     display: block;
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Prevent flickering */
 }
 
 .product-card:hover .product-image {

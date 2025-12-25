@@ -1,27 +1,66 @@
 {
     "name": "ODER 88 - Thời Trang Cao Cấp",
     "short_name": "ODER 88",
-    "description": "Shop thời trang nam nữ cao cấp với đa dạng sản phẩm",
+    "description": "Shop thời trang nam nữ cao cấp với đa dạng sản phẩm: áo, quần, váy đầm, giày dép, túi xách. Giao hàng nhanh, giá tốt nhất thị trường.",
     "start_url": "./",
+    "scope": "./",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#FF6600",
     "orientation": "portrait-primary",
+    "dir": "ltr",
+    "lang": "vi",
     "icons": [
         {
-            "src": "assets/logo/favicon.png",
+            "src": "assets/logo/oder88.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/logo/oder88.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/logo/oder88.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/logo/oder88.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/logo/oder88.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/logo/oder88.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "assets/logo/favicon.png",
+            "src": "assets/logo/oder88.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/logo/oder88.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
         }
     ],
-    "categories": ["shopping", "fashion"],
+    "categories": ["shopping", "fashion", "lifestyle"],
     "screenshots": [],
     "shortcuts": [
         {
@@ -29,7 +68,31 @@
             "short_name": "Mới",
             "description": "Xem sản phẩm mới nhất",
             "url": "./?category=new",
-            "icons": [{ "src": "assets/logo/favicon.png", "sizes": "96x96" }]
+            "icons": [{ "src": "assets/logo/oder88.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Bán chạy",
+            "short_name": "Hot",
+            "description": "Xem sản phẩm bán chạy",
+            "url": "./?tab=hot",
+            "icons": [{ "src": "assets/logo/oder88.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Giỏ hàng",
+            "short_name": "Cart",
+            "description": "Xem giỏ hàng của bạn",
+            "url": "./?cart=true",
+            "icons": [{ "src": "assets/logo/oder88.png", "sizes": "96x96" }]
         }
-    ]
+    ],
+    "share_target": {
+        "action": "./",
+        "method": "GET",
+        "params": {
+            "title": "title",
+            "text": "text",
+            "url": "url"
+        }
+    },
+    "prefer_related_applications": false
 }
