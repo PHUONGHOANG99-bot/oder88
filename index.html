@@ -4,8 +4,15 @@
         <meta charset="UTF-8" />
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
         />
+        <!-- Performance hints -->
+        <meta http-equiv="x-dns-prefetch-control" content="on" />
+        <!-- Modern web app features -->
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="format-detection" content="telephone=no" />
         <title>ODER 88 - Oder tẹt ga - Không lo về giá</title>
         <meta
             name="description"
@@ -131,24 +138,32 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
         
-        <!-- Preload critical resources -->
+        <!-- Preload critical resources - ULTRA OPTIMIZED -->
         <link
             rel="preload"
             href="assets/products.json"
             as="fetch"
             crossorigin="anonymous"
         />
-        <!-- Google Fonts - Inter (hỗ trợ tiếng Việt tốt) -->
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="preload" href="assets/style.css?v=47" as="style" />
+        <!-- Preload critical CSS -->
+        <link rel="preload" href="assets/style.css?v=48" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             as="style"
         />
+        <!-- Preload critical JS -->
+        <link rel="preload" href="assets/script.js?v=48" as="script" />
+        <!-- Prefetch next likely resources -->
+        <link rel="prefetch" href="assets/logo/oder88.png" as="image" />
+        <!-- Google Fonts - Inter (hỗ trợ tiếng Việt tốt) với display=swap -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Preconnect to external domains for faster loading -->
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
 
         <link rel="stylesheet" href="assets/style.css?v=47" />
         <link
@@ -192,7 +207,7 @@
 
                     window.addEventListener("load", () => {
                         navigator.serviceWorker
-                            .register("sw.js?v=47")
+                            .register("sw.js?v=48")
                             .then((registration) => {
                                 console.log("SW registered: ", registration);
 
@@ -335,11 +350,8 @@
         <!-- PWA Manifest -->
         <link rel="manifest" href="manifest.json" />
         <meta name="theme-color" content="#FF6600" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent"
-        />
+        <meta name="msapplication-TileColor" content="#FF6600" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
     </head>
     <body>
         <!-- Header -->
@@ -387,11 +399,14 @@
                                     aria-hidden="true"
                                 ></i>
                                 <input
-                                    type="text"
+                                    type="search"
                                     id="searchInput"
                                     placeholder="Tìm kiếm sản phẩm, thương hiệu..."
                                     aria-label="Tìm kiếm sản phẩm thời trang"
                                     aria-describedby="search-description"
+                                    enterkeyhint="search"
+                                    inputmode="search"
+                                    autocomplete="off"
                                 />
                                 <span id="search-description" class="sr-only"
                                     >Nhập từ khóa để tìm kiếm sản phẩm</span
@@ -1211,6 +1226,6 @@
 
         <!-- YouTube IFrame API -->
         <script src="https://www.youtube.com/iframe_api"></script>
-        <script src="assets/script.js?v=47"></script>
+        <script src="assets/script.js?v=48"></script>
     </body>
 </html>

@@ -1453,17 +1453,66 @@ body {
 /* CSS này đã được di chuyển lên trên để tách riêng cho slider và product cards */
 
 .slider-img,
-.product-image {
+.product-image,
+picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 0.3s ease;
-    /* Performance optimizations */
-    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease,
+                filter 0.3s ease;
+    /* Ultra Performance optimizations */
+    will-change: transform, opacity;
     transform: translateZ(0); /* Force GPU acceleration */
     backface-visibility: hidden; /* Prevent flickering */
+    -webkit-font-smoothing: antialiased;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    content-visibility: auto;
+    contain: layout style paint;
+}
+
+/* Optimized image loading states */
+.image-optimized {
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-optimized.image-loaded,
+.image-optimized[complete] {
+    opacity: 1;
+}
+
+/* Image container with shimmer effect for loading */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(240, 240, 240, 0.8) 0%, 
+        rgba(245, 245, 245, 0.9) 50%, 
+        rgba(240, 240, 240, 0.8) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.image-container img.image-loaded ~ ::before,
+.image-container:has(img.image-loaded)::before {
+    opacity: 0;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
 .slider-item:hover .slider-img,
@@ -2514,13 +2563,16 @@ body {
 
 .product-card.animate-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
+    will-change: auto; /* Remove will-change after animation */
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) translateZ(0);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 102, 0, 0.1);
     border-color: rgba(255, 102, 0, 0.2);
+    /* Smooth transition with GPU acceleration */
+    will-change: transform, box-shadow;
 }
 
 .product-image {
@@ -2553,6 +2605,12 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 14px 14px 0 0;
+    /* GPU acceleration for smooth animations */
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style paint;
+    /* Smooth image loading */
+    transition: background-color 0.3s ease;
 }
 
 /* Image container cho slider items - giữ nguyên style cũ */
@@ -2562,6 +2620,10 @@ body {
     overflow: hidden;
     position: relative;
     background: #f8f9fa;
+    /* GPU acceleration */
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style paint;
 }
 
 /* Badge cho sản phẩm bán chạy - TAOBAO STYLE */
@@ -6144,11 +6206,11 @@ input:focus-visible {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(30px) translateZ(0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0);
     }
 }
 

@@ -256,6 +256,87 @@ function normalizePath(path) {
     return basePath + "/" + path;
 }
 
+// ==================== TỐI ƯU TẢI ẢNH - MODERN WEB APP ====================
+// Kiểm tra hỗ trợ WebP
+function supportsWebP() {
+    if (typeof supportsWebP.cached !== 'undefined') {
+        return supportsWebP.cached;
+    }
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    supportsWebP.cached = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    return supportsWebP.cached;
+}
+
+// Tạo blur placeholder (base64 data URI nhỏ)
+function createBlurPlaceholder() {
+    // SVG blur placeholder - siêu nhẹ, tải ngay lập tức
+    return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cfilter id='blur'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Crect width='400' height='400' fill='%23f0f0f0' filter='url(%23blur)'/%3E%3C/svg%3E";
+}
+
+// Tạo responsive image với WebP và fallback
+function createOptimizedImageSrc(imagePath, options = {}) {
+    const { width = 400, height = 400, quality = 85 } = options;
+    const normalizedPath = normalizePath(imagePath);
+    
+    // Nếu là URL ngoài, không xử lý
+    if (normalizedPath.startsWith('http://') || normalizedPath.startsWith('https://')) {
+        return {
+            src: normalizedPath,
+            srcset: '',
+            placeholder: createBlurPlaceholder()
+        };
+    }
+    
+    // Tạo srcset cho responsive images
+    const sizes = [200, 400, 600, 800];
+    const srcset = sizes.map(size => {
+        const ratio = size / width;
+        const h = Math.round(height * ratio);
+        return `${normalizedPath}?w=${size}&h=${h}&q=${quality} ${size}w`;
+    }).join(', ');
+    
+    return {
+        src: normalizedPath,
+        srcset: srcset,
+        sizes: '(max-width: 480px) 50vw, (max-width: 768px) 33vw, 25vw',
+        placeholder: createBlurPlaceholder()
+    };
+}
+
+// Tối ưu image element với lazy loading thông minh
+function createOptimizedImageElement(product, index, isSlider = false) {
+    const imagePath = product.image;
+    const optimized = createOptimizedImageSrc(imagePath);
+    const isEager = isSlider ? index < 3 : index < 4;
+    const className = isSlider ? 'slider-img' : 'product-image';
+    
+    // Sử dụng img với srcset cho responsive images
+    // WebP sẽ được thêm sau khi có hệ thống convert ảnh
+    // Hiện tại dùng responsive srcset để tối ưu bandwidth
+    const srcsetAttr = optimized.srcset ? `srcset="${optimized.srcset}"` : '';
+    const sizesAttr = optimized.sizes ? `sizes="${optimized.sizes}"` : '';
+    
+    return `
+        <img 
+            src="${optimized.src}" 
+            ${srcsetAttr}
+            ${sizesAttr}
+            alt="${getCategoryDisplayName(product.category, product.categoryName)} - ${formatPriceToYen(product.price)}" 
+            class="${className} image-optimized" 
+            data-product-id="${product.id}"
+            loading="${isEager ? 'eager' : 'lazy'}"
+            decoding="async"
+            fetchpriority="${isEager ? 'high' : 'auto'}"
+            width="400"
+            height="400"
+            onerror="handleImageError(this)"
+            style="cursor: pointer; background: url('${optimized.placeholder}') center/cover; transition: opacity 0.3s ease; opacity: 0;"
+            onload="this.style.opacity='1'; this.style.background='transparent'; this.classList.add('image-loaded');">
+    `;
+}
+
 async function loadProducts() {
     try {
         console.log("Đang load sản phẩm từ JSON...");
@@ -2989,20 +3070,7 @@ function initSlider() {
                 product.categoryName
             )}">
             <div class="image-container">
-                <img src="${normalizePath(product.image)}" 
-                     alt="${getCategoryDisplayName(
-                         product.category,
-                         product.categoryName
-                     )} - ${formatPriceToYen(product.price)}" 
-                     class="slider-img" 
-                     data-product-id="${product.id}"
-                     loading="${index < 3 ? "eager" : "lazy"}"
-                     decoding="async"
-                     fetchpriority="${index < 3 ? "high" : "auto"}"
-                     width="400"
-                     height="400"
-                     onerror="handleImageError(this)"
-                     style="cursor: pointer;">
+                ${createOptimizedImageElement(product, index, true)}
             </div>
             <div class="slider-info">
                 <div class="slider-price-container">
@@ -3167,20 +3235,7 @@ function displayProductsPaginated(productsToShow) {
                 product.categoryName
             }" data-index="${index}">
                 <div class="image-container">
-                    <img src="${normalizePath(product.image)}" 
-                         alt="${getCategoryDisplayName(
-                             product.category,
-                             product.categoryName
-                         )} - ${formatPriceToYen(product.price)}" 
-                         class="product-image" 
-                         data-product-id="${product.id}"
-                         loading="${index < 4 ? "eager" : "lazy"}"
-                         decoding="async"
-                         fetchpriority="${index < 4 ? "high" : "auto"}"
-                         width="400"
-                         height="400"
-                         onerror="handleImageError(this)"
-                         style="cursor: pointer;">
+                    ${createOptimizedImageElement(product, index, false)}
                 </div>
                 <div class="product-info">
                     <div class="product-price-wrapper">
@@ -5483,11 +5538,30 @@ function setupEventListeners() {
     document
         .getElementById("searchBtn")
         ?.addEventListener("click", handleSearch);
-    document
-        .getElementById("searchInput")
-        ?.addEventListener("keypress", function (e) {
-            if (e.key === "Enter") handleSearch();
+    
+    // Xử lý Enter key để tìm kiếm (hỗ trợ cả keypress và keydown)
+    const searchInputElement = document.getElementById("searchInput");
+    if (searchInputElement) {
+        // keypress cho desktop
+        searchInputElement.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                handleSearch();
+            }
         });
+        
+        // keydown cho mobile (một số thiết bị mobile không trigger keypress)
+        searchInputElement.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.keyCode === 13) {
+                e.preventDefault();
+                handleSearch();
+                // Ẩn bàn phím trên mobile sau khi search
+                if (window.innerWidth < 768) {
+                    searchInputElement.blur();
+                }
+            }
+        });
+    }
     document
         .getElementById("searchInput")
         ?.addEventListener("input", function (e) {
@@ -5597,7 +5671,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initPWAInstall();
     initShareAPI();
 
-    // Thêm CSS cho page dots và skeleton
+    // Thêm CSS cho page dots và skeleton - ULTRA OPTIMIZED
     const style = document.createElement("style");
     style.textContent = `
         .page-dots {
@@ -5609,20 +5683,37 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(10px) translateZ(0); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) translateZ(0); 
+            }
         }
         
         .product-card, .slider-item {
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
         }
         
         .skeleton-card {
             pointer-events: none;
+            contain: layout style paint;
         }
         
         .skeleton-card .product-info {
             padding: 20px;
+        }
+        
+        /* Optimize rendering performance */
+        .products-grid {
+            contain: layout style;
+        }
+        
+        .slider-track {
+            contain: layout style paint;
         }
     `;
     document.head.appendChild(style);
@@ -5695,24 +5786,49 @@ function initIntersectionObserver() {
             scrollObserver.observe(el);
         });
 
-    // Lazy load images with Intersection Observer - Improved version
+    // Lazy load images with Intersection Observer - Ultra Optimized version
     if ("IntersectionObserver" in window) {
+        // Sử dụng Performance Observer để tối ưu
+        const imageLoadQueue = [];
+        let isProcessingQueue = false;
+        
+        const processImageQueue = () => {
+            if (isProcessingQueue || imageLoadQueue.length === 0) return;
+            isProcessingQueue = true;
+            
+            requestAnimationFrame(() => {
+                const batch = imageLoadQueue.splice(0, 5); // Load 5 ảnh mỗi frame
+                batch.forEach((img) => {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute("data-src");
+                    }
+                    img.classList.remove("image-loading");
+                    img.classList.add("image-loaded");
+                    imageObserver?.unobserve(img);
+                });
+                isProcessingQueue = false;
+                if (imageLoadQueue.length > 0) {
+                    processImageQueue();
+                }
+            });
+        };
+        
         imageObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute("data-src");
-                            img.classList.remove("image-loading");
-                            imageObserver?.unobserve(img);
+                        // Thêm vào queue để load theo batch
+                        if (!imageLoadQueue.includes(img)) {
+                            imageLoadQueue.push(img);
                         }
+                        processImageQueue();
                     }
                 });
             },
             {
-                rootMargin: "100px", // Load images earlier for smoother experience
+                rootMargin: "150px", // Load sớm hơn cho trải nghiệm mượt
                 threshold: 0.01,
             }
         );
@@ -5722,16 +5838,31 @@ function initIntersectionObserver() {
             imageObserver.observe(img);
         });
         
-        // Also observe lazy-loaded images for better performance
-        document.querySelectorAll("img[loading='lazy']").forEach((img) => {
-            if (!img.complete) {
+        // Observe lazy-loaded images và picture elements
+        document.querySelectorAll("img[loading='lazy'], picture img").forEach((img) => {
+            if (!img.complete && !img.dataset.src) {
                 imageObserver.observe(img);
             }
         });
+        
+        // Preload images trong viewport ngay lập tức
+        requestIdleCallback(() => {
+            document.querySelectorAll("img[loading='eager'], img[fetchpriority='high']").forEach((img) => {
+                if (img.tagName === 'IMG' && img.src && !img.complete) {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = img.src;
+                    if (img.srcset) link.setAttribute('imagesrcset', img.srcset);
+                    if (img.sizes) link.setAttribute('imagesizes', img.sizes);
+                    document.head.appendChild(link);
+                }
+            });
+        }, { timeout: 1000 });
     }
 }
 
-// ==================== PERFORMANCE OPTIMIZATIONS ====================
+// ==================== PERFORMANCE OPTIMIZATIONS - ULTRA MODERN ====================
 function initPerformanceOptimizations() {
     // Use requestIdleCallback for non-critical tasks
     if ("requestIdleCallback" in window) {
@@ -5739,38 +5870,133 @@ function initPerformanceOptimizations() {
             () => {
                 // Preload next page images
                 preloadNextPageImages();
+                // Prefetch likely next resources
+                prefetchLikelyResources();
             },
             { timeout: 2000 }
         );
     }
 
-    // Debounce scroll events
-    let scrollTimeout;
+    // Ultra-smooth scroll with RAF and passive listeners
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    const updateScrollEffects = () => {
+        const currentScrollY = window.scrollY;
+        // Update scroll-to-top button
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+        if (scrollToTopBtn) {
+            if (currentScrollY > 300) {
+                scrollToTopBtn.style.display = "flex";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+        
+        // Update header on scroll (optional: add shrink effect)
+        const header = document.querySelector('.header');
+        if (header && currentScrollY > 50) {
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.15)';
+        } else if (header) {
+            header.style.boxShadow = '0 4px 20px rgba(255, 102, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.2)';
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+    };
+    
     window.addEventListener(
         "scroll",
         () => {
-            if (scrollTimeout) {
-                cancelAnimationFrame(scrollTimeout);
+            if (!ticking) {
+                window.requestAnimationFrame(updateScrollEffects);
+                ticking = true;
             }
-            scrollTimeout = requestAnimationFrame(() => {
-                updateScrollEffects();
-            });
         },
         { passive: true }
     );
 
-    // Optimize resize events
+    // Optimize resize events with debounce
     let resizeTimeout;
+    const handleResize = () => {
+        // Recalculate layouts if needed
+        if (scrollObserver) {
+            // Re-observe elements after resize
+            document.querySelectorAll(".product-card, .slider-item").forEach((el) => {
+                if (!el.classList.contains("animate-in")) {
+                    scrollObserver.observe(el);
+                }
+            });
+        }
+    };
+    
     window.addEventListener(
         "resize",
         () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                handleResize();
-            }, 250);
+                requestAnimationFrame(handleResize);
+            }, 150);
         },
         { passive: true }
     );
+    
+    // Optimize touch events for mobile
+    let touchStartY = 0;
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    // Preload critical resources
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            // Preconnect to likely external resources
+            const preconnectDomains = [
+                'https://www.facebook.com',
+                'https://www.messenger.com'
+            ];
+            preconnectDomains.forEach(domain => {
+                const link = document.createElement('link');
+                link.rel = 'preconnect';
+                link.href = domain;
+                document.head.appendChild(link);
+            });
+        }, { timeout: 3000 });
+    }
+    
+    // Use Content Visibility API for better rendering performance
+    if ('IntersectionObserver' in window && 'requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                // Set content-visibility for off-screen items
+                if (index > 20) {
+                    card.style.contentVisibility = 'auto';
+                    card.style.containIntrinsicSize = '300px 400px';
+                }
+            });
+        }, { timeout: 2000 });
+    }
+}
+
+// Prefetch likely next resources
+function prefetchLikelyResources() {
+    // Prefetch next page products
+    const nextPage = currentPage + 1;
+    const nextPageProducts = products.slice(
+        nextPage * productsPerPage,
+        (nextPage + 1) * productsPerPage
+    );
+    
+    nextPageProducts.slice(0, 8).forEach((product) => {
+        if (product && product.image) {
+            const link = document.createElement("link");
+            link.rel = "prefetch";
+            link.as = "image";
+            link.href = normalizePath(product.image);
+            document.head.appendChild(link);
+        }
+    });
 }
 
 function preloadNextPageImages() {
@@ -5794,6 +6020,7 @@ function preloadNextPageImages() {
     }
 }
 
+// Legacy function - now handled in initPerformanceOptimizations
 function updateScrollEffects() {
     const scrollY = window.scrollY;
     const header = document.querySelector(".header");
