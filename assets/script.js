@@ -6715,6 +6715,15 @@ function showUpdateNotification(onUpdate) {
 // ==================== SHOPPING CART FUNCTIONS ====================
 let cart = [];
 let selectedItems = new Set(); // Lưu các item ID được chọn
+const SELECTED_ITEMS_STORAGE_KEY = "shoppingCartSelectedItems";
+
+function hasSavedSelection() {
+    try {
+        return localStorage.getItem(SELECTED_ITEMS_STORAGE_KEY) !== null;
+    } catch (e) {
+        return false;
+    }
+}
 
 function normalizeId(id) {
     const n = Number(id);
@@ -6831,11 +6840,23 @@ function loadCart() {
                       .map(normalizeCartItem)
                       .filter((i) => i && Number.isFinite(Number(i.id)))
                 : [];
-            updateCartUI();
+        } else {
+            cart = [];
         }
+        // Restore selection state (persist across reload)
+        // Lưu ý: KHÔNG auto-select ở đây. Auto-select chỉ xảy ra lần đầu mở giỏ (openCart).
+        if (hasSavedSelection()) {
+            loadSelectedItems();
+            // Clean stale keys if any
+            syncSelectedItemsWithCart({ persist: true });
+        } else {
+            selectedItems.clear();
+        }
+        updateCartUI();
     } catch (error) {
         console.error("Error loading cart:", error);
         cart = [];
+        selectedItems.clear();
     }
 }
 
@@ -6843,10 +6864,57 @@ function loadCart() {
 function saveCart() {
     try {
         localStorage.setItem("shoppingCart", JSON.stringify(cart));
+        // Khi cart thay đổi, chỉ đồng bộ selection nếu đã từng có selection được lưu
+        if (hasSavedSelection()) {
+            syncSelectedItemsWithCart({ persist: true });
+        }
         updateCartUI();
     } catch (error) {
         console.error("Error saving cart:", error);
     }
+}
+
+function loadSelectedItems() {
+    try {
+        const raw = localStorage.getItem(SELECTED_ITEMS_STORAGE_KEY);
+        if (raw === null) return false;
+        const parsed = JSON.parse(raw);
+        const arr = Array.isArray(parsed) ? parsed : [];
+        selectedItems = new Set(arr.filter((x) => typeof x === "string"));
+        return true;
+    } catch (e) {
+        selectedItems = new Set();
+        return false;
+    }
+}
+
+function saveSelectedItems() {
+    try {
+        localStorage.setItem(
+            SELECTED_ITEMS_STORAGE_KEY,
+            JSON.stringify(Array.from(selectedItems))
+        );
+    } catch (e) {
+        // ignore
+    }
+}
+
+function syncSelectedItemsWithCart({ persist = false } = {}) {
+    if (!Array.isArray(cart) || cart.length === 0) {
+        selectedItems.clear();
+        if (persist) saveSelectedItems();
+        return;
+    }
+
+    const validKeys = new Set(
+        cart.map((item) => `${item.id}_${item.size || "nosize"}`)
+    );
+
+    // Remove stale selections
+    selectedItems.forEach((key) => {
+        if (!validKeys.has(key)) selectedItems.delete(key);
+    });
+    if (persist) saveSelectedItems();
 }
 
 // Add product to cart by product ID
@@ -7041,6 +7109,18 @@ function addToCart(product, triggerButton = null, selectedSize = null) {
         });
     }
 
+    // Nếu user đã từng thao tác chọn/bỏ chọn (đã có selection state), thì mặc định chọn item vừa thêm.
+    // Nếu chưa từng có selection state, để openCart lần đầu tự chọn tất cả.
+    if (hasSavedSelection()) {
+        try {
+            const addedKey = `${normalizeId(productId)}_${selectedSize || "nosize"}`;
+            selectedItems.add(addedKey);
+            saveSelectedItems();
+        } catch (e) {
+            // ignore
+        }
+    }
+
     saveCart();
     // Đã tắt thông báo toast
 
@@ -7072,6 +7152,7 @@ function removeFromCart(productId) {
     }
 
     cart = cart.filter((item) => normalizeId(item.id) !== pid);
+    if (hasSavedSelection()) saveSelectedItems();
     saveCart();
     showToast("Đã xóa khỏi giỏ hàng", "info");
 }
@@ -7182,6 +7263,7 @@ function changeCartItemSize(productId, category) {
                 }
             }
 
+            if (hasSavedSelection()) saveSelectedItems();
             saveCart();
             updateCartUI();
             modal.remove();
@@ -7203,6 +7285,7 @@ function clearCart() {
     if (confirm("Bạn có chắc muốn xóa tất cả sản phẩm khỏi giỏ hàng?")) {
         cart = [];
         selectedItems.clear();
+        if (hasSavedSelection()) saveSelectedItems();
         saveCart();
         showToast("Đã xóa tất cả sản phẩm", "info");
     }
@@ -7362,6 +7445,15 @@ function openCart() {
     rememberBottomNavActiveBeforeCart();
     cartModal.classList.add("active");
     document.body.style.overflow = "hidden";
+    // Không ép chọn tất cả mỗi lần mở.
+    // Trạng thái checkbox được lưu trong localStorage và chỉ auto-select lần đầu (khi chưa có state lưu).
+    if (!hasSavedSelection()) {
+        // Lần đầu user mở giỏ hàng -> mặc định chọn tất cả
+        selectAllCartItems();
+    } else {
+        // Nếu đã có state lưu, dọn stale keys nếu có
+        syncSelectedItemsWithCart({ persist: true });
+    }
     updateCartModal();
     updateBottomNavActive("cart");
 }
@@ -7375,6 +7467,16 @@ function toggleCart() {
 
 // Checkout cart (send to Messenger)
 // Toggle select all items
+function selectAllCartItems() {
+    selectedItems.clear();
+    if (!Array.isArray(cart) || cart.length === 0) return;
+    cart.forEach((item) => {
+        const itemKey = `${item.id}_${item.size || "nosize"}`;
+        selectedItems.add(itemKey);
+    });
+    saveSelectedItems();
+}
+
 function toggleSelectAll() {
     const allSelected = selectedItems.size === cart.length && cart.length > 0;
 
@@ -7390,6 +7492,7 @@ function toggleSelectAll() {
     }
 
     // Update UI
+    saveSelectedItems();
     updateCartModal();
 }
 
@@ -7402,6 +7505,7 @@ function toggleSelectItem(itemKey) {
     }
 
     // Update total and select all button
+    saveSelectedItems();
     updateCartTotal();
     updateSelectAllButton();
 }
