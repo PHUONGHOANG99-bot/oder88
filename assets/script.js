@@ -530,8 +530,8 @@ function escapeMessageForHTML(message) {
 
 // ==================== HÀM MỞ MESSENGER APP ====================
 function openMessengerApp(message = "") {
-    // Facebook page username của oder88shop
-    const pageUsername = "oder88shop";
+    // Facebook page username của oder88.comshop
+    const pageUsername = "oder88.comshop";
 
     // URL để mở Messenger page (m.me tự động mở app nếu có, nếu không thì mở web)
     let messengerUrl = `https://m.me/${pageUsername}`;

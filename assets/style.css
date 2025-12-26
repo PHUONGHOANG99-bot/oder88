@@ -4396,8 +4396,14 @@ picture img {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: white;
+    /* Cam nhạt + trong suốt */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 102, 0, 0.14) 0%,
+        rgba(255, 140, 0, 0.18) 50%,
+        rgba(255, 106, 0, 0.14) 100%
+    );
+    color: #333;
     padding: 1.5rem 0 0.75rem;
     margin-top: 0.5rem;
     position: relative;
@@ -4470,7 +4476,7 @@ picture img {
 }
 
 .footer-section p {
-    color: #bdc3c7;
+    color: rgba(0, 0, 0, 0.72);
     margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.5;
