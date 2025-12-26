@@ -4803,7 +4803,19 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
             iv_load_policy: "3", // Ẩn video annotations
             playsinline: "1",
             enablejsapi: "1", // Bật JavaScript API để lắng nghe events
+            // Cố gắng ưu tiên chất lượng cao nhất (YouTube có thể vẫn tự điều chỉnh theo mạng/thiết bị)
+            vq: "hd1080",
+            hd: "1",
         });
+
+        // Thêm origin để YouTube IFrame API hoạt động ổn định hơn
+        try {
+            if (typeof window !== "undefined" && window.location && window.location.origin) {
+                params.set("origin", window.location.origin);
+            }
+        } catch (e) {
+            // ignore
+        }
 
         // Sử dụng youtube-nocookie.com để tránh yêu cầu đăng nhập
         // Đây là chế độ privacy-enhanced của YouTube, không yêu cầu cookie/login
@@ -4851,6 +4863,22 @@ function playVideo() {
                                 "*"
                             );
                         }, 200);
+
+                        // Cố gắng ép chất lượng cao nhất sau khi bắt đầu phát
+                        setTimeout(() => {
+                            try {
+                                mainVideoIframe.contentWindow.postMessage(
+                                    '{"event":"command","func":"setPlaybackQuality","args":["hd1080"]}',
+                                    "*"
+                                );
+                                mainVideoIframe.contentWindow.postMessage(
+                                    '{"event":"command","func":"setPlaybackQualityRange","args":["hd1080","highres"]}',
+                                    "*"
+                                );
+                            } catch (e) {
+                                // ignore
+                            }
+                        }, 500);
                     }
                 } catch (e) {
                     // Fallback: just rely on autoplay parameter
