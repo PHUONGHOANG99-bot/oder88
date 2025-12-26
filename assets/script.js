@@ -4506,7 +4506,7 @@ function goToGalleryImage(index) {
 // Helper function to detect if URL is YouTube
 function isYouTubeUrl(url) {
     if (!url) return false;
-    return /youtube\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=/.test(
+    return /youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=/.test(
         url
     );
 }
@@ -4518,8 +4518,8 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
     // Extract video ID from various YouTube URL formats
     let videoId = null;
 
-    // youtube.com/embed/VIDEO_ID
-    const embedMatch = url.match(/youtube\.com\/embed\/([^?&#]+)/);
+    // youtube.com/embed/VIDEO_ID hoặc youtube-nocookie.com/embed/VIDEO_ID
+    const embedMatch = url.match(/youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/);
     if (embedMatch) {
         videoId = embedMatch[1];
     }
@@ -4561,7 +4561,9 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
             enablejsapi: "1", // Bật JavaScript API để lắng nghe events
         });
 
-        return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+        // Sử dụng youtube-nocookie.com để tránh yêu cầu đăng nhập
+        // Đây là chế độ privacy-enhanced của YouTube, không yêu cầu cookie/login
+        return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
     }
 
     return url;
