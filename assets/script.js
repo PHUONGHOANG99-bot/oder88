@@ -12,6 +12,10 @@ let visibleProductsCount = productsPerPage;
 let currentRenderList = [];
 let loadMoreObserver = null;
 const LOAD_MORE_SENTINEL_ID = "productsLoadMoreSentinel";
+const LOAD_MORE_SPINNER_ID = "productsLoadMoreSpinner";
+const PRELOAD_BATCH_SIZE = 12; // preload trước 12 ảnh để user vuốt xuống là ảnh có sẵn
+let isLoadingMore = false;
+const preloadedImageUrls = new Set();
 let currentSlide = 0;
 const itemsPerSlide = 3;
 
@@ -3263,6 +3267,13 @@ function displayProductsPaginated(productsToShow) {
 
             // Setup infinite scroll sentinel
             setupLoadMoreObserver();
+
+            // Preload batch tiếp theo ngay sau khi render đợt đầu
+            if ("requestIdleCallback" in window) {
+                requestIdleCallback(() => preloadNextBatchImages(), { timeout: 1500 });
+            } else {
+                setTimeout(() => preloadNextBatchImages(), 300);
+            }
         });
     }
 }
@@ -3435,20 +3446,38 @@ function ensureLoadMoreSentinel(shouldExist = true) {
     const grid = document.getElementById("productsGrid");
     if (!grid) return null;
 
+    // Spinner hiển thị khi đang preload/append
+    let spinner = document.getElementById(LOAD_MORE_SPINNER_ID);
     let sentinel = document.getElementById(LOAD_MORE_SENTINEL_ID);
     if (!shouldExist) {
+        if (spinner && spinner.parentNode) spinner.parentNode.removeChild(spinner);
         if (sentinel && sentinel.parentNode) sentinel.parentNode.removeChild(sentinel);
         return null;
     }
 
     if (!sentinel) {
+        if (!spinner) {
+            spinner = document.createElement("div");
+            spinner.id = LOAD_MORE_SPINNER_ID;
+            spinner.className = "load-more-spinner";
+            spinner.setAttribute("role", "status");
+            spinner.setAttribute("aria-live", "polite");
+            spinner.style.display = "none";
+            spinner.innerHTML = `
+                <div class="spinner-ring" aria-hidden="true"></div>
+                <div class="spinner-text">Đang tải thêm sản phẩm...</div>
+            `;
+            grid.insertAdjacentElement("afterend", spinner);
+        }
+
         sentinel = document.createElement("div");
         sentinel.id = LOAD_MORE_SENTINEL_ID;
         sentinel.setAttribute("aria-hidden", "true");
         sentinel.style.width = "100%";
         sentinel.style.height = "1px";
         sentinel.style.marginTop = "1px";
-        grid.insertAdjacentElement("afterend", sentinel);
+        // Sentinel luôn nằm sau spinner
+        (spinner || grid).insertAdjacentElement("afterend", sentinel);
     }
     return sentinel;
 }
@@ -3474,12 +3503,97 @@ function setupLoadMoreObserver() {
         (entries) => {
             const entry = entries && entries[0];
             if (!entry || !entry.isIntersecting) return;
-            appendMoreProducts();
+            // Trigger sớm để preload trước khi user chạm đáy
+            loadMoreIfNeeded();
         },
-        { root: null, rootMargin: "600px 0px", threshold: 0 }
+        { root: null, rootMargin: "1200px 0px", threshold: 0 }
     );
 
     loadMoreObserver.observe(sentinel);
+}
+
+async function loadMoreIfNeeded() {
+    if (isLoadingMore) return;
+    if (!currentRenderList || currentRenderList.length === 0) return;
+    if (visibleProductsCount >= currentRenderList.length) return;
+
+    isLoadingMore = true;
+    const spinner = document.getElementById(LOAD_MORE_SPINNER_ID);
+    if (spinner) spinner.style.display = "flex";
+
+    // Preload ảnh của batch tiếp theo trước khi append
+    try {
+        await preloadNextBatchImages();
+    } catch (e) {
+        // ignore preload errors (network/cache)
+    }
+
+    appendMoreProducts();
+
+    if (spinner) spinner.style.display = "none";
+    isLoadingMore = false;
+}
+
+function getProductImageUrl(product) {
+    if (!product || !product.image) return null;
+    return normalizePath(product.image);
+}
+
+function preloadImages(urls, concurrency = 6) {
+    const list = (urls || []).filter(Boolean);
+    if (list.length === 0) return Promise.resolve();
+
+    let idx = 0;
+    let active = 0;
+    let resolved = 0;
+    const total = list.length;
+
+    return new Promise((resolve) => {
+        const next = () => {
+            if (resolved >= total) return resolve();
+            while (active < concurrency && idx < total) {
+                const url = list[idx++];
+                if (!url || preloadedImageUrls.has(url)) {
+                    resolved++;
+                    continue;
+                }
+                preloadedImageUrls.add(url);
+                active++;
+                const img = new Image();
+                img.decoding = "async";
+                img.onload = img.onerror = () => {
+                    active--;
+                    resolved++;
+                    next();
+                };
+                img.src = url;
+            }
+            if (idx >= total && active === 0) resolve();
+        };
+        next();
+    });
+}
+
+function preloadNextBatchImages() {
+    if (!currentRenderList || currentRenderList.length === 0) return Promise.resolve();
+    if (visibleProductsCount >= currentRenderList.length) return Promise.resolve();
+
+    const start = visibleProductsCount;
+    const end = Math.min(start + productsPerPage, currentRenderList.length);
+    const batch = currentRenderList.slice(start, end);
+
+    // Chỉ preload một phần ảnh để tránh tốn băng thông quá nhiều
+    const urls = batch
+        .slice(0, PRELOAD_BATCH_SIZE)
+        .map(getProductImageUrl)
+        .filter(Boolean);
+
+    // Preload + timeout để không treo UI nếu mạng chậm
+    const timeoutMs = 2000;
+    return Promise.race([
+        preloadImages(urls, 6),
+        new Promise((resolve) => setTimeout(resolve, timeoutMs)),
+    ]);
 }
 
 function appendMoreProducts() {
@@ -3515,6 +3629,15 @@ function appendMoreProducts() {
 
     if (visibleProductsCount >= currentRenderList.length) {
         teardownLoadMoreObserver();
+    }
+
+    // Sau khi append xong, lên lịch preload batch kế tiếp (khi browser rảnh)
+    if (visibleProductsCount < currentRenderList.length) {
+        if ("requestIdleCallback" in window) {
+            requestIdleCallback(() => preloadNextBatchImages(), { timeout: 1500 });
+        } else {
+            setTimeout(() => preloadNextBatchImages(), 300);
+        }
     }
 }
 
@@ -6104,14 +6227,14 @@ function initPerformanceOptimizations() {
 
 // Prefetch likely next resources
 function prefetchLikelyResources() {
-    // Prefetch next page products
-    const nextPage = currentPage + 1;
-    const nextPageProducts = products.slice(
-        nextPage * productsPerPage,
-        (nextPage + 1) * productsPerPage
+    // Prefetch "batch" tiếp theo (phù hợp infinite scroll)
+    const list = currentRenderList && currentRenderList.length ? currentRenderList : products;
+    const nextBatchProducts = list.slice(
+        visibleProductsCount,
+        Math.min(visibleProductsCount + productsPerPage, list.length)
     );
     
-    nextPageProducts.slice(0, 8).forEach((product) => {
+    nextBatchProducts.slice(0, 8).forEach((product) => {
         if (product && product.image) {
             const link = document.createElement("link");
             link.rel = "prefetch";
@@ -6123,15 +6246,16 @@ function prefetchLikelyResources() {
 }
 
 function preloadNextPageImages() {
-    const nextPageProducts = products.slice(
-        currentPage * productsPerPage,
-        (currentPage + 1) * productsPerPage
+    const list = currentRenderList && currentRenderList.length ? currentRenderList : products;
+    const nextBatchProducts = list.slice(
+        visibleProductsCount,
+        Math.min(visibleProductsCount + productsPerPage, list.length)
     );
 
     // Use requestIdleCallback to preload images when browser is idle
     if ("requestIdleCallback" in window) {
         requestIdleCallback(() => {
-            nextPageProducts.forEach((product) => {
+            nextBatchProducts.forEach((product) => {
                 if (product && product.image) {
                     const link = document.createElement("link");
                     link.rel = "prefetch";
