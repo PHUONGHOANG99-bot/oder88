@@ -301,7 +301,7 @@ body {
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 100%;
-    z-index: 2;
+    z-index: 4;
     overflow: visible;
     pointer-events: none;
 }
@@ -474,8 +474,10 @@ body {
     align-items: center;
     gap: 16px;
     position: relative;
-    z-index: 3;
+    z-index: 1;
     min-width: 0;
+    flex: 0 0 auto;
+    margin-left: auto;
 }
 
 /* Logo Section - Đơn giản, hiện đại */
@@ -528,6 +530,7 @@ body {
     justify-content: center;
     max-width: 450px;
     min-width: 320px;
+    flex: 0 0 auto;
 }
 
 .search-bar {
@@ -1240,6 +1243,7 @@ body {
 /* Featured Products Wrapper - LIÊN KẾT 2 SECTIONS */
 .featured-products-wrapper {
     position: relative;
+    z-index: 2; /* đảm bảo slider (và dots) nằm trên section phía dưới nếu có overlap */
     margin: 1rem 0 0 0;
     padding: 0;
     overflow: hidden;
@@ -1290,7 +1294,7 @@ body {
 /* Featured Slider - THIẾT KẾ GỌN GÀNG */
 .featured-slider {
     background: #ffffff;
-    padding: 1.5rem 0 0.5rem 0;
+    padding: 1.5rem 0 0.25rem 0;
     margin: 0;
     border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 0 0 1px #e6e6e6;
@@ -1740,10 +1744,13 @@ picture img {
 
 /* Categories Section - MODERN E-COMMERCE STYLE */
 .categories-section {
-    padding: 1rem 0 1.5rem 0;
+    /* Desktop: chừa khoảng thở giữa slider "THỜI TRANG ĐANG HOT" và danh mục */
+    padding: 0.75rem 0 1.5rem 0;
     background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
     margin: 0;
-    margin-top: -0.5rem;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1; /* nằm dưới featured-products-wrapper */
     /* Không cần position và z-index để tránh nổi lên so với các phần khác */
 }
 
@@ -2048,7 +2055,7 @@ picture img {
 .category-item {
     background: #ffffff;
     border-radius: 12px;
-    padding: 10px;
+    padding: 8px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
@@ -4321,6 +4328,11 @@ picture img {
     flex-wrap: wrap;
 }
 
+/* Pagination đã được thay bằng infinite scroll */
+#pagination {
+    display: none !important;
+}
+
 .page-btn {
     min-width: 36px;
     height: 36px;
@@ -5617,7 +5629,7 @@ picture img {
 
     .categories-grid {
         display: flex;
-        gap: 10px;
+        gap: 8px;
         padding: 0 0.75rem;
         overflow-x: auto;
         overflow-y: hidden;
@@ -5626,7 +5638,7 @@ picture img {
     }
 
     .category-item {
-        padding: 8px;
+        padding: 6px;
         min-width: 80px;
         max-width: 95px;
         flex-shrink: 0;
@@ -6368,7 +6380,8 @@ input:focus-visible {
     font-size: 1.5rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    z-index: 1;
+    z-index: 5; /* tránh bị section khác đè lên, vẫn dưới nút prev/next */
+    pointer-events: auto;
 }
 
 /* Category icon wrapper với 3 gạch và kính lúp */
@@ -6594,20 +6607,27 @@ input:focus-visible {
         max-width: 100%;
     }
 
-    /* Add padding to main content to prevent overlap with bottom nav */
-    .main-container,
-    .featured-products-wrapper {
+    /* Add padding to main content to prevent overlap with bottom nav
+       IMPORTANT: Không áp dụng vào .featured-products-wrapper vì sẽ tạo khoảng trống lớn giữa
+       "THỜI TRANG ĐANG HOT" và danh mục trên mobile. */
+    .main-container {
         margin-bottom: 0;
         padding-bottom: 75px;
     }
 
+    .featured-products-wrapper {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
     .featured-slider {
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.25rem;
     }
 
     .categories-section {
-        margin-top: -1rem;
-        padding-top: 0.25rem;
+        /* Kéo lên vừa phải để sát hơn nhưng không đè lên nút prev/next của slider */
+        margin-top: 16px;
+        padding-top: 0.7rem;
     }
 
     .footer {

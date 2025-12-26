@@ -4,7 +4,14 @@ let originalProducts = []; // Lưu bản gốc để shuffle lại
 let currentCategory = "all";
 let searchQuery = "";
 let currentPage = 1;
-const productsPerPage = 40;
+// Infinite scroll: mặc định hiển thị 50 sản phẩm, cuộn xuống sẽ tự tải thêm 50
+const productsPerPage = 50;
+
+// Infinite scroll state
+let visibleProductsCount = productsPerPage;
+let currentRenderList = [];
+let loadMoreObserver = null;
+const LOAD_MORE_SENTINEL_ID = "productsLoadMoreSentinel";
 let currentSlide = 0;
 const itemsPerSlide = 3;
 
@@ -3212,12 +3219,17 @@ function prevSlide() {
 // ==================== HÀM HIỂN THỊ SẢN PHẨM ====================
 function displayProductsPaginated(productsToShow) {
     const grid = document.getElementById("productsGrid");
-    const totalPages = Math.ceil(productsToShow.length / productsPerPage);
-    const startIndex = (currentPage - 1) * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
-    const pageProducts = productsToShow.slice(startIndex, endIndex);
+    if (!grid) return;
 
-    if (pageProducts.length === 0) {
+    // Infinite scroll: reset state mỗi lần lọc/tìm kiếm
+    currentRenderList = Array.isArray(productsToShow) ? productsToShow : [];
+    visibleProductsCount = Math.min(productsPerPage, currentRenderList.length);
+    currentPage = 1; // dùng cho 1 số optimization (prefetch) phía dưới
+
+    // Ẩn pagination số
+    displayPagination(currentRenderList.length, Math.ceil(currentRenderList.length / productsPerPage));
+
+    if (currentRenderList.length === 0) {
         grid.innerHTML = `
             <div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 40px 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);" role="status" aria-live="polite">
                 <i class="fas fa-search" style="font-size: 3rem; color: #FF6B6B; margin-bottom: 15px;" aria-hidden="true"></i>
@@ -3225,12 +3237,38 @@ function displayProductsPaginated(productsToShow) {
                 <p style="color: #666;">Vui lòng thử từ khóa khác hoặc chọn danh mục khác</p>
             </div>
         `;
+        teardownLoadMoreObserver();
+        ensureLoadMoreSentinel(false);
     } else {
         // Batch DOM updates for better performance
         requestAnimationFrame(() => {
-            grid.innerHTML = pageProducts
+            const initialProducts = currentRenderList.slice(0, visibleProductsCount);
+            grid.innerHTML = initialProducts
             .map(
-                (product, index) => `
+                (product, index) => renderProductCard(product, index)
+            )
+            .join("");
+            
+            // Observe new product cards for animation after DOM update
+            requestAnimationFrame(() => {
+                if (scrollObserver) {
+                    document.querySelectorAll(".product-card").forEach((card) => {
+                        if (!card.classList.contains("animate-in")) {
+                            scrollObserver.observe(card);
+                        }
+                    });
+                }
+                applyContentVisibilityHints();
+            });
+
+            // Setup infinite scroll sentinel
+            setupLoadMoreObserver();
+        });
+    }
+}
+
+function renderProductCard(product, index) {
+    return `
             <div class="product-card" role="listitem" aria-label="Sản phẩm ${
                 product.categoryName
             }" data-index="${index}">
@@ -3294,32 +3332,16 @@ function displayProductsPaginated(productsToShow) {
                     </div>
                 </div>
             </div>
-        `
-            )
-            .join("");
-            
-            // Observe new product cards for animation after DOM update
-            requestAnimationFrame(() => {
-                if (scrollObserver) {
-                    document.querySelectorAll(".product-card").forEach((card) => {
-                        if (!card.classList.contains("animate-in")) {
-                            scrollObserver.observe(card);
-                        }
-                    });
-                }
-            });
-        });
-    }
-
-    displayPagination(productsToShow.length, totalPages);
+        `;
 }
 
 function displayPagination(totalProducts, totalPages) {
     const pagination = document.getElementById("pagination");
-    if (totalPages <= 1) {
-        pagination.innerHTML = "";
-        return;
-    }
+    if (!pagination) return;
+    // Bỏ phần số chuyển trang: ẩn hoàn toàn pagination
+    pagination.innerHTML = "";
+    pagination.style.display = "none";
+    return;
 
     let paginationHTML = "";
 
@@ -3405,6 +3427,105 @@ function changePage(page) {
                 top: tabsPosition - 100,
                 behavior: "smooth",
             });
+        }
+    });
+}
+
+function ensureLoadMoreSentinel(shouldExist = true) {
+    const grid = document.getElementById("productsGrid");
+    if (!grid) return null;
+
+    let sentinel = document.getElementById(LOAD_MORE_SENTINEL_ID);
+    if (!shouldExist) {
+        if (sentinel && sentinel.parentNode) sentinel.parentNode.removeChild(sentinel);
+        return null;
+    }
+
+    if (!sentinel) {
+        sentinel = document.createElement("div");
+        sentinel.id = LOAD_MORE_SENTINEL_ID;
+        sentinel.setAttribute("aria-hidden", "true");
+        sentinel.style.width = "100%";
+        sentinel.style.height = "1px";
+        sentinel.style.marginTop = "1px";
+        grid.insertAdjacentElement("afterend", sentinel);
+    }
+    return sentinel;
+}
+
+function teardownLoadMoreObserver() {
+    if (loadMoreObserver) {
+        loadMoreObserver.disconnect();
+        loadMoreObserver = null;
+    }
+}
+
+function setupLoadMoreObserver() {
+    teardownLoadMoreObserver();
+    const sentinel = ensureLoadMoreSentinel(true);
+    if (!sentinel) return;
+
+    if (!("IntersectionObserver" in window)) {
+        // Fallback: không có IO thì không tự load thêm (tránh nặng scroll handler)
+        return;
+    }
+
+    loadMoreObserver = new IntersectionObserver(
+        (entries) => {
+            const entry = entries && entries[0];
+            if (!entry || !entry.isIntersecting) return;
+            appendMoreProducts();
+        },
+        { root: null, rootMargin: "600px 0px", threshold: 0 }
+    );
+
+    loadMoreObserver.observe(sentinel);
+}
+
+function appendMoreProducts() {
+    const grid = document.getElementById("productsGrid");
+    if (!grid) return;
+    if (!currentRenderList || currentRenderList.length === 0) return;
+
+    if (visibleProductsCount >= currentRenderList.length) {
+        teardownLoadMoreObserver();
+        return;
+    }
+
+    const start = visibleProductsCount;
+    const end = Math.min(visibleProductsCount + productsPerPage, currentRenderList.length);
+    const more = currentRenderList.slice(start, end);
+    const html = more.map((p, i) => renderProductCard(p, start + i)).join("");
+    grid.insertAdjacentHTML("beforeend", html);
+
+    visibleProductsCount = end;
+    currentPage = Math.floor(visibleProductsCount / productsPerPage);
+
+    // Observe newly added cards
+    requestAnimationFrame(() => {
+        if (scrollObserver) {
+            document.querySelectorAll(".product-card").forEach((card) => {
+                if (!card.classList.contains("animate-in")) {
+                    scrollObserver.observe(card);
+                }
+            });
+        }
+        applyContentVisibilityHints();
+    });
+
+    if (visibleProductsCount >= currentRenderList.length) {
+        teardownLoadMoreObserver();
+    }
+}
+
+function applyContentVisibilityHints() {
+    // Apply Content Visibility for off-screen items; include newly appended cards too
+    if (!("IntersectionObserver" in window)) return;
+    const productCards = document.querySelectorAll(".product-card");
+    productCards.forEach((card, index) => {
+        if (index > 20) {
+            card.style.contentVisibility = "auto";
+            card.style.containIntrinsicSize = "300px 400px";
         }
     });
 }
