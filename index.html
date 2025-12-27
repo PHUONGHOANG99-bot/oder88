@@ -161,7 +161,7 @@
             crossorigin="anonymous"
         />
         <!-- Preload critical CSS -->
-        <link rel="preload" href="assets/style.css?v=48" as="style" />
+        <link rel="preload" href="assets/style.css?v=50" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -180,7 +180,7 @@
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
 
-        <link rel="stylesheet" href="assets/style.css?v=47" />
+        <link rel="stylesheet" href="assets/style.css?v=50" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -437,6 +437,15 @@
 
                     <!-- Search and Actions - Right Side -->
                     <div class="header-right">
+                        <button
+                            class="header-search-toggle"
+                            id="headerSearchToggleBtn"
+                            aria-label="Mở tìm kiếm"
+                            aria-expanded="false"
+                            type="button"
+                        >
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
                         <div class="header-center">
                             <div class="search-bar">
                                 <i

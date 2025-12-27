@@ -473,6 +473,9 @@ async function initializeApp() {
         // 5. Gắn sự kiện
         setupEventListeners();
 
+        // 5.1 Desktop: thu gọn/mở search bằng nút kính lúp (mobile giữ nguyên)
+        initDesktopHeaderSearchToggle();
+
         // 6. Init scroll to top
         initScrollToTop();
 
@@ -965,7 +968,98 @@ function getActiveLabel(item) {
     return labels[item] || "Trang chủ";
 }
 
+// ==================== DESKTOP HEADER SEARCH TOGGLE ====================
+function isDesktopHeaderSearchMode() {
+    return window.matchMedia && window.matchMedia("(min-width: 993px)").matches;
+}
+
+function setDesktopHeaderSearchOpen(isOpen, options = {}) {
+    const { focusInput = false } = options;
+
+    const headerRight = document.querySelector(".header-right");
+    const toggleBtn = document.getElementById("headerSearchToggleBtn");
+    const searchInput = document.getElementById("searchInput");
+
+    if (!headerRight || !toggleBtn) return;
+
+    // Mobile/tablet: luôn để search theo layout sẵn có, và reset trạng thái toggle
+    if (!isDesktopHeaderSearchMode()) {
+        headerRight.classList.remove("search-open");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.setAttribute("aria-label", "Mở tìm kiếm");
+        const icon = toggleBtn.querySelector("i");
+        if (icon) {
+            icon.classList.add("fa-search");
+            icon.classList.remove("fa-times");
+        }
+        return;
+    }
+
+    headerRight.classList.toggle("search-open", Boolean(isOpen));
+    toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    toggleBtn.setAttribute("aria-label", isOpen ? "Đóng tìm kiếm" : "Mở tìm kiếm");
+
+    const icon = toggleBtn.querySelector("i");
+    if (icon) {
+        icon.classList.toggle("fa-search", !isOpen);
+        icon.classList.toggle("fa-times", isOpen);
+    }
+
+    if (isOpen && focusInput && searchInput) {
+        // Chờ layout update để focus không bị fail khi vừa mở
+        setTimeout(() => {
+            searchInput.focus();
+        }, 0);
+    }
+}
+
+function initDesktopHeaderSearchToggle() {
+    const headerRight = document.querySelector(".header-right");
+    const toggleBtn = document.getElementById("headerSearchToggleBtn");
+
+    if (!headerRight || !toggleBtn) return;
+
+    // Default: gọn (đóng search) trên desktop
+    setDesktopHeaderSearchOpen(false);
+
+    toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isOpen = headerRight.classList.contains("search-open");
+        setDesktopHeaderSearchOpen(!isOpen, { focusInput: !isOpen });
+    });
+
+    // ESC đóng
+    document.addEventListener("keydown", (e) => {
+        if (e.key !== "Escape") return;
+        if (!isDesktopHeaderSearchMode()) return;
+        if (!headerRight.classList.contains("search-open")) return;
+        setDesktopHeaderSearchOpen(false);
+    });
+
+    // Click ra ngoài đóng (chỉ desktop)
+    document.addEventListener("click", (e) => {
+        if (!isDesktopHeaderSearchMode()) return;
+        if (!headerRight.classList.contains("search-open")) return;
+
+        const headerCenter = headerRight.querySelector(".header-center");
+        if (toggleBtn.contains(e.target)) return;
+        if (headerCenter && headerCenter.contains(e.target)) return;
+
+        setDesktopHeaderSearchOpen(false);
+    });
+
+    // Resize qua breakpoint: reset trạng thái cho đúng
+    window.addEventListener("resize", () => {
+        setDesktopHeaderSearchOpen(headerRight.classList.contains("search-open"));
+    });
+}
+
 function focusSearch() {
+    // Nếu desktop đang thu gọn search, tự mở ra rồi focus
+    if (isDesktopHeaderSearchMode()) {
+        setDesktopHeaderSearchOpen(true, { focusInput: true });
+    }
+
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.focus();

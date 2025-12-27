@@ -202,10 +202,11 @@ body {
 }
 
 .header-content {
-    display: flex;
-    justify-content: space-between;
+    /* Desktop: dùng grid để logo ở giữa KHÔNG overlay lên search */
+    display: grid;
+    grid-template-columns: minmax(120px, auto) minmax(0, 1fr) auto;
     align-items: center;
-    gap: 24px;
+    column-gap: 24px;
     padding: 1.2rem 0;
     position: relative;
     z-index: 1;
@@ -291,18 +292,19 @@ body {
 
 /* Header Logo Center - Large Text - Căn giữa hoàn hảo */
 .header-logo-center {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    /* Desktop: nằm đúng flow (grid cột giữa), tránh đè lên search */
+    position: static;
+    transform: none;
+    width: auto;
     max-width: 100%;
-    z-index: 4;
+    min-width: 0;
+    z-index: 2;
     overflow: visible;
+    /* Quan trọng cho iOS PWA: wrapper có thể phủ lên header -> chặn tap.
+       Chỉ cho phần chữ/logo nhận click, còn wrapper thì "xuyên" click xuống các nút khác. */
     pointer-events: none;
 }
 
@@ -325,10 +327,11 @@ body {
 }
 
 .header-brand-text {
-    font-size: 5rem;
+    /* Giảm nguy cơ tràn/đè ở desktop (đặc biệt màn 1366px) */
+    font-size: clamp(2.4rem, 2.2vw + 1rem, 4.2rem);
     font-weight: 900;
     margin: 0;
-    letter-spacing: 28px;
+    letter-spacing: clamp(10px, 1.6vw, 24px);
     text-transform: uppercase;
     font-family: "Arial Black", "Helvetica Neue", "Helvetica", "Impact",
         sans-serif;
@@ -480,6 +483,35 @@ body {
     margin-left: auto;
 }
 
+/* Desktop Search Toggle (ẩn ô tìm kiếm, chỉ hiện kính lúp) */
+.header-search-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.header-search-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.header-search-toggle:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.header-search-toggle i {
+    font-size: 1rem;
+}
+
 /* Logo Section - Đơn giản, hiện đại */
 .logo-wrapper {
     flex-shrink: 0;
@@ -529,8 +561,23 @@ body {
     display: flex;
     justify-content: center;
     max-width: 450px;
-    min-width: 320px;
+    min-width: 280px;
     flex: 0 0 auto;
+}
+
+@media (min-width: 993px) {
+    .header-search-toggle {
+        display: inline-flex;
+    }
+
+    /* Mặc định desktop: ẩn search để gọn, bấm kính lúp sẽ mở */
+    .header-right:not(.search-open) .header-center {
+        display: none;
+    }
+
+    .header-right.search-open .header-center {
+        display: flex;
+    }
 }
 
 .search-bar {
@@ -538,57 +585,71 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    /* Thiết kế mới: hình chữ nhật (KHÔNG bo góc) */
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 25px;
-    border: 2px solid rgba(255, 102, 0, 0.2);
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.12);
     padding: 0 6px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1),
+    height: 46px;
+    gap: 6px;
+    transition: all 0.25s ease;
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.14),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .search-bar:focus-within {
     background: rgba(255, 255, 255, 1);
-    border-color: #ff6600;
-    box-shadow: 0 4px 20px rgba(255, 102, 0, 0.2),
-        0 0 0 4px rgba(255, 102, 0, 0.1);
+    border-color: rgba(255, 102, 0, 0.85);
+    box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.18),
+        0 0 0 3px rgba(255, 102, 0, 0.14);
     transform: translateY(-1px);
 }
 
+.search-bar:hover {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
 .search-icon {
-    padding: 0 14px;
-    color: #666;
+    padding: 0 6px 0 8px;
+    color: rgba(20, 20, 20, 0.55);
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
 }
 
 .search-bar:focus-within .search-icon {
     color: #ff6600;
-    transform: scale(1.1);
+    transform: none;
 }
 
 #searchInput {
     flex: 1;
-    padding: 14px 8px;
+    padding: 0 6px;
     border: none;
     background: transparent;
     color: #1a1a1a;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 0.98rem;
+    font-weight: 600;
     outline: none;
     -webkit-appearance: none;
     appearance: none;
+    min-width: 0;
 }
 
 #searchInput::placeholder {
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: 400;
+    color: rgba(20, 20, 20, 0.45);
+    font-weight: 500;
 }
 
 .search-bar:focus-within #searchInput::placeholder {
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(20, 20, 20, 0.38);
 }
 
 .search-btn {
@@ -596,27 +657,28 @@ body {
     border: none;
     color: white;
     padding: 0;
-    border-radius: 20px;
+    border-radius: 0;
     cursor: pointer;
     font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 44px;
-    height: 44px;
-    margin: 4px;
-    box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
+    height: 38px;
+    margin: 0;
+    box-shadow: 0 8px 18px rgba(255, 102, 0, 0.35);
+    flex-shrink: 0;
 }
 
 .search-btn:hover {
     background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(255, 102, 0, 0.42);
 }
 
 .search-btn:active {
-    transform: scale(0.98);
+    transform: translateY(0) scale(0.98);
 }
 
 .search-clear-btn {
@@ -624,10 +686,10 @@ body {
     border: none;
     color: #999;
     padding: 0;
-    border-radius: 50%;
+    border-radius: 0;
     cursor: pointer;
     font-size: 0.85rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -635,6 +697,7 @@ body {
     height: 28px;
     margin: 0 4px;
     opacity: 0.7;
+    flex-shrink: 0;
 }
 
 .search-clear-btn:hover {
@@ -4607,6 +4670,7 @@ picture img {
     }
 
     .header-content {
+        display: flex;
         flex-wrap: wrap;
         padding: 0.875rem 0;
         gap: 12px;
@@ -4745,13 +4809,13 @@ picture img {
 
     .search-bar {
         max-width: 100%;
-        border-radius: 22px;
+        border-radius: 0;
     }
 
     .search-btn {
         min-width: 42px;
         height: 42px;
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .search-clear-btn {
@@ -5531,7 +5595,7 @@ picture img {
 
     .search-bar {
         padding: 0 3px;
-        border-radius: 18px;
+        border-radius: 0;
     }
 
     #searchInput {
@@ -5542,7 +5606,7 @@ picture img {
     .search-btn {
         min-width: 38px;
         height: 38px;
-        border-radius: 16px;
+        border-radius: 0;
     }
 
     .search-clear-btn {
