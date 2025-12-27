@@ -4127,7 +4127,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG1.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 121
     },
     {
         "id": 459,
@@ -4137,7 +4137,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG2.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 172
     },
     {
         "id": 460,
@@ -4147,7 +4147,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG3.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 118
     },
     {
         "id": 461,
@@ -4157,7 +4157,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG4.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 117
     },
     {
         "id": 462,
@@ -4167,7 +4167,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG5.jpg",
         "bestSeller": false,
-        "purchases": 500
+        "purchases": 158
     },
     {
         "id": 463,
@@ -4177,7 +4177,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG6.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 195
     },
     {
         "id": 464,
@@ -4187,7 +4187,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG7.jpg",
         "bestSeller": true,
-        "purchases": 700
+        "purchases": 188
     },
     {
         "id": 465,
@@ -4197,7 +4197,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG8.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 137
     },
     {
         "id": 466,
@@ -4207,7 +4207,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG9.jpg",
         "bestSeller": false,
-        "purchases": 100
+        "purchases": 145
     },
     {
         "id": 467,
@@ -4217,7 +4217,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG10.jpg",
         "bestSeller": true,
-        "purchases": 200
+        "purchases": 106
     },
     {
         "id": 468,
@@ -4227,7 +4227,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG11.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 119
     },
     {
         "id": 469,
@@ -4237,7 +4237,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG12.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 162
     },
     {
         "id": 470,
@@ -4247,7 +4247,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG13.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 170
     },
     {
         "id": 471,
@@ -4257,7 +4257,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG14.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 167
     },
     {
         "id": 472,
@@ -4267,7 +4267,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG15.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 104
     },
     {
         "id": 473,
@@ -4277,7 +4277,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG16.jpg",
         "bestSeller": true,
-        "purchases": 800
+        "purchases": 158
     },
     {
         "id": 474,
@@ -4287,7 +4287,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG17.jpg",
         "bestSeller": false,
-        "purchases": 100
+        "purchases": 144
     },
     {
         "id": 475,
@@ -4297,7 +4297,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG18.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 176
     },
     {
         "id": 476,
@@ -4307,7 +4307,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG19.jpg",
         "bestSeller": true,
-        "purchases": 300
+        "purchases": 172
     },
     {
         "id": 477,
@@ -4317,7 +4317,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG20.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 101
     },
     {
         "id": 478,
@@ -4327,7 +4327,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG21.jpg",
         "bestSeller": false,
-        "purchases": 500
+        "purchases": 145
     },
     {
         "id": 479,
@@ -4337,7 +4337,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG22.jpg",
         "bestSeller": true,
-        "purchases": 600
+        "purchases": 181
     },
     {
         "id": 480,
@@ -4347,7 +4347,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG23.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 163
     },
     {
         "id": 481,
@@ -4357,7 +4357,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG24.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 153
     },
     {
         "id": 482,
@@ -4367,7 +4367,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG25.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 104
     },
     {
         "id": 483,
@@ -4377,7 +4377,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG26.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 169
     },
     {
         "id": 484,
@@ -4387,7 +4387,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG27.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 102
     },
     {
         "id": 485,
@@ -4397,7 +4397,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG28.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 105
     },
     {
         "id": 486,
@@ -4407,7 +4407,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG29.jpg",
         "bestSeller": false,
-        "purchases": 500
+        "purchases": 170
     },
     {
         "id": 487,
@@ -4417,7 +4417,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG30.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 154
     },
     {
         "id": 488,
@@ -4427,7 +4427,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG31.jpg",
         "bestSeller": true,
-        "purchases": 700
+        "purchases": 135
     },
     {
         "id": 489,
@@ -4437,7 +4437,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG32.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 192
     },
     {
         "id": 490,
@@ -4447,7 +4447,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG33.jpg",
         "bestSeller": false,
-        "purchases": 100
+        "purchases": 127
     },
     {
         "id": 491,
@@ -4457,7 +4457,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG34.jpg",
         "bestSeller": true,
-        "purchases": 200
+        "purchases": 181
     },
     {
         "id": 492,
@@ -4467,7 +4467,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG35.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 181
     },
     {
         "id": 493,
@@ -4477,7 +4477,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG36.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 133
     },
     {
         "id": 494,
@@ -4487,7 +4487,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG37.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 163
     },
     {
         "id": 495,
@@ -4497,7 +4497,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG38.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 106
     },
     {
         "id": 496,
@@ -4507,7 +4507,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG39.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 180
     },
     {
         "id": 497,
@@ -4517,7 +4517,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG40.jpg",
         "bestSeller": true,
-        "purchases": 800
+        "purchases": 177
     },
     {
         "id": 498,
@@ -4527,7 +4527,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG41.jpg",
         "bestSeller": false,
-        "purchases": 100
+        "purchases": 126
     },
     {
         "id": 499,
@@ -4537,7 +4537,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG42.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 126
     },
     {
         "id": 500,
@@ -4547,7 +4547,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG43.jpg",
         "bestSeller": true,
-        "purchases": 300
+        "purchases": 172
     },
     {
         "id": 501,
@@ -4557,7 +4557,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG44.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 157
     },
     {
         "id": 502,
@@ -4567,7 +4567,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG45.jpg",
         "bestSeller": false,
-        "purchases": 500
+        "purchases": 117
     },
     {
         "id": 503,
@@ -4577,7 +4577,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG46.jpg",
         "bestSeller": true,
-        "purchases": 600
+        "purchases": 188
     },
     {
         "id": 504,
@@ -4587,7 +4587,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG47.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 163
     },
     {
         "id": 505,
@@ -4597,7 +4597,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG48.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 120
     },
     {
         "id": 506,
@@ -4607,7 +4607,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG49.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 129
     },
     {
         "id": 507,
@@ -4617,7 +4617,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG50.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 120
     },
     {
         "id": 508,
@@ -4627,7 +4627,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG51.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 120
     },
     {
         "id": 509,
@@ -4637,7 +4637,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG52.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 174
     },
     {
         "id": 510,
@@ -4647,7 +4647,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG53.jpg",
         "bestSeller": false,
-        "purchases": 500
+        "purchases": 115
     },
     {
         "id": 511,
@@ -4657,7 +4657,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG54.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 200
     },
     {
         "id": 512,
@@ -4667,7 +4667,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG55.jpg",
         "bestSeller": true,
-        "purchases": 700
+        "purchases": 118
     },
     {
         "id": 513,
@@ -4677,7 +4677,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG56.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 155
     },
     {
         "id": 514,
@@ -4687,7 +4687,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG57.jpg",
         "bestSeller": false,
-        "purchases": 100
+        "purchases": 146
     },
     {
         "id": 515,
@@ -4697,7 +4697,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG58.jpg",
         "bestSeller": true,
-        "purchases": 200
+        "purchases": 184
     },
     {
         "id": 516,
@@ -4707,7 +4707,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG59.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 111
     },
     {
         "id": 517,
@@ -4717,7 +4717,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG60.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 107
     },
     {
         "id": 518,
@@ -4727,7 +4727,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG61.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 191
     },
     {
         "id": 519,
@@ -4737,7 +4737,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG62.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 122
     },
     {
         "id": 520,
@@ -4747,7 +4747,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG63.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 161
     },
     {
         "id": 521,
@@ -4757,7 +4757,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG64.jpg",
         "bestSeller": true,
-        "purchases": 800
+        "purchases": 191
     },
     {
         "id": 522,
@@ -4767,7 +4767,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG65.jpg",
         "bestSeller": false,
-        "purchases": 100
+        "purchases": 174
     },
     {
         "id": 523,
@@ -4777,7 +4777,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG66.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 120
     },
     {
         "id": 524,
@@ -4787,7 +4787,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG67.jpg",
         "bestSeller": true,
-        "purchases": 300
+        "purchases": 135
     },
     {
         "id": 525,
@@ -4797,7 +4797,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG68.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 112
     },
     {
         "id": 526,
@@ -4807,7 +4807,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG69.jpg",
         "bestSeller": false,
-        "purchases": 500
+        "purchases": 121
     },
     {
         "id": 527,
@@ -4817,7 +4817,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG70.jpg",
         "bestSeller": true,
-        "purchases": 600
+        "purchases": 179
     },
     {
         "id": 528,
@@ -4827,7 +4827,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG71.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 144
     },
     {
         "id": 529,
@@ -4837,7 +4837,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG72.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 188
     },
     {
         "id": 530,
@@ -4847,7 +4847,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG73.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 153
     },
     {
         "id": 531,
@@ -4857,7 +4857,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG74.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 173
     },
     {
         "id": 532,
@@ -4867,7 +4867,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG75.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 136
     },
     {
         "id": 533,
@@ -4877,7 +4877,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG76.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 113
     },
     {
         "id": 534,
@@ -4887,7 +4887,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG77.jpg",
         "bestSeller": false,
-        "purchases": 500
+        "purchases": 176
     },
     {
         "id": 535,
@@ -4897,7 +4897,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG78.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 167
     },
     {
         "id": 536,
@@ -4907,7 +4907,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG79.jpg",
         "bestSeller": true,
-        "purchases": 700
+        "purchases": 147
     },
     {
         "id": 537,
@@ -4917,7 +4917,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG80.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 119
     },
     {
         "id": 538,
@@ -4927,7 +4927,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG81.jpg",
         "bestSeller": false,
-        "purchases": 100
+        "purchases": 188
     },
     {
         "id": 539,
@@ -4937,7 +4937,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG82.jpg",
         "bestSeller": true,
-        "purchases": 200
+        "purchases": 112
     },
     {
         "id": 540,
@@ -4947,7 +4947,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG83.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 153
     },
     {
         "id": 541,
@@ -4957,7 +4957,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG84.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 190
     },
     {
         "id": 542,
@@ -4967,7 +4967,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG85.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 154
     },
     {
         "id": 543,
@@ -4977,7 +4977,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG86.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 116
     },
     {
         "id": 544,
@@ -4987,7 +4987,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG87.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 186
     },
     {
         "id": 545,
@@ -4997,7 +4997,7 @@
         "categoryName": "Nón nữ",
         "image": "assets/image/phu-kien/non-nu/NG88.jpg",
         "bestSeller": true,
-        "purchases": 800
+        "purchases": 125
     },
     {
         "id": 650,

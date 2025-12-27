@@ -2465,6 +2465,11 @@ picture img {
     z-index: calc(var(--z-sticky) + 1);
 }
 
+/* Khi tabs đang sticky trên cùng, đẩy nút Facebook xuống để không đè lên tab "Gợi ý" */
+html.tabs-stuck .header-fb-btn {
+    top: calc(var(--tabs-sticky-top, 0px) + var(--tabs-sticky-height, 0px) + 12px) !important;
+}
+
 .products-tabs::-webkit-scrollbar {
     display: none;
 }

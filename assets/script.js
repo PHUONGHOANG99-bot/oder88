@@ -5908,6 +5908,36 @@ function setupEventListeners() {
 
             currentPage = 1;
             displayProductsPaginated(filtered);
+
+            // Khi đang lướt giữa danh sách mà bấm tab:
+            // render lại và cuộn về đầu danh sách (ngay dưới thanh tabs) để xem từ trên xuống.
+            requestAnimationFrame(() => {
+                try {
+                    const tabs =
+                        document.getElementById("productsTabs") ||
+                        document.querySelector(".products-tabs");
+                    const grid = document.getElementById("productsGrid");
+                    if (!tabs && !grid) return;
+
+                    const tabsTopCss =
+                        tabs ? Number.parseFloat(getComputedStyle(tabs).top) || 0 : 0;
+                    const tabsHeight = tabs ? tabs.offsetHeight || 0 : 0;
+                    const offset = tabsTopCss + tabsHeight + 10;
+
+                    const targetEl = grid || tabs;
+                    const targetTop =
+                        targetEl.getBoundingClientRect().top +
+                        window.pageYOffset -
+                        offset;
+
+                    window.scrollTo({
+                        top: Math.max(0, targetTop),
+                        behavior: "smooth",
+                    });
+                } catch (e) {
+                    // ignore
+                }
+            });
         });
     });
 
@@ -6353,6 +6383,33 @@ function initPerformanceOptimizations() {
             header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.15)';
         } else if (header) {
             header.style.boxShadow = '0 4px 20px rgba(255, 102, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.2)';
+        }
+
+        // When products tabs are sticky, move Facebook button down to avoid overlap
+        try {
+            const tabs =
+                document.getElementById("productsTabs") ||
+                document.querySelector(".products-tabs");
+            if (tabs) {
+                const rect = tabs.getBoundingClientRect();
+                const cs = window.getComputedStyle(tabs);
+                const topCss = Number.parseFloat(cs.top) || 0;
+                const stuck = rect.top <= topCss + 1;
+
+                document.documentElement.classList.toggle("tabs-stuck", stuck);
+                document.documentElement.style.setProperty(
+                    "--tabs-sticky-top",
+                    `${topCss}px`
+                );
+                document.documentElement.style.setProperty(
+                    "--tabs-sticky-height",
+                    `${tabs.offsetHeight || 0}px`
+                );
+            } else {
+                document.documentElement.classList.remove("tabs-stuck");
+            }
+        } catch (e) {
+            // ignore
         }
         
         lastScrollY = currentScrollY;
