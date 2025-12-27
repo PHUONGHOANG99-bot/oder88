@@ -4293,6 +4293,22 @@ function handleSearch() {
     // Cập nhật hiển thị nút quay lại
     updateBackButton();
 
+    // Sau khi tìm kiếm xong: nếu đang ở phía trên khu vực sản phẩm,
+    // tự cuộn xuống để hiển thị từ phần tab trở xuống.
+    setTimeout(() => {
+        const productsTabs =
+            document.getElementById("productsTabs") ||
+            document.querySelector(".products-tabs");
+        if (!productsTabs) return;
+
+        const rect = productsTabs.getBoundingClientRect();
+        // Chỉ kéo xuống nếu tabs còn nằm phía dưới (tránh kéo ngược lên khi user đang xem sản phẩm)
+        if (rect.top > 120) {
+            const targetTop = rect.top + window.pageYOffset - 10;
+            window.scrollTo({ top: targetTop, behavior: "smooth" });
+        }
+    }, 120);
+
     // Đã tắt thông báo khi tìm kiếm
 }
 
