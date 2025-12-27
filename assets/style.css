@@ -5921,6 +5921,25 @@ picture img {
     }
 }
 
+/* iOS PWA (Add to Home Screen) - tránh va vào tai thỏ/status bar */
+@supports (padding: env(safe-area-inset-top)) {
+    @media (display-mode: standalone), (display-mode: fullscreen) {
+        /* Đẩy header xuống dưới safe-area nhưng KHÔNG làm header cao thêm */
+        .header {
+            top: env(safe-area-inset-top);
+        }
+
+        /* Các nút fixed ở góc phải cũng cần hạ xuống */
+        .header-fb-btn {
+            top: calc(1.2rem + env(safe-area-inset-top));
+        }
+
+        .floating-social-buttons {
+            top: calc(10px + env(safe-area-inset-top));
+        }
+    }
+}
+
 /* Loading animation for images */
 @keyframes shimmer {
     0% {
