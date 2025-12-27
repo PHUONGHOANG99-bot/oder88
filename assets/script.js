@@ -6070,6 +6070,38 @@ document.addEventListener("DOMContentLoaded", function () {
     // Khởi tạo app
     initializeApp();
 
+    // ==================== DISABLE iOS PINCH/DOUBLE-TAP ZOOM (theo yêu cầu) ====================
+    // Lưu ý: iOS Safari/PWA vẫn có thể zoom bằng gesture ngay cả khi chỉ "lướt".
+    // Chặn gesture events để tránh phóng to ngoài ý muốn.
+    try {
+        // Pinch zoom on iOS (Safari)
+        ["gesturestart", "gesturechange", "gestureend"].forEach((evt) => {
+            document.addEventListener(
+                evt,
+                (e) => {
+                    e.preventDefault();
+                },
+                { passive: false }
+            );
+        });
+
+        // Double-tap zoom (một số trường hợp)
+        let lastTouchEnd = 0;
+        document.addEventListener(
+            "touchend",
+            (e) => {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    e.preventDefault();
+                }
+                lastTouchEnd = now;
+            },
+            { passive: false }
+        );
+    } catch (e) {
+        // ignore
+    }
+
     // Initialize modern features
     initThemeToggle();
     initIntersectionObserver();

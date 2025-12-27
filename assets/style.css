@@ -139,6 +139,12 @@ body {
         color var(--transition-base);
 }
 
+/* Tắt double-tap zoom trên nhiều trình duyệt (không ảnh hưởng scroll) */
+html,
+body {
+    touch-action: manipulation;
+}
+
 /* Modern utility classes */
 .mobile-view {
     --spacing-md: 0.75rem;
@@ -207,7 +213,8 @@ body {
     grid-template-columns: minmax(120px, auto) minmax(0, 1fr) auto;
     align-items: center;
     column-gap: 24px;
-    padding: 1.2rem 0;
+    /* Gọn hơn */
+    padding: 0.75rem 0;
     position: relative;
     z-index: 1;
 }
@@ -220,7 +227,7 @@ body {
     position: relative;
     z-index: 3;
     min-width: 120px;
-    gap: 12px;
+    gap: 10px;
 }
 
 /* Back Button - Nút quay lại */
@@ -229,12 +236,12 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 10px 16px;
+    padding: 8px 12px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
+    border-radius: 10px;
     color: #333;
     font-size: 0.9rem;
     font-weight: 600;
@@ -328,10 +335,10 @@ body {
 
 .header-brand-text {
     /* Giảm nguy cơ tràn/đè ở desktop (đặc biệt màn 1366px) */
-    font-size: clamp(2.4rem, 2.2vw + 1rem, 4.2rem);
+    font-size: clamp(2.1rem, 2vw + 0.9rem, 3.6rem);
     font-weight: 900;
     margin: 0;
-    letter-spacing: clamp(10px, 1.6vw, 24px);
+    letter-spacing: clamp(8px, 1.3vw, 20px);
     text-transform: uppercase;
     font-family: "Arial Black", "Helvetica Neue", "Helvetica", "Impact",
         sans-serif;
@@ -339,7 +346,7 @@ body {
     white-space: nowrap;
     text-align: center;
     width: auto;
-    padding: 12px 24px;
+    padding: 8px 14px;
     cursor: pointer;
     transition: all 0.3s ease;
     user-select: none;
@@ -475,7 +482,7 @@ body {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     position: relative;
     z-index: 1;
     min-width: 0;
@@ -488,9 +495,9 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
     border: 2px solid rgba(255, 255, 255, 0.35);
     background: rgba(255, 255, 255, 0.22);
     color: #ffffff;
@@ -592,7 +599,7 @@ body {
     border-radius: 0;
     border: 1px solid rgba(0, 0, 0, 0.12);
     padding: 0 6px;
-    height: 46px;
+    height: 40px;
     gap: 6px;
     transition: all 0.25s ease;
     box-shadow:
@@ -641,6 +648,8 @@ body {
     -webkit-appearance: none;
     appearance: none;
     min-width: 0;
+    height: 100%;
+    line-height: 1.2;
 }
 
 #searchInput::placeholder {
@@ -665,7 +674,7 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 44px;
-    height: 38px;
+    height: 32px;
     margin: 0;
     box-shadow: 0 8px 18px rgba(255, 102, 0, 0.35);
     flex-shrink: 0;
@@ -717,14 +726,14 @@ body {
     border: none;
     color: white;
     padding: 0;
-    border-radius: 20px;
+    border-radius: 14px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 44px;
-    height: 44px;
+    min-width: 40px;
+    height: 40px;
     margin: 0;
     box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
     position: relative;
@@ -4672,15 +4681,15 @@ picture img {
     .header-content {
         display: flex;
         flex-wrap: wrap;
-        padding: 0.875rem 0;
+        padding: 0.6rem 0;
         gap: 12px;
     }
 
     .header-brand-text {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
         font-weight: 900;
-        letter-spacing: 18px;
-        padding: 10px 20px;
+        letter-spacing: 14px;
+        padding: 8px 14px;
         transform: none;
         width: auto;
         display: inline-block;
@@ -4701,7 +4710,7 @@ picture img {
     }
 
     .back-btn {
-        padding: 10px 14px;
+        padding: 8px 12px;
         font-size: 0.9rem;
     }
 
@@ -4777,7 +4786,7 @@ picture img {
         order: 3;
         flex: 1 1 100%;
         justify-content: space-between;
-        margin-top: 8px;
+        margin-top: 6px;
         gap: 8px;
     }
 
@@ -4790,7 +4799,7 @@ picture img {
 
     .mobile-menu-btn {
         display: flex;
-        padding: 12px 16px;
+        padding: 10px 14px;
         font-size: 0.95rem;
         margin-top: 4px;
     }
@@ -4813,8 +4822,8 @@ picture img {
     }
 
     .search-btn {
-        min-width: 42px;
-        height: 42px;
+        min-width: 40px;
+        height: 34px;
         border-radius: 0;
     }
 
@@ -5117,7 +5126,7 @@ picture img {
     }
 
     #searchInput {
-        padding: 12px 6px;
+        padding: 0 6px;
         font-size: 0.9rem;
     }
 
@@ -5128,8 +5137,8 @@ picture img {
 
     .search-btn {
         min-width: 40px;
-        height: 40px;
-        margin: 3px;
+        height: 32px;
+        margin: 0;
     }
 
     .search-clear-btn {
@@ -5599,13 +5608,13 @@ picture img {
     }
 
     #searchInput {
-        padding: 12px 6px;
+        padding: 0 6px;
         font-size: 0.85rem;
     }
 
     .search-btn {
         min-width: 38px;
-        height: 38px;
+        height: 32px;
         border-radius: 0;
     }
 
@@ -5919,6 +5928,18 @@ picture img {
     .mobile-categories {
         -webkit-overflow-scrolling: touch;
     }
+
+    /* iOS Safari: focus input < 16px sẽ auto-zoom (đặc biệt ô search) */
+    input[type="search"],
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select,
+    #searchInput {
+        font-size: 16px !important;
+    }
 }
 
 /* iOS PWA (Add to Home Screen) - tránh va vào tai thỏ/status bar */
@@ -5937,6 +5958,10 @@ picture img {
         top: env(safe-area-inset-top);
         height: calc(100% - 75px - env(safe-area-inset-top));
     }
+    /* Nút X trong gallery modal (PWA iPhone hay bị tai thỏ che) */
+    html.is-standalone .gallery-close-btn {
+        top: calc(12px + env(safe-area-inset-top)) !important;
+    }
 
     /* Áp dụng theo display-mode (chuẩn) */
     @media (display-mode: standalone), (display-mode: fullscreen) {
@@ -5952,6 +5977,10 @@ picture img {
         .mobile-categories {
             top: env(safe-area-inset-top);
             height: calc(100% - 75px - env(safe-area-inset-top));
+        }
+        /* Nút X trong gallery modal */
+        .gallery-close-btn {
+            top: calc(12px + env(safe-area-inset-top)) !important;
         }
     }
 }
