@@ -5923,19 +5923,35 @@ picture img {
 
 /* iOS PWA (Add to Home Screen) - tránh va vào tai thỏ/status bar */
 @supports (padding: env(safe-area-inset-top)) {
+    /* Áp dụng khi có class is-standalone (JS set) */
+    html.is-standalone .header {
+        top: env(safe-area-inset-top);
+    }
+    html.is-standalone .header-fb-btn {
+        top: calc(1rem + env(safe-area-inset-top)) !important;
+    }
+    html.is-standalone .floating-social-buttons {
+        top: calc(10px + env(safe-area-inset-top)) !important;
+    }
+    html.is-standalone .mobile-categories {
+        top: env(safe-area-inset-top);
+        height: calc(100% - 75px - env(safe-area-inset-top));
+    }
+
+    /* Áp dụng theo display-mode (chuẩn) */
     @media (display-mode: standalone), (display-mode: fullscreen) {
-        /* Đẩy header xuống dưới safe-area nhưng KHÔNG làm header cao thêm */
         .header {
             top: env(safe-area-inset-top);
         }
-
-        /* Các nút fixed ở góc phải cũng cần hạ xuống */
         .header-fb-btn {
-            top: calc(1.2rem + env(safe-area-inset-top));
+            top: calc(1rem + env(safe-area-inset-top)) !important;
         }
-
         .floating-social-buttons {
-            top: calc(10px + env(safe-area-inset-top));
+            top: calc(10px + env(safe-area-inset-top)) !important;
+        }
+        .mobile-categories {
+            top: env(safe-area-inset-top);
+            height: calc(100% - 75px - env(safe-area-inset-top));
         }
     }
 }

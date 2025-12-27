@@ -161,7 +161,7 @@
             crossorigin="anonymous"
         />
         <!-- Preload critical CSS -->
-        <link rel="preload" href="assets/style.css?v=51" as="style" />
+        <link rel="preload" href="assets/style.css?v=52" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -180,7 +180,7 @@
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
 
-        <link rel="stylesheet" href="assets/style.css?v=51" />
+        <link rel="stylesheet" href="assets/style.css?v=52" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -196,6 +196,19 @@
                         ? "dark"
                         : "light");
                 document.documentElement.setAttribute("data-theme", theme);
+
+                // iOS PWA detection (Add to Home Screen)
+                // - navigator.standalone: iOS Safari/PWA specific
+                // - display-mode: standard
+                const isStandalone =
+                    window.navigator.standalone === true ||
+                    (window.matchMedia &&
+                        window.matchMedia("(display-mode: standalone)").matches) ||
+                    (window.matchMedia &&
+                        window.matchMedia("(display-mode: fullscreen)").matches);
+                if (isStandalone) {
+                    document.documentElement.classList.add("is-standalone");
+                }
             })();
         </script>
 
