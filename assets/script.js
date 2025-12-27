@@ -4438,7 +4438,11 @@ function openProductGallery(productId, imageIndex = 0) {
                 // YouTube iframe with enablejsapi=1 sends postMessage events
                 const messageHandler = function (event) {
                     // Verify origin is from YouTube
-                    if (event.origin !== "https://www.youtube.com") return;
+                    if (
+                        event.origin !== "https://www.youtube.com" &&
+                        event.origin !== "https://www.youtube-nocookie.com"
+                    )
+                        return;
 
                     // Parse the message data
                     if (event.data) {
@@ -4475,6 +4479,11 @@ function openProductGallery(productId, imageIndex = 0) {
                                     if (videoPlayOverlay) {
                                         videoPlayOverlay.style.display = "none";
                                     }
+                                    // Khi bắt đầu phát, cố gắng ép 720p
+                                    tryForceYouTubeQuality(mainVideoIframe, "hd720");
+                                } else if (state === 3) {
+                                    // Buffering: đôi khi YouTube đổi chất lượng -> re-assert
+                                    tryForceYouTubeQuality(mainVideoIframe, "hd720");
                                 }
                             }
                         } catch (e) {
@@ -4898,7 +4907,7 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
             playsinline: "1",
             enablejsapi: "1", // Bật JavaScript API để lắng nghe events
             // Cố gắng ưu tiên chất lượng cao nhất (YouTube có thể vẫn tự điều chỉnh theo mạng/thiết bị)
-            vq: "hd1080",
+            vq: "hd720",
             hd: "1",
         });
 
@@ -4917,6 +4926,46 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
     }
 
     return url;
+}
+
+// Best-effort force YouTube quality via postMessage (requires enablejsapi=1)
+function tryForceYouTubeQuality(iframe, quality = "hd720") {
+    if (!iframe || !iframe.contentWindow || !iframe.contentWindow.postMessage) return;
+
+    // Prevent spamming too frequently (YouTube may ignore or auto-adjust anyway)
+    const now = Date.now();
+    if (iframe._lastQualityForceAt && now - iframe._lastQualityForceAt < 800) return;
+    iframe._lastQualityForceAt = now;
+
+    try {
+        // Desired quality
+        iframe.contentWindow.postMessage(
+            JSON.stringify({
+                event: "command",
+                func: "setPlaybackQuality",
+                args: [quality],
+            }),
+            "*"
+        );
+
+        // Re-assert after a short delay to catch buffering transitions
+        setTimeout(() => {
+            try {
+                iframe.contentWindow.postMessage(
+                    JSON.stringify({
+                        event: "command",
+                        func: "setPlaybackQuality",
+                        args: [quality],
+                    }),
+                    "*"
+                );
+            } catch (e) {
+                // ignore
+            }
+        }, 900);
+    } catch (e) {
+        // ignore
+    }
 }
 
 // Play video
@@ -4958,21 +5007,10 @@ function playVideo() {
                             );
                         }, 200);
 
-                        // Cố gắng ép chất lượng cao nhất sau khi bắt đầu phát
+                        // Cố gắng ép chất lượng 720p sau khi bắt đầu phát
                         setTimeout(() => {
-                            try {
-                                mainVideoIframe.contentWindow.postMessage(
-                                    '{"event":"command","func":"setPlaybackQuality","args":["hd1080"]}',
-                                    "*"
-                                );
-                                mainVideoIframe.contentWindow.postMessage(
-                                    '{"event":"command","func":"setPlaybackQualityRange","args":["hd1080","highres"]}',
-                                    "*"
-                                );
-                            } catch (e) {
-                                // ignore
-                            }
-                        }, 500);
+                            tryForceYouTubeQuality(mainVideoIframe, "hd720");
+                        }, 450);
                     }
                 } catch (e) {
                     // Fallback: just rely on autoplay parameter
