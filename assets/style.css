@@ -780,7 +780,7 @@ body {
         0 2px 8px rgba(24, 119, 242, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: fixed;
-    top: var(--fb-btn-top, 1.2rem);
+    top: var(--fb-btn-top, calc(1.2rem + 10px));
     right: 1.5rem;
     z-index: 999; /* Thấp hơn tabs để không đè lên */
     overflow: hidden;
@@ -5111,7 +5111,7 @@ html.tabs-stuck .header-fb-btn {
     .header-fb-btn {
         display: flex !important;
         position: fixed !important;
-        top: var(--fb-btn-top, 1rem) !important; /* Sử dụng CSS variable - luôn dùng biến này */
+        top: var(--fb-btn-top, calc(1rem + 10px)) !important; /* Sử dụng CSS variable - luôn dùng biến này */
         right: 1rem !important;
         z-index: 999 !important; /* Thấp hơn tabs để không đè lên */
         padding: 11px 16px !important;
@@ -5970,7 +5970,7 @@ html.tabs-stuck .header-fb-btn {
     /* Áp dụng khi có class is-standalone (JS set) */
     html.is-standalone .header-fb-btn {
         /* Respect JS-calculated position when available (prevents overlap with tabs) */
-        top: var(--fb-btn-top, calc(1rem + env(safe-area-inset-top))) !important;
+        top: var(--fb-btn-top, calc(1rem + 10px + env(safe-area-inset-top))) !important;
     }
     html.is-standalone .floating-social-buttons {
         top: calc(10px + env(safe-area-inset-top)) !important;
@@ -5991,7 +5991,7 @@ html.tabs-stuck .header-fb-btn {
     @media (display-mode: standalone), (display-mode: fullscreen) {
         .header-fb-btn {
             /* Respect JS-calculated position when available (prevents overlap with tabs) */
-            top: var(--fb-btn-top, calc(1rem + env(safe-area-inset-top))) !important;
+            top: var(--fb-btn-top, calc(1rem + 10px + env(safe-area-inset-top))) !important;
         }
         .floating-social-buttons {
             top: calc(10px + env(safe-area-inset-top)) !important;

@@ -6319,10 +6319,10 @@ function initPerformanceOptimizations() {
                     );
                     document.documentElement.classList.add("tabs-stuck");
                 } else {
-                    // Reset về vị trí mặc định
+                    // Reset về vị trí mặc định (hạ xuống thêm 10px)
                     document.documentElement.style.setProperty(
                         "--fb-btn-top",
-                        "1.2rem"
+                        "calc(1.2rem + 10px)"
                     );
                     document.documentElement.classList.remove("tabs-stuck");
                 }
@@ -6337,9 +6337,9 @@ function initPerformanceOptimizations() {
                     `${tabs.offsetHeight || 0}px`
                 );
             } else {
-                // Reset nếu không tìm thấy tabs
+                // Reset nếu không tìm thấy tabs (hạ xuống thêm 10px)
                 document.documentElement.classList.remove("tabs-stuck");
-                document.documentElement.style.setProperty("--fb-btn-top", "1.2rem");
+                document.documentElement.style.setProperty("--fb-btn-top", "calc(1.2rem + 10px)");
             }
         } catch (e) {
             console.error("Error updating FB button position:", e);
