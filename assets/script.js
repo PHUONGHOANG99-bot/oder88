@@ -6815,55 +6815,62 @@ function showUpdateNotification(onUpdate) {
     // Kiểm tra xem đã có notification chưa
     if (document.getElementById("updateNotification")) return;
 
+    // Tạo overlay để chặn tương tác với trang web
+    const overlay = document.createElement("div");
+    overlay.id = "updateOverlay";
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        backdrop-filter: blur(4px);
+    `;
+
     const notification = document.createElement("div");
     notification.id = "updateNotification";
     notification.style.cssText = `
         position: fixed;
-        bottom: 20px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         background: linear-gradient(135deg, #FF6600, #FF8C00);
         color: white;
-        padding: 16px 24px;
-        border-radius: 50px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        padding: 24px 32px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         z-index: 10000;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 20px;
         max-width: 90%;
+        min-width: 280px;
+        text-align: center;
         animation: slideUpNotification 0.5s ease;
     `;
 
     notification.innerHTML = `
-        <i class="fas fa-sync-alt" style="font-size: 1.2rem;"></i>
+        <i class="fas fa-sync-alt" style="font-size: 2rem; animation: spin 2s linear infinite;"></i>
         <div style="flex: 1;">
-            <div style="font-weight: 600; margin-bottom: 4px;">Có phiên bản mới!</div>
-            <div style="font-size: 0.85rem; opacity: 0.9;">Nhấn để cập nhật ứng dụng</div>
+            <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 8px;">Có phiên bản mới!</div>
+            <div style="font-size: 0.95rem; opacity: 0.95;">Vui lòng cập nhật để tiếp tục sử dụng</div>
         </div>
         <button id="updateBtn" style="
             background: white;
             color: #FF6600;
             border: none;
             border-radius: 25px;
-            padding: 8px 20px;
-            font-weight: 600;
+            padding: 12px 32px;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-        ">Cập nhật</button>
-        <button id="dismissUpdateBtn" style="
-            background: transparent;
-            color: white;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        ">×</button>
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        ">Cập nhật ngay</button>
     `;
 
     // Thêm CSS animation
@@ -6874,47 +6881,45 @@ function showUpdateNotification(onUpdate) {
             @keyframes slideUpNotification {
                 from {
                     opacity: 0;
-                    transform: translateX(-50%) translateY(20px);
+                    transform: translate(-50%, -40%);
                 }
                 to {
                     opacity: 1;
-                    transform: translateX(-50%) translateY(0);
+                    transform: translate(-50%, -50%);
                 }
+            }
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
             @media (max-width: 768px) {
                 #updateNotification {
-                    bottom: 100px !important;
-                    flex-direction: column;
-                    text-align: center;
+                    padding: 20px 24px !important;
+                    min-width: 260px !important;
                 }
             }
         `;
         document.head.appendChild(style);
     }
 
+    document.body.appendChild(overlay);
     document.body.appendChild(notification);
 
-    // Event handlers
+    // Event handler - chỉ cho phép click nút Cập nhật
     const updateBtn = document.getElementById("updateBtn");
-    const dismissBtn = document.getElementById("dismissUpdateBtn");
 
     updateBtn.addEventListener("click", () => {
         if (onUpdate) onUpdate();
-        notification.remove();
+        // Không remove notification, để reload tự động xóa
     });
 
-    dismissBtn.addEventListener("click", () => {
-        notification.remove();
+    // Không cho phép click ra ngoài để đóng
+    overlay.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
     });
 
-    // Auto dismiss sau 10 giây
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation =
-                "slideUpNotification 0.5s ease reverse";
-            setTimeout(() => notification.remove(), 500);
-        }
-    }, 10000);
+    // Không có auto dismiss - bắt buộc phải cập nhật
 }
 
 // ==================== SHOPPING CART FUNCTIONS ====================
