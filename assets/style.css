@@ -5999,6 +5999,23 @@ html.tabs-stuck .header-fb-btn {
     html.is-standalone body {
         padding-top: env(safe-area-inset-top);
     }
+    /* Tô màu vùng tai thỏ (tránh lộ nền trắng khi vuốt) */
+    html.is-standalone body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: env(safe-area-inset-top);
+        background: linear-gradient(
+            135deg,
+            #ff7700 0%,
+            #ff6600 50%,
+            #ff8800 100%
+        );
+        z-index: 9999;
+        pointer-events: none;
+    }
     html.is-standalone .header-fb-btn {
         /* Respect JS-calculated position when available (prevents overlap with tabs) */
         top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
@@ -6028,6 +6045,23 @@ html.tabs-stuck .header-fb-btn {
         /* Đẩy toàn bộ trang xuống dưới tai thỏ để vùng header bấm được */
         body {
             padding-top: env(safe-area-inset-top);
+        }
+        /* Tô màu vùng tai thỏ (tránh lộ nền trắng khi vuốt) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: env(safe-area-inset-top);
+            background: linear-gradient(
+                135deg,
+                #ff7700 0%,
+                #ff6600 50%,
+                #ff8800 100%
+            );
+            z-index: 9999;
+            pointer-events: none;
         }
         .header-fb-btn {
             /* Respect JS-calculated position when available (prevents overlap with tabs) */
