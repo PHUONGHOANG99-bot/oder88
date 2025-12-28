@@ -6010,8 +6010,9 @@ html.tabs-stuck .header-fb-btn {
     html.is-standalone .header {
         padding-top: 0 !important;
     }
+    /* Khi sticky, tabs phải nằm dưới tai thỏ giống header */
     html.is-standalone .products-tabs {
-        top: 0;
+        top: env(safe-area-inset-top);
     }
     html.is-standalone .mobile-categories {
         top: env(safe-area-inset-top);
@@ -6038,8 +6039,9 @@ html.tabs-stuck .header-fb-btn {
         .header {
             padding-top: 0 !important;
         }
+        /* Khi sticky, tabs phải nằm dưới tai thỏ giống header */
         .products-tabs {
-            top: 0;
+            top: env(safe-area-inset-top);
         }
         .mobile-categories {
             top: env(safe-area-inset-top);
