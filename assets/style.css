@@ -5188,9 +5188,6 @@ html.tabs-stuck .header-fb-btn {
         margin: 0 2px;
     }
 
-    /* Đảm bảo nút menu fixed hiển thị - override rule ẩn */
-    body .mobile-menu-btn,
-    html     /* Đảm bảo nút menu fixed hiển thị - override rule ẩn bằng specificity cao hơn */
     /* Nút menu nằm trong header flow - đồng bộ kích thước với nút Facebook */
     .header-categories .mobile-menu-btn {
         display: flex;
@@ -5998,6 +5995,10 @@ html.tabs-stuck .header-fb-btn {
 /* iOS PWA (Add to Home Screen) - tránh va vào tai thỏ/status bar */
 @supports (padding: env(safe-area-inset-top)) {
     /* Áp dụng khi có class is-standalone (JS set) */
+    /* Đẩy toàn bộ trang xuống dưới tai thỏ để vùng header bấm được */
+    html.is-standalone body {
+        padding-top: env(safe-area-inset-top);
+    }
     html.is-standalone .header-fb-btn {
         /* Respect JS-calculated position when available (prevents overlap with tabs) */
         top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
@@ -6005,15 +6006,12 @@ html.tabs-stuck .header-fb-btn {
     html.is-standalone .floating-social-buttons {
         top: calc(10px + env(safe-area-inset-top)) !important;
     }
+    /* Header không tự cộng thêm padding-top nữa (đã cộng ở body) */
     html.is-standalone .header {
-        padding-top: env(safe-area-inset-top);
-    }
-    /* Đảm bảo nút menu không bị tụt xuống khi header có padding-top */
-    html.is-standalone .header-categories .mobile-menu-btn {
-        margin-top: 0;
+        padding-top: 0 !important;
     }
     html.is-standalone .products-tabs {
-        top: env(safe-area-inset-top);
+        top: 0;
     }
     html.is-standalone .mobile-categories {
         top: env(safe-area-inset-top);
@@ -6026,6 +6024,10 @@ html.tabs-stuck .header-fb-btn {
 
     /* Áp dụng theo display-mode (chuẩn) */
     @media (display-mode: standalone), (display-mode: fullscreen) {
+        /* Đẩy toàn bộ trang xuống dưới tai thỏ để vùng header bấm được */
+        body {
+            padding-top: env(safe-area-inset-top);
+        }
         .header-fb-btn {
             /* Respect JS-calculated position when available (prevents overlap with tabs) */
             top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
@@ -6034,17 +6036,10 @@ html.tabs-stuck .header-fb-btn {
             top: calc(10px + env(safe-area-inset-top)) !important;
         }
         .header {
-            padding-top: env(safe-area-inset-top);
-        }
-        /* Đảm bảo nút menu không bị tụt xuống khi header có padding-top */
-        .header-categories .mobile-menu-btn {
-            margin-top: 0;
-        }
-        .mobile-menu-btn {
-            top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
+            padding-top: 0 !important;
         }
         .products-tabs {
-            top: env(safe-area-inset-top);
+            top: 0;
         }
         .mobile-categories {
             top: env(safe-area-inset-top);
