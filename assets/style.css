@@ -5969,7 +5969,8 @@ html.tabs-stuck .header-fb-btn {
 @supports (padding: env(safe-area-inset-top)) {
     /* Áp dụng khi có class is-standalone (JS set) */
     html.is-standalone .header-fb-btn {
-        top: calc(1rem + env(safe-area-inset-top)) !important;
+        /* Respect JS-calculated position when available (prevents overlap with tabs) */
+        top: var(--fb-btn-top, calc(1rem + env(safe-area-inset-top))) !important;
     }
     html.is-standalone .floating-social-buttons {
         top: calc(10px + env(safe-area-inset-top)) !important;
@@ -5989,7 +5990,8 @@ html.tabs-stuck .header-fb-btn {
     /* Áp dụng theo display-mode (chuẩn) */
     @media (display-mode: standalone), (display-mode: fullscreen) {
         .header-fb-btn {
-            top: calc(1rem + env(safe-area-inset-top)) !important;
+            /* Respect JS-calculated position when available (prevents overlap with tabs) */
+            top: var(--fb-btn-top, calc(1rem + env(safe-area-inset-top))) !important;
         }
         .floating-social-buttons {
             top: calc(10px + env(safe-area-inset-top)) !important;
