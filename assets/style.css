@@ -4826,6 +4826,7 @@ html.tabs-stuck .header-fb-btn {
         padding: 12px 18px; /* Đồng bộ với nút Facebook */
         font-size: 0.95rem; /* Đồng bộ với nút Facebook */
         border-radius: 14px; /* Đồng bộ với nút Facebook */
+        border: none; /* Xóa border để đồng bộ với nút Facebook */
         margin-top: 0;
         position: relative;
     }
@@ -5065,6 +5066,7 @@ html.tabs-stuck .header-fb-btn {
         padding: 11px 16px;
         font-size: 0.9rem;
         border-radius: 12px;
+        border: none; /* Xóa border để đồng bộ với nút Facebook */
     }
 
     .header-fb-btn span {
@@ -5195,6 +5197,7 @@ html.tabs-stuck .header-fb-btn {
         padding: 11px 16px; /* Đồng bộ với nút Facebook */
         font-size: 0.9rem; /* Đồng bộ với nút Facebook */
         border-radius: 12px; /* Đồng bộ với nút Facebook */
+        border: none; /* Xóa border để đồng bộ với nút Facebook */
         white-space: nowrap;
         margin-top: 0;
         position: relative;
@@ -5571,6 +5574,7 @@ html.tabs-stuck .header-fb-btn {
         padding: 11px 16px; /* Đồng bộ với nút Facebook */
         font-size: 0.9rem; /* Đồng bộ với nút Facebook */
         border-radius: 12px; /* Đồng bộ với nút Facebook */
+        border: none; /* Xóa border để đồng bộ với nút Facebook */
         margin-top: 0;
         position: relative;
     }
