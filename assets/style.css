@@ -4813,17 +4813,13 @@ html.tabs-stuck .header-fb-btn {
         order: 1;
     }
 
-    /* Hiển thị nút menu fixed ở vị trí mới - override rule ẩn bằng specificity cao hơn */
-    body .header-categories .mobile-menu-btn,
-    html .header-categories .mobile-menu-btn {
-        display: flex !important;
+    /* Nút menu nằm trong header flow */
+    .header-categories .mobile-menu-btn {
+        display: flex;
         padding: 10px 14px;
         font-size: 0.95rem;
         margin-top: 0;
-        position: fixed !important;
-        top: var(--fb-btn-top, calc(1rem + 20px)) !important;
-        left: 1rem !important;
-        z-index: 999 !important;
+        position: relative;
     }
 
     .mobile-menu-btn i {
@@ -5179,17 +5175,14 @@ html.tabs-stuck .header-fb-btn {
     /* Đảm bảo nút menu fixed hiển thị - override rule ẩn */
     body .mobile-menu-btn,
     html     /* Đảm bảo nút menu fixed hiển thị - override rule ẩn bằng specificity cao hơn */
-    body .header-categories .mobile-menu-btn,
-    html .header-categories .mobile-menu-btn {
-        display: flex !important;
+    /* Nút menu nằm trong header flow */
+    .header-categories .mobile-menu-btn {
+        display: flex;
         padding: 10px 14px;
         font-size: 0.9rem;
         white-space: nowrap;
         margin-top: 0;
-        position: fixed !important;
-        top: var(--fb-btn-top, calc(1rem + 20px)) !important;
-        left: 1rem !important;
-        z-index: 999 !important;
+        position: relative;
     }
 
     .mobile-menu-btn i {
@@ -5557,17 +5550,13 @@ html.tabs-stuck .header-fb-btn {
         font-size: 0.6rem;
     }
 
-    /* Đảm bảo nút menu fixed hiển thị - override rule ẩn bằng specificity cao hơn */
-    body .header-categories .mobile-menu-btn,
-    html .header-categories .mobile-menu-btn {
-        display: flex !important;
+    /* Nút menu nằm trong header flow */
+    .header-categories .mobile-menu-btn {
+        display: flex;
         font-size: 0.85rem;
         padding: 10px 14px;
         margin-top: 0;
-        position: fixed !important;
-        top: var(--fb-btn-top, calc(1rem + 20px)) !important;
-        left: 1rem !important;
-        z-index: 999 !important;
+        position: relative;
     }
 
     .mobile-menu-btn i {
@@ -5998,9 +5987,6 @@ html.tabs-stuck .header-fb-btn {
     }
     html.is-standalone .header {
         padding-top: env(safe-area-inset-top);
-    }
-    html.is-standalone .mobile-menu-btn {
-        top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
     }
     html.is-standalone .products-tabs {
         top: env(safe-area-inset-top);
