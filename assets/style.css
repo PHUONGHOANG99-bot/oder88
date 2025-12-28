@@ -855,12 +855,13 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     color: white;
-    padding: 14px 20px;
-    border-radius: 14px;
+    padding: 14px 24px; /* Đồng bộ với nút Facebook */
+    border-radius: 16px; /* Đồng bộ với nút Facebook */
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1rem; /* Đồng bộ với nút Facebook */
     font-weight: 600;
     align-items: center;
+    justify-content: center; /* Đồng bộ với nút Facebook */
     gap: 10px;
     white-space: nowrap;
     transition: all 0.3s ease;
@@ -4744,6 +4745,12 @@ html.tabs-stuck .header-fb-btn {
         right: 1.5rem;
         z-index: 1000;
     }
+    /* Đồng bộ kích thước nút menu với nút Facebook */
+    .mobile-menu-btn {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        border-radius: 14px;
+    }
 
     .header-fb-btn span {
         display: none;
@@ -4813,17 +4820,18 @@ html.tabs-stuck .header-fb-btn {
         order: 1;
     }
 
-    /* Nút menu nằm trong header flow */
+    /* Nút menu nằm trong header flow - đồng bộ kích thước với nút Facebook */
     .header-categories .mobile-menu-btn {
         display: flex;
-        padding: 10px 14px;
-        font-size: 0.95rem;
+        padding: 12px 18px; /* Đồng bộ với nút Facebook */
+        font-size: 0.95rem; /* Đồng bộ với nút Facebook */
+        border-radius: 14px; /* Đồng bộ với nút Facebook */
         margin-top: 0;
         position: relative;
     }
 
     .mobile-menu-btn i {
-        font-size: 1.6rem;
+        font-size: 1.3rem; /* Đồng bộ với nút Facebook icon size */
     }
 
     .mobile-menu-btn span {
@@ -5052,6 +5060,12 @@ html.tabs-stuck .header-fb-btn {
         right: 1rem;
         z-index: 1000;
     }
+    /* Đồng bộ kích thước nút menu với nút Facebook */
+    .mobile-menu-btn {
+        padding: 11px 16px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
 
     .header-fb-btn span {
         display: none;
@@ -5175,18 +5189,19 @@ html.tabs-stuck .header-fb-btn {
     /* Đảm bảo nút menu fixed hiển thị - override rule ẩn */
     body .mobile-menu-btn,
     html     /* Đảm bảo nút menu fixed hiển thị - override rule ẩn bằng specificity cao hơn */
-    /* Nút menu nằm trong header flow */
+    /* Nút menu nằm trong header flow - đồng bộ kích thước với nút Facebook */
     .header-categories .mobile-menu-btn {
         display: flex;
-        padding: 10px 14px;
-        font-size: 0.9rem;
+        padding: 11px 16px; /* Đồng bộ với nút Facebook */
+        font-size: 0.9rem; /* Đồng bộ với nút Facebook */
+        border-radius: 12px; /* Đồng bộ với nút Facebook */
         white-space: nowrap;
         margin-top: 0;
         position: relative;
     }
 
     .mobile-menu-btn i {
-        font-size: 1.5rem;
+        font-size: 1.2rem; /* Đồng bộ với nút Facebook icon size */
     }
 
     .mobile-menu-btn span {
@@ -5550,17 +5565,18 @@ html.tabs-stuck .header-fb-btn {
         font-size: 0.6rem;
     }
 
-    /* Nút menu nằm trong header flow */
+    /* Nút menu nằm trong header flow - đồng bộ kích thước với nút Facebook */
     .header-categories .mobile-menu-btn {
         display: flex;
-        font-size: 0.85rem;
-        padding: 10px 14px;
+        padding: 11px 16px; /* Đồng bộ với nút Facebook */
+        font-size: 0.9rem; /* Đồng bộ với nút Facebook */
+        border-radius: 12px; /* Đồng bộ với nút Facebook */
         margin-top: 0;
         position: relative;
     }
 
     .mobile-menu-btn i {
-        font-size: 1.4rem;
+        font-size: 1.2rem; /* Đồng bộ với nút Facebook icon size */
     }
 
     .products-grid {
