@@ -6299,19 +6299,29 @@ function initPerformanceOptimizations() {
                 const rect = tabs.getBoundingClientRect();
                 const cs = window.getComputedStyle(tabs);
                 const topCss = Number.parseFloat(cs.top) || 0;
-                const stuck = rect.top <= topCss + 1;
+                // Tabs được coi là stuck khi top của nó <= top CSS value (thường là 0)
+                const stuck = rect.top <= topCss + 2; // Thêm 2px để đảm bảo detect đúng
 
                 document.documentElement.classList.toggle("tabs-stuck", stuck);
-                document.documentElement.style.setProperty(
-                    "--tabs-sticky-top",
-                    `${topCss}px`
-                );
-                document.documentElement.style.setProperty(
-                    "--tabs-sticky-height",
-                    `${tabs.offsetHeight || 0}px`
-                );
+                if (stuck) {
+                    // Set CSS variables để đẩy nút Facebook xuống
+                    document.documentElement.style.setProperty(
+                        "--tabs-sticky-top",
+                        `${topCss}px`
+                    );
+                    document.documentElement.style.setProperty(
+                        "--tabs-sticky-height",
+                        `${tabs.offsetHeight || 0}px`
+                    );
+                } else {
+                    // Reset khi tabs không stuck
+                    document.documentElement.style.removeProperty("--tabs-sticky-top");
+                    document.documentElement.style.removeProperty("--tabs-sticky-height");
+                }
             } else {
                 document.documentElement.classList.remove("tabs-stuck");
+                document.documentElement.style.removeProperty("--tabs-sticky-top");
+                document.documentElement.style.removeProperty("--tabs-sticky-height");
             }
         } catch (e) {
             // ignore
@@ -6331,6 +6341,20 @@ function initPerformanceOptimizations() {
         },
         { passive: true }
     );
+    
+    // Chạy ngay khi trang load để kiểm tra tabs có stuck không
+    window.addEventListener("load", () => {
+        updateScrollEffects();
+    });
+    
+    // Chạy ngay sau khi DOM ready
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => {
+            updateScrollEffects();
+        });
+    } else {
+        updateScrollEffects();
+    }
 
     // Optimize resize events with debounce
     let resizeTimeout;

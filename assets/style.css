@@ -782,7 +782,7 @@ body {
     position: fixed;
     top: 1.2rem;
     right: 1.5rem;
-    z-index: 1000;
+    z-index: 999; /* Thấp hơn tabs để không đè lên */
     overflow: hidden;
     cursor: pointer;
 }
@@ -2469,6 +2469,7 @@ picture img {
 /* Khi tabs đang sticky trên cùng, đẩy nút Facebook xuống để không đè lên tab "Gợi ý" */
 html.tabs-stuck .header-fb-btn {
     top: calc(var(--tabs-sticky-top, 0px) + var(--tabs-sticky-height, 0px) + 12px) !important;
+    z-index: 999 !important; /* Đảm bảo nút Facebook ở dưới tabs (tabs có z-index cao hơn) */
 }
 
 .products-tabs::-webkit-scrollbar {
@@ -5107,10 +5108,15 @@ html.tabs-stuck .header-fb-btn {
         position: fixed !important;
         top: 1rem !important;
         right: 1rem !important;
-        z-index: 1000 !important;
+        z-index: 999 !important; /* Thấp hơn tabs để không đè lên */
         padding: 11px 16px !important;
         font-size: 0.9rem !important;
         border-radius: 12px !important;
+    }
+    
+    /* Khi tabs sticky trên mobile, đẩy nút Facebook xuống */
+    html.tabs-stuck .header-fb-btn {
+        top: calc(var(--tabs-sticky-top, 0px) + var(--tabs-sticky-height, 0px) + 12px) !important;
     }
 
     .header-fb-btn span {
