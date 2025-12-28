@@ -6321,15 +6321,22 @@ function initPerformanceOptimizations() {
 
                 // Robust: nếu tabs đang ở gần top (hoặc stuck), luôn đẩy FB xuống dưới tabs
                 // Tránh trường hợp mobile không kịp set class/vars hoặc layout khác nhau giữa thiết bị
-                const shouldOffsetFb = stuck || rect.top <= 120;
+                // Tăng threshold lên 200px để detect sớm hơn và đảm bảo FB luôn ở dưới tabs
+                const shouldOffsetFb = stuck || rect.top <= 200;
                 if (shouldOffsetFb) {
-                    const fbTopPx = Math.max(16, Math.round(rect.bottom + 12));
+                    // Tính toán vị trí chính xác: bottom của tabs + padding
+                    const tabsBottom = rect.bottom;
+                    const fbTopPx = Math.max(20, Math.round(tabsBottom + 20)); // Thêm 20px padding để đảm bảo không đè
                     document.documentElement.style.setProperty(
                         "--fb-btn-top",
                         `${fbTopPx}px`
                     );
                 } else {
-                    document.documentElement.style.removeProperty("--fb-btn-top");
+                    // Reset về vị trí mặc định
+                    document.documentElement.style.setProperty(
+                        "--fb-btn-top",
+                        "1.2rem"
+                    );
                 }
             } else {
                 document.documentElement.classList.remove("tabs-stuck");
@@ -6358,32 +6365,32 @@ function initPerformanceOptimizations() {
     
     // Chạy ngay khi trang load để kiểm tra tabs có stuck không
     window.addEventListener("load", () => {
-        // Delay nhỏ để đảm bảo layout đã render xong
+        // Delay để đảm bảo layout đã render xong
         setTimeout(() => {
             updateScrollEffects();
-        }, 100);
+        }, 300);
     });
     
     // Chạy ngay sau khi DOM ready
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", () => {
-            // Delay nhỏ để đảm bảo layout đã render xong
+            // Delay để đảm bảo layout đã render xong
             setTimeout(() => {
                 updateScrollEffects();
-            }, 100);
+            }, 300);
         });
     } else {
-        // Delay nhỏ để đảm bảo layout đã render xong
+        // Delay để đảm bảo layout đã render xong
         setTimeout(() => {
             updateScrollEffects();
-        }, 100);
+        }, 300);
     }
     
     // Chạy lại sau khi resize để đảm bảo tính toán đúng
     window.addEventListener("resize", () => {
         setTimeout(() => {
             updateScrollEffects();
-        }, 150);
+        }, 200);
     });
 
     // Optimize resize events with debounce
