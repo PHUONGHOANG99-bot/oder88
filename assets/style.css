@@ -780,7 +780,7 @@ body {
         0 2px 8px rgba(24, 119, 242, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: fixed;
-    top: 1.2rem;
+    top: var(--fb-btn-top, 1.2rem);
     right: 1.5rem;
     z-index: 999; /* Thấp hơn tabs để không đè lên */
     overflow: hidden;
@@ -2468,7 +2468,7 @@ picture img {
 
 /* Khi tabs đang sticky trên cùng, đẩy nút Facebook xuống để không đè lên tab "Gợi ý" */
 html.tabs-stuck .header-fb-btn {
-    top: calc(var(--tabs-sticky-top, 0px) + var(--tabs-sticky-height, 0px) + 12px) !important;
+    top: var(--fb-btn-top, calc(var(--tabs-sticky-top, 0px) + var(--tabs-sticky-height, 0px) + 12px)) !important;
     z-index: 999 !important; /* Đảm bảo nút Facebook ở dưới tabs (tabs có z-index cao hơn) */
 }
 

@@ -6290,7 +6290,7 @@ function initPerformanceOptimizations() {
                 "0 4px 20px rgba(255, 102, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.2)";
         }
 
-        // When products tabs are sticky, move Facebook button down to avoid overlap
+        // When products tabs are near top / sticky, move Facebook button below tabs to avoid overlap (mobile-safe)
         try {
             const tabs =
                 document.getElementById("productsTabs") ||
@@ -6318,10 +6318,24 @@ function initPerformanceOptimizations() {
                     document.documentElement.style.removeProperty("--tabs-sticky-top");
                     document.documentElement.style.removeProperty("--tabs-sticky-height");
                 }
+
+                // Robust: nếu tabs đang ở gần top (hoặc stuck), luôn đẩy FB xuống dưới tabs
+                // Tránh trường hợp mobile không kịp set class/vars hoặc layout khác nhau giữa thiết bị
+                const shouldOffsetFb = stuck || rect.top <= 120;
+                if (shouldOffsetFb) {
+                    const fbTopPx = Math.max(16, Math.round(rect.bottom + 12));
+                    document.documentElement.style.setProperty(
+                        "--fb-btn-top",
+                        `${fbTopPx}px`
+                    );
+                } else {
+                    document.documentElement.style.removeProperty("--fb-btn-top");
+                }
             } else {
                 document.documentElement.classList.remove("tabs-stuck");
                 document.documentElement.style.removeProperty("--tabs-sticky-top");
                 document.documentElement.style.removeProperty("--tabs-sticky-height");
+                document.documentElement.style.removeProperty("--fb-btn-top");
             }
         } catch (e) {
             // ignore
