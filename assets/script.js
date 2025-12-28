@@ -6322,7 +6322,7 @@ function initPerformanceOptimizations() {
                     // Reset về vị trí mặc định (hạ xuống thêm 10px)
                     document.documentElement.style.setProperty(
                         "--fb-btn-top",
-                        "calc(1.2rem + 10px)"
+                        "calc(1.2rem + 20px)"
                     );
                     document.documentElement.classList.remove("tabs-stuck");
                 }
