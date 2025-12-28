@@ -4798,7 +4798,6 @@ html.tabs-stuck .header-fb-btn {
         gap: 8px;
         flex-shrink: 0;
     }
-
     .header-right {
         order: 3;
         flex: 1 1 100%;
@@ -4814,11 +4813,20 @@ html.tabs-stuck .header-fb-btn {
         order: 1;
     }
 
+    /* Ẩn nút menu trong header flow */
+    .header-categories .mobile-menu-btn {
+        display: none !important;
+    }
+    /* Hiển thị nút menu fixed ở vị trí mới */
     .mobile-menu-btn {
-        display: flex;
+        display: flex !important;
         padding: 10px 14px;
         font-size: 0.95rem;
-        margin-top: 4px;
+        margin-top: 0;
+        position: fixed !important;
+        top: var(--fb-btn-top, calc(1rem + 20px)) !important;
+        left: 1rem !important;
+        z-index: 999 !important;
     }
 
     .mobile-menu-btn i {
@@ -5175,7 +5183,11 @@ html.tabs-stuck .header-fb-btn {
         padding: 10px 14px;
         font-size: 0.9rem;
         white-space: nowrap;
-        margin-top: 2px;
+        margin-top: 0;
+        position: fixed;
+        top: var(--fb-btn-top, calc(1rem + 20px));
+        left: 1rem;
+        z-index: 999;
     }
 
     .mobile-menu-btn i {
@@ -5546,7 +5558,11 @@ html.tabs-stuck .header-fb-btn {
     .mobile-menu-btn {
         font-size: 0.85rem;
         padding: 10px 14px;
-        margin-top: 2px;
+        margin-top: 0;
+        position: fixed;
+        top: var(--fb-btn-top, calc(1rem + 20px));
+        left: 1rem;
+        z-index: 999;
     }
 
     .mobile-menu-btn i {
@@ -5975,6 +5991,12 @@ html.tabs-stuck .header-fb-btn {
     html.is-standalone .floating-social-buttons {
         top: calc(10px + env(safe-area-inset-top)) !important;
     }
+    html.is-standalone .header {
+        padding-top: env(safe-area-inset-top);
+    }
+    html.is-standalone .mobile-menu-btn {
+        top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
+    }
     html.is-standalone .products-tabs {
         top: env(safe-area-inset-top);
     }
@@ -5995,6 +6017,12 @@ html.tabs-stuck .header-fb-btn {
         }
         .floating-social-buttons {
             top: calc(10px + env(safe-area-inset-top)) !important;
+        }
+        .header {
+            padding-top: env(safe-area-inset-top);
+        }
+        .mobile-menu-btn {
+            top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
         }
         .products-tabs {
             top: env(safe-area-inset-top);
