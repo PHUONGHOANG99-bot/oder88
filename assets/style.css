@@ -5571,10 +5571,10 @@ html.tabs-stuck .header-fb-btn {
     /* Nút menu nằm trong header flow - đồng bộ kích thước với nút Facebook */
     .header-categories .mobile-menu-btn {
         display: flex;
-        padding: 11px 16px; /* Đồng bộ với nút Facebook */
+        padding: 9px 14px; /* Giảm padding để bù cho border 2px */
         font-size: 0.9rem; /* Đồng bộ với nút Facebook */
         border-radius: 12px; /* Đồng bộ với nút Facebook */
-        border: none; /* Xóa border để đồng bộ với nút Facebook */
+        border: 2px solid rgba(255, 255, 255, 0.3); /* Tạo lại border */
         margin-top: 0;
         position: relative;
     }
@@ -6035,6 +6035,10 @@ html.tabs-stuck .header-fb-btn {
         }
         .header {
             padding-top: env(safe-area-inset-top);
+        }
+        /* Đảm bảo nút menu không bị tụt xuống khi header có padding-top */
+        .header-categories .mobile-menu-btn {
+            margin-top: 0;
         }
         .mobile-menu-btn {
             top: var(--fb-btn-top, calc(1rem + 20px + env(safe-area-inset-top))) !important;
