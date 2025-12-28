@@ -1,5 +1,5 @@
 // Service Worker for PWA Support - ULTRA OPTIMIZED
-const CACHE_NAME = "oder88-shop-v65";
+const CACHE_NAME = "oder88-shop-v66";
 const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
 const withScope = (path) => `${SCOPE_PATH}${path}`.replace(/\/{2,}/g, "/");
 

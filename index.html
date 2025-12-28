@@ -155,14 +155,14 @@
             crossorigin="anonymous"
         />
         <!-- Preload critical CSS -->
-        <link rel="preload" href="assets/style.css?v=65" as="style" />
+        <link rel="preload" href="assets/style.css?v=66" as="style" />
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             as="style"
         />
         <!-- Preload critical JS -->
-        <link rel="preload" href="assets/script.js?v=65" as="script" />
+        <link rel="preload" href="assets/script.js?v=66" as="script" />
         <!-- Prefetch next likely resources -->
         <link rel="prefetch" href="assets/logo/oder88.png" as="image" />
         <!-- Google Fonts - Inter (hỗ trợ tiếng Việt tốt) với display=swap -->
@@ -174,7 +174,7 @@
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
 
-        <link rel="stylesheet" href="assets/style.css?v=65" />
+        <link rel="stylesheet" href="assets/style.css?v=66" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -231,17 +231,65 @@
 
                     window.addEventListener("load", () => {
                         navigator.serviceWorker
-                            .register("sw.js?v=65")
+                            .register("sw.js?v=66")
                             .then((registration) => {
                                 console.log("SW registered: ", registration);
+
+                                // Function để check và hiển thị update notification
+                                const checkAndShowUpdate = () => {
+                                    // Kiểm tra cooldown trước khi reload
+                                    const lastReload =
+                                        sessionStorage.getItem("lastSWReload");
+                                    const now = Date.now();
+                                    const RELOAD_COOLDOWN = 5000; // 5 giây
+
+                                    if (
+                                        lastReload &&
+                                        now - parseInt(lastReload) <
+                                            RELOAD_COOLDOWN
+                                    ) {
+                                        console.log(
+                                            "⏸️ Reload cooldown active, skipping"
+                                        );
+                                        return;
+                                    }
+
+                                    // Hiển thị thông báo update
+                                    if (
+                                        typeof showUpdateNotification ===
+                                        "function"
+                                    ) {
+                                        showUpdateNotification(() => {
+                                            console.log(
+                                                "🔄 New SW version detected, reloading..."
+                                            );
+                                            sessionStorage.setItem(
+                                                "lastSWReload",
+                                                Date.now().toString()
+                                            );
+                                            // Delay reload để tránh loop
+                                            setTimeout(() => {
+                                                window.location.reload();
+                                            }, 1000);
+                                        });
+                                    }
+                                };
+
+                                // Check update ngay khi load
+                                registration.update().then(() => {
+                                    // Kiểm tra xem có waiting service worker không
+                                    if (registration.waiting) {
+                                        console.log(
+                                            "⚠️ Waiting service worker found, showing update notification"
+                                        );
+                                        checkAndShowUpdate();
+                                    }
+                                });
 
                                 // Check for updates periodically (every 1 hour)
                                 setInterval(() => {
                                     registration.update();
                                 }, 3600000); // 1 hour
-
-                                // Chỉ check update một lần khi load, không check liên tục
-                                // Để tránh loop, chỉ check khi user thực sự cần (không tự động)
 
                                 // Listen for updates - chỉ reload khi có update thực sự
                                 let hasReloaded = false;
@@ -263,69 +311,30 @@
                                                         .controller &&
                                                     !hasReloaded
                                                 ) {
-                                                    // Kiểm tra cooldown trước khi reload
-                                                    const lastReload =
-                                                        sessionStorage.getItem(
-                                                            "lastSWReload"
-                                                        );
-                                                    if (
-                                                        lastReload &&
-                                                        now -
-                                                            parseInt(
-                                                                lastReload
-                                                            ) <
-                                                            RELOAD_COOLDOWN
-                                                    ) {
-                                                        console.log(
-                                                            "⏸️ Reload cooldown active, skipping"
-                                                        );
-                                                        return;
-                                                    }
-
-                                                    // Hiển thị thông báo update thay vì tự động reload
-                                                    if (
-                                                        typeof showUpdateNotification ===
-                                                        "function"
-                                                    ) {
-                                                        showUpdateNotification(
-                                                            () => {
-                                                                console.log(
-                                                                    "🔄 New SW version detected, reloading..."
-                                                                );
-                                                                hasReloaded = true;
-                                                                sessionStorage.setItem(
-                                                                    "lastSWReload",
-                                                                    Date.now().toString()
-                                                                );
-
-                                                                // Delay reload để tránh loop
-                                                                setTimeout(
-                                                                    () => {
-                                                                        window.location.reload();
-                                                                    },
-                                                                    1000
-                                                                );
-                                                            }
-                                                        );
-                                                    } else {
-                                                        // Fallback nếu hàm chưa load
-                                                        console.log(
-                                                            "🔄 New SW version detected, reloading..."
-                                                        );
-                                                        hasReloaded = true;
-                                                        sessionStorage.setItem(
-                                                            "lastSWReload",
-                                                            Date.now().toString()
-                                                        );
-                                                        setTimeout(() => {
-                                                            window.location.reload();
-                                                        }, 1000);
-                                                    }
+                                                    console.log(
+                                                        "⚠️ New service worker installed, showing update notification"
+                                                    );
+                                                    hasReloaded = true;
+                                                    checkAndShowUpdate();
                                                 }
                                             }
                                         );
                                     }
                                 );
+
+                                // Kiểm tra lại sau khi script đã load xong
+                                if (document.readyState === "complete") {
+                                    setTimeout(() => {
+                                        registration.update().then(() => {
+                                            if (registration.waiting) {
+                                                console.log(
+                                                    "⚠️ Waiting service worker found after page load"
+                                                );
+                                                checkAndShowUpdate();
+                                            }
+                                        });
+                                    }, 2000);
+                                }
                             })
                             .catch((registrationError) => {
                                 console.log(
@@ -1284,6 +1293,6 @@
 
         <!-- YouTube IFrame API -->
         <script src="https://www.youtube.com/iframe_api"></script>
-        <script src="assets/script.js?v=65"></script>
+        <script src="assets/script.js?v=66"></script>
     </body>
 </html>
