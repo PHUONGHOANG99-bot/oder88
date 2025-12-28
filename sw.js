@@ -1,5 +1,5 @@
 // Service Worker for PWA Support - ULTRA OPTIMIZED
-const CACHE_NAME = "oder88-shop-v64";
+const CACHE_NAME = "oder88-shop-v65";
 const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
 const withScope = (path) => `${SCOPE_PATH}${path}`.replace(/\/{2,}/g, "/");
 
@@ -75,7 +75,10 @@ self.addEventListener("fetch", (event) => {
                     return caches.match(event.request.url).then((cached) => {
                         if (cached) return cached;
                         return caches.match(noQueryUrl).then((cached) => {
-                            return cached || new Response("Network error", { status: 408 });
+                            return (
+                                cached ||
+                                new Response("Network error", { status: 408 })
+                            );
                         });
                     });
                 })
@@ -90,16 +93,21 @@ self.addEventListener("fetch", (event) => {
                 // Return cached image immediately if available
                 if (cachedResponse) {
                     // Fetch fresh version in background for next time
-                    fetch(event.request).then((networkResponse) => {
-                        if (networkResponse && networkResponse.status === 200) {
-                            const responseToCache = networkResponse.clone();
-                            caches.open(CACHE_NAME).then((cache) => {
-                                cache.put(event.request, responseToCache);
-                            });
-                        }
-                    }).catch(() => {
-                        // Ignore network errors for background update
-                    });
+                    fetch(event.request)
+                        .then((networkResponse) => {
+                            if (
+                                networkResponse &&
+                                networkResponse.status === 200
+                            ) {
+                                const responseToCache = networkResponse.clone();
+                                caches.open(CACHE_NAME).then((cache) => {
+                                    cache.put(event.request, responseToCache);
+                                });
+                            }
+                        })
+                        .catch(() => {
+                            // Ignore network errors for background update
+                        });
                     return cachedResponse;
                 }
                 // If not cached, fetch from network
@@ -118,7 +126,11 @@ self.addEventListener("fetch", (event) => {
     }
 
     // For HTML pages, try network first, fallback to cache, then offline page
-    if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+    if (
+        event.request.mode === "navigate" ||
+        (event.request.method === "GET" &&
+            event.request.headers.get("accept").includes("text/html"))
+    ) {
         event.respondWith(
             fetch(event.request)
                 .then((response) => {
@@ -133,13 +145,15 @@ self.addEventListener("fetch", (event) => {
                 })
                 .catch(() => {
                     // Network failed, try cache
-                    return caches.match(event.request).then((cachedResponse) => {
-                        if (cachedResponse) {
-                            return cachedResponse;
-                        }
-                        // If no cache, return offline page
-                        return caches.match(withScope('/offline.html'));
-                    });
+                    return caches
+                        .match(event.request)
+                        .then((cachedResponse) => {
+                            if (cachedResponse) {
+                                return cachedResponse;
+                            }
+                            // If no cache, return offline page
+                            return caches.match(withScope("/offline.html"));
+                        });
                 })
         );
         return;
@@ -185,42 +199,57 @@ self.addEventListener("activate", (event) => {
 
     event.waitUntil(
         // First, claim all clients immediately
-        self.clients.claim().then(() => {
-            // Delete all old caches
-            return caches.keys().then((cacheNames) => {
-                const hasOldCache = cacheNames.some(name => name !== CACHE_NAME);
-                return Promise.all(
-                    cacheNames.map((cacheName) => {
-                        if (cacheName !== CACHE_NAME) {
-                            console.log("🗑️ Deleting old cache:", cacheName);
-                            return caches.delete(cacheName);
-                        }
-                    })
-                ).then(() => hasOldCache);
-            });
-        })
-        .then((hadOldCache) => {
-            // Chỉ notify clients nếu có cache cũ được xóa (tức là có update thực sự)
-            // Không notify nếu đây là lần đầu install
-            // Và chỉ notify một lần để tránh loop
-            if (hadOldCache) {
-                // Đợi một chút để đảm bảo client đã sẵn sàng
-                return new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
-                    return self.clients.matchAll({ includeUncontrolled: true }).then((clients) => {
-                        if (clients.length > 0) {
-                            console.log("📢 Notifying", clients.length, "clients to reload");
-                            clients.forEach((client) => {
-                                client.postMessage({
-                                    type: "SW_UPDATED",
-                                    action: "reload",
-                                    version: CACHE_NAME,
-                                });
-                            });
-                        }
-                    });
+        self.clients
+            .claim()
+            .then(() => {
+                // Delete all old caches
+                return caches.keys().then((cacheNames) => {
+                    const hasOldCache = cacheNames.some(
+                        (name) => name !== CACHE_NAME
+                    );
+                    return Promise.all(
+                        cacheNames.map((cacheName) => {
+                            if (cacheName !== CACHE_NAME) {
+                                console.log(
+                                    "🗑️ Deleting old cache:",
+                                    cacheName
+                                );
+                                return caches.delete(cacheName);
+                            }
+                        })
+                    ).then(() => hasOldCache);
                 });
-            }
-        })
+            })
+            .then((hadOldCache) => {
+                // Chỉ notify clients nếu có cache cũ được xóa (tức là có update thực sự)
+                // Không notify nếu đây là lần đầu install
+                // Và chỉ notify một lần để tránh loop
+                if (hadOldCache) {
+                    // Đợi một chút để đảm bảo client đã sẵn sàng
+                    return new Promise((resolve) =>
+                        setTimeout(resolve, 2000)
+                    ).then(() => {
+                        return self.clients
+                            .matchAll({ includeUncontrolled: true })
+                            .then((clients) => {
+                                if (clients.length > 0) {
+                                    console.log(
+                                        "📢 Notifying",
+                                        clients.length,
+                                        "clients to reload"
+                                    );
+                                    clients.forEach((client) => {
+                                        client.postMessage({
+                                            type: "SW_UPDATED",
+                                            action: "reload",
+                                            version: CACHE_NAME,
+                                        });
+                                    });
+                                }
+                            });
+                    });
+                }
+            })
     );
 });
 

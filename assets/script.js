@@ -6344,17 +6344,33 @@ function initPerformanceOptimizations() {
     
     // Chạy ngay khi trang load để kiểm tra tabs có stuck không
     window.addEventListener("load", () => {
-        updateScrollEffects();
+        // Delay nhỏ để đảm bảo layout đã render xong
+        setTimeout(() => {
+            updateScrollEffects();
+        }, 100);
     });
     
     // Chạy ngay sau khi DOM ready
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", () => {
-            updateScrollEffects();
+            // Delay nhỏ để đảm bảo layout đã render xong
+            setTimeout(() => {
+                updateScrollEffects();
+            }, 100);
         });
     } else {
-        updateScrollEffects();
+        // Delay nhỏ để đảm bảo layout đã render xong
+        setTimeout(() => {
+            updateScrollEffects();
+        }, 100);
     }
+    
+    // Chạy lại sau khi resize để đảm bảo tính toán đúng
+    window.addEventListener("resize", () => {
+        setTimeout(() => {
+            updateScrollEffects();
+        }, 150);
+    });
 
     // Optimize resize events with debounce
     let resizeTimeout;
