@@ -6295,57 +6295,54 @@ function initPerformanceOptimizations() {
             const tabs =
                 document.getElementById("productsTabs") ||
                 document.querySelector(".products-tabs");
-            if (tabs) {
+            const fbBtn = document.querySelector(".header-fb-btn");
+            
+            if (tabs && fbBtn) {
                 const rect = tabs.getBoundingClientRect();
                 const cs = window.getComputedStyle(tabs);
                 const topCss = Number.parseFloat(cs.top) || 0;
+                
                 // Tabs được coi là stuck khi top của nó <= top CSS value (thường là 0)
-                const stuck = rect.top <= topCss + 2; // Thêm 2px để đảm bảo detect đúng
-
-                document.documentElement.classList.toggle("tabs-stuck", stuck);
-                if (stuck) {
-                    // Set CSS variables để đẩy nút Facebook xuống
-                    document.documentElement.style.setProperty(
-                        "--tabs-sticky-top",
-                        `${topCss}px`
-                    );
-                    document.documentElement.style.setProperty(
-                        "--tabs-sticky-height",
-                        `${tabs.offsetHeight || 0}px`
-                    );
-                } else {
-                    // Reset khi tabs không stuck
-                    document.documentElement.style.removeProperty("--tabs-sticky-top");
-                    document.documentElement.style.removeProperty("--tabs-sticky-height");
-                }
-
-                // Robust: nếu tabs đang ở gần top (hoặc stuck), luôn đẩy FB xuống dưới tabs
-                // Tránh trường hợp mobile không kịp set class/vars hoặc layout khác nhau giữa thiết bị
-                // Tăng threshold lên 200px để detect sớm hơn và đảm bảo FB luôn ở dưới tabs
-                const shouldOffsetFb = stuck || rect.top <= 200;
+                const stuck = rect.top <= topCss + 5; // Tăng threshold lên 5px để detect chắc chắn hơn
+                
+                // LUÔN tính toán và set --fb-btn-top dựa trên vị trí thực tế của tabs
+                // Không phụ thuộc vào stuck state, chỉ cần tabs ở gần top là đẩy FB xuống
+                const tabsBottom = rect.bottom;
+                const shouldOffsetFb = stuck || rect.top <= 250; // Tăng threshold lên 250px
+                
                 if (shouldOffsetFb) {
                     // Tính toán vị trí chính xác: bottom của tabs + padding
-                    const tabsBottom = rect.bottom;
-                    const fbTopPx = Math.max(20, Math.round(tabsBottom + 20)); // Thêm 20px padding để đảm bảo không đè
+                    const fbTopPx = Math.max(20, Math.round(tabsBottom + 20)); // Thêm 20px padding
                     document.documentElement.style.setProperty(
                         "--fb-btn-top",
                         `${fbTopPx}px`
                     );
+                    document.documentElement.classList.add("tabs-stuck");
                 } else {
                     // Reset về vị trí mặc định
                     document.documentElement.style.setProperty(
                         "--fb-btn-top",
                         "1.2rem"
                     );
+                    document.documentElement.classList.remove("tabs-stuck");
                 }
+                
+                // Set các biến CSS khác để backup
+                document.documentElement.style.setProperty(
+                    "--tabs-sticky-top",
+                    `${topCss}px`
+                );
+                document.documentElement.style.setProperty(
+                    "--tabs-sticky-height",
+                    `${tabs.offsetHeight || 0}px`
+                );
             } else {
+                // Reset nếu không tìm thấy tabs
                 document.documentElement.classList.remove("tabs-stuck");
-                document.documentElement.style.removeProperty("--tabs-sticky-top");
-                document.documentElement.style.removeProperty("--tabs-sticky-height");
-                document.documentElement.style.removeProperty("--fb-btn-top");
+                document.documentElement.style.setProperty("--fb-btn-top", "1.2rem");
             }
         } catch (e) {
-            // ignore
+            console.error("Error updating FB button position:", e);
         }
 
         lastScrollY = currentScrollY;
@@ -6363,27 +6360,28 @@ function initPerformanceOptimizations() {
         { passive: true }
     );
     
-    // Chạy ngay khi trang load để kiểm tra tabs có stuck không
-    window.addEventListener("load", () => {
-        // Delay để đảm bảo layout đã render xong
+    // Function để chạy updateScrollEffects với delay
+    const runUpdateScrollEffects = () => {
+        // Chạy ngay lập tức
+        updateScrollEffects();
+        // Chạy lại sau delay để đảm bảo layout đã render xong
         setTimeout(() => {
             updateScrollEffects();
         }, 300);
-    });
+        // Chạy lại lần nữa để chắc chắn
+        setTimeout(() => {
+            updateScrollEffects();
+        }, 600);
+    };
+    
+    // Chạy ngay khi trang load
+    window.addEventListener("load", runUpdateScrollEffects);
     
     // Chạy ngay sau khi DOM ready
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => {
-            // Delay để đảm bảo layout đã render xong
-            setTimeout(() => {
-                updateScrollEffects();
-            }, 300);
-        });
+        document.addEventListener("DOMContentLoaded", runUpdateScrollEffects);
     } else {
-        // Delay để đảm bảo layout đã render xong
-        setTimeout(() => {
-            updateScrollEffects();
-        }, 300);
+        runUpdateScrollEffects();
     }
     
     // Chạy lại sau khi resize để đảm bảo tính toán đúng
@@ -6392,6 +6390,15 @@ function initPerformanceOptimizations() {
             updateScrollEffects();
         }, 200);
     });
+    
+    // Chạy liên tục khi scroll (với throttling)
+    let scrollCheckTimeout;
+    window.addEventListener("scroll", () => {
+        clearTimeout(scrollCheckTimeout);
+        scrollCheckTimeout = setTimeout(() => {
+            updateScrollEffects();
+        }, 50);
+    }, { passive: true });
 
     // Optimize resize events with debounce
     let resizeTimeout;

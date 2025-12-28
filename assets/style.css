@@ -5111,17 +5111,18 @@ html.tabs-stuck .header-fb-btn {
     .header-fb-btn {
         display: flex !important;
         position: fixed !important;
-        top: var(--fb-btn-top, 1rem) !important; /* Sử dụng CSS variable */
+        top: var(--fb-btn-top, 1rem) !important; /* Sử dụng CSS variable - luôn dùng biến này */
         right: 1rem !important;
         z-index: 999 !important; /* Thấp hơn tabs để không đè lên */
         padding: 11px 16px !important;
         font-size: 0.9rem !important;
         border-radius: 12px !important;
+        transition: top 0.3s ease !important; /* Thêm transition để mượt hơn */
     }
     
     /* Khi tabs sticky trên mobile, đẩy nút Facebook xuống */
     html.tabs-stuck .header-fb-btn {
-        top: var(--fb-btn-top, calc(var(--tabs-sticky-top, 0px) + var(--tabs-sticky-height, 0px) + 12px)) !important;
+        top: var(--fb-btn-top, calc(var(--tabs-sticky-top, 0px) + var(--tabs-sticky-height, 0px) + 20px)) !important;
     }
 
     .header-fb-btn span {
