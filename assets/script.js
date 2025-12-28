@@ -235,13 +235,13 @@ let scrollObserver = null;
 let imageObserver = null;
 
 // ==================== LOAD DỮ LIỆU TỪ JSON ====================
-// Hàm lấy base path cho GitHub Pages
+// Hàm lấy base path
 function getBasePath() {
-    // Lấy pathname hiện tại (ví dụ: /oder88/ hoặc /)
+    // Lấy pathname hiện tại
     const pathname = window.location.pathname;
     // Tách pathname thành các phần
     const parts = pathname.split("/").filter((p) => p);
-    // Nếu có repository name trong path (không phải root domain)
+    // Nếu có subdirectory trong path (không phải root domain)
     if (parts.length > 0 && parts[0] !== "index.html") {
         // Trả về base path với dấu / ở đầu
         return "/" + parts[0];
@@ -250,7 +250,7 @@ function getBasePath() {
     return "";
 }
 
-// Hàm normalize đường dẫn cho GitHub Pages
+// Hàm normalize đường dẫn
 function normalizePath(path) {
     if (!path) return path;
     // Nếu đã là đường dẫn tuyệt đối (bắt đầu bằng http), giữ nguyên
@@ -270,13 +270,14 @@ function normalizePath(path) {
 // ==================== TỐI ƯU TẢI ẢNH - MODERN WEB APP ====================
 // Kiểm tra hỗ trợ WebP
 function supportsWebP() {
-    if (typeof supportsWebP.cached !== 'undefined') {
+    if (typeof supportsWebP.cached !== "undefined") {
         return supportsWebP.cached;
     }
-    const canvas = document.createElement('canvas');
+    const canvas = document.createElement("canvas");
     canvas.width = 1;
     canvas.height = 1;
-    supportsWebP.cached = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    supportsWebP.cached =
+        canvas.toDataURL("image/webp").indexOf("data:image/webp") === 0;
     return supportsWebP.cached;
 }
 
@@ -290,29 +291,34 @@ function createBlurPlaceholder() {
 function createOptimizedImageSrc(imagePath, options = {}) {
     const { width = 400, height = 400, quality = 85 } = options;
     const normalizedPath = normalizePath(imagePath);
-    
+
     // Nếu là URL ngoài, không xử lý
-    if (normalizedPath.startsWith('http://') || normalizedPath.startsWith('https://')) {
+    if (
+        normalizedPath.startsWith("http://") ||
+        normalizedPath.startsWith("https://")
+    ) {
         return {
             src: normalizedPath,
-            srcset: '',
-            placeholder: createBlurPlaceholder()
+            srcset: "",
+            placeholder: createBlurPlaceholder(),
         };
     }
-    
+
     // Tạo srcset cho responsive images
     const sizes = [200, 400, 600, 800];
-    const srcset = sizes.map(size => {
-        const ratio = size / width;
-        const h = Math.round(height * ratio);
-        return `${normalizedPath}?w=${size}&h=${h}&q=${quality} ${size}w`;
-    }).join(', ');
-    
+    const srcset = sizes
+        .map((size) => {
+            const ratio = size / width;
+            const h = Math.round(height * ratio);
+            return `${normalizedPath}?w=${size}&h=${h}&q=${quality} ${size}w`;
+        })
+        .join(", ");
+
     return {
         src: normalizedPath,
         srcset: srcset,
-        sizes: '(max-width: 480px) 50vw, (max-width: 768px) 33vw, 25vw',
-        placeholder: createBlurPlaceholder()
+        sizes: "(max-width: 480px) 50vw, (max-width: 768px) 33vw, 25vw",
+        placeholder: createBlurPlaceholder(),
     };
 }
 
@@ -321,29 +327,34 @@ function createOptimizedImageElement(product, index, isSlider = false) {
     const imagePath = product.image;
     const optimized = createOptimizedImageSrc(imagePath);
     const isEager = isSlider ? index < 3 : index < 4;
-    const className = isSlider ? 'slider-img' : 'product-image';
-    
+    const className = isSlider ? "slider-img" : "product-image";
+
     // Sử dụng img với srcset cho responsive images
     // WebP sẽ được thêm sau khi có hệ thống convert ảnh
     // Hiện tại dùng responsive srcset để tối ưu bandwidth
-    const srcsetAttr = optimized.srcset ? `srcset="${optimized.srcset}"` : '';
-    const sizesAttr = optimized.sizes ? `sizes="${optimized.sizes}"` : '';
-    
+    const srcsetAttr = optimized.srcset ? `srcset="${optimized.srcset}"` : "";
+    const sizesAttr = optimized.sizes ? `sizes="${optimized.sizes}"` : "";
+
     return `
         <img 
             src="${optimized.src}" 
             ${srcsetAttr}
             ${sizesAttr}
-            alt="${getCategoryDisplayName(product.category, product.categoryName)} - ${formatPriceToYen(product.price)}" 
+            alt="${getCategoryDisplayName(
+                product.category,
+                product.categoryName
+            )} - ${formatPriceToYen(product.price)}" 
             class="${className} image-optimized" 
             data-product-id="${product.id}"
-            loading="${isEager ? 'eager' : 'lazy'}"
+            loading="${isEager ? "eager" : "lazy"}"
             decoding="async"
-            fetchpriority="${isEager ? 'high' : 'auto'}"
+            fetchpriority="${isEager ? "high" : "auto"}"
             width="400"
             height="400"
             onerror="handleImageError(this)"
-            style="cursor: pointer; background: url('${optimized.placeholder}') center/cover; transition: opacity 0.3s ease; opacity: 0;"
+            style="cursor: pointer; background: url('${
+                optimized.placeholder
+            }') center/cover; transition: opacity 0.3s ease; opacity: 0;"
             onload="this.style.opacity='1'; this.style.background='transparent'; this.classList.add('image-loaded');">
     `;
 }
@@ -760,7 +771,7 @@ function scrollToProducts() {
     if (searchInput) {
         searchInput.value = "";
     }
-    
+
     // Hide clear button
     const searchClearBtn = document.getElementById("searchClearBtn");
     if (searchClearBtn) {
@@ -816,7 +827,7 @@ function goBackToHome() {
     if (searchInput) {
         searchInput.value = "";
     }
-    
+
     // Hide clear button
     const searchClearBtn = document.getElementById("searchClearBtn");
     if (searchClearBtn) {
@@ -877,7 +888,7 @@ function resetToHome() {
     if (searchInput) {
         searchInput.value = "";
     }
-    
+
     // Hide clear button
     const searchClearBtn = document.getElementById("searchClearBtn");
     if (searchClearBtn) {
@@ -997,7 +1008,10 @@ function setDesktopHeaderSearchOpen(isOpen, options = {}) {
 
     headerRight.classList.toggle("search-open", Boolean(isOpen));
     toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    toggleBtn.setAttribute("aria-label", isOpen ? "Đóng tìm kiếm" : "Mở tìm kiếm");
+    toggleBtn.setAttribute(
+        "aria-label",
+        isOpen ? "Đóng tìm kiếm" : "Mở tìm kiếm"
+    );
 
     const icon = toggleBtn.querySelector("i");
     if (icon) {
@@ -1050,7 +1064,9 @@ function initDesktopHeaderSearchToggle() {
 
     // Resize qua breakpoint: reset trạng thái cho đúng
     window.addEventListener("resize", () => {
-        setDesktopHeaderSearchOpen(headerRight.classList.contains("search-open"));
+        setDesktopHeaderSearchOpen(
+            headerRight.classList.contains("search-open")
+        );
     });
 }
 
@@ -1335,8 +1351,8 @@ function updateBackButton() {
 
     if (!backBtn || !mobileMenuBtn) return;
 
-    // Hiển thị nút quay lại khi không ở category "all"
-    if (currentCategory !== "all" || searchQuery !== "") {
+    // Chỉ hiển thị nút quay lại khi có tìm kiếm, không hiển thị khi chọn danh mục
+    if (searchQuery !== "") {
         backBtn.style.display = "flex";
         mobileMenuBtn.style.display = "none";
     } else {
@@ -3319,13 +3335,19 @@ function displayProductsPaginated(productsToShow) {
     const grid = document.getElementById("productsGrid");
     if (!grid) return;
 
+    // Đảm bảo productsGrid được hiển thị
+    grid.style.display = "grid";
+
     // Infinite scroll: reset state mỗi lần lọc/tìm kiếm
     currentRenderList = Array.isArray(productsToShow) ? productsToShow : [];
     visibleProductsCount = Math.min(productsPerPage, currentRenderList.length);
     currentPage = 1; // dùng cho 1 số optimization (prefetch) phía dưới
 
     // Ẩn pagination số
-    displayPagination(currentRenderList.length, Math.ceil(currentRenderList.length / productsPerPage));
+    displayPagination(
+        currentRenderList.length,
+        Math.ceil(currentRenderList.length / productsPerPage)
+    );
 
     if (currentRenderList.length === 0) {
         grid.innerHTML = `
@@ -3340,21 +3362,24 @@ function displayProductsPaginated(productsToShow) {
     } else {
         // Batch DOM updates for better performance
         requestAnimationFrame(() => {
-            const initialProducts = currentRenderList.slice(0, visibleProductsCount);
+            const initialProducts = currentRenderList.slice(
+                0,
+                visibleProductsCount
+            );
             grid.innerHTML = initialProducts
-            .map(
-                (product, index) => renderProductCard(product, index)
-            )
-            .join("");
-            
+                .map((product, index) => renderProductCard(product, index))
+                .join("");
+
             // Observe new product cards for animation after DOM update
             requestAnimationFrame(() => {
                 if (scrollObserver) {
-                    document.querySelectorAll(".product-card").forEach((card) => {
-                        if (!card.classList.contains("animate-in")) {
-                            scrollObserver.observe(card);
-                        }
-                    });
+                    document
+                        .querySelectorAll(".product-card")
+                        .forEach((card) => {
+                            if (!card.classList.contains("animate-in")) {
+                                scrollObserver.observe(card);
+                            }
+                        });
                 }
                 applyContentVisibilityHints();
             });
@@ -3364,13 +3389,16 @@ function displayProductsPaginated(productsToShow) {
 
             // Preload batch tiếp theo ngay sau khi render đợt đầu
             if ("requestIdleCallback" in window) {
-                requestIdleCallback(() => preloadNextBatchImages(), { timeout: 1500 });
+                requestIdleCallback(() => preloadNextBatchImages(), {
+                    timeout: 1500,
+                });
             } else {
                 setTimeout(() => preloadNextBatchImages(), 300);
             }
         });
     }
 }
+
 
 function renderProductCard(product, index) {
     return `
@@ -3544,8 +3572,10 @@ function ensureLoadMoreSentinel(shouldExist = true) {
     let spinner = document.getElementById(LOAD_MORE_SPINNER_ID);
     let sentinel = document.getElementById(LOAD_MORE_SENTINEL_ID);
     if (!shouldExist) {
-        if (spinner && spinner.parentNode) spinner.parentNode.removeChild(spinner);
-        if (sentinel && sentinel.parentNode) sentinel.parentNode.removeChild(sentinel);
+        if (spinner && spinner.parentNode)
+            spinner.parentNode.removeChild(spinner);
+        if (sentinel && sentinel.parentNode)
+            sentinel.parentNode.removeChild(sentinel);
         return null;
     }
 
@@ -3669,8 +3699,10 @@ function preloadImages(urls, concurrency = 6) {
 }
 
 function preloadNextBatchImages() {
-    if (!currentRenderList || currentRenderList.length === 0) return Promise.resolve();
-    if (visibleProductsCount >= currentRenderList.length) return Promise.resolve();
+    if (!currentRenderList || currentRenderList.length === 0)
+        return Promise.resolve();
+    if (visibleProductsCount >= currentRenderList.length)
+        return Promise.resolve();
 
     const start = visibleProductsCount;
     const end = Math.min(start + productsPerPage, currentRenderList.length);
@@ -3701,7 +3733,10 @@ function appendMoreProducts() {
     }
 
     const start = visibleProductsCount;
-    const end = Math.min(visibleProductsCount + productsPerPage, currentRenderList.length);
+    const end = Math.min(
+        visibleProductsCount + productsPerPage,
+        currentRenderList.length
+    );
     const more = currentRenderList.slice(start, end);
     const html = more.map((p, i) => renderProductCard(p, start + i)).join("");
     grid.insertAdjacentHTML("beforeend", html);
@@ -3728,7 +3763,9 @@ function appendMoreProducts() {
     // Sau khi append xong, lên lịch preload batch kế tiếp (khi browser rảnh)
     if (visibleProductsCount < currentRenderList.length) {
         if ("requestIdleCallback" in window) {
-            requestIdleCallback(() => preloadNextBatchImages(), { timeout: 1500 });
+            requestIdleCallback(() => preloadNextBatchImages(), {
+                timeout: 1500,
+            });
         } else {
             setTimeout(() => preloadNextBatchImages(), 300);
         }
@@ -4266,6 +4303,9 @@ function filterProducts() {
         );
     }
 
+    // Hiển thị products grid
+    const productsGrid = document.getElementById("productsGrid");
+    if (productsGrid) productsGrid.style.display = "grid";
     displayProductsPaginated(filtered);
 
     // Không cần hide loading spinner vì không show loading khi filter/search
@@ -4450,75 +4490,9 @@ function openProductGallery(productId, imageIndex = 0) {
                 mainVideoIframe.src = embedUrl;
                 mainVideoIframe._embedUrl = embedUrl;
 
-                // Setup message listener to detect when video ends
-                // YouTube iframe with enablejsapi=1 sends postMessage events
-                const messageHandler = function (event) {
-                    // Verify origin is from YouTube
-                    if (
-                        event.origin !== "https://www.youtube.com" &&
-                        event.origin !== "https://www.youtube-nocookie.com"
-                    )
-                        return;
-
-                    // Parse the message data
-                    if (event.data) {
-                        try {
-                            let data = null;
-
-                            // YouTube sends different message formats
-                            if (typeof event.data === "string") {
-                                try {
-                                    data = JSON.parse(event.data);
-                                } catch (e) {
-                                    // Not JSON format, skip
-                                    return;
-                                }
-                            } else if (typeof event.data === "object") {
-                                data = event.data;
-                            }
-
-                            // Check for state change events from YouTube IFrame API
-                            if (data && data.event === "onStateChange") {
-                                // State values: -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (cued)
-                                const state =
-                                    data.info !== undefined
-                                        ? data.info
-                                        : data.data;
-                                if (state === 0) {
-                                    // Video ended - don't show play button (YouTube has its own controls, regular videos don't need play button)
-                                    // Hide play button for all videos
-                                    if (videoPlayOverlay) {
-                                        videoPlayOverlay.style.display = "none";
-                                    }
-                                } else if (state === 1) {
-                                    // Video playing - hide play button
-                                    if (videoPlayOverlay) {
-                                        videoPlayOverlay.style.display = "none";
-                                    }
-                                    // Khi bắt đầu phát, cố gắng ép 720p
-                                    tryForceYouTubeQuality(mainVideoIframe, "hd720");
-                                } else if (state === 3) {
-                                    // Buffering: đôi khi YouTube đổi chất lượng -> re-assert
-                                    tryForceYouTubeQuality(mainVideoIframe, "hd720");
-                                }
-                            }
-                        } catch (e) {
-                            // Handle errors silently
-                        }
-                    }
-                };
-
-                // Remove previous listener if exists
-                if (mainVideoIframe._messageHandler) {
-                    window.removeEventListener(
-                        "message",
-                        mainVideoIframe._messageHandler
-                    );
-                }
-
-                // Store handler reference and add new listener
-                mainVideoIframe._messageHandler = messageHandler;
-                window.addEventListener("message", messageHandler);
+                // KHÔNG sử dụng message listener để tránh CAPTCHA
+                // YouTube sẽ tự xử lý video playback mà không cần enablejsapi
+                // Người dùng có thể click vào video để phát trực tiếp
 
                 // Also setup click handler on iframe container to show iframe when play button is clicked
                 // This is handled in handlePlayVideo function
@@ -4599,35 +4573,19 @@ function openProductGallery(productId, imageIndex = 0) {
             if (isYouTube && mainVideoIframe) {
                 // Show iframe and load video with autoplay
                 mainVideoIframe.style.display = "block";
-                // Create URL with autoplay but without mute (user clicked play, so sound is allowed)
+                // Create URL without autoplay (user clicked play, video will play when clicked)
                 const autoplayUrl = convertToYouTubeEmbed(
                     videoUrl,
-                    true,
+                    false,
                     false
                 );
                 mainVideoIframe.src = autoplayUrl;
                 // Hide overlay to show video
                 videoPlayOverlay.style.display = "none";
 
-                // Try to play using YouTube IFrame API if available
-                // This helps ensure playback starts on mobile
-                try {
-                    if (
-                        mainVideoIframe.contentWindow &&
-                        mainVideoIframe.contentWindow.postMessage
-                    ) {
-                        // Send play command via postMessage (YouTube IFrame API)
-                        // Wait a bit for iframe to load
-                        setTimeout(() => {
-                            mainVideoIframe.contentWindow.postMessage(
-                                '{"event":"command","func":"playVideo","args":""}',
-                                "*"
-                            );
-                        }, 100);
-                    }
-                } catch (e) {
-                    // Fallback: just rely on autoplay parameter
-                }
+                // KHÔNG sử dụng postMessage để tránh CAPTCHA
+                // Dựa vào autoplay parameter trong embed URL
+                // Nếu autoplay không hoạt động, người dùng có thể click vào video
             } else {
                 playVideo();
             }
@@ -4874,15 +4832,17 @@ function isYouTubeUrl(url) {
     );
 }
 
-// Helper function to convert YouTube URL to embed format with autoplay
-function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
+// Helper function to convert YouTube URL to embed format
+function convertToYouTubeEmbed(url, autoplay = false, mute = false) {
     if (!url) return url;
 
     // Extract video ID from various YouTube URL formats
     let videoId = null;
 
     // youtube.com/embed/VIDEO_ID hoặc youtube-nocookie.com/embed/VIDEO_ID
-    const embedMatch = url.match(/youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/);
+    const embedMatch = url.match(
+        /youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/
+    );
     if (embedMatch) {
         videoId = embedMatch[1];
     }
@@ -4902,39 +4862,21 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
     }
 
     if (videoId) {
-        // Tham số để ẩn branding và video liên quan:
-        // - modestbranding=1: Ẩn logo YouTube và tên tài khoản
-        // - rel=0: Không hiển thị video liên quan sau khi phát xong
-        // - showinfo=0: Không hiển thị thông tin video (deprecated nhưng vẫn hoạt động)
-        // - controls=1: Hiển thị controls
-        // - fs=1: Cho phép fullscreen
-        // - cc_load_policy=0: Không tự động tải phụ đề
-        // - enablejsapi=1: Bật JavaScript API để lắng nghe events
-        // - origin: Cho phép postMessage
+        // Tối thiểu hóa params để tránh YouTube CAPTCHA và yêu cầu đăng nhập
+        // Chỉ sử dụng các tham số cơ bản nhất, không dùng enablejsapi
+        // Sử dụng youtube-nocookie.com để tránh yêu cầu cookie/login
         const params = new URLSearchParams({
             autoplay: autoplay ? "1" : "0",
-            mute: mute ? "1" : "0", // Cho phép bật/tắt mute
+            mute: mute ? "1" : "0",
             rel: "0", // Không hiển thị video liên quan
-            modestbranding: "1", // Ẩn logo YouTube và branding
-            controls: "1",
-            fs: "1",
-            cc_load_policy: "0",
-            iv_load_policy: "3", // Ẩn video annotations
-            playsinline: "1",
-            enablejsapi: "1", // Bật JavaScript API để lắng nghe events
-            // Cố gắng ưu tiên chất lượng cao nhất (YouTube có thể vẫn tự điều chỉnh theo mạng/thiết bị)
-            vq: "hd720",
-            hd: "1",
+            controls: "1", // Hiển thị controls
+            playsinline: "1", // Cho phép phát inline trên mobile
         });
-
-        // Thêm origin để YouTube IFrame API hoạt động ổn định hơn
-        try {
-            if (typeof window !== "undefined" && window.location && window.location.origin) {
-                params.set("origin", window.location.origin);
-            }
-        } catch (e) {
-            // ignore
-        }
+        
+        // KHÔNG sử dụng enablejsapi=1 để tránh CAPTCHA
+        // KHÔNG sử dụng modestbranding để tránh nghi ngờ
+        // KHÔNG sử dụng origin parameter
+        // KHÔNG sử dụng postMessage để tránh bị phát hiện
 
         // Sử dụng youtube-nocookie.com để tránh yêu cầu đăng nhập
         // Đây là chế độ privacy-enhanced của YouTube, không yêu cầu cookie/login
@@ -4944,45 +4886,9 @@ function convertToYouTubeEmbed(url, autoplay = true, mute = false) {
     return url;
 }
 
-// Best-effort force YouTube quality via postMessage (requires enablejsapi=1)
-function tryForceYouTubeQuality(iframe, quality = "hd720") {
-    if (!iframe || !iframe.contentWindow || !iframe.contentWindow.postMessage) return;
-
-    // Prevent spamming too frequently (YouTube may ignore or auto-adjust anyway)
-    const now = Date.now();
-    if (iframe._lastQualityForceAt && now - iframe._lastQualityForceAt < 800) return;
-    iframe._lastQualityForceAt = now;
-
-    try {
-        // Desired quality
-        iframe.contentWindow.postMessage(
-            JSON.stringify({
-                event: "command",
-                func: "setPlaybackQuality",
-                args: [quality],
-            }),
-            "*"
-        );
-
-        // Re-assert after a short delay to catch buffering transitions
-        setTimeout(() => {
-            try {
-                iframe.contentWindow.postMessage(
-                    JSON.stringify({
-                        event: "command",
-                        func: "setPlaybackQuality",
-                        args: [quality],
-                    }),
-                    "*"
-                );
-            } catch (e) {
-                // ignore
-            }
-        }, 900);
-    } catch (e) {
-        // ignore
-    }
-}
+// Hàm tryForceYouTubeQuality đã bị loại bỏ để tránh CAPTCHA
+// Không sử dụng postMessage để điều khiển YouTube video
+// YouTube sẽ tự động điều chỉnh chất lượng phù hợp
 
 // Play video
 function playVideo() {
@@ -5004,33 +4910,15 @@ function playVideo() {
             if (isYouTube) {
                 const newUrl = convertToYouTubeEmbed(
                     productVideoUrl,
-                    true,
+                    false,
                     false
                 );
                 mainVideoIframe.src = newUrl;
                 if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
 
-                // Try to play using YouTube IFrame API for mobile
-                try {
-                    if (
-                        mainVideoIframe.contentWindow &&
-                        mainVideoIframe.contentWindow.postMessage
-                    ) {
-                        setTimeout(() => {
-                            mainVideoIframe.contentWindow.postMessage(
-                                '{"event":"command","func":"playVideo","args":""}',
-                                "*"
-                            );
-                        }, 200);
-
-                        // Cố gắng ép chất lượng 720p sau khi bắt đầu phát
-                        setTimeout(() => {
-                            tryForceYouTubeQuality(mainVideoIframe, "hd720");
-                        }, 450);
-                    }
-                } catch (e) {
-                    // Fallback: just rely on autoplay parameter
-                }
+                // KHÔNG sử dụng postMessage để tránh CAPTCHA
+                // Dựa vào autoplay parameter trong embed URL
+                // Nếu autoplay không hoạt động, người dùng có thể click vào video
             }
         }
     } else if (mainVideo) {
@@ -5907,6 +5795,10 @@ function setupEventListeners() {
             }
 
             currentPage = 1;
+
+            // Hiển thị products grid
+            const productsGrid = document.getElementById("productsGrid");
+            if (productsGrid) productsGrid.style.display = "grid";
             displayProductsPaginated(filtered);
 
             // Khi đang lướt giữa danh sách mà bấm tab:
@@ -5919,8 +5811,9 @@ function setupEventListeners() {
                     const grid = document.getElementById("productsGrid");
                     if (!tabs && !grid) return;
 
-                    const tabsTopCss =
-                        tabs ? Number.parseFloat(getComputedStyle(tabs).top) || 0 : 0;
+                    const tabsTopCss = tabs
+                        ? Number.parseFloat(getComputedStyle(tabs).top) || 0
+                        : 0;
                     const tabsHeight = tabs ? tabs.offsetHeight || 0 : 0;
                     const offset = tabsTopCss + tabsHeight + 10;
 
@@ -5962,7 +5855,7 @@ function setupEventListeners() {
     let searchTimeout;
     const searchInput = document.getElementById("searchInput");
     const searchClearBtn = document.getElementById("searchClearBtn");
-    
+
     // Function to toggle clear button visibility
     function toggleClearButton() {
         if (searchInput && searchClearBtn) {
@@ -5973,7 +5866,7 @@ function setupEventListeners() {
             }
         }
     }
-    
+
     // Clear button click handler
     searchClearBtn?.addEventListener("click", function () {
         if (searchInput) {
@@ -5986,11 +5879,11 @@ function setupEventListeners() {
             updateBackButton();
         }
     });
-    
+
     document
         .getElementById("searchBtn")
         ?.addEventListener("click", handleSearch);
-    
+
     // Xử lý Enter key để tìm kiếm (hỗ trợ cả keypress và keydown)
     const searchInputElement = document.getElementById("searchInput");
     if (searchInputElement) {
@@ -6001,7 +5894,7 @@ function setupEventListeners() {
                 handleSearch();
             }
         });
-        
+
         // keydown cho mobile (một số thiết bị mobile không trigger keypress)
         searchInputElement.addEventListener("keydown", function (e) {
             if (e.key === "Enter" || e.keyCode === 13) {
@@ -6031,7 +5924,7 @@ function setupEventListeners() {
                 updateBackButton();
             }
         });
-    
+
     // Initialize clear button visibility on page load
     toggleClearButton();
 
@@ -6275,11 +6168,11 @@ function initIntersectionObserver() {
         // Sử dụng Performance Observer để tối ưu
         const imageLoadQueue = [];
         let isProcessingQueue = false;
-        
+
         const processImageQueue = () => {
             if (isProcessingQueue || imageLoadQueue.length === 0) return;
             isProcessingQueue = true;
-            
+
             requestAnimationFrame(() => {
                 const batch = imageLoadQueue.splice(0, 5); // Load 5 ảnh mỗi frame
                 batch.forEach((img) => {
@@ -6297,7 +6190,7 @@ function initIntersectionObserver() {
                 }
             });
         };
-        
+
         imageObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -6321,28 +6214,39 @@ function initIntersectionObserver() {
         document.querySelectorAll("img[data-src]").forEach((img) => {
             imageObserver.observe(img);
         });
-        
+
         // Observe lazy-loaded images và picture elements
-        document.querySelectorAll("img[loading='lazy'], picture img").forEach((img) => {
-            if (!img.complete && !img.dataset.src) {
-                imageObserver.observe(img);
-            }
-        });
-        
-        // Preload images trong viewport ngay lập tức
-        requestIdleCallback(() => {
-            document.querySelectorAll("img[loading='eager'], img[fetchpriority='high']").forEach((img) => {
-                if (img.tagName === 'IMG' && img.src && !img.complete) {
-                    const link = document.createElement('link');
-                    link.rel = 'preload';
-                    link.as = 'image';
-                    link.href = img.src;
-                    if (img.srcset) link.setAttribute('imagesrcset', img.srcset);
-                    if (img.sizes) link.setAttribute('imagesizes', img.sizes);
-                    document.head.appendChild(link);
+        document
+            .querySelectorAll("img[loading='lazy'], picture img")
+            .forEach((img) => {
+                if (!img.complete && !img.dataset.src) {
+                    imageObserver.observe(img);
                 }
             });
-        }, { timeout: 1000 });
+
+        // Preload images trong viewport ngay lập tức
+        requestIdleCallback(
+            () => {
+                document
+                    .querySelectorAll(
+                        "img[loading='eager'], img[fetchpriority='high']"
+                    )
+                    .forEach((img) => {
+                        if (img.tagName === "IMG" && img.src && !img.complete) {
+                            const link = document.createElement("link");
+                            link.rel = "preload";
+                            link.as = "image";
+                            link.href = img.src;
+                            if (img.srcset)
+                                link.setAttribute("imagesrcset", img.srcset);
+                            if (img.sizes)
+                                link.setAttribute("imagesizes", img.sizes);
+                            document.head.appendChild(link);
+                        }
+                    });
+            },
+            { timeout: 1000 }
+        );
     }
 }
 
@@ -6364,7 +6268,7 @@ function initPerformanceOptimizations() {
     // Ultra-smooth scroll with RAF and passive listeners
     let lastScrollY = window.scrollY;
     let ticking = false;
-    
+
     const updateScrollEffects = () => {
         const currentScrollY = window.scrollY;
         // Update scroll-to-top button
@@ -6376,13 +6280,14 @@ function initPerformanceOptimizations() {
                 scrollToTopBtn.style.display = "none";
             }
         }
-        
+
         // Update header on scroll (optional: add shrink effect)
-        const header = document.querySelector('.header');
+        const header = document.querySelector(".header");
         if (header && currentScrollY > 50) {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.15)';
+            header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.15)";
         } else if (header) {
-            header.style.boxShadow = '0 4px 20px rgba(255, 102, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.2)';
+            header.style.boxShadow =
+                "0 4px 20px rgba(255, 102, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.2)";
         }
 
         // When products tabs are sticky, move Facebook button down to avoid overlap
@@ -6411,11 +6316,11 @@ function initPerformanceOptimizations() {
         } catch (e) {
             // ignore
         }
-        
+
         lastScrollY = currentScrollY;
         ticking = false;
     };
-    
+
     window.addEventListener(
         "scroll",
         () => {
@@ -6433,14 +6338,16 @@ function initPerformanceOptimizations() {
         // Recalculate layouts if needed
         if (scrollObserver) {
             // Re-observe elements after resize
-            document.querySelectorAll(".product-card, .slider-item").forEach((el) => {
-                if (!el.classList.contains("animate-in")) {
-                    scrollObserver.observe(el);
-                }
-            });
+            document
+                .querySelectorAll(".product-card, .slider-item")
+                .forEach((el) => {
+                    if (!el.classList.contains("animate-in")) {
+                        scrollObserver.observe(el);
+                    }
+                });
         }
     };
-    
+
     window.addEventListener(
         "resize",
         () => {
@@ -6451,54 +6358,67 @@ function initPerformanceOptimizations() {
         },
         { passive: true }
     );
-    
+
     // Optimize touch events for mobile
     let touchStartY = 0;
-    document.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    
+    document.addEventListener(
+        "touchstart",
+        (e) => {
+            touchStartY = e.touches[0].clientY;
+        },
+        { passive: true }
+    );
+
     // Preload critical resources
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            // Preconnect to likely external resources
-            const preconnectDomains = [
-                'https://www.facebook.com',
-                'https://www.messenger.com'
-            ];
-            preconnectDomains.forEach(domain => {
-                const link = document.createElement('link');
-                link.rel = 'preconnect';
-                link.href = domain;
-                document.head.appendChild(link);
-            });
-        }, { timeout: 3000 });
+    if ("requestIdleCallback" in window) {
+        requestIdleCallback(
+            () => {
+                // Preconnect to likely external resources
+                const preconnectDomains = [
+                    "https://www.facebook.com",
+                    "https://www.messenger.com",
+                ];
+                preconnectDomains.forEach((domain) => {
+                    const link = document.createElement("link");
+                    link.rel = "preconnect";
+                    link.href = domain;
+                    document.head.appendChild(link);
+                });
+            },
+            { timeout: 3000 }
+        );
     }
-    
+
     // Use Content Visibility API for better rendering performance
-    if ('IntersectionObserver' in window && 'requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach((card, index) => {
-                // Set content-visibility for off-screen items
-                if (index > 20) {
-                    card.style.contentVisibility = 'auto';
-                    card.style.containIntrinsicSize = '300px 400px';
-                }
-            });
-        }, { timeout: 2000 });
+    if ("IntersectionObserver" in window && "requestIdleCallback" in window) {
+        requestIdleCallback(
+            () => {
+                const productCards = document.querySelectorAll(".product-card");
+                productCards.forEach((card, index) => {
+                    // Set content-visibility for off-screen items
+                    if (index > 20) {
+                        card.style.contentVisibility = "auto";
+                        card.style.containIntrinsicSize = "300px 400px";
+                    }
+                });
+            },
+            { timeout: 2000 }
+        );
     }
 }
 
 // Prefetch likely next resources
 function prefetchLikelyResources() {
     // Prefetch "batch" tiếp theo (phù hợp infinite scroll)
-    const list = currentRenderList && currentRenderList.length ? currentRenderList : products;
+    const list =
+        currentRenderList && currentRenderList.length
+            ? currentRenderList
+            : products;
     const nextBatchProducts = list.slice(
         visibleProductsCount,
         Math.min(visibleProductsCount + productsPerPage, list.length)
     );
-    
+
     nextBatchProducts.slice(0, 8).forEach((product) => {
         if (product && product.image) {
             const link = document.createElement("link");
@@ -6511,7 +6431,10 @@ function prefetchLikelyResources() {
 }
 
 function preloadNextPageImages() {
-    const list = currentRenderList && currentRenderList.length ? currentRenderList : products;
+    const list =
+        currentRenderList && currentRenderList.length
+            ? currentRenderList
+            : products;
     const nextBatchProducts = list.slice(
         visibleProductsCount,
         Math.min(visibleProductsCount + productsPerPage, list.length)
@@ -6519,16 +6442,19 @@ function preloadNextPageImages() {
 
     // Use requestIdleCallback to preload images when browser is idle
     if ("requestIdleCallback" in window) {
-        requestIdleCallback(() => {
-            nextBatchProducts.forEach((product) => {
-                if (product && product.image) {
-                    const link = document.createElement("link");
-                    link.rel = "prefetch";
-                    link.href = normalizePath(product.image);
-                    document.head.appendChild(link);
-                }
-            });
-        }, { timeout: 2000 });
+        requestIdleCallback(
+            () => {
+                nextBatchProducts.forEach((product) => {
+                    if (product && product.image) {
+                        const link = document.createElement("link");
+                        link.rel = "prefetch";
+                        link.href = normalizePath(product.image);
+                        document.head.appendChild(link);
+                    }
+                });
+            },
+            { timeout: 2000 }
+        );
     }
 }
 
@@ -6563,9 +6489,9 @@ let installButton = null;
 function initPWAInstall() {
     // Tạo install button
     createInstallButton();
-    
+
     // Lắng nghe beforeinstallprompt event
-    window.addEventListener('beforeinstallprompt', (e) => {
+    window.addEventListener("beforeinstallprompt", (e) => {
         // Ngăn trình duyệt tự động hiển thị prompt
         e.preventDefault();
         // Lưu event để dùng sau
@@ -6575,29 +6501,30 @@ function initPWAInstall() {
     });
 
     // Kiểm tra nếu app đã được cài đặt
-    if (window.matchMedia('(display-mode: standalone)').matches) {
+    if (window.matchMedia("(display-mode: standalone)").matches) {
         // App đã được cài đặt, ẩn install button
         hideInstallButton();
     }
 
     // Lắng nghe khi app được cài đặt
-    window.addEventListener('appinstalled', () => {
-        console.log('✅ PWA đã được cài đặt');
+    window.addEventListener("appinstalled", () => {
+        console.log("✅ PWA đã được cài đặt");
         deferredPrompt = null;
         hideInstallButton();
-        showToast('🎉 Ứng dụng đã được cài đặt thành công!', 'success');
+        showToast("🎉 Ứng dụng đã được cài đặt thành công!", "success");
     });
 }
 
 function createInstallButton() {
     // Kiểm tra xem đã có button chưa
-    if (document.getElementById('pwaInstallBtn')) return;
+    if (document.getElementById("pwaInstallBtn")) return;
 
-    const installBtn = document.createElement('button');
-    installBtn.id = 'pwaInstallBtn';
-    installBtn.className = 'pwa-install-btn';
-    installBtn.innerHTML = '<i class="fas fa-download"></i> <span>Cài đặt App</span>';
-    installBtn.setAttribute('aria-label', 'Cài đặt ứng dụng ODER 88');
+    const installBtn = document.createElement("button");
+    installBtn.id = "pwaInstallBtn";
+    installBtn.className = "pwa-install-btn";
+    installBtn.innerHTML =
+        '<i class="fas fa-download"></i> <span>Cài đặt App</span>';
+    installBtn.setAttribute("aria-label", "Cài đặt ứng dụng ODER 88");
     installBtn.style.cssText = `
         position: fixed;
         bottom: 80px;
@@ -6618,24 +6545,24 @@ function createInstallButton() {
         transition: all 0.3s ease;
         animation: slideUp 0.5s ease;
     `;
-    
-    installBtn.addEventListener('click', installPWA);
-    installBtn.addEventListener('mouseenter', () => {
-        installBtn.style.transform = 'translateY(-2px)';
-        installBtn.style.boxShadow = '0 6px 25px rgba(255, 102, 0, 0.5)';
+
+    installBtn.addEventListener("click", installPWA);
+    installBtn.addEventListener("mouseenter", () => {
+        installBtn.style.transform = "translateY(-2px)";
+        installBtn.style.boxShadow = "0 6px 25px rgba(255, 102, 0, 0.5)";
     });
-    installBtn.addEventListener('mouseleave', () => {
-        installBtn.style.transform = 'translateY(0)';
-        installBtn.style.boxShadow = '0 4px 20px rgba(255, 102, 0, 0.4)';
+    installBtn.addEventListener("mouseleave", () => {
+        installBtn.style.transform = "translateY(0)";
+        installBtn.style.boxShadow = "0 4px 20px rgba(255, 102, 0, 0.4)";
     });
 
     document.body.appendChild(installBtn);
     installButton = installBtn;
 
     // Thêm CSS animation
-    if (!document.getElementById('pwaInstallStyles')) {
-        const style = document.createElement('style');
-        style.id = 'pwaInstallStyles';
+    if (!document.getElementById("pwaInstallStyles")) {
+        const style = document.createElement("style");
+        style.id = "pwaInstallStyles";
         style.textContent = `
             @keyframes slideUp {
                 from {
@@ -6662,13 +6589,13 @@ function createInstallButton() {
 
 function showInstallButton() {
     if (installButton && deferredPrompt) {
-        installButton.style.display = 'flex';
+        installButton.style.display = "flex";
     }
 }
 
 function hideInstallButton() {
     if (installButton) {
-        installButton.style.display = 'none';
+        installButton.style.display = "none";
     }
 }
 
@@ -6681,17 +6608,17 @@ async function installPWA() {
 
     // Hiển thị install prompt
     deferredPrompt.prompt();
-    
+
     // Đợi người dùng phản hồi
     const { outcome } = await deferredPrompt.userChoice;
-    
-    if (outcome === 'accepted') {
-        console.log('✅ Người dùng đã chấp nhận cài đặt PWA');
-        showToast('🎉 Đang cài đặt ứng dụng...', 'success');
+
+    if (outcome === "accepted") {
+        console.log("✅ Người dùng đã chấp nhận cài đặt PWA");
+        showToast("🎉 Đang cài đặt ứng dụng...", "success");
     } else {
-        console.log('❌ Người dùng đã từ chối cài đặt PWA');
+        console.log("❌ Người dùng đã từ chối cài đặt PWA");
     }
-    
+
     // Xóa prompt
     deferredPrompt = null;
     hideInstallButton();
@@ -6700,8 +6627,8 @@ async function installPWA() {
 function showInstallInstructions() {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isAndroid = /Android/.test(navigator.userAgent);
-    
-    let instructions = '';
+
+    let instructions = "";
     if (isIOS) {
         instructions = `
             <h3><i class="fas fa-mobile-alt"></i> Cài đặt trên iOS</h3>
@@ -6730,7 +6657,7 @@ function showInstallInstructions() {
         `;
     }
 
-    showToast(instructions, 'info', 8000);
+    showToast(instructions, "info", 8000);
 }
 
 // ==================== SHARE API ====================
@@ -6745,13 +6672,13 @@ function initShareAPI() {
 
 function addShareButton() {
     // Kiểm tra xem đã có button chưa
-    if (document.getElementById('shareBtn')) return;
+    if (document.getElementById("shareBtn")) return;
 
-    const shareBtn = document.createElement('button');
-    shareBtn.id = 'shareBtn';
-    shareBtn.className = 'share-btn';
+    const shareBtn = document.createElement("button");
+    shareBtn.id = "shareBtn";
+    shareBtn.className = "share-btn";
     shareBtn.innerHTML = '<i class="fas fa-share-alt"></i>';
-    shareBtn.setAttribute('aria-label', 'Chia sẻ ứng dụng');
+    shareBtn.setAttribute("aria-label", "Chia sẻ ứng dụng");
     shareBtn.style.cssText = `
         background: rgba(255, 102, 0, 0.1);
         border: 1px solid rgba(255, 102, 0, 0.3);
@@ -6766,19 +6693,19 @@ function addShareButton() {
         transition: all 0.3s ease;
         margin-left: 10px;
     `;
-    
-    shareBtn.addEventListener('click', shareApp);
-    shareBtn.addEventListener('mouseenter', () => {
-        shareBtn.style.background = 'rgba(255, 102, 0, 0.2)';
-        shareBtn.style.transform = 'scale(1.1)';
+
+    shareBtn.addEventListener("click", shareApp);
+    shareBtn.addEventListener("mouseenter", () => {
+        shareBtn.style.background = "rgba(255, 102, 0, 0.2)";
+        shareBtn.style.transform = "scale(1.1)";
     });
-    shareBtn.addEventListener('mouseleave', () => {
-        shareBtn.style.background = 'rgba(255, 102, 0, 0.1)';
-        shareBtn.style.transform = 'scale(1)';
+    shareBtn.addEventListener("mouseleave", () => {
+        shareBtn.style.background = "rgba(255, 102, 0, 0.1)";
+        shareBtn.style.transform = "scale(1)";
     });
 
     // Thêm vào header actions
-    const headerActions = document.querySelector('.header-actions');
+    const headerActions = document.querySelector(".header-actions");
     if (headerActions) {
         headerActions.insertBefore(shareBtn, headerActions.firstChild);
     }
@@ -6786,21 +6713,21 @@ function addShareButton() {
 
 async function shareApp() {
     const shareData = {
-        title: 'ODER 88 - Thời Trang Cao Cấp',
-        text: 'Khám phá bộ sưu tập thời trang nam nữ cao cấp tại ODER 88!',
+        title: "ODER 88 - Thời Trang Cao Cấp",
+        text: "Khám phá bộ sưu tập thời trang nam nữ cao cấp tại ODER 88!",
         url: window.location.href,
     };
 
     try {
         await navigator.share(shareData);
-        console.log('✅ Chia sẻ thành công');
+        console.log("✅ Chia sẻ thành công");
     } catch (err) {
         // Người dùng đã hủy hoặc có lỗi
-        if (err.name !== 'AbortError') {
-            console.error('❌ Lỗi khi chia sẻ:', err);
+        if (err.name !== "AbortError") {
+            console.error("❌ Lỗi khi chia sẻ:", err);
             // Fallback: copy link
             copyToClipboard(window.location.href);
-            showToast('📋 Đã sao chép link vào clipboard!', 'success');
+            showToast("📋 Đã sao chép link vào clipboard!", "success");
         }
     }
 }
@@ -6810,7 +6737,7 @@ function shareProduct(product) {
         // Fallback: copy link
         const productUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
         copyToClipboard(productUrl);
-        showToast('📋 Đã sao chép link sản phẩm!', 'success');
+        showToast("📋 Đã sao chép link sản phẩm!", "success");
         return;
     }
 
@@ -6821,8 +6748,8 @@ function shareProduct(product) {
     };
 
     navigator.share(shareData).catch((err) => {
-        if (err.name !== 'AbortError') {
-            console.error('Lỗi khi chia sẻ sản phẩm:', err);
+        if (err.name !== "AbortError") {
+            console.error("Lỗi khi chia sẻ sản phẩm:", err);
         }
     });
 }
@@ -6832,13 +6759,13 @@ function copyToClipboard(text) {
         navigator.clipboard.writeText(text);
     } else {
         // Fallback cho browser cũ
-        const textarea = document.createElement('textarea');
+        const textarea = document.createElement("textarea");
         textarea.value = text;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
         document.body.appendChild(textarea);
         textarea.select();
-        document.execCommand('copy');
+        document.execCommand("copy");
         document.body.removeChild(textarea);
     }
 }
@@ -6846,10 +6773,10 @@ function copyToClipboard(text) {
 // ==================== APP UPDATE NOTIFICATION ====================
 function showUpdateNotification(onUpdate) {
     // Kiểm tra xem đã có notification chưa
-    if (document.getElementById('updateNotification')) return;
+    if (document.getElementById("updateNotification")) return;
 
-    const notification = document.createElement('div');
-    notification.id = 'updateNotification';
+    const notification = document.createElement("div");
+    notification.id = "updateNotification";
     notification.style.cssText = `
         position: fixed;
         bottom: 20px;
@@ -6867,7 +6794,7 @@ function showUpdateNotification(onUpdate) {
         max-width: 90%;
         animation: slideUpNotification 0.5s ease;
     `;
-    
+
     notification.innerHTML = `
         <i class="fas fa-sync-alt" style="font-size: 1.2rem;"></i>
         <div style="flex: 1;">
@@ -6900,9 +6827,9 @@ function showUpdateNotification(onUpdate) {
     `;
 
     // Thêm CSS animation
-    if (!document.getElementById('updateNotificationStyles')) {
-        const style = document.createElement('style');
-        style.id = 'updateNotificationStyles';
+    if (!document.getElementById("updateNotificationStyles")) {
+        const style = document.createElement("style");
+        style.id = "updateNotificationStyles";
         style.textContent = `
             @keyframes slideUpNotification {
                 from {
@@ -6928,22 +6855,23 @@ function showUpdateNotification(onUpdate) {
     document.body.appendChild(notification);
 
     // Event handlers
-    const updateBtn = document.getElementById('updateBtn');
-    const dismissBtn = document.getElementById('dismissUpdateBtn');
+    const updateBtn = document.getElementById("updateBtn");
+    const dismissBtn = document.getElementById("dismissUpdateBtn");
 
-    updateBtn.addEventListener('click', () => {
+    updateBtn.addEventListener("click", () => {
         if (onUpdate) onUpdate();
         notification.remove();
     });
 
-    dismissBtn.addEventListener('click', () => {
+    dismissBtn.addEventListener("click", () => {
         notification.remove();
     });
 
     // Auto dismiss sau 10 giây
     setTimeout(() => {
         if (notification.parentNode) {
-            notification.style.animation = 'slideUpNotification 0.5s ease reverse';
+            notification.style.animation =
+                "slideUpNotification 0.5s ease reverse";
             setTimeout(() => notification.remove(), 500);
         }
     }, 10000);
@@ -7350,7 +7278,9 @@ function addToCart(product, triggerButton = null, selectedSize = null) {
     // Nếu chưa từng có selection state, để openCart lần đầu tự chọn tất cả.
     if (hasSavedSelection()) {
         try {
-            const addedKey = `${normalizeId(productId)}_${selectedSize || "nosize"}`;
+            const addedKey = `${normalizeId(productId)}_${
+                selectedSize || "nosize"
+            }`;
             selectedItems.add(addedKey);
             saveSelectedItems();
         } catch (e) {
@@ -7597,7 +7527,9 @@ function updateCartModal() {
                                                 item.id
                                             }, ${item.quantity - 1})"
                                             type="button" ${
-                                                item.quantity <= 1 ? "disabled" : ""
+                                                item.quantity <= 1
+                                                    ? "disabled"
+                                                    : ""
                                             }>-</button>
                                     <span class="cart-quantity-value">${
                                         item.quantity

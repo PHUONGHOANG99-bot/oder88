@@ -1337,7 +1337,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt10.jpg",
         "bestSeller": true,
-        "purchases": 428
+        "purchases": 428,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt10.jpg",
+            "assets/image/ao-nam/anh-adn/10.1.jpg",
+            "assets/image/ao-nam/anh-adn/10.2.jpg"
+        ]
     },
     {
         "id": 159,
@@ -1347,7 +1352,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt11.jpg",
         "bestSeller": false,
-        "purchases": 342
+        "purchases": 342,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt11.jpg",
+            "assets/image/ao-nam/anh-adn/11.1.jpg"
+        ]
     },
     {
         "id": 160,
@@ -1357,7 +1366,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt12.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt12.jpg",
+            "assets/image/ao-nam/anh-adn/12.1.jpg"
+        ]
     },
     {
         "id": 161,
@@ -1377,7 +1390,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt14.jpg",
         "bestSeller": false,
-        "purchases": 355
+        "purchases": 355,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt14.jpg",
+            "assets/image/ao-nam/anh-adn/14.1.jpg"
+        ]
     },
     {
         "id": 163,
@@ -1387,7 +1404,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt15.jpg",
         "bestSeller": true,
-        "purchases": 402
+        "purchases": 402,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt15.jpg",
+            "assets/image/ao-nam/anh-adn/15.1.jpg"
+        ]
     },
     {
         "id": 164,
@@ -1397,7 +1418,13 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt16.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt16.jpg",
+            "assets/image/ao-nam/anh-adn/16.1.jpg",
+            "assets/image/ao-nam/anh-adn/16.2.jpg",
+            "assets/image/ao-nam/anh-adn/16.3.jpg"
+        ]
     },
     {
         "id": 165,
@@ -1407,7 +1434,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt17.jpg",
         "bestSeller": true,
-        "purchases": 415
+        "purchases": 415,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt17.jpg",
+            "assets/image/ao-nam/anh-adn/17.1.jpg",
+            "assets/image/ao-nam/anh-adn/17.2.jpg"
+        ]
     },
     {
         "id": 166,
@@ -1417,7 +1449,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt18.jpg",
         "bestSeller": false,
-        "purchases": 365
+        "purchases": 365,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt18.jpg",
+            "assets/image/ao-nam/anh-adn/18.1.jpg"
+        ]
     },
     {
         "id": 167,
@@ -1427,7 +1463,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt19.jpg",
         "bestSeller": true,
-        "purchases": 392
+        "purchases": 392,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt19.jpg",
+            "assets/image/ao-nam/anh-adn/19.1.jpg"
+        ]
     },
     {
         "id": 168,
@@ -1437,7 +1477,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt20.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt20.jpg",
+            "assets/image/ao-nam/anh-adn/20.1.jpg",
+            "assets/image/ao-nam/anh-adn/20.2.jpg"
+        ]
     },
     {
         "id": 169,
@@ -1457,7 +1502,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt22.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt22.jpg",
+            "assets/image/ao-nam/anh-adn/22.1.jpg"
+        ]
     },
     {
         "id": 171,
@@ -1467,7 +1516,13 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt23.jpg",
         "bestSeller": true,
-        "purchases": 385
+        "purchases": 385,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt23.jpg",
+            "assets/image/ao-nam/anh-adn/23.1.jpg",
+            "assets/image/ao-nam/anh-adn/23.2.jpg",
+            "assets/image/ao-nam/anh-adn/23.3.jpg"
+        ]
     },
     {
         "id": 172,
@@ -1487,7 +1542,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt25.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt25.jpg",
+            "assets/image/ao-nam/anh-adn/25.1.jpg",
+            "assets/image/ao-nam/anh-adn/25.2.jpg"
+        ]
     },
     {
         "id": 174,
@@ -1497,7 +1557,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt26.jpg",
         "bestSeller": true,
-        "purchases": 408
+        "purchases": 408,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt26.jpg",
+            "assets/image/ao-nam/anh-adn/26.1.jpg"
+        ]
     },
     {
         "id": 175,
@@ -1507,7 +1571,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt27.jpg",
         "bestSeller": false,
-        "purchases": 372
+        "purchases": 372,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt27.jpg",
+            "assets/image/ao-nam/anh-adn/27.1.jpg"
+        ]
     },
     {
         "id": 176,
@@ -1517,7 +1585,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt28.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt28.jpg",
+            "assets/image/ao-nam/anh-adn/28.1.jpg",
+            "assets/image/ao-nam/anh-adn/28.2.jpg"
+        ]
     },
     {
         "id": 177,
@@ -1527,7 +1600,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt29.jpg",
         "bestSeller": false,
-        "purchases": 358
+        "purchases": 358,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt29.jpg",
+            "assets/image/ao-nam/anh-adn/29.1.jpg",
+            "assets/image/ao-nam/anh-adn/29.2.jpg"
+        ]
     },
     {
         "id": 178,
@@ -1537,7 +1615,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt30.jpg",
         "bestSeller": true,
-        "purchases": 398
+        "purchases": 398,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt30.jpg",
+            "assets/image/ao-nam/anh-adn/30.1.jpg"
+        ]
     },
     {
         "id": 179,
@@ -1547,7 +1629,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt31.jpg",
         "bestSeller": true,
-        "purchases": 412
+        "purchases": 412,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt31.jpg",
+            "assets/image/ao-nam/anh-adn/31.1.jpg"
+        ]
     },
     {
         "id": 180,
@@ -1577,7 +1663,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt34.jpg",
         "bestSeller": true,
-        "purchases": 450
+        "purchases": 450,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt34.jpg",
+            "assets/image/ao-nam/anh-adn/34.1.jpg"
+        ]
     },
     {
         "id": 183,
@@ -1587,7 +1677,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt35.jpg",
         "bestSeller": true,
-        "purchases": 430
+        "purchases": 430,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt35.jpg",
+            "assets/image/ao-nam/anh-adn/35.1.jpg"
+        ]
     },
     {
         "id": 184,
@@ -1597,7 +1691,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt36.jpg",
         "bestSeller": false,
-        "purchases": 375
+        "purchases": 375,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt36.jpg",
+            "assets/image/ao-nam/anh-adn/36.1.jpg",
+            "assets/image/ao-nam/anh-adn/36.2.jpg"
+        ]
     },
     {
         "id": 185,
@@ -1607,7 +1706,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt37.jpg",
         "bestSeller": true,
-        "purchases": 420
+        "purchases": 420,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt37.jpg",
+            "assets/image/ao-nam/anh-adn/37.1.jpg",
+            "assets/image/ao-nam/anh-adn/37.2.jpg"
+        ]
     },
     {
         "id": 186,
@@ -1627,7 +1731,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt39.jpg",
         "bestSeller": false,
-        "purchases": 380
+        "purchases": 380,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt39.jpg",
+            "assets/image/ao-nam/anh-adn/39.1.jpg"
+        ]
     },
     {
         "id": 188,
@@ -1637,7 +1745,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt40.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt40.jpg",
+            "assets/image/ao-nam/anh-adn/40.1.jpg"
+        ]
     },
     {
         "id": 189,
@@ -1647,7 +1759,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt41.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt41.jpg",
+            "assets/image/ao-nam/anh-adn/41.1.jpg"
+        ]
     },
     {
         "id": 190,
@@ -1657,7 +1773,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt42.jpg",
         "bestSeller": true,
-        "purchases": 415
+        "purchases": 415,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt42.jpg",
+            "assets/image/ao-nam/anh-adn/42.1.jpg"
+        ]
     },
     {
         "id": 191,
@@ -1667,7 +1787,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt43.jpg",
         "bestSeller": false,
-        "purchases": 370
+        "purchases": 370,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt43.jpg",
+            "assets/image/ao-nam/anh-adn/43.1.jpg"
+        ]
     },
     {
         "id": 192,
@@ -1677,7 +1801,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt44.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt44.jpg",
+            "assets/image/ao-nam/anh-adn/44.2.jpg"
+        ]
     },
     {
         "id": 193,
@@ -1687,7 +1815,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt45.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt45.jpg",
+            "assets/image/ao-nam/anh-adn/45.1.jpg",
+            "assets/image/ao-nam/anh-adn/45.2.jpg"
+        ]
     },
     {
         "id": 194,
@@ -1697,7 +1830,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt46.jpg",
         "bestSeller": true,
-        "purchases": 460
+        "purchases": 460,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt46.jpg",
+            "assets/image/ao-nam/anh-adn/46.1.jpg",
+            "assets/image/ao-nam/anh-adn/46.2.jpg"
+        ]
     },
     {
         "id": 195,
@@ -1717,7 +1855,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt48.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt48.jpg",
+            "assets/image/ao-nam/anh-adn/48.1.jpg"
+        ]
     },
     {
         "id": 197,
@@ -1727,7 +1869,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt49.jpg",
         "bestSeller": true,
-        "purchases": 480
+        "purchases": 480,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt49.jpg",
+            "assets/image/ao-nam/anh-adn/49.1.jpg"
+        ]
     },
     {
         "id": 198,
@@ -1737,7 +1883,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt50.jpg",
         "bestSeller": true,
-        "purchases": 455
+        "purchases": 455,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt50.jpg",
+            "assets/image/ao-nam/anh-adn/50.1.jpg"
+        ]
     },
     {
         "id": 199,
@@ -1747,7 +1897,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt51.jpg",
         "bestSeller": false,
-        "purchases": 385
+        "purchases": 385,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt51.jpg",
+            "assets/image/ao-nam/anh-adn/51.1.jpg",
+            "assets/image/ao-nam/anh-adn/51.2.jpg"
+        ]
     },
     {
         "id": 200,
@@ -1757,7 +1912,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt52.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt52.jpg",
+            "assets/image/ao-nam/anh-adn/52.1.jpg",
+            "assets/image/ao-nam/anh-adn/52.2.jpg"
+        ]
     },
     {
         "id": 201,
@@ -1767,7 +1927,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt53.jpg",
         "bestSeller": true,
-        "purchases": 430
+        "purchases": 430,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt53.jpg",
+            "assets/image/ao-nam/anh-adn/53.1.jpg",
+            "assets/image/ao-nam/anh-adn/53.2.jpg"
+        ]
     },
     {
         "id": 202,
@@ -1777,7 +1942,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt54.jpg",
         "bestSeller": false,
-        "purchases": 360
+        "purchases": 360,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt54.jpg",
+            "assets/image/ao-nam/anh-adn/54.1.jpg"
+        ]
     },
     {
         "id": 203,
@@ -1787,7 +1956,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt55.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt55.jpg",
+            "assets/image/ao-nam/anh-adn/55.1.jpg",
+            "assets/image/ao-nam/anh-adn/55.2.jpg"
+        ]
     },
     {
         "id": 204,
@@ -1797,7 +1971,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt56.jpg",
         "bestSeller": true,
-        "purchases": 600
+        "purchases": 600,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt56.jpg",
+            "assets/image/ao-nam/anh-adn/56.1.jpg",
+            "assets/image/ao-nam/anh-adn/56.2.jpg"
+        ]
     },
     {
         "id": 205,
@@ -1807,7 +1986,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt57.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt57.jpg",
+            "assets/image/ao-nam/anh-adn/57.1.jpg",
+            "assets/image/ao-nam/anh-adn/57.2.jpg"
+        ]
     },
     {
         "id": 206,
@@ -1817,7 +2001,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt58.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt58.jpg",
+            "assets/image/ao-nam/anh-adn/58.1.jpg",
+            "assets/image/ao-nam/anh-adn/58.2.jpg"
+        ]
     },
     {
         "id": 207,
@@ -1827,7 +2016,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt59.jpg",
         "bestSeller": true,
-        "purchases": 450
+        "purchases": 450,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt59.jpg",
+            "assets/image/ao-nam/anh-adn/59.1.jpg",
+            "assets/image/ao-nam/anh-adn/59.2.jpg"
+        ]
     },
     {
         "id": 208,
@@ -1837,7 +2031,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt60.jpg",
         "bestSeller": false,
-        "purchases": 375
+        "purchases": 375,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt60.jpg",
+            "assets/image/ao-nam/anh-adn/60.1.jpg",
+            "assets/image/ao-nam/anh-adn/60.2.jpg"
+        ]
     },
     {
         "id": 209,
@@ -1847,7 +2046,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt61.jpg",
         "bestSeller": true,
-        "purchases": 470
+        "purchases": 470,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt61.jpg",
+            "assets/image/ao-nam/anh-adn/61.1.jpg",
+            "assets/image/ao-nam/anh-adn/61.2.jpg"
+        ]
     },
     {
         "id": 210,
@@ -1857,7 +2061,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt62.jpg",
         "bestSeller": true,
-        "purchases": 485
+        "purchases": 485,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt62.jpg",
+            "assets/image/ao-nam/anh-adn/62.1.jpg"
+        ]
     },
     {
         "id": 211,
@@ -1867,7 +2075,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt63.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt63.jpg",
+            "assets/image/ao-nam/anh-adn/63.1.jpg"
+        ]
     },
     {
         "id": 212,
@@ -1877,7 +2089,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt64.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt64.jpg",
+            "assets/image/ao-nam/anh-adn/64.1.jpg"
+        ]
     },
     {
         "id": 213,
@@ -1887,7 +2103,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt65.jpg",
         "bestSeller": false,
-        "purchases": 380
+        "purchases": 380,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt65.jpg",
+            "assets/image/ao-nam/anh-adn/65.1.jpg"
+        ]
     },
     {
         "id": 214,
@@ -1897,7 +2117,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt66.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt66.jpg",
+            "assets/image/ao-nam/anh-adn/66.1.jpg"
+        ]
     },
     {
         "id": 215,
@@ -1907,7 +2131,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt67.jpg",
         "bestSeller": true,
-        "purchases": 495
+        "purchases": 495,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt67.jpg",
+            "assets/image/ao-nam/anh-adn/67.1.jpg"
+        ]
     },
     {
         "id": 216,
@@ -1917,7 +2145,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt68.jpg",
         "bestSeller": true,
-        "purchases": 475
+        "purchases": 475,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt68.jpg",
+            "assets/image/ao-nam/anh-adn/68.1.jpg"
+        ]
     },
     {
         "id": 217,
@@ -1927,7 +2159,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt69.jpg",
         "bestSeller": true,
-        "purchases": 420
+        "purchases": 420,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt69.jpg",
+            "assets/image/ao-nam/anh-adn/69.1.jpg",
+            "assets/image/ao-nam/anh-adn/69.2.jpg"
+        ]
     },
     {
         "id": 218,
@@ -1937,7 +2174,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt70.jpg",
         "bestSeller": false,
-        "purchases": 390
+        "purchases": 390,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt70.jpg",
+            "assets/image/ao-nam/anh-adn/70.1.jpg"
+        ]
     },
     {
         "id": 219,
@@ -1947,7 +2188,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt71.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt71.jpg",
+            "assets/image/ao-nam/anh-adn/71.1.jpg",
+            "assets/image/ao-nam/anh-adn/71.2.jpg"
+        ]
     },
     {
         "id": 220,
@@ -1957,7 +2203,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt72.jpg",
         "bestSeller": true,
-        "purchases": 445
+        "purchases": 445,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt72.jpg",
+            "assets/image/ao-nam/anh-adn/72.1.jpg"
+        ]
     },
     {
         "id": 221,
@@ -1967,7 +2217,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt73.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt73.jpg",
+            "assets/image/ao-nam/anh-adn/73.1.jpg"
+        ]
     },
     {
         "id": 222,
@@ -1977,7 +2231,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt74.jpg",
         "bestSeller": false,
-        "purchases": 365
+        "purchases": 365,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt74.jpg",
+            "assets/image/ao-nam/anh-adn/74.1.jpg",
+            "assets/image/ao-nam/anh-adn/74.2.jpg"
+        ]
     },
     {
         "id": 223,
@@ -1987,7 +2246,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt75.jpg",
         "bestSeller": true,
-        "purchases": 430
+        "purchases": 430,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt75.jpg",
+            "assets/image/ao-nam/anh-adn/75.1.jpg"
+        ]
     },
     {
         "id": 224,
@@ -1997,7 +2260,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt76.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt76.jpg",
+            "assets/image/ao-nam/anh-adn/76.1.jpg"
+        ]
     },
     {
         "id": 225,
@@ -2007,7 +2274,11 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt77.jpg",
         "bestSeller": false,
-        "purchases": 375
+        "purchases": 375,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt77.jpg",
+            "assets/image/ao-nam/anh-adn/77.1.jpg"
+        ]
     },
     {
         "id": 226,
@@ -2017,7 +2288,12 @@
         "categoryName": "Áo đông nam",
         "image": "assets/image/ao-nam/ao-dong-nam/adt78.jpg",
         "bestSeller": true,
-        "purchases": 390
+        "purchases": 390,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt78.jpg",
+            "assets/image/ao-nam/anh-adn/78.1.jpg",
+            "assets/image/ao-nam/anh-adn/78.2.jpg"
+        ]
     },
     {
         "id": 227,
