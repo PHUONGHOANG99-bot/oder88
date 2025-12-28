@@ -6671,7 +6671,8 @@ input:focus-visible {
 
 .category-search-icon {
     position: absolute;
-    right: -6px;
+    /* Dịch sang trái để đè lên ~1/2 icon 3 gạch */
+    right: 6px;
     bottom: -6px;
     top: auto;
     transform: none;
@@ -6991,7 +6992,8 @@ input:focus-visible {
         min-height: 16px;
         max-width: 16px;
         max-height: 16px;
-        right: -5px;
+        /* Dịch sang trái để đè lên ~1/2 icon 3 gạch */
+        right: 5px;
         bottom: -5px;
         top: auto;
         transform: none;
