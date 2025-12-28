@@ -4813,13 +4813,9 @@ html.tabs-stuck .header-fb-btn {
         order: 1;
     }
 
-    /* Ẩn nút menu trong header flow */
-    .header-categories .mobile-menu-btn {
-        display: none !important;
-    }
-    /* Hiển thị nút menu fixed ở vị trí mới - đặt sau rule ẩn để override */
-    body .mobile-menu-btn,
-    html .mobile-menu-btn {
+    /* Hiển thị nút menu fixed ở vị trí mới - override rule ẩn bằng specificity cao hơn */
+    body .header-categories .mobile-menu-btn,
+    html .header-categories .mobile-menu-btn {
         display: flex !important;
         padding: 10px 14px;
         font-size: 0.95rem;
@@ -5182,7 +5178,9 @@ html.tabs-stuck .header-fb-btn {
 
     /* Đảm bảo nút menu fixed hiển thị - override rule ẩn */
     body .mobile-menu-btn,
-    html .mobile-menu-btn {
+    html     /* Đảm bảo nút menu fixed hiển thị - override rule ẩn bằng specificity cao hơn */
+    body .header-categories .mobile-menu-btn,
+    html .header-categories .mobile-menu-btn {
         display: flex !important;
         padding: 10px 14px;
         font-size: 0.9rem;
@@ -5559,9 +5557,9 @@ html.tabs-stuck .header-fb-btn {
         font-size: 0.6rem;
     }
 
-    /* Đảm bảo nút menu fixed hiển thị - override rule ẩn */
-    body .mobile-menu-btn,
-    html .mobile-menu-btn {
+    /* Đảm bảo nút menu fixed hiển thị - override rule ẩn bằng specificity cao hơn */
+    body .header-categories .mobile-menu-btn,
+    html .header-categories .mobile-menu-btn {
         display: flex !important;
         font-size: 0.85rem;
         padding: 10px 14px;
