@@ -451,7 +451,7 @@
     },
     {
         "id": 70,
-        "name": "Chân váy Nữ Dài Xòe",
+        "name": "Chân Váy CV1",
         "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -461,7 +461,7 @@
     },
     {
         "id": 71,
-        "name": "Chân váy Nữ Ngắn A-Line",
+        "name": "Chân Váy CV2",
         "price": "¥1903",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -471,7 +471,7 @@
     },
     {
         "id": 72,
-        "name": "Chân váy Nữ Xếp Ly",
+        "name": "Chân Váy CV3",
         "price": "¥1939",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -481,7 +481,7 @@
     },
     {
         "id": 73,
-        "name": "Chân váy Nữ Chữ A",
+        "name": "Chân Váy CV4",
         "price": "¥1885",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -491,7 +491,7 @@
     },
     {
         "id": 74,
-        "name": "Chân váy Nữ Ôm Body",
+        "name": "Chân Váy CV5",
         "price": "¥1870",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -501,7 +501,7 @@
     },
     {
         "id": 75,
-        "name": "Chân váy Nữ Midi Dài",
+        "name": "Chân Váy CV6",
         "price": "¥1851",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -511,7 +511,7 @@
     },
     {
         "id": 76,
-        "name": "Chân váy Nữ Mini Ngắn",
+        "name": "Chân Váy CV7",
         "price": "¥1826",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -521,7 +521,7 @@
     },
     {
         "id": 77,
-        "name": "Chân váy Nữ Maxi Dài",
+        "name": "Chân Váy CV8",
         "price": "¥1859",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -531,7 +531,7 @@
     },
     {
         "id": 78,
-        "name": "Chân váy Nữ Công Sở",
+        "name": "Chân Váy CV9",
         "price": "¥1889",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -541,7 +541,7 @@
     },
     {
         "id": 79,
-        "name": "Chân váy Nữ Xòe Rộng",
+        "name": "Chân Váy CV10",
         "price": "¥1912",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -551,7 +551,7 @@
     },
     {
         "id": 80,
-        "name": "Chân váy Nữ Bút Chì",
+        "name": "Chân Váy CV11",
         "price": "¥1939",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -561,7 +561,7 @@
     },
     {
         "id": 81,
-        "name": "Chân váy Nữ Xếp Nếp",
+        "name": "Chân Váy CV12",
         "price": "¥1826",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -571,7 +571,7 @@
     },
     {
         "id": 82,
-        "name": "Chân váy Nữ Dài Thướt Tha",
+        "name": "Chân Váy CV13",
         "price": "¥1818",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -581,7 +581,7 @@
     },
     {
         "id": 83,
-        "name": "Chân váy Nữ Ngắn Cá Tính",
+        "name": "Chân Váy CV14",
         "price": "¥1943",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -591,7 +591,7 @@
     },
     {
         "id": 84,
-        "name": "Chân váy Nữ Xòe Phồng",
+        "name": "Chân Váy CV15",
         "price": "¥1827",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -601,7 +601,7 @@
     },
     {
         "id": 85,
-        "name": "Chân váy Nữ Midi Công Sở",
+        "name": "Chân Váy CV16",
         "price": "¥2000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -611,7 +611,7 @@
     },
     {
         "id": 86,
-        "name": "Chân váy Nữ Dài Xòe Rộng",
+        "name": "Chân Váy CV17",
         "price": "¥1963",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -621,7 +621,7 @@
     },
     {
         "id": 87,
-        "name": "Chân váy Nữ Ngắn Xinh",
+        "name": "Chân Váy CV18",
         "price": "¥1833",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -631,7 +631,7 @@
     },
     {
         "id": 88,
-        "name": "Chân váy Nữ Xếp Ly Dài",
+        "name": "Chân Váy CV19",
         "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -641,7 +641,7 @@
     },
     {
         "id": 89,
-        "name": "Chân váy Nữ A-Line Dài",
+        "name": "Chân Váy CV20",
         "price": "¥1978",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -651,7 +651,7 @@
     },
     {
         "id": 90,
-        "name": "Chân váy Nữ Midi Xòe",
+        "name": "Chân Váy CV21",
         "price": "¥1841",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -661,7 +661,7 @@
     },
     {
         "id": 91,
-        "name": "Chân váy Nữ Ngắn Xếp Ly",
+        "name": "Chân Váy CV22",
         "price": "¥1898",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -671,7 +671,7 @@
     },
     {
         "id": 92,
-        "name": "Chân váy Nữ Dài Thời Trang",
+        "name": "Chân Váy CV23",
         "price": "¥1834",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -681,7 +681,7 @@
     },
     {
         "id": 93,
-        "name": "Chân váy Nữ Mini Cá Tính",
+        "name": "Chân Váy CV24",
         "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -691,7 +691,7 @@
     },
     {
         "id": 94,
-        "name": "Chân váy Nữ Maxi Xòe",
+        "name": "Chân Váy CV25",
         "price": "¥1946",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -701,7 +701,7 @@
     },
     {
         "id": 95,
-        "name": "Chân váy Nữ Công Sở Dài",
+        "name": "Chân Váy CV26",
         "price": "¥1850",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -711,7 +711,7 @@
     },
     {
         "id": 96,
-        "name": "Chân váy Nữ Xòe Rộng Dài",
+        "name": "Chân Váy CV27",
         "price": "¥1842",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -721,7 +721,7 @@
     },
     {
         "id": 97,
-        "name": "Chân váy Nữ Bút Chì Dài",
+        "name": "Chân Váy CV28",
         "price": "¥1985",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -731,7 +731,7 @@
     },
     {
         "id": 98,
-        "name": "Chân váy Nữ Xếp Nếp Dài",
+        "name": "Chân Váy CV29",
         "price": "¥1951",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -741,7 +741,7 @@
     },
     {
         "id": 99,
-        "name": "Chân váy Nữ Dài Thướt Tha Xòe",
+        "name": "Chân Váy CV30",
         "price": "¥1988",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -751,7 +751,7 @@
     },
     {
         "id": 100,
-        "name": "Chân váy Nữ Ngắn Trẻ Trung",
+        "name": "Chân Váy CV31",
         "price": "¥1832",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -761,7 +761,7 @@
     },
     {
         "id": 101,
-        "name": "Chân váy Nữ Xòe Phồng Dài",
+        "name": "Chân Váy CV32",
         "price": "¥1996",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -771,7 +771,7 @@
     },
     {
         "id": 102,
-        "name": "Chân váy Nữ Midi Thanh Lịch",
+        "name": "Chân Váy CV33",
         "price": "¥1939",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -781,7 +781,7 @@
     },
     {
         "id": 103,
-        "name": "Chân váy Nữ Dài Xòe Rộng Đẹp",
+        "name": "Chân Váy CV34",
         "price": "¥1856",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -791,7 +791,7 @@
     },
     {
         "id": 104,
-        "name": "Chân váy Nữ Ngắn Xinh Xắn",
+        "name": "Chân Váy CV35",
         "price": "¥1973",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -801,7 +801,7 @@
     },
     {
         "id": 105,
-        "name": "Chân váy Nữ Xếp Ly Midi",
+        "name": "Chân Váy CV36",
         "price": "¥1959",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -811,7 +811,7 @@
     },
     {
         "id": 106,
-        "name": "Chân váy Nữ A-Line Midi",
+        "name": "Chân Váy CV37",
         "price": "¥1977",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -821,7 +821,7 @@
     },
     {
         "id": 107,
-        "name": "Chân váy Nữ Midi Xòe Đẹp",
+        "name": "Chân Váy CV38",
         "price": "¥1802",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -831,7 +831,7 @@
     },
     {
         "id": 108,
-        "name": "Chân váy Nữ Ngắn Xếp Ly Đẹp",
+        "name": "Chân Váy CV39",
         "price": "¥1925",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -841,7 +841,7 @@
     },
     {
         "id": 109,
-        "name": "Chân váy Nữ Dài Thời Trang Xòe",
+        "name": "Chân Váy CV40",
         "price": "¥1929",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -851,7 +851,7 @@
     },
     {
         "id": 110,
-        "name": "Chân váy Nữ Mini Trẻ Trung",
+        "name": "Chân Váy CV41",
         "price": "¥1802",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -861,7 +861,7 @@
     },
     {
         "id": 111,
-        "name": "Chân váy Nữ Maxi Xòe Rộng",
+        "name": "Chân Váy CV42",
         "price": "¥1830",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -871,7 +871,7 @@
     },
     {
         "id": 112,
-        "name": "Chân váy Nữ Công Sở Thanh Lịch",
+        "name": "Chân Váy CV43",
         "price": "¥1812",
         "category": "chan-vay",
         "categoryName": "Chân váy",
@@ -881,7 +881,7 @@
     },
     {
         "id": 113,
-        "name": "Chân váy Nữ Xòe Rộng Thời Trang",
+        "name": "Chân Váy CV44",
         "price": "¥1975",
         "category": "chan-vay",
         "categoryName": "Chân váy",
