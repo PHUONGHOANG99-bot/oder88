@@ -493,7 +493,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv1.jpg",
         "bestSeller": true,
-        "purchases": 320
+        "purchases": 320,
+        "video": "https://www.youtube.com/embed/B3ZR21aUEIA"
     },
     {
         "id": 71,
@@ -503,7 +504,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv2.jpg",
         "bestSeller": false,
-        "purchases": 245
+        "purchases": 245,
+        "video": "https://www.youtube.com/embed/YRQ4rvG3ls8"
     },
     {
         "id": 72,
@@ -513,7 +515,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv3.jpg",
         "bestSeller": true,
-        "purchases": 380
+        "purchases": 380,
+        "video": "https://www.youtube.com/embed/J9pjB8ypQbk"
     },
     {
         "id": 73,
@@ -523,7 +526,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv4.jpg",
         "bestSeller": true,
-        "purchases": 295
+        "purchases": 295,
+        "video": "https://www.youtube.com/embed/gS_8LG2kgMA"
     },
     {
         "id": 74,
@@ -533,7 +537,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv5.jpg",
         "bestSeller": false,
-        "purchases": 268
+        "purchases": 268,
+        "video": "https://www.youtube.com/embed/aM_4SpCzw-U"
     },
     {
         "id": 75,
@@ -543,7 +548,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv6.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "video": "https://www.youtube.com/embed/B3cI5l6phuA"
     },
     {
         "id": 76,
@@ -553,7 +559,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv7.jpg",
         "bestSeller": true,
-        "purchases": 335
+        "purchases": 335,
+        "video": "https://www.youtube.com/embed/G3RUSeMnZMg"
     },
     {
         "id": 77,
@@ -563,7 +570,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv8.jpg",
         "bestSeller": false,
-        "purchases": 285
+        "purchases": 285,
+        "video": "https://www.youtube.com/embed/N_dUI996Y1k"
     },
     {
         "id": 78,
@@ -573,7 +581,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv9.jpg",
         "bestSeller": true,
-        "purchases": 365
+        "purchases": 365,
+        "video": "https://www.youtube.com/embed/9kly7LFTnw8"
     },
     {
         "id": 79,
@@ -583,7 +592,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv10.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "video": "https://www.youtube.com/embed/61O6ID4IggU"
     },
     {
         "id": 80,
@@ -593,7 +603,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv11.jpg",
         "bestSeller": false,
-        "purchases": 250
+        "purchases": 250,
+        "video": "https://www.youtube.com/embed/zqqmn257UDI"
     },
     {
         "id": 81,
@@ -603,7 +614,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv12.jpg",
         "bestSeller": true,
-        "purchases": 340
+        "purchases": 340,
+        "video": "https://www.youtube.com/embed/BBlsjNFcYJ8"
     },
     {
         "id": 82,
@@ -613,7 +625,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv13.jpg",
         "bestSeller": false,
-        "purchases": 275
+        "purchases": 275,
+        "video": "https://www.youtube.com/embed/uLgG_2H64Co"
     },
     {
         "id": 83,
@@ -623,7 +636,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv14.jpg",
         "bestSeller": true,
-        "purchases": 315
+        "purchases": 315,
+        "video": "https://www.youtube.com/embed/nv0UMd9frik"
     },
     {
         "id": 84,
@@ -633,7 +647,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv15.jpg",
         "bestSeller": true,
-        "purchases": 355
+        "purchases": 355,
+        "video": "https://www.youtube.com/embed/gr28uX7Xvm8"
     },
     {
         "id": 85,
@@ -643,7 +658,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv16.jpg",
         "bestSeller": false,
-        "purchases": 260
+        "purchases": 260,
+        "video": "https://www.youtube.com/embed/e2ze0AZyT0w"
     },
     {
         "id": 86,
@@ -653,7 +669,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv17.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/SBcFJwhDZVE"
     },
     {
         "id": 87,
@@ -663,7 +680,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv18.jpg",
         "bestSeller": true,
-        "purchases": 330
+        "purchases": 330,
+        "video": "https://www.youtube.com/embed/4xF4Ovj55ig"
     },
     {
         "id": 88,
@@ -673,7 +691,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv19.jpg",
         "bestSeller": false,
-        "purchases": 280
+        "purchases": 280,
+        "video": "https://www.youtube.com/embed/YeU64EUrTHs"
     },
     {
         "id": 89,
@@ -683,7 +702,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv20.jpg",
         "bestSeller": true,
-        "purchases": 350
+        "purchases": 350,
+        "video": "https://www.youtube.com/embed/CuMdI4947Os"
     },
     {
         "id": 90,
@@ -693,7 +713,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv21.jpg",
         "bestSeller": true,
-        "purchases": 375
+        "purchases": 375,
+        "video": "https://www.youtube.com/embed/bKPdatDK1T8"
     },
     {
         "id": 91,
@@ -703,7 +724,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv22.jpg",
         "bestSeller": false,
-        "purchases": 255
+        "purchases": 255,
+        "video": "https://www.youtube.com/embed/RHdYcrALAqw"
     },
     {
         "id": 92,
@@ -713,7 +735,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv23.jpg",
         "bestSeller": true,
-        "purchases": 385
+        "purchases": 385,
+        "video": "https://www.youtube.com/embed/XRublwsp74E"
     },
     {
         "id": 93,
@@ -723,7 +746,8 @@
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv24.jpg",
         "bestSeller": true,
-        "purchases": 310
+        "purchases": 310,
+        "video": "https://www.youtube.com/embed/csm5QWzr97k"
     },
     {
         "id": 94,

@@ -72,6 +72,46 @@ const videos = [
             "https://youtube.com/shorts/sDqYi9do8os",
         ],
     },
+
+    // Cập nhật video cho chan-vay từ CV1 tới CV12
+    {
+        category: "chan-vay",
+        startIndex: 0,
+        links: [
+            "https://www.youtube.com/shorts/B3ZR21aUEIA",
+            "https://www.youtube.com/shorts/YRQ4rvG3ls8",
+            "https://www.youtube.com/shorts/J9pjB8ypQbk",
+            "https://www.youtube.com/shorts/gS_8LG2kgMA",
+            "https://www.youtube.com/shorts/aM_4SpCzw-U",
+            "https://www.youtube.com/shorts/B3cI5l6phuA",
+            "https://www.youtube.com/shorts/G3RUSeMnZMg",
+            "https://www.youtube.com/shorts/N_dUI996Y1k",
+            "https://www.youtube.com/shorts/9kly7LFTnw8",
+            "https://www.youtube.com/shorts/61O6ID4IggU",
+            "https://www.youtube.com/shorts/zqqmn257UDI",
+            "https://www.youtube.com/shorts/BBlsjNFcYJ8",
+        ],
+    },
+
+    // Cập nhật video cho chan-vay từ CV13 tới CV24
+    {
+        category: "chan-vay",
+        startIndex: 12,
+        links: [
+            "https://www.youtube.com/shorts/uLgG_2H64Co",
+            "https://www.youtube.com/shorts/nv0UMd9frik",
+            "https://www.youtube.com/shorts/gr28uX7Xvm8",
+            "https://www.youtube.com/shorts/e2ze0AZyT0w",
+            "https://www.youtube.com/shorts/SBcFJwhDZVE",
+            "https://www.youtube.com/shorts/4xF4Ovj55ig",
+            "https://www.youtube.com/shorts/YeU64EUrTHs",
+            "https://www.youtube.com/shorts/CuMdI4947Os",
+            "https://www.youtube.com/shorts/bKPdatDK1T8",
+            "https://www.youtube.com/shorts/RHdYcrALAqw",
+            "https://www.youtube.com/shorts/XRublwsp74E",
+            "https://www.youtube.com/shorts/csm5QWzr97k",
+        ],
+    },
 ];
 
 // ==================== HÀM XỬ LÝ ====================
@@ -171,6 +211,25 @@ function sortBootNuByBN(categoryProducts) {
 }
 
 /**
+ * Extract số CV từ tên sản phẩm (ví dụ: "Chân Váy CV1" -> 1)
+ */
+function extractCVNumber(productName) {
+    const match = productName.match(/CV(\d+)/);
+    return match ? parseInt(match[1], 10) : 999; // 999 để đẩy các sản phẩm không có CV về cuối
+}
+
+/**
+ * Sắp xếp sản phẩm chan-vay theo số CV
+ */
+function sortChanVayByCV(categoryProducts) {
+    return categoryProducts.sort((a, b) => {
+        const numA = extractCVNumber(a.product.name);
+        const numB = extractCVNumber(b.product.name);
+        return numA - numB;
+    });
+}
+
+/**
  * Xử lý thêm video vào sản phẩm
  */
 function processVideos(products, videos) {
@@ -239,6 +298,10 @@ function processVideos(products, videos) {
                 // Sắp xếp boot-nu theo số BN
                 if (videoConfig.category === "boot-nu") {
                     categoryProducts = sortBootNuByBN(categoryProducts);
+                }
+                // Sắp xếp chan-vay theo số CV
+                else if (videoConfig.category === "chan-vay") {
+                    categoryProducts = sortChanVayByCV(categoryProducts);
                 }
 
                 const startIndex = videoConfig.startIndex || 0;
