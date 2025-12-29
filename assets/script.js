@@ -4466,6 +4466,13 @@ function openProductGallery(productId, imageIndex = 0) {
         // Show video container, hide image
         videoContainer.style.display = "flex";
         mainImage.style.display = "none";
+        
+        // Đảm bảo watermark luôn hiển thị
+        const videoWatermark = document.getElementById("videoWatermark");
+        if (videoWatermark) {
+            videoWatermark.style.display = "block";
+        }
+        
         // Show play overlay for regular videos only, hide for YouTube
         if (isYouTube) {
             // Hide play overlay for YouTube - YouTube has its own controls
@@ -5035,6 +5042,12 @@ function switchToVideo() {
     // Hide image, show video container
     mainImage.style.display = "none";
     videoContainer.style.display = "flex";
+    
+    // Đảm bảo watermark luôn hiển thị
+    const videoWatermark = document.getElementById("videoWatermark");
+    if (videoWatermark) {
+        videoWatermark.style.display = "block";
+    }
 
     if (isYouTube && mainVideoIframe) {
         // Show YouTube iframe with thumbnail (no autoplay)

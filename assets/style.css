@@ -3060,6 +3060,66 @@ html.tabs-stuck .header-fb-btn {
     }
 }
 
+/* Watermark logo oder88.com */
+.video-watermark {
+    position: absolute;
+    top: 33.33%;
+    right: 20px;
+    z-index: 20;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    transform: translateY(-50%);
+}
+
+.watermark-text {
+    display: inline-block;
+    color: #ff1a1a;
+    font-size: 24px;
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8),
+                 0 0 15px rgba(255, 26, 26, 0.6),
+                 0 0 25px rgba(255, 26, 26, 0.4);
+    animation: watermarkPulse 3s ease-in-out infinite;
+}
+
+@keyframes watermarkPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.95;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-watermark {
+        top: 33.33%;
+        right: 15px;
+    }
+    
+    .watermark-text {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-watermark {
+        top: 33.33%;
+        right: 10px;
+    }
+    
+    .watermark-text {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+}
+
 @media (max-width: 768px) {
     .gallery-main-video-iframe {
         min-height: 250px;

@@ -201,23 +201,25 @@
     },
     {
         "id": 21,
-        "name": "Boot Cao Cổ Khóa Vàng",
+        "name": "Boot Nữ BN1",
         "price": "¥2595",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
         "bestSeller": true,
-        "purchases": 424
+        "purchases": 424,
+        "video": "https://www.youtube.com/embed/qpZI5E0H4s4"
     },
     {
         "id": 22,
-        "name": "Boot Cao Cổ Đen Khóa",
+        "name": "Boot Nữ BN2",
         "price": "¥2690",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
         "bestSeller": false,
-        "purchases": 441
+        "purchases": 441,
+        "video": "https://www.youtube.com/embed/LwewmVHmCi0"
     },
     {
         "id": 23,
@@ -231,13 +233,14 @@
     },
     {
         "id": 24,
-        "name": "Boot nữ vàng hot trend 2025",
+        "name": "Boot Nữ BN4",
         "price": "¥2700",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
         "bestSeller": true,
-        "purchases": 475
+        "purchases": 475,
+        "video": "https://www.youtube.com/embed/LVzNM1UwN98"
     },
     {
         "id": 25,
@@ -251,113 +254,146 @@
     },
     {
         "id": 26,
-        "name": "Boot Cao Cổ Kem Khóa Vàng",
+        "name": "Boot Nữ BN12",
         "price": "¥2666",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
-        "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
+        "image": "assets/image/giay-nu/boot-nu/bn12.jpg",
         "bestSeller": true,
-        "purchases": 509
+        "purchases": 509,
+        "video": "https://www.youtube.com/embed/DydGf2ei0Xs"
     },
     {
         "id": 27,
-        "name": "Boot Cao Cổ Kem Mũi Đen",
+        "name": "Boot Nữ BN13",
         "price": "¥2599",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
-        "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
+        "image": "assets/image/giay-nu/boot-nu/bn13.jpg",
         "bestSeller": true,
-        "purchases": 526
+        "purchases": 526,
+        "video": "https://www.youtube.com/embed/YCcetkXvqK8"
     },
     {
         "id": 28,
-        "name": "Boot Cao Cổ Đen Khóa Vàng",
+        "name": "Boot Nữ BN3",
         "price": "¥2570",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
         "bestSeller": true,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/u_1d_CAwXh8"
     },
     {
         "id": 29,
-        "name": "Boot Cao Cổ Da Lộn Nâu",
+        "name": "Boot Nữ BN14",
         "price": "¥2535",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
-        "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
+        "image": "assets/image/giay-nu/boot-nu/bn14.jpg",
         "bestSeller": false,
-        "purchases": 360
+        "purchases": 360,
+        "video": "https://www.youtube.com/embed/Az41AMIAhSI"
     },
     {
         "id": 30,
-        "name": "Boot Cao Cổ Lông Kem Mùa Đông",
+        "name": "Boot Nữ BN5",
         "price": "¥2672",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
         "bestSeller": true,
-        "purchases": 377
+        "purchases": 377,
+        "video": "https://www.youtube.com/embed/EQpe8mgjHkM"
     },
     {
         "id": 31,
-        "name": "Boot Platform Kem Khóa Kéo",
+        "name": "Boot Nữ BN6",
         "price": "¥2609",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn6.jpg",
         "bestSeller": true,
-        "purchases": 394
+        "purchases": 394,
+        "video": "https://www.youtube.com/embed/JGeYGbS7uF0"
     },
     {
         "id": 32,
-        "name": "Boot Cao Cổ Be Khóa Bạc",
+        "name": "Boot Nữ BN7",
         "price": "¥2618",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn7.jpg",
         "bestSeller": false,
-        "purchases": 411
+        "purchases": 411,
+        "video": "https://www.youtube.com/embed/83pfdR_ATag"
     },
     {
         "id": 33,
-        "name": "Boot Platform Đen Khóa Vàng",
+        "name": "Boot Nữ BN8",
         "price": "¥2551",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn8.jpg",
         "bestSeller": true,
-        "purchases": 428
+        "purchases": 428,
+        "video": "https://www.youtube.com/embed/MuyXf1KY4ps"
     },
     {
         "id": 34,
-        "name": "Boot Cao Cổ Kem Khóa Vàng Cao Cấp",
+        "name": "Boot Nữ BN9",
         "price": "¥2618",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn9.jpg",
         "bestSeller": true,
-        "purchases": 445
+        "purchases": 445,
+        "video": "https://www.youtube.com/embed/77VReYR-R1M"
     },
     {
         "id": 35,
-        "name": "Boot Cao Cổ Kem Khóa Bạc",
+        "name": "Boot Nữ BN10",
         "price": "¥2658",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn10.jpg",
         "bestSeller": false,
-        "purchases": 462
+        "purchases": 462,
+        "video": "https://www.youtube.com/embed/vwpI3E6PBHI"
     },
     {
         "id": 36,
-        "name": "Boot Cao Cổ Trắng Đen Hai Màu",
+        "name": "Boot Nữ BN11",
         "price": "¥2691",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn11.jpg",
         "bestSeller": true,
-        "purchases": 479
+        "purchases": 479,
+        "video": "https://www.youtube.com/embed/AwE9kV5VusQ"
+    },
+    {
+        "id": 37,
+        "name": "Boot Nữ BN15",
+        "price": "¥2650",
+        "category": "boot-nu",
+        "categoryName": "Boot nữ",
+        "image": "assets/image/giay-nu/boot-nu/bn15.jpg",
+        "bestSeller": true,
+        "purchases": 496,
+        "video": "https://www.youtube.com/embed/Rz5aUNvpREk"
+    },
+    {
+        "id": 38,
+        "name": "Boot Nữ BN16",
+        "price": "¥2620",
+        "category": "boot-nu",
+        "categoryName": "Boot nữ",
+        "image": "assets/image/giay-nu/boot-nu/bn16.jpg",
+        "bestSeller": false,
+        "purchases": 513,
+        "video": "https://www.youtube.com/embed/sDqYi9do8os"
     },
     {
         "id": 61,
