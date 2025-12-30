@@ -6813,7 +6813,7 @@ input:focus-visible {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 8px calc(12px + env(safe-area-inset-bottom));
+    padding: 12px 8px calc(6px + env(safe-area-inset-bottom));
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08), 0 -1px 0 rgba(0, 0, 0, 0.05);
     z-index: 2500;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -6825,7 +6825,7 @@ input:focus-visible {
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
     position: fixed !important;
-    bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+    bottom: calc(6px + env(safe-area-inset-bottom)) !important;
     left: 50% !important;
     z-index: 2500 !important;
     transform: translateX(-50%) !important;
@@ -7245,7 +7245,7 @@ input:focus-visible {
     }
 
     .bottom-nav {
-        padding: 10px 6px calc(10px + env(safe-area-inset-bottom));
+        padding: 10px 6px calc(6px + env(safe-area-inset-bottom));
     }
 
     .bottom-nav-item {
@@ -7303,7 +7303,7 @@ input:focus-visible {
     .bottom-nav-trend-btn {
         width: 65px;
         height: 65px;
-        bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+        bottom: calc(6px + env(safe-area-inset-bottom)) !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         -webkit-transform: translateX(-50%) translateZ(0) !important;
