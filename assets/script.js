@@ -4510,19 +4510,19 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = 
     }
 
     if (videoId) {
-        // For TikTok browser, try both approaches
+        // For TikTok browser, use youtube-nocookie.com (same as regular browsers)
+        // Keep it simple to avoid triggering YouTube spam detection
         if (forTikTok) {
-            // Try youtube-nocookie.com first (privacy-enhanced, may work better)
-            // If that doesn't work, fallback to regular youtube.com with origin parameter
+            // Use youtube-nocookie.com with minimal parameters
+            // Don't use origin parameter to avoid triggering spam detection
             const params = new URLSearchParams({
                 autoplay: autoplay ? "1" : "0",
                 mute: mute ? "1" : "0",
                 rel: "0",
                 controls: "1",
                 playsinline: "1",
-                origin: window.location.origin || window.location.hostname,
             });
-            // Try nocookie first for TikTok - it's privacy-enhanced and may work better
+            // Use nocookie for TikTok - privacy-enhanced and less likely to trigger CAPTCHA
             return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
         }
         
@@ -4721,23 +4721,7 @@ function openProductGallery(productId, imageIndex = 0) {
                             const iframeRect = mainVideoIframe.getBoundingClientRect();
                             if (iframeRect.height < 100) {
                                 // Iframe seems too small, might be error
-                                // For TikTok, try alternative format before showing fallback
-                                if (isTikTok) {
-                                    // Try with regular youtube.com instead
-                                    const videoId = extractYouTubeVideoId(videoUrl);
-                                    if (videoId) {
-                                        const altUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin || window.location.hostname)}`;
-                                        mainVideoIframe.src = altUrl;
-                                        // Give it another 2 seconds
-                                        setTimeout(function() {
-                                            const iframeRect2 = mainVideoIframe.getBoundingClientRect();
-                                            if (iframeRect2.height < 100) {
-                                                setupFallbackUI();
-                                            }
-                                        }, 2000);
-                                        return;
-                                    }
-                                }
+                                // Show fallback UI - don't retry to avoid triggering spam detection
                                 setupFallbackUI();
                             }
                         }
@@ -4755,46 +4739,14 @@ function openProductGallery(productId, imageIndex = 0) {
                 // Also check for direct error events (though they may not fire for cross-origin)
                 mainVideoIframe.onerror = function() {
                     clearTimeout(loadCheckTimeout);
-                    // For TikTok, try alternative format before showing fallback
-                    if (isTikTok) {
-                        const videoId = extractYouTubeVideoId(videoUrl);
-                        if (videoId) {
-                            const altUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin || window.location.hostname)}`;
-                            mainVideoIframe.src = altUrl;
-                            return;
-                        }
-                    }
+                    // If iframe has error, show fallback UI
+                    // Don't retry with different URL to avoid triggering spam detection
                     setupFallbackUI();
                 };
                 
-                // Additional check: if TikTok browser and iframe doesn't seem to work after 2 seconds
-                if (isTikTok) {
-                    // Give TikTok browser a shorter timeout
-                    setTimeout(function() {
-                        // Check if fallback is already shown
-                        if (youtubeFallback && youtubeFallback.style.display === "none") {
-                            // If iframe is still trying to load, try alternative format
-                            const iframeRect = mainVideoIframe.getBoundingClientRect();
-                            if (iframeRect.height < 200) {
-                                // Iframe seems problematic, try alternative format
-                                const videoId = extractYouTubeVideoId(videoUrl);
-                                if (videoId) {
-                                    const altUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin || window.location.hostname)}`;
-                                    mainVideoIframe.src = altUrl;
-                                    // Give it another 2 seconds before showing fallback
-                                    setTimeout(function() {
-                                        const iframeRect2 = mainVideoIframe.getBoundingClientRect();
-                                        if (iframeRect2.height < 200) {
-                                            setupFallbackUI();
-                                        }
-                                    }, 2000);
-                                } else {
-                                    setupFallbackUI();
-                                }
-                            }
-                        }
-                    }, 2000);
-                }
+                // Removed additional retry logic for TikTok browser
+                // Retrying with different URLs can trigger YouTube spam detection
+                // If iframe doesn't load, fallback UI will be shown by timeout handler above
 
                 // KHÔNG sử dụng message listener để tránh CAPTCHA
                 // YouTube sẽ tự xử lý video playback mà không cần enablejsapi
