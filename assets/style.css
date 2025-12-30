@@ -7194,7 +7194,7 @@ input:focus-visible {
        "THỜI TRANG ĐANG HOT" và danh mục trên mobile. */
     .main-container {
         margin-bottom: 0;
-        padding-bottom: 75px;
+        padding-bottom: 0;
     }
 
     .featured-products-wrapper {

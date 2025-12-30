@@ -1088,6 +1088,11 @@ function focusSearch() {
 // Update active state on scroll
 function handleScrollForBottomNav() {
     if (typeof isCartOpen === "function" && isCartOpen()) return;
+    
+    // Don't handle scroll when mobile categories menu is open
+    const mobileCategories = document.getElementById("mobileCategories");
+    if (mobileCategories && mobileCategories.classList.contains("show")) return;
+    
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
