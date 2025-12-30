@@ -916,6 +916,12 @@ body {
     animation: gradientShift 3s ease infinite;
 }
 
+.mobile-categories-header-spacer {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
 .mobile-categories-header::before {
     content: "";
     position: absolute;
@@ -942,6 +948,9 @@ body {
     position: relative;
     z-index: 1;
     letter-spacing: 0.3px;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
 }
 
 .mobile-categories-header h3 i {
@@ -949,35 +958,34 @@ body {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.close-mobile-menu {
+.mobile-categories-back-btn {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
+    border-radius: 12px;
     color: white;
-    font-size: 18px;
+    font-size: 1.1rem;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
-    font-weight: 300;
-    line-height: 1;
+    flex-shrink: 0;
 }
 
-.close-mobile-menu:hover {
+.mobile-categories-back-btn:hover {
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.5);
-    transform: rotate(90deg) scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.close-mobile-menu:active {
-    transform: rotate(90deg) scale(0.95);
+.mobile-categories-back-btn:active {
+    transform: scale(0.95);
 }
 
 /* Mobile Categories Wrapper - Two Column Layout */
@@ -995,8 +1003,8 @@ body {
     padding-bottom: 100px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #f8f9fa;
-    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
 }
@@ -1016,25 +1024,32 @@ body {
 
 .mobile-category-btn {
     width: 100%;
-    padding: 12px 8px;
+    padding: 8px 6px;
     border: none;
     background: transparent;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 0.75rem;
     font-weight: 500;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 5px;
     color: #666;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     text-align: center;
     line-height: 1.3;
+    letter-spacing: 0.2px;
+}
+
+.mobile-category-btn span,
+.mobile-category-btn:not(:has(i)) {
+    position: relative;
+    z-index: 1;
 }
 
 .mobile-category-image {
@@ -1086,31 +1101,105 @@ body {
 .mobile-category-btn::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: -100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 102, 0, 0.1),
-        transparent
-    );
-    transition: left 0.5s ease;
+    background: radial-gradient(circle, rgba(255, 102, 0, 0.1) 0%, transparent 70%);
+    border-radius: 12px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .mobile-category-btn:hover::before {
-    left: 100%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.mobile-category-btn.active::before {
+    background: radial-gradient(circle, rgba(255, 102, 0, 0.15) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .mobile-category-btn > i {
-    font-size: 1.1rem;
-    color: inherit;
-    transition: all 0.3s ease;
+    font-size: 1.35rem;
+    color: #666;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(0, 0, 0, 0.04) inset;
+}
+
+.mobile-category-btn .mobile-category-image-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(0, 0, 0, 0.04) inset;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-category-btn .mobile-category-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mobile-category-btn .mobile-category-image-wrapper i {
+    font-size: 1.35rem;
+    color: #666;
+}
+
+.mobile-category-btn.active > i,
+.mobile-category-btn.active .mobile-category-image-wrapper {
+    box-shadow: 0 4px 16px rgba(255, 102, 0, 0.4),
+                0 0 0 2px rgba(255, 102, 0, 0.2) inset,
+                0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
 }
 
 .mobile-category-btn.active > i {
-    color: #ff6600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6600 0%, #ff8c00 50%, #ff6600 100%);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+.mobile-category-btn:hover > i,
+.mobile-category-btn:hover .mobile-category-image-wrapper {
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3),
+                0 0 0 1px rgba(255, 102, 0, 0.15) inset;
+    transform: translateY(-2px) scale(1.02);
+}
+
+.mobile-category-btn:hover > i {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+}
+
+.mobile-category-btn.active:hover > i,
+.mobile-category-btn.active:hover .mobile-category-image-wrapper {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(255, 102, 0, 0.5),
+                0 0 0 2px rgba(255, 102, 0, 0.3) inset,
+                0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-category-btn .subcategory-arrow {
@@ -1122,14 +1211,13 @@ body {
 }
 
 .mobile-category-btn:hover {
-    background: #f0f0f0;
     color: #ff6600;
 }
 
 .mobile-category-btn.active {
-    background: #e8e8e8;
     color: #ff6600;
     font-weight: 600;
+    font-size: 0.8rem;
 }
 
 /* Mobile Subcategories Panel - Right Column */
@@ -1262,10 +1350,15 @@ body {
         font-size: 1.15rem;
     }
 
-    .close-mobile-menu {
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
+    .mobile-categories-back-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+    
+    .mobile-categories-header-spacer {
+        width: 44px;
+        height: 44px;
     }
 
     .mobile-categories-wrapper {
@@ -1281,12 +1374,17 @@ body {
 
     .mobile-category-btn {
         font-size: 0.7rem !important;
-        padding: 10px 6px !important;
-        margin-bottom: 4px !important;
+        padding: 6px 4px !important;
+        margin-bottom: 2px !important;
+        gap: 4px !important;
     }
 
-    .mobile-category-btn > i {
-        font-size: 1rem !important;
+    .mobile-category-btn > i,
+    .mobile-category-btn .mobile-category-image-wrapper {
+        font-size: 1.15rem !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 12px !important;
     }
 
     .mobile-subcategories-panel {
@@ -2851,43 +2949,38 @@ html.tabs-stuck .header-fb-btn {
     animation: fadeIn 0.3s ease;
 }
 
-.gallery-close-btn {
+.gallery-back-btn {
     position: fixed;
     top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(250, 252, 255, 0.95) 100%
-    );
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    background: rgba(60, 60, 60, 0.95);
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    color: #333333;
-    font-size: 1.3rem;
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1.2rem;
     cursor: pointer;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(0, 0, 0, 0.1) inset;
 }
 
-.gallery-close-btn:hover {
-    background: rgba(255, 107, 107, 0.95);
-    border-color: rgba(255, 107, 107, 0.6);
-    color: #ffffff;
-    transform: rotate(90deg) scale(1.1);
-    box-shadow: 0 6px 30px rgba(255, 107, 107, 0.4);
+.gallery-back-btn:hover {
+    background: rgba(80, 80, 80, 0.95);
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(0, 0, 0, 0.15) inset;
 }
 
-.gallery-close-btn:active {
-    transform: rotate(90deg) scale(0.95);
+.gallery-back-btn:active {
+    transform: scale(0.95);
 }
 
 .gallery-main {
@@ -3979,12 +4072,12 @@ html.tabs-stuck .header-fb-btn {
 }
 
 @media (max-width: 768px) {
-    .gallery-close-btn {
-        width: 45px;
-        height: 45px;
+    .gallery-back-btn {
+        width: 44px;
+        height: 44px;
         top: 15px;
-        right: 15px;
-        font-size: 1.2rem;
+        left: 15px;
+        font-size: 1.1rem;
     }
 
     .gallery-nav-btn {
@@ -4087,12 +4180,12 @@ html.tabs-stuck .header-fb-btn {
 }
 
 @media (max-width: 480px) {
-    .gallery-close-btn {
+    .gallery-back-btn {
         width: 40px;
         height: 40px;
         top: 10px;
-        right: 10px;
-        font-size: 1.1rem;
+        left: 10px;
+        font-size: 1rem;
     }
 
     .gallery-nav-btn {
@@ -6230,9 +6323,10 @@ html.tabs-stuck .header-fb-btn {
         top: env(safe-area-inset-top);
         height: calc(100% - 75px - env(safe-area-inset-top));
     }
-    /* Nút X trong gallery modal (PWA iPhone hay bị tai thỏ che) */
-    html.is-standalone .gallery-close-btn {
+    /* Nút quay lại trong gallery modal (PWA iPhone hay bị tai thỏ che) */
+    html.is-standalone .gallery-back-btn {
         top: calc(12px + env(safe-area-inset-top)) !important;
+        left: calc(12px + env(safe-area-inset-left)) !important;
     }
 
     /* Áp dụng theo display-mode (chuẩn) */
@@ -6276,9 +6370,10 @@ html.tabs-stuck .header-fb-btn {
             top: env(safe-area-inset-top);
             height: calc(100% - 75px - env(safe-area-inset-top));
         }
-        /* Nút X trong gallery modal */
-        .gallery-close-btn {
+        /* Nút quay lại trong gallery modal */
+        .gallery-back-btn {
             top: calc(12px + env(safe-area-inset-top)) !important;
+            left: calc(12px + env(safe-area-inset-left)) !important;
         }
     }
 }

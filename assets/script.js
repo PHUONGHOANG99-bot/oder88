@@ -1558,14 +1558,14 @@ function initCategories() {
             id: "quan-dai-nu",
             name: "Quần Nữ",
             icon: "fa-female",
-            image: "assets/image/quan-dai-nu/qd1.jpg",
+            image: "assets/image/quan-dai-nu/jg1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
             id: "phu-kien",
             name: "Phụ Kiện",
             icon: "fa-gift",
-            image: "assets/image/phu-kien/mu/IMG_1236.JPG",
+            image: "assets/image/phu-kien/non-nu/NG1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
     ];
@@ -1739,7 +1739,7 @@ function renderSubcategories(categoryId) {
                 id: "non-nam",
                 name: "Nón nam",
                 icon: "fa-hat-cowboy",
-                image: "assets/image/phu-kien/mu/IMG_1236.JPG",
+                image: "assets/image/phu-kien/non-nu/NG1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             },
             {
@@ -1857,8 +1857,113 @@ function renderSubcategories(categoryId) {
 
 // ==================== HÀM MOBILE CATEGORIES ====================
 function initMobileCategories() {
-    // Setup event listeners for mobile category buttons (HTML is already in index.html)
+    // Render mobile categories with images
+    renderMobileCategories();
+    // Setup event listeners for mobile category buttons
     setupMobileCategoryListeners();
+}
+
+function renderMobileCategories() {
+    const mobileCategoriesList = document.querySelector(".mobile-categories-list");
+    if (!mobileCategoriesList) return;
+
+    // Get categories from initCategories function
+    const categories = [
+        {
+            id: "all",
+            name: "Tất cả",
+            icon: "fa-border-all",
+            image: "assets/logo/tatca.jpg",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "set-do",
+            name: "Sét Đồ",
+            icon: "fa-tshirt",
+            image: "assets/logo/setdonu.JPG",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "ao-nu",
+            name: "Áo nữ",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
+            color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)",
+        },
+        {
+            id: "ao-nam",
+            name: "Áo Nam",
+            icon: "fa-tshirt",
+            image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "tui-xach",
+            name: "Túi xách",
+            icon: "fa-shopping-bag",
+            image: "assets/logo/logotuixachnu.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "giay",
+            name: "Giày",
+            icon: "fa-shoe-prints",
+            image: "assets/logo/logogiay.JPG",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+        {
+            id: "vay",
+            name: "Váy",
+            icon: "fa-heart",
+            image: "assets/image/vay/chan-vay/cv1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "quan-dai-nu",
+            name: "Quần dài nữ",
+            icon: "fa-female",
+            image: "assets/image/quan-dai-nu/jg1.jpg",
+            color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        },
+        {
+            id: "quan-nam",
+            name: "Quần Nam",
+            icon: "fa-user",
+            image: "assets/logo/quannam.JPG",
+            color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        },
+        {
+            id: "phu-kien",
+            name: "Phụ Kiện",
+            icon: "fa-gift",
+            image: "assets/image/phu-kien/non-nu/NG1.jpg",
+            color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        },
+    ];
+
+    const categoriesHTML = categories
+        .map((category, index) => {
+            const isActive = index === 0 ? "active" : "";
+            return `
+                <button
+                    class="mobile-category-btn ${isActive}"
+                    data-category="${category.id}"
+                >
+                    <div class="mobile-category-image-wrapper">
+                        <img 
+                            src="${normalizePath(category.image)}" 
+                            alt="${category.name}"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas ${category.icon}\\'></i>'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';"
+                        >
+                    </div>
+                    ${category.name}
+                </button>
+            `;
+        })
+        .join("");
+
+    mobileCategoriesList.innerHTML = categoriesHTML;
 }
 
 // OLD CODE - Keeping for reference but not used anymore
@@ -1979,7 +2084,7 @@ function initMobileCategories_OLD() {
             id: "quan-dai-nu",
             name: "Quần Nữ",
             icon: "fa-female",
-            image: "assets/image/quan-dai-nu/qd1.jpg",
+            image: "assets/image/quan-dai-nu/jg1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
@@ -2000,14 +2105,14 @@ function initMobileCategories_OLD() {
             id: "phu-kien",
             name: "Phụ Kiện",
             icon: "fa-gift",
-            image: "assets/image/phu-kien/mu/IMG_1236.JPG",
+            image: "assets/image/phu-kien/non-nu/NG1.jpg",
             color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         },
         {
             id: "non",
             name: "Mũ",
             icon: "fa-hat-cowboy",
-            image: "assets/image/phu-kien/mu/IMG_1236.JPG",
+            image: "assets/image/phu-kien/non-nu/NG1.jpg",
             color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
         },
         {
@@ -2950,7 +3055,7 @@ function renderMobileSubcategories(categoryId) {
                 id: "non-nam",
                 name: "Nón nam",
                 icon: "fa-hat-cowboy",
-                image: "assets/image/phu-kien/mu/IMG_1236.JPG",
+                image: "assets/image/phu-kien/non-nu/NG1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             },
             {
@@ -4164,9 +4269,31 @@ function getProductSearchKeywords(product) {
 function productMatchesSearch(product, searchQuery) {
     if (!searchQuery) return true;
 
-    const query = removeVietnameseTones(searchQuery.toLowerCase().trim());
+    const trimmedQuery = searchQuery.trim();
+    const query = removeVietnameseTones(trimmedQuery.toLowerCase());
     const searchKeywords = getProductSearchKeywords(product);
 
+    // Nhận diện mã sản phẩm: có chữ cái và số, không có khoảng trắng, độ dài 3-10 ký tự
+    // Ví dụ: adt1, sg1, st1, sg001, st001, adt10, txg150
+    const isProductCode = /^[a-z0-9]{3,10}$/i.test(trimmedQuery) && 
+                          /[a-z]/i.test(trimmedQuery) && 
+                          /[0-9]/.test(trimmedQuery);
+
+    // Nếu là mã sản phẩm, chỉ tìm exact match trong tên sản phẩm (không case-sensitive)
+    if (isProductCode) {
+        const productName = (product.name || "").toUpperCase();
+        const codeUpper = trimmedQuery.toUpperCase();
+        // Tìm exact match như một từ riêng biệt trong tên sản phẩm
+        // Sử dụng regex với word boundary để tránh match substring (ví dụ: sg1 không match với sg10)
+        const regex = new RegExp('\\b' + codeUpper.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+        if (regex.test(productName)) {
+            return true;
+        }
+        // Nếu không tìm thấy exact match, không tìm tiếp (không tìm từng từ riêng lẻ)
+        return false;
+    }
+
+    // Nếu không phải mã sản phẩm, tìm kiếm bình thường
     // Tìm kiếm trong tất cả từ khóa
     if (searchKeywords.includes(query)) return true;
 
@@ -5511,7 +5638,7 @@ function initProductGallery() {
 
     // Gallery controls
     document
-        .querySelector(".gallery-close-btn")
+        .querySelector(".gallery-back-btn")
         ?.addEventListener("click", closeProductGallery);
     document
         .querySelector(".gallery-next")
@@ -5833,7 +5960,7 @@ function setupEventListeners() {
         .querySelector(".mobile-menu-btn")
         ?.addEventListener("click", toggleMobileMenu);
     document
-        .querySelector(".close-mobile-menu")
+        .querySelector(".mobile-categories-back-btn")
         ?.addEventListener("click", toggleMobileMenu);
 
     // Category indicator click - mở menu chọn danh mục
