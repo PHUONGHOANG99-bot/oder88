@@ -4560,8 +4560,16 @@ function openProductGallery(productId, imageIndex = 0) {
                 if (youtubeFallback) youtubeFallback.style.display = "none";
                 mainVideoIframe.style.display = "block";
 
+                // Check if TikTok browser and use appropriate embed format
+                const isTikTok = isTikTokBrowser();
+                
+                // Set referrerpolicy for TikTok browser to help with error 153
+                if (isTikTok && mainVideoIframe) {
+                    mainVideoIframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+                }
+                
                 // Load iframe with autoplay=0 to show thumbnail
-                const embedUrl = convertToYouTubeEmbed(videoUrl, false);
+                const embedUrl = convertToYouTubeEmbed(videoUrl, false, false, isTikTok);
                 mainVideoIframe.src = embedUrl;
                 mainVideoIframe._embedUrl = embedUrl;
 
@@ -4578,6 +4586,23 @@ function openProductGallery(productId, imageIndex = 0) {
                             const iframeRect = mainVideoIframe.getBoundingClientRect();
                             if (iframeRect.height < 100) {
                                 // Iframe seems too small, might be error
+                                // For TikTok, try alternative format before showing fallback
+                                if (isTikTok) {
+                                    // Try with regular youtube.com instead
+                                    const videoId = extractYouTubeVideoId(videoUrl);
+                                    if (videoId) {
+                                        const altUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin || window.location.hostname)}`;
+                                        mainVideoIframe.src = altUrl;
+                                        // Give it another 2 seconds
+                                        setTimeout(function() {
+                                            const iframeRect2 = mainVideoIframe.getBoundingClientRect();
+                                            if (iframeRect2.height < 100) {
+                                                setupFallbackUI();
+                                            }
+                                        }, 2000);
+                                        return;
+                                    }
+                                }
                                 setupFallbackUI();
                             }
                         }
@@ -4595,22 +4620,42 @@ function openProductGallery(productId, imageIndex = 0) {
                 // Also check for direct error events (though they may not fire for cross-origin)
                 mainVideoIframe.onerror = function() {
                     clearTimeout(loadCheckTimeout);
+                    // For TikTok, try alternative format before showing fallback
+                    if (isTikTok) {
+                        const videoId = extractYouTubeVideoId(videoUrl);
+                        if (videoId) {
+                            const altUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin || window.location.hostname)}`;
+                            mainVideoIframe.src = altUrl;
+                            return;
+                        }
+                    }
                     setupFallbackUI();
                 };
                 
                 // Additional check: if TikTok browser and iframe doesn't seem to work after 2 seconds
-                const isTikTok = isTikTokBrowser();
                 if (isTikTok) {
                     // Give TikTok browser a shorter timeout
                     setTimeout(function() {
                         // Check if fallback is already shown
                         if (youtubeFallback && youtubeFallback.style.display === "none") {
-                            // If iframe is still trying to load, show fallback as backup
-                            // User can still try to interact with iframe if it works
+                            // If iframe is still trying to load, try alternative format
                             const iframeRect = mainVideoIframe.getBoundingClientRect();
                             if (iframeRect.height < 200) {
-                                // Iframe seems problematic, show fallback
-                                setupFallbackUI();
+                                // Iframe seems problematic, try alternative format
+                                const videoId = extractYouTubeVideoId(videoUrl);
+                                if (videoId) {
+                                    const altUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin || window.location.hostname)}`;
+                                    mainVideoIframe.src = altUrl;
+                                    // Give it another 2 seconds before showing fallback
+                                    setTimeout(function() {
+                                        const iframeRect2 = mainVideoIframe.getBoundingClientRect();
+                                        if (iframeRect2.height < 200) {
+                                            setupFallbackUI();
+                                        }
+                                    }, 2000);
+                                } else {
+                                    setupFallbackUI();
+                                }
                             }
                         }
                     }, 2000);
@@ -4709,11 +4754,14 @@ function openProductGallery(productId, imageIndex = 0) {
                     // Iframe is being used, try to play video in iframe
                     if (youtubeFallback) youtubeFallback.style.display = "none";
                     mainVideoIframe.style.display = "block";
+                    // Check if TikTok browser and use appropriate embed format
+                    const isTikTok = isTikTokBrowser();
                     // Create URL without autoplay (user clicked play, video will play when clicked)
                     const autoplayUrl = convertToYouTubeEmbed(
                         videoUrl,
                         false,
-                        false
+                        false,
+                        isTikTok
                     );
                     mainVideoIframe.src = autoplayUrl;
                     // Hide overlay to show video
@@ -5095,7 +5143,7 @@ function getYouTubeThumbnailUrl(videoId, quality = 'maxresdefault') {
 }
 
 // Helper function to convert YouTube URL to embed format
-function convertToYouTubeEmbed(url, autoplay = false, mute = false) {
+function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = false) {
     if (!url) return url;
 
     // Extract video ID from various YouTube URL formats
@@ -5131,9 +5179,24 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false) {
     }
 
     if (videoId) {
+        // For TikTok browser, use different approach
+        if (forTikTok) {
+            // Use regular youtube.com (not nocookie) with origin parameter
+            // This helps with referrer policy issues
+            const params = new URLSearchParams({
+                autoplay: autoplay ? "1" : "0",
+                mute: mute ? "1" : "0",
+                rel: "0",
+                controls: "1",
+                playsinline: "1",
+                origin: window.location.origin || window.location.hostname,
+            });
+            return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+        }
+        
+        // For regular browsers, use youtube-nocookie.com
         // Tối thiểu hóa params để tránh YouTube CAPTCHA và yêu cầu đăng nhập
         // Chỉ sử dụng các tham số cơ bản nhất, không dùng enablejsapi
-        // Sử dụng youtube-nocookie.com để tránh yêu cầu cookie/login
         const params = new URLSearchParams({
             autoplay: autoplay ? "1" : "0",
             mute: mute ? "1" : "0",
@@ -5144,7 +5207,7 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false) {
         
         // KHÔNG sử dụng enablejsapi=1 để tránh CAPTCHA
         // KHÔNG sử dụng modestbranding để tránh nghi ngờ
-        // KHÔNG sử dụng origin parameter
+        // KHÔNG sử dụng origin parameter cho regular browsers
         // KHÔNG sử dụng postMessage để tránh bị phát hiện
 
         // Sử dụng youtube-nocookie.com để tránh yêu cầu đăng nhập
@@ -5177,10 +5240,13 @@ function playVideo() {
             const productVideoUrl = normalizePath(currentProduct.video);
             const isYouTube = isYouTubeUrl(productVideoUrl);
             if (isYouTube) {
+                // Check if TikTok browser and use appropriate embed format
+                const isTikTok = isTikTokBrowser();
                 const newUrl = convertToYouTubeEmbed(
                     productVideoUrl,
                     false,
-                    false
+                    false,
+                    isTikTok
                 );
                 mainVideoIframe.src = newUrl;
                 if (videoPlayOverlay) videoPlayOverlay.style.display = "none";
@@ -5351,7 +5417,9 @@ function switchToVideo() {
             if (mainVideo) mainVideo.style.display = "none";
             if (youtubeFallback) youtubeFallback.style.display = "none";
             mainVideoIframe.style.display = "block";
-            const embedUrl = convertToYouTubeEmbed(videoUrl, false);
+            // Check if TikTok browser and use appropriate embed format
+            const isTikTok = isTikTokBrowser();
+            const embedUrl = convertToYouTubeEmbed(videoUrl, false, false, isTikTok);
             mainVideoIframe.src = embedUrl;
             mainVideoIframe._embedUrl = embedUrl;
             
