@@ -887,12 +887,14 @@ body {
     left: -100%;
     width: 100%;
     max-width: 480px;
-    height: calc(100% - 75px);
+    height: calc(100vh - 75px);
     bottom: 75px;
     background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
     z-index: 2000;
     transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     box-shadow: 8px 0 40px rgba(0, 0, 0, 0.15), 2px 0 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
 }
@@ -991,7 +993,7 @@ body {
 /* Mobile Categories Wrapper - Two Column Layout */
 .mobile-categories-wrapper {
     display: flex;
-    height: calc(100vh - 60px);
+    flex: 1;
     overflow: hidden;
     background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
 }
@@ -1362,7 +1364,7 @@ body {
     }
 
     .mobile-categories-wrapper {
-        height: calc(100vh - 55px);
+        flex: 1;
     }
 
     .mobile-categories-list {
