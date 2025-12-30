@@ -3154,18 +3154,51 @@ function getBestSellers() {
     const totalTopProducts = 30; // Lấy 30 sản phẩm bán chạy nhất
     const displayProducts = 20; // Hiển thị 20 sản phẩm ngẫu nhiên từ 30 sản phẩm đó
 
-    const sortedByPurchases = [...products].sort((a, b) => {
+    // Danh mục ưu tiên: boot nữ, chân váy, túi xách, thu đông nữ
+    const priorityCategories = [
+        "boot-nu",
+        "chan-vay",
+        "tui-xach",
+        "tui-xach-nam",
+        "tui-xach-nu",
+        "ao-thu-dong",
+    ];
+
+    // Tách sản phẩm thành 2 nhóm: ưu tiên và khác
+    const priorityProducts = [];
+    const otherProducts = [];
+
+    products.forEach((product) => {
+        if (priorityCategories.includes(product.category)) {
+            priorityProducts.push(product);
+        } else {
+            otherProducts.push(product);
+        }
+    });
+
+    // Sắp xếp mỗi nhóm theo số lượng mua và bestSeller
+    const sortByPurchases = (a, b) => {
         const diff = getPurchaseCount(b) - getPurchaseCount(a);
         if (diff !== 0) return diff;
         // Nếu bằng nhau, ưu tiên bestSeller
         return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
-    });
+    };
 
-    // Lấy 30 sản phẩm bán chạy nhất
-    const top30Products = sortedByPurchases.slice(0, totalTopProducts);
+    priorityProducts.sort(sortByPurchases);
+    otherProducts.sort(sortByPurchases);
+
+    // Lấy sản phẩm từ nhóm ưu tiên trước (lấy nhiều hơn để có đủ lựa chọn)
+    const topPriorityProducts = priorityProducts.slice(0, totalTopProducts);
+    const topOtherProducts = otherProducts.slice(0, totalTopProducts);
+
+    // Kết hợp: ưu tiên từ nhóm priority, sau đó lấy thêm từ nhóm khác nếu cần
+    const combinedProducts = [...topPriorityProducts, ...topOtherProducts].slice(
+        0,
+        totalTopProducts
+    );
 
     // Shuffle ngẫu nhiên và lấy 20 sản phẩm đầu tiên
-    const shuffled = [...top30Products];
+    const shuffled = [...combinedProducts];
     for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
@@ -4485,11 +4518,46 @@ function openProductGallery(productId, imageIndex = 0) {
         }
 
         if (isYouTube) {
-            // Handle YouTube video with iframe
-            if (mainVideoIframe) {
-                // Hide regular video element, show iframe
+            // Try to load YouTube iframe first (even on TikTok browser)
+            // Only show fallback if iframe fails to load
+            const youtubeFallback = document.getElementById("youtubeFallback");
+            const youtubeFallbackThumbnail = document.getElementById("youtubeFallbackThumbnail");
+            const youtubeFallbackButton = document.getElementById("youtubeFallbackButton");
+            
+            // Function to setup fallback UI
+            const setupFallbackUI = function() {
+                if (!youtubeFallback) return;
+                
                 if (mainVideo) mainVideo.style.display = "none";
-                // Load iframe without autoplay to show thumbnail
+                if (mainVideoIframe) mainVideoIframe.style.display = "none";
+                youtubeFallback.style.display = "flex";
+                
+                const videoId = extractYouTubeVideoId(videoUrl);
+                if (videoId) {
+                    const thumbnailUrl = getYouTubeThumbnailUrl(videoId);
+                    if (thumbnailUrl && youtubeFallbackThumbnail) {
+                        youtubeFallbackThumbnail.src = thumbnailUrl;
+                        youtubeFallbackThumbnail.onerror = function() {
+                            this.src = getYouTubeThumbnailUrl(videoId, 'hqdefault');
+                        };
+                    }
+                    
+                    if (youtubeFallbackButton) {
+                        const watchUrl = getYouTubeWatchUrl(videoUrl);
+                        youtubeFallbackButton.onclick = function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.open(watchUrl, '_blank');
+                        };
+                    }
+                }
+            };
+            
+            // Try to load iframe first
+            if (mainVideoIframe) {
+                // Hide regular video element and fallback, show iframe
+                if (mainVideo) mainVideo.style.display = "none";
+                if (youtubeFallback) youtubeFallback.style.display = "none";
                 mainVideoIframe.style.display = "block";
 
                 // Load iframe with autoplay=0 to show thumbnail
@@ -4497,12 +4565,63 @@ function openProductGallery(productId, imageIndex = 0) {
                 mainVideoIframe.src = embedUrl;
                 mainVideoIframe._embedUrl = embedUrl;
 
+                // Check if iframe loads successfully
+                // Use timeout to detect if iframe fails to load (error 153)
+                let loadCheckTimeout = setTimeout(function() {
+                    // After 3 seconds, check if iframe is still empty or has error
+                    try {
+                        // Try to access iframe content (will fail for cross-origin, but that's OK)
+                        const iframeDoc = mainVideoIframe.contentDocument || mainVideoIframe.contentWindow?.document;
+                        if (!iframeDoc) {
+                            // Cross-origin is normal, but check if iframe has loaded
+                            // If iframe src is still the same and no content visible, might be error
+                            const iframeRect = mainVideoIframe.getBoundingClientRect();
+                            if (iframeRect.height < 100) {
+                                // Iframe seems too small, might be error
+                                setupFallbackUI();
+                            }
+                        }
+                    } catch (e) {
+                        // Cross-origin error is normal for YouTube iframe
+                        // This means iframe is working, don't show fallback
+                    }
+                }, 3000);
+
+                // Clear timeout if iframe loads successfully
+                mainVideoIframe.onload = function() {
+                    clearTimeout(loadCheckTimeout);
+                };
+
+                // Also check for direct error events (though they may not fire for cross-origin)
+                mainVideoIframe.onerror = function() {
+                    clearTimeout(loadCheckTimeout);
+                    setupFallbackUI();
+                };
+                
+                // Additional check: if TikTok browser and iframe doesn't seem to work after 2 seconds
+                const isTikTok = isTikTokBrowser();
+                if (isTikTok) {
+                    // Give TikTok browser a shorter timeout
+                    setTimeout(function() {
+                        // Check if fallback is already shown
+                        if (youtubeFallback && youtubeFallback.style.display === "none") {
+                            // If iframe is still trying to load, show fallback as backup
+                            // User can still try to interact with iframe if it works
+                            const iframeRect = mainVideoIframe.getBoundingClientRect();
+                            if (iframeRect.height < 200) {
+                                // Iframe seems problematic, show fallback
+                                setupFallbackUI();
+                            }
+                        }
+                    }, 2000);
+                }
+
                 // KHÔNG sử dụng message listener để tránh CAPTCHA
                 // YouTube sẽ tự xử lý video playback mà không cần enablejsapi
                 // Người dùng có thể click vào video để phát trực tiếp
-
-                // Also setup click handler on iframe container to show iframe when play button is clicked
-                // This is handled in handlePlayVideo function
+            } else {
+                // No iframe element, use fallback
+                setupFallbackUI();
             }
         } else {
             // Handle regular video file with video element
@@ -4577,22 +4696,33 @@ function openProductGallery(productId, imageIndex = 0) {
                 e.stopPropagation();
             }
 
-            if (isYouTube && mainVideoIframe) {
-                // Show iframe and load video with autoplay
-                mainVideoIframe.style.display = "block";
-                // Create URL without autoplay (user clicked play, video will play when clicked)
-                const autoplayUrl = convertToYouTubeEmbed(
-                    videoUrl,
-                    false,
-                    false
-                );
-                mainVideoIframe.src = autoplayUrl;
-                // Hide overlay to show video
-                videoPlayOverlay.style.display = "none";
+            if (isYouTube) {
+                const youtubeFallback = document.getElementById("youtubeFallback");
+                
+                // Check if fallback UI is currently shown
+                if (youtubeFallback && youtubeFallback.style.display !== "none") {
+                    // Fallback UI is shown, open YouTube in external browser
+                    const watchUrl = getYouTubeWatchUrl(videoUrl);
+                    window.open(watchUrl, '_blank');
+                    videoPlayOverlay.style.display = "none";
+                } else if (mainVideoIframe) {
+                    // Iframe is being used, try to play video in iframe
+                    if (youtubeFallback) youtubeFallback.style.display = "none";
+                    mainVideoIframe.style.display = "block";
+                    // Create URL without autoplay (user clicked play, video will play when clicked)
+                    const autoplayUrl = convertToYouTubeEmbed(
+                        videoUrl,
+                        false,
+                        false
+                    );
+                    mainVideoIframe.src = autoplayUrl;
+                    // Hide overlay to show video
+                    videoPlayOverlay.style.display = "none";
 
-                // KHÔNG sử dụng postMessage để tránh CAPTCHA
-                // Dựa vào autoplay parameter trong embed URL
-                // Nếu autoplay không hoạt động, người dùng có thể click vào video
+                    // KHÔNG sử dụng postMessage để tránh CAPTCHA
+                    // Dựa vào autoplay parameter trong embed URL
+                    // Nếu autoplay không hoạt động, người dùng có thể click vào video
+                }
             } else {
                 playVideo();
             }
@@ -4685,6 +4815,10 @@ function closeProductGallery() {
                     .replace("autoplay=1", "");
             }
         }
+        const youtubeFallback = document.getElementById("youtubeFallback");
+        if (youtubeFallback) {
+            youtubeFallback.style.display = "none";
+        }
         if (videoContainer) {
             videoContainer.style.display = "none";
         }
@@ -4764,14 +4898,87 @@ function goToGalleryImage(index) {
             videoContainer.style.display = "flex";
             mainImage.style.display = "none";
 
-            if (isYouTube && mainVideoIframe) {
-                // Show YouTube iframe with thumbnail (no autoplay)
-                if (mainVideo) mainVideo.style.display = "none";
-                mainVideoIframe.style.display = "block";
-                const embedUrl = convertToYouTubeEmbed(videoUrl, false);
-                mainVideoIframe.src = embedUrl;
-                mainVideoIframe._embedUrl = embedUrl;
-                // Hide play overlay for YouTube - YouTube has its own controls
+            if (isYouTube) {
+                // Try to load YouTube iframe first, show fallback only if it fails
+                const youtubeFallback = document.getElementById("youtubeFallback");
+                const youtubeFallbackThumbnail = document.getElementById("youtubeFallbackThumbnail");
+                const youtubeFallbackButton = document.getElementById("youtubeFallbackButton");
+                
+                // Function to setup fallback UI
+                const setupFallbackUI = function() {
+                    if (!youtubeFallback) return;
+                    
+                    if (mainVideo) mainVideo.style.display = "none";
+                    if (mainVideoIframe) mainVideoIframe.style.display = "none";
+                    youtubeFallback.style.display = "flex";
+                    
+                    const videoId = extractYouTubeVideoId(videoUrl);
+                    if (videoId) {
+                        const thumbnailUrl = getYouTubeThumbnailUrl(videoId);
+                        if (thumbnailUrl && youtubeFallbackThumbnail) {
+                            youtubeFallbackThumbnail.src = thumbnailUrl;
+                            youtubeFallbackThumbnail.onerror = function() {
+                                this.src = getYouTubeThumbnailUrl(videoId, 'hqdefault');
+                            };
+                        }
+                        
+                        if (youtubeFallbackButton) {
+                            const watchUrl = getYouTubeWatchUrl(videoUrl);
+                            youtubeFallbackButton.onclick = function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                window.open(watchUrl, '_blank');
+                            };
+                        }
+                    }
+                };
+                
+                if (mainVideoIframe) {
+                    // Try iframe first
+                    if (mainVideo) mainVideo.style.display = "none";
+                    if (youtubeFallback) youtubeFallback.style.display = "none";
+                    mainVideoIframe.style.display = "block";
+                    const embedUrl = convertToYouTubeEmbed(videoUrl, false);
+                    mainVideoIframe.src = embedUrl;
+                    mainVideoIframe._embedUrl = embedUrl;
+                    
+                    // Check if iframe loads successfully
+                    let loadCheckTimeout = setTimeout(function() {
+                        try {
+                            const iframeRect = mainVideoIframe.getBoundingClientRect();
+                            if (iframeRect.height < 100) {
+                                setupFallbackUI();
+                            }
+                        } catch (e) {
+                            // Ignore
+                        }
+                    }, 3000);
+
+                    mainVideoIframe.onload = function() {
+                        clearTimeout(loadCheckTimeout);
+                    };
+
+                    mainVideoIframe.onerror = function() {
+                        clearTimeout(loadCheckTimeout);
+                        setupFallbackUI();
+                    };
+                    
+                    // Additional check for TikTok browser
+                    const isTikTok = isTikTokBrowser();
+                    if (isTikTok) {
+                        setTimeout(function() {
+                            if (youtubeFallback && youtubeFallback.style.display === "none") {
+                                const iframeRect = mainVideoIframe.getBoundingClientRect();
+                                if (iframeRect.height < 200) {
+                                    setupFallbackUI();
+                                }
+                            }
+                        }, 2000);
+                    }
+                } else {
+                    setupFallbackUI();
+                }
+                // Hide play overlay for YouTube
                 if (videoPlayOverlay) {
                     videoPlayOverlay.classList.remove("youtube-style");
                     videoPlayOverlay.style.display = "none";
@@ -4831,12 +5038,60 @@ function goToGalleryImage(index) {
     });
 }
 
+// Helper function to detect TikTok browser
+function isTikTokBrowser() {
+    if (typeof navigator === 'undefined') return false;
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /tiktok|musical|bytedance/i.test(userAgent) || 
+           /musical_ly/i.test(userAgent) ||
+           (window.location && window.location.href && /tiktok/i.test(window.location.href));
+}
+
 // Helper function to detect if URL is YouTube
 function isYouTubeUrl(url) {
     if (!url) return false;
-    return /youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=/.test(
+    return /youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/shorts\//.test(
         url
     );
+}
+
+// Extract YouTube video ID from various URL formats
+function extractYouTubeVideoId(url) {
+    if (!url) return null;
+    
+    // youtube.com/embed/VIDEO_ID or youtube-nocookie.com/embed/VIDEO_ID
+    const embedMatch = url.match(/youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/);
+    if (embedMatch) return embedMatch[1];
+    
+    // youtube.com/watch?v=VIDEO_ID
+    const watchMatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
+    if (watchMatch) return watchMatch[1];
+    
+    // youtube.com/shorts/VIDEO_ID
+    const shortsMatch = url.match(/youtube\.com\/shorts\/([^?&#]+)/);
+    if (shortsMatch) return shortsMatch[1];
+    
+    // youtu.be/VIDEO_ID
+    const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
+    if (shortMatch) return shortMatch[1];
+    
+    return null;
+}
+
+// Get YouTube watch URL from embed URL
+function getYouTubeWatchUrl(embedUrl) {
+    const videoId = extractYouTubeVideoId(embedUrl);
+    if (videoId) {
+        return `https://www.youtube.com/watch?v=${videoId}`;
+    }
+    return embedUrl;
+}
+
+// Get YouTube thumbnail URL
+function getYouTubeThumbnailUrl(videoId, quality = 'maxresdefault') {
+    if (!videoId) return null;
+    // Try maxresdefault first, fallback to hqdefault
+    return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
 }
 
 // Helper function to convert YouTube URL to embed format
@@ -4853,17 +5108,24 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false) {
     if (embedMatch) {
         videoId = embedMatch[1];
     }
-    // youtu.be/VIDEO_ID
+    // youtube.com/shorts/VIDEO_ID
     else {
-        const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
-        if (shortMatch) {
-            videoId = shortMatch[1];
+        const shortsMatch = url.match(/youtube\.com\/shorts\/([^?&#]+)/);
+        if (shortsMatch) {
+            videoId = shortsMatch[1];
         }
-        // youtube.com/watch?v=VIDEO_ID
+        // youtu.be/VIDEO_ID
         else {
-            const watchMatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
-            if (watchMatch) {
-                videoId = watchMatch[1];
+            const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
+            if (shortMatch) {
+                videoId = shortMatch[1];
+            }
+            // youtube.com/watch?v=VIDEO_ID
+            else {
+                const watchMatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
+                if (watchMatch) {
+                    videoId = watchMatch[1];
+                }
             }
         }
     }
@@ -5049,14 +5311,87 @@ function switchToVideo() {
         videoWatermark.style.display = "block";
     }
 
-    if (isYouTube && mainVideoIframe) {
-        // Show YouTube iframe with thumbnail (no autoplay)
-        if (mainVideo) mainVideo.style.display = "none";
-        mainVideoIframe.style.display = "block";
-        const embedUrl = convertToYouTubeEmbed(videoUrl, false);
-        mainVideoIframe.src = embedUrl;
-        mainVideoIframe._embedUrl = embedUrl;
-        // Hide play overlay for YouTube - YouTube has its own controls
+    if (isYouTube) {
+        // Try to load YouTube iframe first, show fallback only if it fails
+        const youtubeFallback = document.getElementById("youtubeFallback");
+        const youtubeFallbackThumbnail = document.getElementById("youtubeFallbackThumbnail");
+        const youtubeFallbackButton = document.getElementById("youtubeFallbackButton");
+        
+        // Function to setup fallback UI
+        const setupFallbackUI = function() {
+            if (!youtubeFallback) return;
+            
+            if (mainVideo) mainVideo.style.display = "none";
+            if (mainVideoIframe) mainVideoIframe.style.display = "none";
+            youtubeFallback.style.display = "flex";
+            
+            const videoId = extractYouTubeVideoId(videoUrl);
+            if (videoId) {
+                const thumbnailUrl = getYouTubeThumbnailUrl(videoId);
+                if (thumbnailUrl && youtubeFallbackThumbnail) {
+                    youtubeFallbackThumbnail.src = thumbnailUrl;
+                    youtubeFallbackThumbnail.onerror = function() {
+                        this.src = getYouTubeThumbnailUrl(videoId, 'hqdefault');
+                    };
+                }
+                
+                if (youtubeFallbackButton) {
+                    const watchUrl = getYouTubeWatchUrl(videoUrl);
+                    youtubeFallbackButton.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.open(watchUrl, '_blank');
+                    };
+                }
+            }
+        };
+        
+        if (mainVideoIframe) {
+            // Try iframe first
+            if (mainVideo) mainVideo.style.display = "none";
+            if (youtubeFallback) youtubeFallback.style.display = "none";
+            mainVideoIframe.style.display = "block";
+            const embedUrl = convertToYouTubeEmbed(videoUrl, false);
+            mainVideoIframe.src = embedUrl;
+            mainVideoIframe._embedUrl = embedUrl;
+            
+            // Check if iframe loads successfully
+            let loadCheckTimeout = setTimeout(function() {
+                try {
+                    const iframeRect = mainVideoIframe.getBoundingClientRect();
+                    if (iframeRect.height < 100) {
+                        setupFallbackUI();
+                    }
+                } catch (e) {
+                    // Ignore
+                }
+            }, 3000);
+
+            mainVideoIframe.onload = function() {
+                clearTimeout(loadCheckTimeout);
+            };
+
+            mainVideoIframe.onerror = function() {
+                clearTimeout(loadCheckTimeout);
+                setupFallbackUI();
+            };
+            
+            // Additional check for TikTok browser
+            const isTikTok = isTikTokBrowser();
+            if (isTikTok) {
+                setTimeout(function() {
+                    if (youtubeFallback && youtubeFallback.style.display === "none") {
+                        const iframeRect = mainVideoIframe.getBoundingClientRect();
+                        if (iframeRect.height < 200) {
+                            setupFallbackUI();
+                        }
+                    }
+                }, 2000);
+            }
+        } else {
+            setupFallbackUI();
+        }
+        // Hide play overlay for YouTube - YouTube has its own controls or fallback UI
         if (videoPlayOverlay) {
             videoPlayOverlay.classList.remove("youtube-style");
             videoPlayOverlay.style.display = "none";
@@ -5711,108 +6046,9 @@ function setupEventListeners() {
             tabButtons.forEach((b) => b.classList.remove("active"));
             btn.classList.add("active");
 
-            // Filter products based on tab
-            let filtered = products;
-
-            // Nếu tab là "all", luôn hiển thị tất cả sản phẩm (bỏ qua category filter)
-            if (tab === "all") {
-                // Hiển thị tất cả sản phẩm, không filter theo category
-                filtered = products;
-            } else if (currentCategory !== "all") {
-                // Nếu tab khác "all", vẫn filter theo category hiện tại
-                if (currentCategory === "tui-xach") {
-                    filtered = filtered.filter(
-                        (p) =>
-                            p.category === "tui-xach" ||
-                            p.category === "tui-xach-nam" ||
-                            p.category === "tui-xach-nu"
-                    );
-                } else if (currentCategory === "vay") {
-                    filtered = filtered.filter(
-                        (p) => p.category === "vay" || p.category === "chan-vay"
-                    );
-                } else if (currentCategory === "ao-nu") {
-                    filtered = filtered.filter(
-                        (p) =>
-                            p.category === "ao-nu" ||
-                            p.category === "ao-dong-nu" ||
-                            p.category === "ao-thu-dong"
-                    );
-                } else if (currentCategory === "ao-nam") {
-                    filtered = filtered.filter(
-                        (p) =>
-                            p.category === "ao-nam" ||
-                            p.category === "ao-dong-nam"
-                    );
-                } else if (currentCategory === "set-do") {
-                    filtered = filtered.filter(
-                        (p) =>
-                            p.category === "set-do-nu" ||
-                            p.category === "set-do-nam"
-                    );
-                } else if (currentCategory === "giay-nu") {
-                    filtered = filtered.filter(
-                        (p) =>
-                            p.category === "giay-nu" ||
-                            p.category === "boot-nu" ||
-                            p.category === "giay-the-thao"
-                    );
-                } else if (currentCategory === "giay-nam") {
-                    filtered = filtered.filter(
-                        (p) =>
-                            p.category === "giay-nam" ||
-                            p.category === "giay-sneaker-nam"
-                    );
-                } else {
-                    filtered = filtered.filter(
-                        (p) => p.category === currentCategory
-                    );
-                }
-            }
-
-            // Apply tab filter
-            if (tab === "hot") {
-                filtered = [...filtered]
-                    .sort((a, b) => {
-                        const diff = getPurchaseCount(b) - getPurchaseCount(a);
-                        if (diff !== 0) return diff;
-                        return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
-                    })
-                    .slice(0, Math.min(filtered.length, 30));
-            } else if (tab === "trending") {
-                // Sản phẩm xu hướng - lấy top 30 sản phẩm bán chạy nhất, sau đó shuffle ngẫu nhiên
-                filtered = [...filtered]
-                    .sort((a, b) => {
-                        const diff = getPurchaseCount(b) - getPurchaseCount(a);
-                        if (diff !== 0) return diff;
-                        return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
-                    })
-                    .slice(0, Math.min(filtered.length, 30))
-                    .sort(() => Math.random() - 0.5); // Shuffle ngẫu nhiên
-            } else if (tab === "recommended") {
-                // Shuffle and take top products
-                filtered = [...filtered]
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, Math.min(filtered.length, 30));
-            } else if (tab === "all") {
-                // Shuffle ngẫu nhiên với seed cố định cho tab "Tất cả"
-                const seed = getShuffleSeed();
-                filtered = seededShuffle(filtered, seed);
-            }
-
-            // Apply search if any
-            if (searchQuery) {
-                filtered = filtered.filter((p) =>
-                    productMatchesSearch(p, searchQuery)
-                );
-            }
-
-            currentPage = 1;
-
-            // Hiển thị products grid
-            const productsGrid = document.getElementById("productsGrid");
-            if (productsGrid) productsGrid.style.display = "grid";
-            displayProductsPaginated(filtered);
+            // Sử dụng filterProducts() để đảm bảo category được giữ khi chuyển tab
+            // filterProducts() sẽ tự động đọc tab active từ DOM và áp dụng filter đúng
+            filterProducts();
 
             // Khi đang lướt giữa danh sách mà bấm tab:
             // render lại và cuộn về đầu danh sách (ngay dưới thanh tabs) để xem từ trên xuống.

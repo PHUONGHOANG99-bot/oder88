@@ -858,6 +858,19 @@
                             <div class="video-watermark" id="videoWatermark">
                                 <span class="watermark-text">oder88.com</span>
                             </div>
+                            <!-- Fallback UI for TikTok browser or YouTube embed errors -->
+                            <div class="youtube-fallback" id="youtubeFallback" style="display: none">
+                                <div class="youtube-fallback-content">
+                                    <img id="youtubeFallbackThumbnail" class="youtube-fallback-thumbnail" alt="Video thumbnail" />
+                                    <div class="youtube-fallback-overlay">
+                                        <button class="youtube-fallback-button" id="youtubeFallbackButton" type="button">
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                            <span>Mở video trên YouTube</span>
+                                        </button>
+                                        <p class="youtube-fallback-message">Video không thể phát trong trình duyệt này. Nhấn để mở trên YouTube.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <button
                             class="gallery-video-toggle"
