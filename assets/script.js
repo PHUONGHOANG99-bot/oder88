@@ -4510,10 +4510,10 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = 
     }
 
     if (videoId) {
-        // For TikTok browser, use different approach
+        // For TikTok browser, try both approaches
         if (forTikTok) {
-            // Use regular youtube.com (not nocookie) with origin parameter
-            // This helps with referrer policy issues
+            // Try youtube-nocookie.com first (privacy-enhanced, may work better)
+            // If that doesn't work, fallback to regular youtube.com with origin parameter
             const params = new URLSearchParams({
                 autoplay: autoplay ? "1" : "0",
                 mute: mute ? "1" : "0",
@@ -4522,7 +4522,8 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = 
                 playsinline: "1",
                 origin: window.location.origin || window.location.hostname,
             });
-            return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+            // Try nocookie first for TikTok - it's privacy-enhanced and may work better
+            return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
         }
         
         // For regular browsers, use youtube-nocookie.com
