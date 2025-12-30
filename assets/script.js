@@ -4416,6 +4416,140 @@ function getProductImages(productId) {
     return [];
 }
 
+// ==================== YOUTUBE VIDEO HELPER FUNCTIONS ====================
+// Helper function to detect TikTok browser
+function isTikTokBrowser() {
+    if (typeof navigator === 'undefined') return false;
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /tiktok|musical|bytedance/i.test(userAgent) || 
+           /musical_ly/i.test(userAgent) ||
+           (window.location && window.location.href && /tiktok/i.test(window.location.href));
+}
+
+// Helper function to detect if URL is YouTube
+function isYouTubeUrl(url) {
+    if (!url) return false;
+    return /youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/shorts\//.test(
+        url
+    );
+}
+
+// Extract YouTube video ID from various URL formats
+function extractYouTubeVideoId(url) {
+    if (!url) return null;
+    
+    // youtube.com/embed/VIDEO_ID or youtube-nocookie.com/embed/VIDEO_ID
+    const embedMatch = url.match(/youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/);
+    if (embedMatch) return embedMatch[1];
+    
+    // youtube.com/watch?v=VIDEO_ID
+    const watchMatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
+    if (watchMatch) return watchMatch[1];
+    
+    // youtube.com/shorts/VIDEO_ID
+    const shortsMatch = url.match(/youtube\.com\/shorts\/([^?&#]+)/);
+    if (shortsMatch) return shortsMatch[1];
+    
+    // youtu.be/VIDEO_ID
+    const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
+    if (shortMatch) return shortMatch[1];
+    
+    return null;
+}
+
+// Get YouTube watch URL from embed URL
+function getYouTubeWatchUrl(embedUrl) {
+    const videoId = extractYouTubeVideoId(embedUrl);
+    if (videoId) {
+        return `https://www.youtube.com/watch?v=${videoId}`;
+    }
+    return embedUrl;
+}
+
+// Get YouTube thumbnail URL
+function getYouTubeThumbnailUrl(videoId, quality = 'maxresdefault') {
+    if (!videoId) return null;
+    // Try maxresdefault first, fallback to hqdefault
+    return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
+}
+
+// Helper function to convert YouTube URL to embed format
+function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = false) {
+    if (!url) return url;
+
+    // Extract video ID from various YouTube URL formats
+    let videoId = null;
+
+    // youtube.com/embed/VIDEO_ID hoặc youtube-nocookie.com/embed/VIDEO_ID
+    const embedMatch = url.match(
+        /youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/
+    );
+    if (embedMatch) {
+        videoId = embedMatch[1];
+    }
+    // youtube.com/shorts/VIDEO_ID
+    else {
+        const shortsMatch = url.match(/youtube\.com\/shorts\/([^?&#]+)/);
+        if (shortsMatch) {
+            videoId = shortsMatch[1];
+        }
+        // youtu.be/VIDEO_ID
+        else {
+            const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
+            if (shortMatch) {
+                videoId = shortMatch[1];
+            }
+            // youtube.com/watch?v=VIDEO_ID
+            else {
+                const watchMatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
+                if (watchMatch) {
+                    videoId = watchMatch[1];
+                }
+            }
+        }
+    }
+
+    if (videoId) {
+        // For TikTok browser, use different approach
+        if (forTikTok) {
+            // Use regular youtube.com (not nocookie) with origin parameter
+            // This helps with referrer policy issues
+            const params = new URLSearchParams({
+                autoplay: autoplay ? "1" : "0",
+                mute: mute ? "1" : "0",
+                rel: "0",
+                controls: "1",
+                playsinline: "1",
+                origin: window.location.origin || window.location.hostname,
+            });
+            return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+        }
+        
+        // For regular browsers, use youtube-nocookie.com
+        // Tối thiểu hóa params để tránh YouTube CAPTCHA và yêu cầu đăng nhập
+        // Chỉ sử dụng các tham số cơ bản nhất, không dùng enablejsapi
+        const params = new URLSearchParams({
+            autoplay: autoplay ? "1" : "0",
+            mute: mute ? "1" : "0",
+            rel: "0", // Không hiển thị video liên quan
+            controls: "1", // Hiển thị controls
+            playsinline: "1", // Cho phép phát inline trên mobile
+        });
+        
+        // KHÔNG sử dụng enablejsapi=1 để tránh CAPTCHA
+        // KHÔNG sử dụng modestbranding để tránh nghi ngờ
+        // KHÔNG sử dụng origin parameter cho regular browsers
+        // KHÔNG sử dụng postMessage để tránh bị phát hiện
+
+        // Sử dụng youtube-nocookie.com để tránh yêu cầu đăng nhập
+        // Đây là chế độ privacy-enhanced của YouTube, không yêu cầu cookie/login
+        return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+    }
+
+    return url;
+}
+// ==================== END YOUTUBE VIDEO HELPER FUNCTIONS ====================
+
 function openProductGallery(productId, imageIndex = 0) {
     const product = products.find((p) => p.id === productId);
     if (!product) return;
@@ -4495,7 +4629,7 @@ function openProductGallery(productId, imageIndex = 0) {
     if (product.video && videoContainer && videoPlayOverlay) {
         const videoUrl = normalizePath(product.video);
         const isYouTube = isYouTubeUrl(videoUrl);
-
+        
         // Show video container, hide image
         videoContainer.style.display = "flex";
         mainImage.style.display = "none";
@@ -4986,7 +5120,9 @@ function goToGalleryImage(index) {
                     if (mainVideo) mainVideo.style.display = "none";
                     if (youtubeFallback) youtubeFallback.style.display = "none";
                     mainVideoIframe.style.display = "block";
-                    const embedUrl = convertToYouTubeEmbed(videoUrl, false);
+                    // Check if TikTok browser and use appropriate embed format
+                    const isTikTok = isTikTokBrowser();
+                    const embedUrl = convertToYouTubeEmbed(videoUrl, false, false, isTikTok);
                     mainVideoIframe.src = embedUrl;
                     mainVideoIframe._embedUrl = embedUrl;
                     
@@ -5012,7 +5148,6 @@ function goToGalleryImage(index) {
                     };
                     
                     // Additional check for TikTok browser
-                    const isTikTok = isTikTokBrowser();
                     if (isTikTok) {
                         setTimeout(function() {
                             if (youtubeFallback && youtubeFallback.style.display === "none") {
@@ -5084,138 +5219,6 @@ function goToGalleryImage(index) {
     thumbnails.forEach((thumb, i) => {
         thumb.classList.toggle("active", i === currentGalleryIndex);
     });
-}
-
-// Helper function to detect TikTok browser
-function isTikTokBrowser() {
-    if (typeof navigator === 'undefined') return false;
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    return /tiktok|musical|bytedance/i.test(userAgent) || 
-           /musical_ly/i.test(userAgent) ||
-           (window.location && window.location.href && /tiktok/i.test(window.location.href));
-}
-
-// Helper function to detect if URL is YouTube
-function isYouTubeUrl(url) {
-    if (!url) return false;
-    return /youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/shorts\//.test(
-        url
-    );
-}
-
-// Extract YouTube video ID from various URL formats
-function extractYouTubeVideoId(url) {
-    if (!url) return null;
-    
-    // youtube.com/embed/VIDEO_ID or youtube-nocookie.com/embed/VIDEO_ID
-    const embedMatch = url.match(/youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/);
-    if (embedMatch) return embedMatch[1];
-    
-    // youtube.com/watch?v=VIDEO_ID
-    const watchMatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
-    if (watchMatch) return watchMatch[1];
-    
-    // youtube.com/shorts/VIDEO_ID
-    const shortsMatch = url.match(/youtube\.com\/shorts\/([^?&#]+)/);
-    if (shortsMatch) return shortsMatch[1];
-    
-    // youtu.be/VIDEO_ID
-    const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
-    if (shortMatch) return shortMatch[1];
-    
-    return null;
-}
-
-// Get YouTube watch URL from embed URL
-function getYouTubeWatchUrl(embedUrl) {
-    const videoId = extractYouTubeVideoId(embedUrl);
-    if (videoId) {
-        return `https://www.youtube.com/watch?v=${videoId}`;
-    }
-    return embedUrl;
-}
-
-// Get YouTube thumbnail URL
-function getYouTubeThumbnailUrl(videoId, quality = 'maxresdefault') {
-    if (!videoId) return null;
-    // Try maxresdefault first, fallback to hqdefault
-    return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
-}
-
-// Helper function to convert YouTube URL to embed format
-function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = false) {
-    if (!url) return url;
-
-    // Extract video ID from various YouTube URL formats
-    let videoId = null;
-
-    // youtube.com/embed/VIDEO_ID hoặc youtube-nocookie.com/embed/VIDEO_ID
-    const embedMatch = url.match(
-        /youtube(?:-nocookie)?\.com\/embed\/([^?&#]+)/
-    );
-    if (embedMatch) {
-        videoId = embedMatch[1];
-    }
-    // youtube.com/shorts/VIDEO_ID
-    else {
-        const shortsMatch = url.match(/youtube\.com\/shorts\/([^?&#]+)/);
-        if (shortsMatch) {
-            videoId = shortsMatch[1];
-        }
-        // youtu.be/VIDEO_ID
-        else {
-            const shortMatch = url.match(/youtu\.be\/([^?&#]+)/);
-            if (shortMatch) {
-                videoId = shortMatch[1];
-            }
-            // youtube.com/watch?v=VIDEO_ID
-            else {
-                const watchMatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
-                if (watchMatch) {
-                    videoId = watchMatch[1];
-                }
-            }
-        }
-    }
-
-    if (videoId) {
-        // For TikTok browser, use different approach
-        if (forTikTok) {
-            // Use regular youtube.com (not nocookie) with origin parameter
-            // This helps with referrer policy issues
-            const params = new URLSearchParams({
-                autoplay: autoplay ? "1" : "0",
-                mute: mute ? "1" : "0",
-                rel: "0",
-                controls: "1",
-                playsinline: "1",
-                origin: window.location.origin || window.location.hostname,
-            });
-            return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
-        }
-        
-        // For regular browsers, use youtube-nocookie.com
-        // Tối thiểu hóa params để tránh YouTube CAPTCHA và yêu cầu đăng nhập
-        // Chỉ sử dụng các tham số cơ bản nhất, không dùng enablejsapi
-        const params = new URLSearchParams({
-            autoplay: autoplay ? "1" : "0",
-            mute: mute ? "1" : "0",
-            rel: "0", // Không hiển thị video liên quan
-            controls: "1", // Hiển thị controls
-            playsinline: "1", // Cho phép phát inline trên mobile
-        });
-        
-        // KHÔNG sử dụng enablejsapi=1 để tránh CAPTCHA
-        // KHÔNG sử dụng modestbranding để tránh nghi ngờ
-        // KHÔNG sử dụng origin parameter cho regular browsers
-        // KHÔNG sử dụng postMessage để tránh bị phát hiện
-
-        // Sử dụng youtube-nocookie.com để tránh yêu cầu đăng nhập
-        // Đây là chế độ privacy-enhanced của YouTube, không yêu cầu cookie/login
-        return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
-    }
-
-    return url;
 }
 
 // Hàm tryForceYouTubeQuality đã bị loại bỏ để tránh CAPTCHA
@@ -5444,8 +5447,7 @@ function switchToVideo() {
                 setupFallbackUI();
             };
             
-            // Additional check for TikTok browser
-            const isTikTok = isTikTokBrowser();
+            // Additional check for TikTok browser (isTikTok already declared above)
             if (isTikTok) {
                 setTimeout(function() {
                     if (youtubeFallback && youtubeFallback.style.display === "none") {
