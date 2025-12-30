@@ -112,6 +112,34 @@ const videos = [
             "https://www.youtube.com/shorts/csm5QWzr97k",
         ],
     },
+    
+    // Cập nhật video cho chan-vay từ CV25 tới CV44
+    {
+        category: "chan-vay",
+        startIndex: 24,
+        links: [
+            "https://www.youtube.com/shorts/eWUfa9mMgtk",
+            "https://www.youtube.com/shorts/GFWGw1DMKMY",
+            "https://www.youtube.com/shorts/6vegsVQt7kk",
+            "https://www.youtube.com/shorts/69hOGdbzQKI",
+            "https://www.youtube.com/shorts/4132Ds-YA1A",
+            "https://www.youtube.com/shorts/qIzjkIQi5T4",
+            "https://www.youtube.com/shorts/Pvd78HGb2Cc",
+            "https://www.youtube.com/shorts/dpM_C4v15FU",
+            "https://www.youtube.com/shorts/qjw11ME1B5g",
+            "https://www.youtube.com/shorts/uqEKlDGRAOI",
+            "https://www.youtube.com/shorts/aSleEoSRh4g",
+            "https://www.youtube.com/shorts/RSKNZuK8Zf0",
+            "https://www.youtube.com/shorts/43SouBTcRQw",
+            "https://www.youtube.com/shorts/yAKXtbrvOzs",
+            "https://www.youtube.com/shorts/7QEKsqrdaJQ",
+            "https://www.youtube.com/shorts/uCqikW2JxgA",
+            "https://www.youtube.com/shorts/i_2BX4SrD_c",
+            "https://www.youtube.com/shorts/GIHIOuwBdcs",
+            "https://www.youtube.com/shorts/BNo4FHoKqNA",
+            "https://www.youtube.com/shorts/YuRw_yJWKC0",
+        ],
+    },
 ];
 
 // ==================== HÀM XỬ LÝ ====================
