@@ -4855,44 +4855,68 @@ function openProductGallery(productId, imageIndex = 0) {
                 
                 // Load iframe with autoplay=0 to show thumbnail
                 const embedUrl = convertToYouTubeEmbed(videoUrl, false, false, isTikTok);
-                mainVideoIframe.src = embedUrl;
-                mainVideoIframe._embedUrl = embedUrl;
+                
+                // Clear any existing src first to force reload (helps on desktop)
+                mainVideoIframe.src = '';
+                
+                // Small delay to ensure iframe is cleared before setting new src
+                setTimeout(function() {
+                    mainVideoIframe.src = embedUrl;
+                    mainVideoIframe._embedUrl = embedUrl;
+                }, 50);
 
                 // Check if iframe loads successfully
-                // Use timeout to detect if iframe fails to load (error 153)
-                let loadCheckTimeout = setTimeout(function() {
-                    // After 3 seconds, check if iframe is still empty or has error
-                    try {
-                        // Try to access iframe content (will fail for cross-origin, but that's OK)
-                        const iframeDoc = mainVideoIframe.contentDocument || mainVideoIframe.contentWindow?.document;
-                        if (!iframeDoc) {
-                            // Cross-origin is normal, but check if iframe has loaded
-                            // If iframe src is still the same and no content visible, might be error
-                            const iframeRect = mainVideoIframe.getBoundingClientRect();
-                            if (iframeRect.height < 100) {
-                                // Iframe seems too small, might be error
-                                // Show fallback UI - don't retry to avoid triggering spam detection
-                                setupFallbackUI();
-                            }
-                        }
-                    } catch (e) {
-                        // Cross-origin error is normal for YouTube iframe
-                        // This means iframe is working, don't show fallback
-                    }
-                }, 3000);
-
-                // Clear timeout if iframe loads successfully
+                // Give iframe enough time to load (YouTube can be slow, especially on desktop)
+                // Only show fallback if iframe truly fails to load after reasonable time
+                let iframeLoaded = false;
+                let loadCheckTimeout = null;
+                
+                // Mark iframe as loaded when onload fires
                 mainVideoIframe.onload = function() {
-                    clearTimeout(loadCheckTimeout);
+                    iframeLoaded = true;
+                    if (loadCheckTimeout) {
+                        clearTimeout(loadCheckTimeout);
+                    }
                 };
 
-                // Also check for direct error events (though they may not fire for cross-origin)
+                // Check for direct error events (though they may not fire for cross-origin)
                 mainVideoIframe.onerror = function() {
-                    clearTimeout(loadCheckTimeout);
-                    // If iframe has error, show fallback UI
-                    // Don't retry with different URL to avoid triggering spam detection
-                    setupFallbackUI();
+                    if (loadCheckTimeout) {
+                        clearTimeout(loadCheckTimeout);
+                    }
+                    // Only show fallback on actual error, not on timeout
+                    if (!iframeLoaded) {
+                        setupFallbackUI();
+                    }
                 };
+                
+                // Final check after 6 seconds - give YouTube iframe plenty of time to load
+                // Only trigger fallback if iframe hasn't loaded and has invalid dimensions
+                loadCheckTimeout = setTimeout(function() {
+                    if (iframeLoaded) {
+                        return; // Iframe loaded successfully, don't show fallback
+                    }
+                    
+                    try {
+                        const iframeRect = mainVideoIframe.getBoundingClientRect();
+                        const computedStyle = window.getComputedStyle(mainVideoIframe);
+                        
+                        // Only show fallback if:
+                        // 1. Iframe is hidden or has invalid dimensions
+                        // 2. AND it's been 6 seconds (enough time for YouTube to load)
+                        const isHidden = computedStyle.display === 'none' || computedStyle.visibility === 'hidden';
+                        const hasInvalidSize = iframeRect.height < 150 || iframeRect.width < 150;
+                        
+                        if (isHidden || hasInvalidSize) {
+                            setupFallbackUI();
+                        }
+                        // If iframe has valid size and is visible, assume it's loading/loaded correctly
+                    } catch (e) {
+                        // Error checking iframe, might be cross-origin issue
+                        // If we can't check, assume it's working (cross-origin is normal for YouTube)
+                        // Don't show fallback on cross-origin errors
+                    }
+                }, 6000); // Increased to 6 seconds to give YouTube more time
                 
                 // Removed additional retry logic for TikTok browser
                 // Retrying with different URLs can trigger YouTube spam detection
@@ -5226,40 +5250,83 @@ function goToGalleryImage(index) {
                     // Check if TikTok browser and use appropriate embed format
                     const isTikTok = isTikTokBrowser();
                     const embedUrl = convertToYouTubeEmbed(videoUrl, false, false, isTikTok);
-                    mainVideoIframe.src = embedUrl;
-                    mainVideoIframe._embedUrl = embedUrl;
+                    
+                    // Clear any existing src first to force reload (helps on desktop)
+                    mainVideoIframe.src = '';
+                    
+                    // Small delay to ensure iframe is cleared before setting new src
+                    setTimeout(function() {
+                        mainVideoIframe.src = embedUrl;
+                        mainVideoIframe._embedUrl = embedUrl;
+                    }, 50);
                     
                     // Check if iframe loads successfully
-                    let loadCheckTimeout = setTimeout(function() {
-                        try {
-                            const iframeRect = mainVideoIframe.getBoundingClientRect();
-                            if (iframeRect.height < 100) {
-                                setupFallbackUI();
-                            }
-                        } catch (e) {
-                            // Ignore
-                        }
-                    }, 3000);
-
+                    // Give iframe enough time to load (YouTube can be slow, especially on desktop)
+                    // Only show fallback if iframe truly fails to load after reasonable time
+                    let iframeLoaded = false;
+                    let loadCheckTimeout = null;
+                    
+                    // Mark iframe as loaded when onload fires
                     mainVideoIframe.onload = function() {
-                        clearTimeout(loadCheckTimeout);
+                        iframeLoaded = true;
+                        if (loadCheckTimeout) {
+                            clearTimeout(loadCheckTimeout);
+                        }
                     };
 
+                    // Check for direct error events (though they may not fire for cross-origin)
                     mainVideoIframe.onerror = function() {
-                        clearTimeout(loadCheckTimeout);
-                        setupFallbackUI();
+                        if (loadCheckTimeout) {
+                            clearTimeout(loadCheckTimeout);
+                        }
+                        // Only show fallback on actual error, not on timeout
+                        if (!iframeLoaded) {
+                            setupFallbackUI();
+                        }
                     };
                     
-                    // Additional check for TikTok browser
+                    // Final check after 6 seconds - give YouTube iframe plenty of time to load
+                    // Only trigger fallback if iframe hasn't loaded and has invalid dimensions
+                    loadCheckTimeout = setTimeout(function() {
+                        if (iframeLoaded) {
+                            return; // Iframe loaded successfully, don't show fallback
+                        }
+                        
+                        try {
+                            const iframeRect = mainVideoIframe.getBoundingClientRect();
+                            const computedStyle = window.getComputedStyle(mainVideoIframe);
+                            
+                            // Only show fallback if:
+                            // 1. Iframe is hidden or has invalid dimensions
+                            // 2. AND it's been 6 seconds (enough time for YouTube to load)
+                            const isHidden = computedStyle.display === 'none' || computedStyle.visibility === 'hidden';
+                            const hasInvalidSize = iframeRect.height < 150 || iframeRect.width < 150;
+                            
+                            if (isHidden || hasInvalidSize) {
+                                setupFallbackUI();
+                            }
+                            // If iframe has valid size and is visible, assume it's loading/loaded correctly
+                        } catch (e) {
+                            // Error checking iframe, might be cross-origin issue
+                            // If we can't check, assume it's working (cross-origin is normal for YouTube)
+                            // Don't show fallback on cross-origin errors
+                        }
+                    }, 6000); // Increased to 6 seconds to give YouTube more time
+                    
+                    // Additional check for TikTok browser (only if still not loaded after 4 seconds)
                     if (isTikTok) {
                         setTimeout(function() {
-                            if (youtubeFallback && youtubeFallback.style.display === "none") {
-                                const iframeRect = mainVideoIframe.getBoundingClientRect();
-                                if (iframeRect.height < 200) {
-                                    setupFallbackUI();
+                            if (!iframeLoaded && youtubeFallback && youtubeFallback.style.display === "none") {
+                                try {
+                                    const iframeRect = mainVideoIframe.getBoundingClientRect();
+                                    if (iframeRect.height < 150) {
+                                        setupFallbackUI();
+                                    }
+                                } catch (e) {
+                                    // Ignore
                                 }
                             }
-                        }, 2000);
+                        }, 4000);
                     }
                 } else {
                     setupFallbackUI();
@@ -5523,43 +5590,86 @@ function switchToVideo() {
             if (mainVideo) mainVideo.style.display = "none";
             if (youtubeFallback) youtubeFallback.style.display = "none";
             mainVideoIframe.style.display = "block";
-            // Check if TikTok browser and use appropriate embed format
-            const isTikTok = isTikTokBrowser();
-            const embedUrl = convertToYouTubeEmbed(videoUrl, false, false, isTikTok);
-            mainVideoIframe.src = embedUrl;
-            mainVideoIframe._embedUrl = embedUrl;
+                    // Check if TikTok browser and use appropriate embed format
+                    const isTikTok = isTikTokBrowser();
+                    const embedUrl = convertToYouTubeEmbed(videoUrl, false, false, isTikTok);
+                    
+                    // Clear any existing src first to force reload (helps on desktop)
+                    mainVideoIframe.src = '';
+                    
+                    // Small delay to ensure iframe is cleared before setting new src
+                    setTimeout(function() {
+                        mainVideoIframe.src = embedUrl;
+                        mainVideoIframe._embedUrl = embedUrl;
+                    }, 50);
             
             // Check if iframe loads successfully
-            let loadCheckTimeout = setTimeout(function() {
-                try {
-                    const iframeRect = mainVideoIframe.getBoundingClientRect();
-                    if (iframeRect.height < 100) {
-                        setupFallbackUI();
-                    }
-                } catch (e) {
-                    // Ignore
-                }
-            }, 3000);
-
+            // Give iframe enough time to load (YouTube can be slow, especially on desktop)
+            // Only show fallback if iframe truly fails to load after reasonable time
+            let iframeLoaded = false;
+            let loadCheckTimeout = null;
+            
+            // Mark iframe as loaded when onload fires
             mainVideoIframe.onload = function() {
-                clearTimeout(loadCheckTimeout);
+                iframeLoaded = true;
+                if (loadCheckTimeout) {
+                    clearTimeout(loadCheckTimeout);
+                }
             };
 
+            // Check for direct error events (though they may not fire for cross-origin)
             mainVideoIframe.onerror = function() {
-                clearTimeout(loadCheckTimeout);
-                setupFallbackUI();
+                if (loadCheckTimeout) {
+                    clearTimeout(loadCheckTimeout);
+                }
+                // Only show fallback on actual error, not on timeout
+                if (!iframeLoaded) {
+                    setupFallbackUI();
+                }
             };
             
-            // Additional check for TikTok browser (isTikTok already declared above)
+            // Final check after 6 seconds - give YouTube iframe plenty of time to load
+            // Only trigger fallback if iframe hasn't loaded and has invalid dimensions
+            loadCheckTimeout = setTimeout(function() {
+                if (iframeLoaded) {
+                    return; // Iframe loaded successfully, don't show fallback
+                }
+                
+                try {
+                    const iframeRect = mainVideoIframe.getBoundingClientRect();
+                    const computedStyle = window.getComputedStyle(mainVideoIframe);
+                    
+                    // Only show fallback if:
+                    // 1. Iframe is hidden or has invalid dimensions
+                    // 2. AND it's been 6 seconds (enough time for YouTube to load)
+                    const isHidden = computedStyle.display === 'none' || computedStyle.visibility === 'hidden';
+                    const hasInvalidSize = iframeRect.height < 150 || iframeRect.width < 150;
+                    
+                    if (isHidden || hasInvalidSize) {
+                        setupFallbackUI();
+                    }
+                    // If iframe has valid size and is visible, assume it's loading/loaded correctly
+                } catch (e) {
+                    // Error checking iframe, might be cross-origin issue
+                    // If we can't check, assume it's working (cross-origin is normal for YouTube)
+                    // Don't show fallback on cross-origin errors
+                }
+            }, 6000); // Increased to 6 seconds to give YouTube more time
+            
+            // Additional check for TikTok browser (only if still not loaded after 4 seconds)
             if (isTikTok) {
                 setTimeout(function() {
-                    if (youtubeFallback && youtubeFallback.style.display === "none") {
-                        const iframeRect = mainVideoIframe.getBoundingClientRect();
-                        if (iframeRect.height < 200) {
-                            setupFallbackUI();
+                    if (!iframeLoaded && youtubeFallback && youtubeFallback.style.display === "none") {
+                        try {
+                            const iframeRect = mainVideoIframe.getBoundingClientRect();
+                            if (iframeRect.height < 150) {
+                                setupFallbackUI();
+                            }
+                        } catch (e) {
+                            // Ignore
                         }
                     }
-                }, 2000);
+                }, 4000);
             }
         } else {
             setupFallbackUI();

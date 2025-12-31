@@ -3103,22 +3103,43 @@ html.tabs-stuck .header-fb-btn {
     width: 100%;
     height: 100%;
     min-height: 400px;
-    background: #000;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
     border-radius: 0;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.15),
         0 0 100px rgba(0, 0, 0, 0.08);
     aspect-ratio: 16 / 9;
     border: none;
-    border-radius: 0;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.15),
-        0 0 100px rgba(0, 0, 0, 0.08);
-    background: #000;
     position: relative;
     z-index: 1;
     pointer-events: auto;
     -webkit-touch-callout: default;
     /* Ẩn chữ "xem trên youtube" */
     overflow: hidden;
+    /* Add loading indicator background */
+    background-image: 
+        linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%),
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    background-size: 100% 100%, 200% 200%;
+    background-position: center, center;
+    animation: iframeLoadingPulse 2s ease-in-out infinite;
+}
+
+/* Animation for iframe loading state */
+@keyframes iframeLoadingPulse {
+    0%, 100% {
+        background-position: center, center;
+        opacity: 1;
+    }
+    50% {
+        background-position: center, 30% 30%;
+        opacity: 0.95;
+    }
+}
+
+/* When iframe is loaded, remove animation */
+.gallery-main-video-iframe[src]:not([src=""]) {
+    animation: none;
+    background: #000;
 }
 
 /* Ẩn watermark và text "Watch on YouTube" của YouTube */
@@ -6349,6 +6370,13 @@ html.tabs-stuck .header-fb-btn {
         top: calc(12px + env(safe-area-inset-top)) !important;
         left: calc(12px + env(safe-area-inset-left)) !important;
     }
+    /* Cart content padding để không bị header che trong PWA mode */
+    html.is-standalone .cart-content {
+        padding-top: env(safe-area-inset-top);
+    }
+    html.is-standalone .cart-header {
+        margin-top: 0.5rem;
+    }
 
     /* Áp dụng theo display-mode (chuẩn) */
     @media (display-mode: standalone), (display-mode: fullscreen) {
@@ -6406,6 +6434,13 @@ html.tabs-stuck .header-fb-btn {
         .gallery-back-btn {
             top: calc(12px + env(safe-area-inset-top)) !important;
             left: calc(12px + env(safe-area-inset-left)) !important;
+        }
+        /* Cart content padding để không bị header che trong PWA mode */
+        .cart-content {
+            padding-top: env(safe-area-inset-top);
+        }
+        .cart-header {
+            margin-top: 0.5rem;
         }
     }
 }
