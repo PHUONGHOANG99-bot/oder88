@@ -209,6 +209,51 @@ const videos = [
             "https://www.youtube.com/shorts/gRBZ5-Hg_hg",
         ],
     },
+
+    // Cập nhật video cho giay-the-thao từ SG46 tới hết (SG65)
+    {
+        category: "giay-the-thao",
+        startIndex: 45,
+        links: [
+            "https://www.youtube.com/shorts/SYlWrfF0faU",
+            "https://www.youtube.com/shorts/PhiVgdAFJoQ",
+            "https://www.youtube.com/shorts/Hdb2nEje-Gw",
+            "https://www.youtube.com/shorts/LFX2-Kh33w4",
+            "https://www.youtube.com/shorts/zhuCIQaOo4o",
+            "https://www.youtube.com/shorts/uW_9FxxQOck",
+            "https://www.youtube.com/shorts/bYm7RbiwRFs",
+            "https://www.youtube.com/shorts/ywzbyOja0W0",
+            "https://www.youtube.com/shorts/V322Coh2qb8",
+            "https://www.youtube.com/shorts/q8Hb5nZI7vg",
+            "https://www.youtube.com/shorts/2o1MRZbUw_4",
+            "https://www.youtube.com/shorts/jm9zOODIQ6c",
+            "https://www.youtube.com/shorts/bWESt39If40",
+            "https://www.youtube.com/shorts/NdLwPUGgqCU",
+            "https://www.youtube.com/shorts/uz2xZfdTBnQ",
+            "https://www.youtube.com/shorts/PAIX2SBAkPo",
+            "https://www.youtube.com/shorts/fziiYBAGBxc",
+            "https://www.youtube.com/shorts/7LAdSLHqCXU",
+            "https://www.youtube.com/shorts/JCGK9GBy2FE",
+            "https://www.youtube.com/shorts/Tud9KLayK2c",
+        ],
+    },
+    
+    // Cập nhật video cho giay-bup-be từ BB1 tới hết (BB9)
+    {
+        category: "giay-bup-be",
+        startIndex: 0,
+        links: [
+            "https://www.youtube.com/shorts/U8RoVA0RyNM",
+            "https://www.youtube.com/shorts/2kJnqQsgPxE",
+            "https://www.youtube.com/shorts/vwuVtINQ4ZI",
+            "https://www.youtube.com/shorts/jSKwuhV10uM",
+            "https://www.youtube.com/shorts/WIaomIWh7fc",
+            "https://www.youtube.com/shorts/JMYR0nJVl3g",
+            "https://www.youtube.com/shorts/co4tow50HP4",
+            "https://www.youtube.com/shorts/z_IXzSQqMzQ",
+            "https://www.youtube.com/shorts/QgbRzHhULfg",
+        ],
+    },
 ];
 
 // ==================== HÀM XỬ LÝ ====================
@@ -346,6 +391,25 @@ function sortGiayTheThaoBySG(categoryProducts) {
 }
 
 /**
+ * Extract số BB từ tên sản phẩm (ví dụ: "Giày Búp Bê BB1" -> 1)
+ */
+function extractBBNumber(productName) {
+    const match = productName.match(/BB(\d+)/);
+    return match ? parseInt(match[1], 10) : 999; // 999 để đẩy các sản phẩm không có BB về cuối
+}
+
+/**
+ * Sắp xếp sản phẩm giay-bup-be theo số BB
+ */
+function sortGiayBupBeByBB(categoryProducts) {
+    return categoryProducts.sort((a, b) => {
+        const numA = extractBBNumber(a.product.name);
+        const numB = extractBBNumber(b.product.name);
+        return numA - numB;
+    });
+}
+
+/**
  * Xử lý thêm video vào sản phẩm
  */
 function processVideos(products, videos) {
@@ -422,6 +486,10 @@ function processVideos(products, videos) {
                 // Sắp xếp giay-the-thao theo số SG
                 else if (videoConfig.category === "giay-the-thao") {
                     categoryProducts = sortGiayTheThaoBySG(categoryProducts);
+                }
+                // Sắp xếp giay-bup-be theo số BB
+                else if (videoConfig.category === "giay-bup-be") {
+                    categoryProducts = sortGiayBupBeByBB(categoryProducts);
                 }
 
                 const startIndex = videoConfig.startIndex || 0;

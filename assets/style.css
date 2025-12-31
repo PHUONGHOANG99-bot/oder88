@@ -2718,6 +2718,7 @@ html.tabs-stuck .header-fb-btn {
     padding: 0 4px;
     width: 100%;
     box-sizing: border-box;
+    scroll-margin-top: 100px; /* Tránh bị header che khi scroll */
 }
 
 @media (min-width: 768px) {
@@ -4775,18 +4776,14 @@ html.tabs-stuck .header-fb-btn {
 
 /* Footer */
 .footer {
-    /* Cam nhạt + trong suốt */
-    background: linear-gradient(
-        135deg,
-        rgba(255, 102, 0, 0.14) 0%,
-        rgba(255, 140, 0, 0.18) 50%,
-        rgba(255, 106, 0, 0.14) 100%
-    );
+    /* Màu nền tương đương header */
+    background: linear-gradient(135deg, #ff7700 0%, #ff6600 50%, #ff8800 100%);
     color: #333;
     padding: 1.5rem 0 0.75rem;
     margin-top: 0.5rem;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 -4px 20px rgba(255, 102, 0, 0.3), 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .footer::before {
@@ -4795,10 +4792,14 @@ html.tabs-stuck .header-fb-btn {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ff6600, #ff8c00, #ff6a00, #ff6600);
-    background-size: 200% 100%;
-    animation: gradientMove 3s ease infinite;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+    pointer-events: none;
 }
 
 @keyframes gradientMove {
@@ -4829,19 +4830,16 @@ html.tabs-stuck .header-fb-btn {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-weight: 600;
-    background: linear-gradient(90deg, #ff6600, #ff8c00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .footer-section h4 i {
-    background: linear-gradient(135deg, #ff6600, #ff8c00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
     font-size: 1.2rem;
     animation: pulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 @keyframes pulse {
@@ -4855,10 +4853,12 @@ html.tabs-stuck .header-fb-btn {
 }
 
 .footer-section p {
-    color: rgba(0, 0, 0, 0.72);
+    color: #ffffff;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
 }
 
 .social-links {
@@ -4946,14 +4946,17 @@ html.tabs-stuck .header-fb-btn {
     text-align: center;
     padding-top: 1rem;
     margin-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #95a5a6;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
     font-size: 0.85rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
 }
 
 .footer-bottom i {
-    color: #ff6b6b;
+    color: #ffffff;
     margin-right: 5px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 /* Overlay */
@@ -6326,6 +6329,17 @@ html.tabs-stuck .header-fb-btn {
     html.is-standalone .products-tabs {
         top: env(safe-area-inset-top);
     }
+    html.is-standalone .products-section {
+        padding-top: 1rem;
+        margin-top: 0;
+    }
+    html.is-standalone .main-container {
+        padding-top: 0.5rem;
+    }
+    html.is-standalone .products-grid {
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
     html.is-standalone .mobile-categories {
         top: env(safe-area-inset-top);
         height: calc(100% - 75px - env(safe-area-inset-top));
@@ -6372,6 +6386,17 @@ html.tabs-stuck .header-fb-btn {
         /* Khi sticky, tabs phải nằm dưới tai thỏ giống header */
         .products-tabs {
             top: env(safe-area-inset-top);
+        }
+        .products-section {
+            padding-top: 1rem;
+            margin-top: 0;
+        }
+        .main-container {
+            padding-top: 0.5rem;
+        }
+        .products-grid {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
         }
         .mobile-categories {
             top: env(safe-area-inset-top);

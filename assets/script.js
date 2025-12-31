@@ -1387,6 +1387,7 @@ function updateCategoryIndicator() {
         "boot-nu": "Boot nữ",
         "giay-the-thao": "Sneaker Nữ",
         "giay-sneaker-nam": "Giày Sneaker",
+        "giay-bup-be": "Giày Búp Bê",
         vay: "Váy",
         "chan-vay": "Chân váy",
         "set-do": "Sét Đồ",
@@ -1431,6 +1432,7 @@ function updateCategoryIndicator() {
             "boot-nu": "fa-shoe-prints",
             "giay-the-thao": "fa-running",
             "giay-sneaker-nam": "fa-running",
+            "giay-bup-be": "fa-heart",
             vay: "fa-heart",
             "chan-vay": "fa-heart",
             "tui-xach": "fa-shopping-bag",
@@ -1578,7 +1580,7 @@ function initCategories() {
     // Render categories (bỏ qua các subcategories như boot-nu, giay-the-thao, ao-dong-nu, ao-dong-nam, giay-sneaker-nam, quan-jean-nam)
     categoriesGrid.innerHTML = categories
         .map((category) => {
-            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-thu-dong, ao-dong-nam, giay-sneaker-nam, giay-nu, giay-nam, quan-jean-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
+            // Bỏ qua boot-nu, giay-the-thao, ao-dong-nu, ao-thu-dong, ao-dong-nam, giay-sneaker-nam, giay-nu, giay-nam, giay-bup-be, quan-jean-nam, non, khan, no-buoc-toc, tat vì chúng là subcategories
             if (
                 category.id === "boot-nu" ||
                 category.id === "giay-the-thao" ||
@@ -1588,6 +1590,7 @@ function initCategories() {
                 category.id === "giay-sneaker-nam" ||
                 category.id === "giay-nu" ||
                 category.id === "giay-nam" ||
+                category.id === "giay-bup-be" ||
                 category.id === "quan-jean-nam" ||
                 category.id === "non" ||
                 category.id === "khan" ||
@@ -1703,6 +1706,13 @@ function renderSubcategories(categoryId) {
                 icon: "fa-running",
                 image: "assets/image/giay-nam/giay-sneaker-nam/st1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "giay-bup-be",
+                name: "Giày Búp Bê",
+                icon: "fa-heart",
+                image: "assets/image/giay-nu/giay-bup-be/bb1.jpg",
+                color: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
             },
         ],
         "ao-nam": [
@@ -3010,6 +3020,13 @@ function renderMobileSubcategories(categoryId) {
                 icon: "fa-running",
                 image: "assets/image/giay-nam/giay-sneaker-nam/st1.jpg",
                 color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            },
+            {
+                id: "giay-bup-be",
+                name: "Giày Búp Bê",
+                icon: "fa-heart",
+                image: "assets/image/giay-nu/giay-bup-be/bb1.jpg",
+                color: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
             },
         ],
         "ao-nam": [
@@ -4361,14 +4378,15 @@ function filterProducts() {
                 (p) => p.category === "set-do-nu" || p.category === "set-do-nam"
             );
         } else if (currentCategory === "giay") {
-            // Hiển thị tất cả giày (bao gồm giày nam, giày nữ, boot nữ và giày sneaker)
+            // Hiển thị tất cả giày (bao gồm giày nam, giày nữ, boot nữ, giày sneaker và giày búp bê)
             filtered = filtered.filter(
                 (p) =>
                     p.category === "giay-nu" ||
                     p.category === "giay-nam" ||
                     p.category === "boot-nu" ||
                     p.category === "giay-the-thao" ||
-                    p.category === "giay-sneaker-nam"
+                    p.category === "giay-sneaker-nam" ||
+                    p.category === "giay-bup-be"
             );
         } else if (currentCategory === "phu-kien") {
             // Hiển thị tất cả phụ kiện (bao gồm nón, khăn, nơ buộc tóc, tất)

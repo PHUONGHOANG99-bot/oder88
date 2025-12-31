@@ -2878,7 +2878,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg46.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/SYlWrfF0faU"
     },
     {
         "id": 273,
@@ -2888,7 +2889,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg47.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "video": "https://www.youtube.com/embed/PhiVgdAFJoQ"
     },
     {
         "id": 274,
@@ -2898,7 +2900,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg48.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/Hdb2nEje-Gw"
     },
     {
         "id": 275,
@@ -2908,7 +2911,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg49.jpg",
         "bestSeller": true,
-        "purchases": 415
+        "purchases": 415,
+        "video": "https://www.youtube.com/embed/LFX2-Kh33w4"
     },
     {
         "id": 276,
@@ -2918,7 +2922,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg50.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "video": "https://www.youtube.com/embed/zhuCIQaOo4o"
     },
     {
         "id": 277,
@@ -2928,7 +2933,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg51.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "video": "https://www.youtube.com/embed/uW_9FxxQOck"
     },
     {
         "id": 278,
@@ -2938,7 +2944,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg52.jpg",
         "bestSeller": true,
-        "purchases": 408
+        "purchases": 408,
+        "video": "https://www.youtube.com/embed/bYm7RbiwRFs"
     },
     {
         "id": 279,
@@ -2948,7 +2955,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg53.jpg",
         "bestSeller": false,
-        "purchases": 370
+        "purchases": 370,
+        "video": "https://www.youtube.com/embed/ywzbyOja0W0"
     },
     {
         "id": 280,
@@ -2958,7 +2966,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg54.jpg",
         "bestSeller": true,
-        "purchases": 450
+        "purchases": 450,
+        "video": "https://www.youtube.com/embed/V322Coh2qb8"
     },
     {
         "id": 281,
@@ -2968,7 +2977,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg55.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "video": "https://www.youtube.com/embed/q8Hb5nZI7vg"
     },
     {
         "id": 282,
@@ -2978,7 +2988,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg56.jpg",
         "bestSeller": true,
-        "purchases": 430
+        "purchases": 430,
+        "video": "https://www.youtube.com/embed/2o1MRZbUw_4"
     },
     {
         "id": 283,
@@ -2988,7 +2999,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg57.jpg",
         "bestSeller": true,
-        "purchases": 480
+        "purchases": 480,
+        "video": "https://www.youtube.com/embed/jm9zOODIQ6c"
     },
     {
         "id": 284,
@@ -2998,7 +3010,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg58.jpg",
         "bestSeller": false,
-        "purchases": 420
+        "purchases": 420,
+        "video": "https://www.youtube.com/embed/bWESt39If40"
     },
     {
         "id": 285,
@@ -3008,7 +3021,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg59.jpg",
         "bestSeller": true,
-        "purchases": 415
+        "purchases": 415,
+        "video": "https://www.youtube.com/embed/NdLwPUGgqCU"
     },
     {
         "id": 286,
@@ -3018,7 +3032,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg60.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "video": "https://www.youtube.com/embed/uz2xZfdTBnQ"
     },
     {
         "id": 287,
@@ -3028,7 +3043,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg61.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "video": "https://www.youtube.com/embed/PAIX2SBAkPo"
     },
     {
         "id": 288,
@@ -3038,7 +3054,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg62.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "video": "https://www.youtube.com/embed/fziiYBAGBxc"
     },
     {
         "id": 289,
@@ -3048,7 +3065,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg63.jpg",
         "bestSeller": false,
-        "purchases": 390
+        "purchases": 390,
+        "video": "https://www.youtube.com/embed/7LAdSLHqCXU"
     },
     {
         "id": 290,
@@ -3058,7 +3076,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg64.jpg",
         "bestSeller": true,
-        "purchases": 445
+        "purchases": 445,
+        "video": "https://www.youtube.com/embed/JCGK9GBy2FE"
     },
     {
         "id": 291,
@@ -3068,7 +3087,8 @@
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg65.jpg",
         "bestSeller": true,
-        "purchases": 440
+        "purchases": 440,
+        "video": "https://www.youtube.com/embed/Tud9KLayK2c"
     },
     {
         "id": 313,
@@ -7898,5 +7918,104 @@
         "bestSeller": false,
         "purchases": 199,
         "video": "https://www.youtube.com/embed/IDPcEGURTB4"
+    },
+    {
+        "id": 733,
+        "name": "Giày Búp Bê BB1",
+        "price": "¥1890",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb1.jpg",
+        "bestSeller": true,
+        "purchases": 320,
+        "video": "https://www.youtube.com/embed/U8RoVA0RyNM"
+    },
+    {
+        "id": 734,
+        "name": "Giày Búp Bê BB2",
+        "price": "¥1920",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb2.jpg",
+        "bestSeller": false,
+        "purchases": 285,
+        "video": "https://www.youtube.com/embed/2kJnqQsgPxE"
+    },
+    {
+        "id": 735,
+        "name": "Giày Búp Bê BB3",
+        "price": "¥1950",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb3.jpg",
+        "bestSeller": true,
+        "purchases": 350,
+        "video": "https://www.youtube.com/embed/vwuVtINQ4ZI"
+    },
+    {
+        "id": 736,
+        "name": "Giày Búp Bê BB4",
+        "price": "¥1980",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb4.jpg",
+        "bestSeller": false,
+        "purchases": 270,
+        "video": "https://www.youtube.com/embed/jSKwuhV10uM"
+    },
+    {
+        "id": 737,
+        "name": "Giày Búp Bê BB5",
+        "price": "¥2010",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb5.jpg",
+        "bestSeller": true,
+        "purchases": 380,
+        "video": "https://www.youtube.com/embed/WIaomIWh7fc"
+    },
+    {
+        "id": 738,
+        "name": "Giày Búp Bê BB6",
+        "price": "¥2040",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb6.jpg",
+        "bestSeller": false,
+        "purchases": 260,
+        "video": "https://www.youtube.com/embed/JMYR0nJVl3g"
+    },
+    {
+        "id": 739,
+        "name": "Giày Búp Bê BB7",
+        "price": "¥2070",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb7.jpg",
+        "bestSeller": true,
+        "purchases": 365,
+        "video": "https://www.youtube.com/embed/co4tow50HP4"
+    },
+    {
+        "id": 740,
+        "name": "Giày Búp Bê BB8",
+        "price": "¥2100",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb8.jpg",
+        "bestSeller": false,
+        "purchases": 245,
+        "video": "https://www.youtube.com/embed/z_IXzSQqMzQ"
+    },
+    {
+        "id": 741,
+        "name": "Giày Búp Bê BB9",
+        "price": "¥2130",
+        "category": "giay-bup-be",
+        "categoryName": "Giày Búp Bê",
+        "image": "assets/image/giay-nu/giay-bup-be/bb9.jpg",
+        "bestSeller": true,
+        "purchases": 395,
+        "video": "https://www.youtube.com/embed/QgbRzHhULfg"
     }
 ]
