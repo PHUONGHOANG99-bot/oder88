@@ -112,7 +112,7 @@ const videos = [
             "https://www.youtube.com/shorts/csm5QWzr97k",
         ],
     },
-    
+
     // Cập nhật video cho chan-vay từ CV25 tới CV44
     {
         category: "chan-vay",
@@ -138,6 +138,75 @@ const videos = [
             "https://www.youtube.com/shorts/GIHIOuwBdcs",
             "https://www.youtube.com/shorts/BNo4FHoKqNA",
             "https://www.youtube.com/shorts/YuRw_yJWKC0",
+        ],
+    },
+
+    // Cập nhật video cho giay-the-thao từ SG1 tới SG15
+    {
+        category: "giay-the-thao",
+        startIndex: 0,
+        links: [
+            "https://www.youtube.com/shorts/PCTJs3fLFc4",
+            "https://www.youtube.com/shorts/3VTkfszvbSg",
+            "https://www.youtube.com/shorts/te06frHfzJI",
+            "https://www.youtube.com/shorts/TaXOh5KBuZo",
+            "https://www.youtube.com/shorts/dMJNuoVuiq8",
+            "https://www.youtube.com/shorts/rpesQ6SbN34",
+            "https://www.youtube.com/shorts/bc_CxaZn4I8",
+            "https://www.youtube.com/shorts/Zql1Bu7u7jA",
+            "https://www.youtube.com/shorts/kcJF1PBhgXg",
+            "https://www.youtube.com/shorts/hS66TxRTAqA",
+            "https://www.youtube.com/shorts/xH5mtqqd6rk",
+            "https://www.youtube.com/shorts/6CeVcj3WD5A",
+            "https://www.youtube.com/shorts/gr1AwF3z5Bk",
+            "https://www.youtube.com/shorts/Bna_rqrqM3c",
+            "https://www.youtube.com/shorts/MfVh4Xte6hw",
+        ],
+    },
+
+    // Cập nhật video cho giay-the-thao từ SG16 tới SG30
+    {
+        category: "giay-the-thao",
+        startIndex: 15,
+        links: [
+            "https://www.youtube.com/shorts/WEarF06kKKk",
+            "https://www.youtube.com/shorts/eu69eIxmHcA",
+            "https://www.youtube.com/shorts/n22ZvLs7doI",
+            "https://www.youtube.com/shorts/kBIIOCQUiXQ",
+            "https://www.youtube.com/shorts/OAWrx9pL6PU",
+            "https://www.youtube.com/shorts/SCZ5cKgZ21w",
+            "https://www.youtube.com/shorts/rRU4ILMw20U",
+            "https://www.youtube.com/shorts/jThEgSZalfY",
+            "https://www.youtube.com/shorts/Ca4ADODHPMc",
+            "https://www.youtube.com/shorts/KtXcJ8VgfsM",
+            "https://www.youtube.com/shorts/QkXxMGsaLy0",
+            "https://www.youtube.com/shorts/oIF6ZKxXKhw",
+            "https://www.youtube.com/shorts/oII62bghjX4",
+            "https://www.youtube.com/shorts/Xa92t3efxtw",
+            "https://www.youtube.com/shorts/4GD1LR6WTdQ",
+        ],
+    },
+
+    // Cập nhật video cho giay-the-thao từ SG31 tới SG45
+    {
+        category: "giay-the-thao",
+        startIndex: 30,
+        links: [
+            "https://www.youtube.com/shorts/RqLVFdefdxs",
+            "https://www.youtube.com/shorts/CFQT8e8Hbk8",
+            "https://www.youtube.com/shorts/qvn7tYhCYsk",
+            "https://www.youtube.com/shorts/-fXcVTfmBL0",
+            "https://www.youtube.com/shorts/bWvQa8AINpI",
+            "https://www.youtube.com/shorts/aMkDZ1kNbYE",
+            "https://www.youtube.com/shorts/nqE4i1T-BLs",
+            "https://www.youtube.com/shorts/f5lGLzpxQzs",
+            "https://www.youtube.com/shorts/xknAQXwLbIU",
+            "https://www.youtube.com/shorts/NZA-5GrwNtI",
+            "https://www.youtube.com/shorts/AaHCTdAmy70",
+            "https://www.youtube.com/shorts/p5eBLfmmjNU",
+            "https://www.youtube.com/shorts/xyQLX-ExKJk",
+            "https://www.youtube.com/shorts/F2Ba2RubaqI",
+            "https://www.youtube.com/shorts/gRBZ5-Hg_hg",
         ],
     },
 ];
@@ -258,6 +327,25 @@ function sortChanVayByCV(categoryProducts) {
 }
 
 /**
+ * Extract số SG từ tên sản phẩm (ví dụ: "Giày Sneaker Nữ SG1" -> 1)
+ */
+function extractSGNumber(productName) {
+    const match = productName.match(/SG(\d+)/);
+    return match ? parseInt(match[1], 10) : 999; // 999 để đẩy các sản phẩm không có SG về cuối
+}
+
+/**
+ * Sắp xếp sản phẩm giay-the-thao theo số SG
+ */
+function sortGiayTheThaoBySG(categoryProducts) {
+    return categoryProducts.sort((a, b) => {
+        const numA = extractSGNumber(a.product.name);
+        const numB = extractSGNumber(b.product.name);
+        return numA - numB;
+    });
+}
+
+/**
  * Xử lý thêm video vào sản phẩm
  */
 function processVideos(products, videos) {
@@ -330,6 +418,10 @@ function processVideos(products, videos) {
                 // Sắp xếp chan-vay theo số CV
                 else if (videoConfig.category === "chan-vay") {
                     categoryProducts = sortChanVayByCV(categoryProducts);
+                }
+                // Sắp xếp giay-the-thao theo số SG
+                else if (videoConfig.category === "giay-the-thao") {
+                    categoryProducts = sortGiayTheThaoBySG(categoryProducts);
                 }
 
                 const startIndex = videoConfig.startIndex || 0;

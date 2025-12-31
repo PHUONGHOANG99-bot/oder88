@@ -997,15 +997,21 @@
                 <i class="fas fa-home" aria-hidden="true"></i>
                 <span>Trang chủ</span>
             </a>
-            <a
-                href="javascript:void(0)"
-                onclick="openMessengerApp(); return false;"
+            <button
                 class="bottom-nav-item"
-                aria-label="Liên hệ"
+                aria-label="Danh mục"
+                onclick="toggleMobileMenu();"
+                type="button"
             >
-                <i class="fab fa-facebook-messenger" aria-hidden="true"></i>
-                <span>Liên hệ</span>
-            </a>
+                <div class="category-icon-wrapper">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <i
+                        class="fas fa-search category-search-icon"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+                <span>Danh mục</span>
+            </button>
             <button
                 class="bottom-nav-item"
                 aria-label="Giỏ hàng"
@@ -1027,21 +1033,15 @@
             >
                 <span>Ngẫu nhiên</span>
             </button>
-            <button
+            <a
+                href="javascript:void(0)"
+                onclick="openMessengerApp(); return false;"
                 class="bottom-nav-item"
-                aria-label="Danh mục"
-                onclick="toggleMobileMenu();"
-                type="button"
+                aria-label="Liên hệ"
             >
-                <div class="category-icon-wrapper">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                    <i
-                        class="fas fa-search category-search-icon"
-                        aria-hidden="true"
-                    ></i>
-                </div>
-                <span>Danh mục</span>
-            </button>
+                <i class="fab fa-facebook-messenger" aria-hidden="true"></i>
+                <span>Liên hệ</span>
+            </a>
         </nav>
 
         <!-- Shopping Cart Modal -->

@@ -1802,7 +1802,8 @@ picture img {
 
 .slider-btn {
     position: absolute;
-    top: 50%;
+    /* Căn giữa theo phần ảnh: padding-top (15px) + một nửa chiều cao ảnh (200px/2 = 100px) */
+    top: calc(15px + 100px);
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
@@ -5524,6 +5525,8 @@ html.tabs-stuck .header-fb-btn {
         width: 45px;
         height: 45px;
         font-size: 1.1rem;
+        /* Căn giữa theo phần ảnh trên tablet: padding-top (12px) + một nửa chiều cao ảnh (160px/2 = 80px) */
+        top: calc(12px + 80px);
     }
 
     .prev-btn {
@@ -6002,6 +6005,8 @@ html.tabs-stuck .header-fb-btn {
         width: 45px;
         height: 45px;
         font-size: 1.1rem;
+        /* Căn giữa theo phần ảnh trên mobile: padding-top (10px) + một nửa chiều cao ảnh (160px/2 = 80px) */
+        top: calc(10px + 80px);
     }
 
     .prev-btn {
