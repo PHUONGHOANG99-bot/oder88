@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Quần Dài Nữ JG1",
-        "price": "¥2402",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg1.jpg",
@@ -13,7 +13,7 @@
     {
         "id": 2,
         "name": "Quần Dài Nữ JG2",
-        "price": "¥2417",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg2.jpg",
@@ -24,7 +24,7 @@
     {
         "id": 3,
         "name": "Quần Dài Nữ JG3",
-        "price": "¥2458",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg3.jpg",
@@ -35,7 +35,7 @@
     {
         "id": 4,
         "name": "Quần Dài Nữ JG4",
-        "price": "¥2471",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg4.jpg",
@@ -46,7 +46,7 @@
     {
         "id": 5,
         "name": "Quần Dài Nữ JG5",
-        "price": "¥2447",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg5.jpg",
@@ -57,7 +57,7 @@
     {
         "id": 6,
         "name": "Quần Dài Nữ JG6",
-        "price": "¥2483",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg6.jpg",
@@ -68,7 +68,7 @@
     {
         "id": 7,
         "name": "Quần Dài Nữ JG7",
-        "price": "¥2592",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg7.jpg",
@@ -79,7 +79,7 @@
     {
         "id": 8,
         "name": "Quần Dài Nữ JG8",
-        "price": "¥2593",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg8.jpg",
@@ -90,7 +90,7 @@
     {
         "id": 9,
         "name": "Quần Dài Nữ JG9",
-        "price": "¥2551",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg9.jpg",
@@ -101,7 +101,7 @@
     {
         "id": 10,
         "name": "Quần Dài Nữ JG10",
-        "price": "¥2548",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg10.jpg",
@@ -112,7 +112,7 @@
     {
         "id": 11,
         "name": "Quần Dài Nữ JG11",
-        "price": "¥2410",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg11.jpg",
@@ -123,7 +123,7 @@
     {
         "id": 12,
         "name": "Quần Dài Nữ JG12",
-        "price": "¥2543",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg12.jpg",
@@ -134,7 +134,7 @@
     {
         "id": 13,
         "name": "Quần Dài Nữ JG13",
-        "price": "¥2430",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg13.jpg",
@@ -145,7 +145,7 @@
     {
         "id": 14,
         "name": "Quần Dài Nữ JG14",
-        "price": "¥2552",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg14.jpg",
@@ -156,7 +156,7 @@
     {
         "id": 15,
         "name": "Quần Dài Nữ JG15",
-        "price": "¥2472",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg15.jpg",
@@ -167,7 +167,7 @@
     {
         "id": 16,
         "name": "Quần Dài Nữ JG16",
-        "price": "¥2496",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg16.jpg",
@@ -178,7 +178,7 @@
     {
         "id": 17,
         "name": "Quần Dài Nữ JG17",
-        "price": "¥2585",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg17.jpg",
@@ -189,7 +189,7 @@
     {
         "id": 18,
         "name": "Quần Dài Nữ JG18",
-        "price": "¥2456",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg18.jpg",
@@ -200,7 +200,7 @@
     {
         "id": 19,
         "name": "Quần Dài Nữ JG19",
-        "price": "¥2563",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg19.jpg",
@@ -211,7 +211,7 @@
     {
         "id": 20,
         "name": "Quần Dài Nữ JG20",
-        "price": "¥2475",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg20.jpg",
@@ -222,7 +222,7 @@
     {
         "id": 21,
         "name": "Boot Nữ BN1",
-        "price": "¥2595",
+        "price": "¥2200",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn1.jpg",
@@ -233,7 +233,7 @@
     {
         "id": 22,
         "name": "Boot Nữ BN2",
-        "price": "¥2690",
+        "price": "¥2300",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
@@ -244,7 +244,7 @@
     {
         "id": 23,
         "name": "Giày Converse Chuck Taylor All Star Xám",
-        "price": "¥2522",
+        "price": "¥2400",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
@@ -254,7 +254,7 @@
     {
         "id": 24,
         "name": "Boot Nữ BN4",
-        "price": "¥2700",
+        "price": "¥2200",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
@@ -265,7 +265,7 @@
     {
         "id": 25,
         "name": "Giày Canvas Navy Cổ Thấp",
-        "price": "¥2613",
+        "price": "¥2300",
         "category": "giay-nu",
         "categoryName": "Giày nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
@@ -275,7 +275,7 @@
     {
         "id": 26,
         "name": "Boot Nữ BN12",
-        "price": "¥2666",
+        "price": "¥2400",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn12.jpg",
@@ -286,7 +286,7 @@
     {
         "id": 27,
         "name": "Boot Nữ BN13",
-        "price": "¥2599",
+        "price": "¥2200",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn13.jpg",
@@ -297,7 +297,7 @@
     {
         "id": 28,
         "name": "Boot Nữ BN3",
-        "price": "¥2570",
+        "price": "¥2300",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
@@ -308,7 +308,7 @@
     {
         "id": 29,
         "name": "Boot Nữ BN14",
-        "price": "¥2535",
+        "price": "¥2400",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn14.jpg",
@@ -319,7 +319,7 @@
     {
         "id": 30,
         "name": "Boot Nữ BN5",
-        "price": "¥2672",
+        "price": "¥2200",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
@@ -330,7 +330,7 @@
     {
         "id": 31,
         "name": "Boot Nữ BN6",
-        "price": "¥2609",
+        "price": "¥2300",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn6.jpg",
@@ -341,7 +341,7 @@
     {
         "id": 32,
         "name": "Boot Nữ BN7",
-        "price": "¥2618",
+        "price": "¥2400",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn7.jpg",
@@ -352,7 +352,7 @@
     {
         "id": 33,
         "name": "Boot Nữ BN8",
-        "price": "¥2551",
+        "price": "¥2200",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn8.jpg",
@@ -363,7 +363,7 @@
     {
         "id": 34,
         "name": "Boot Nữ BN9",
-        "price": "¥2618",
+        "price": "¥2300",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn9.jpg",
@@ -374,7 +374,7 @@
     {
         "id": 35,
         "name": "Boot Nữ BN10",
-        "price": "¥2658",
+        "price": "¥2400",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn10.jpg",
@@ -385,7 +385,7 @@
     {
         "id": 36,
         "name": "Boot Nữ BN11",
-        "price": "¥2691",
+        "price": "¥2200",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn11.jpg",
@@ -396,7 +396,7 @@
     {
         "id": 37,
         "name": "Boot Nữ BN15",
-        "price": "¥2650",
+        "price": "¥2300",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn15.jpg",
@@ -407,7 +407,7 @@
     {
         "id": 38,
         "name": "Boot Nữ BN16",
-        "price": "¥2620",
+        "price": "¥2400",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn16.jpg",
@@ -508,7 +508,7 @@
     {
         "id": 70,
         "name": "Chân Váy CV1",
-        "price": "¥189",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv1.jpg",
@@ -519,7 +519,7 @@
     {
         "id": 71,
         "name": "Chân Váy CV2",
-        "price": "¥141",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv2.jpg",
@@ -530,7 +530,7 @@
     {
         "id": 72,
         "name": "Chân Váy CV3",
-        "price": "¥140",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv3.jpg",
@@ -541,7 +541,7 @@
     {
         "id": 73,
         "name": "Chân Váy CV4",
-        "price": "¥118",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv4.jpg",
@@ -552,7 +552,7 @@
     {
         "id": 74,
         "name": "Chân Váy CV5",
-        "price": "¥139",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv5.jpg",
@@ -563,7 +563,7 @@
     {
         "id": 75,
         "name": "Chân Váy CV6",
-        "price": "¥166",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv6.jpg",
@@ -574,7 +574,7 @@
     {
         "id": 76,
         "name": "Chân Váy CV7",
-        "price": "¥164",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv7.jpg",
@@ -585,7 +585,7 @@
     {
         "id": 77,
         "name": "Chân Váy CV8",
-        "price": "¥185",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv8.jpg",
@@ -596,7 +596,7 @@
     {
         "id": 78,
         "name": "Chân Váy CV9",
-        "price": "¥180",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv9.jpg",
@@ -607,7 +607,7 @@
     {
         "id": 79,
         "name": "Chân Váy CV10",
-        "price": "¥159",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv10.jpg",
@@ -618,7 +618,7 @@
     {
         "id": 80,
         "name": "Chân Váy CV11",
-        "price": "¥161",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv11.jpg",
@@ -629,7 +629,7 @@
     {
         "id": 81,
         "name": "Chân Váy CV12",
-        "price": "¥153",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv12.jpg",
@@ -640,7 +640,7 @@
     {
         "id": 82,
         "name": "Chân Váy CV13",
-        "price": "¥127",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv13.jpg",
@@ -651,7 +651,7 @@
     {
         "id": 83,
         "name": "Chân Váy CV14",
-        "price": "¥109",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv14.jpg",
@@ -662,7 +662,7 @@
     {
         "id": 84,
         "name": "Chân Váy CV15",
-        "price": "¥130",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv15.jpg",
@@ -673,7 +673,7 @@
     {
         "id": 85,
         "name": "Chân Váy CV16",
-        "price": "¥147",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv16.jpg",
@@ -684,7 +684,7 @@
     {
         "id": 86,
         "name": "Chân Váy CV17",
-        "price": "¥141",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv17.jpg",
@@ -695,7 +695,7 @@
     {
         "id": 87,
         "name": "Chân Váy CV18",
-        "price": "¥165",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv18.jpg",
@@ -706,7 +706,7 @@
     {
         "id": 88,
         "name": "Chân Váy CV19",
-        "price": "¥137",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv19.jpg",
@@ -717,7 +717,7 @@
     {
         "id": 89,
         "name": "Chân Váy CV20",
-        "price": "¥163",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv20.jpg",
@@ -728,7 +728,7 @@
     {
         "id": 90,
         "name": "Chân Váy CV21",
-        "price": "¥118",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv21.jpg",
@@ -739,7 +739,7 @@
     {
         "id": 91,
         "name": "Chân Váy CV22",
-        "price": "¥118",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv22.jpg",
@@ -750,7 +750,7 @@
     {
         "id": 92,
         "name": "Chân Váy CV23",
-        "price": "¥157",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv23.jpg",
@@ -761,7 +761,7 @@
     {
         "id": 93,
         "name": "Chân Váy CV24",
-        "price": "¥177",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv24.jpg",
@@ -772,7 +772,7 @@
     {
         "id": 94,
         "name": "Chân Váy CV25",
-        "price": "¥162",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv25.jpg",
@@ -783,7 +783,7 @@
     {
         "id": 95,
         "name": "Chân Váy CV26",
-        "price": "¥145",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv26.jpg",
@@ -794,7 +794,7 @@
     {
         "id": 96,
         "name": "Chân Váy CV27",
-        "price": "¥119",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv27.jpg",
@@ -805,7 +805,7 @@
     {
         "id": 97,
         "name": "Chân Váy CV28",
-        "price": "¥156",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv28.jpg",
@@ -816,7 +816,7 @@
     {
         "id": 98,
         "name": "Chân Váy CV29",
-        "price": "¥180",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv29.jpg",
@@ -827,7 +827,7 @@
     {
         "id": 99,
         "name": "Chân Váy CV30",
-        "price": "¥128",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv30.jpg",
@@ -838,7 +838,7 @@
     {
         "id": 100,
         "name": "Chân Váy CV31",
-        "price": "¥113",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv31.jpg",
@@ -849,7 +849,7 @@
     {
         "id": 101,
         "name": "Chân Váy CV32",
-        "price": "¥159",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv32.jpg",
@@ -860,7 +860,7 @@
     {
         "id": 102,
         "name": "Chân Váy CV33",
-        "price": "¥164",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv33.jpg",
@@ -871,7 +871,7 @@
     {
         "id": 103,
         "name": "Chân Váy CV34",
-        "price": "¥101",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv34.jpg",
@@ -882,7 +882,7 @@
     {
         "id": 104,
         "name": "Chân Váy CV35",
-        "price": "¥159",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv35.jpg",
@@ -893,7 +893,7 @@
     {
         "id": 105,
         "name": "Chân Váy CV36",
-        "price": "¥160",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv36.jpg",
@@ -904,7 +904,7 @@
     {
         "id": 106,
         "name": "Chân Váy CV37",
-        "price": "¥144",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv37.jpg",
@@ -915,7 +915,7 @@
     {
         "id": 107,
         "name": "Chân Váy CV38",
-        "price": "¥111",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv38.jpg",
@@ -926,7 +926,7 @@
     {
         "id": 108,
         "name": "Chân Váy CV39",
-        "price": "¥138",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv39.jpg",
@@ -937,7 +937,7 @@
     {
         "id": 109,
         "name": "Chân Váy CV40",
-        "price": "¥173",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv40.jpg",
@@ -948,7 +948,7 @@
     {
         "id": 110,
         "name": "Chân Váy CV41",
-        "price": "¥180",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv41.jpg",
@@ -959,7 +959,7 @@
     {
         "id": 111,
         "name": "Chân Váy CV42",
-        "price": "¥158",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv42.jpg",
@@ -970,7 +970,7 @@
     {
         "id": 112,
         "name": "Chân Váy CV43",
-        "price": "¥160",
+        "price": "¥1700",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv43.jpg",
@@ -981,7 +981,7 @@
     {
         "id": 113,
         "name": "Chân Váy CV44",
-        "price": "¥174",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv44.jpg",
@@ -2404,7 +2404,7 @@
     {
         "id": 227,
         "name": "Giày Sneaker Nữ SG1",
-        "price": "¥2662",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg1.jpg",
@@ -2415,7 +2415,7 @@
     {
         "id": 228,
         "name": "Giày Sneaker Nữ SG2",
-        "price": "¥2672",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg2.jpg",
@@ -2426,7 +2426,7 @@
     {
         "id": 229,
         "name": "Giày Sneaker Nữ SG3",
-        "price": "¥2542",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg3.jpg",
@@ -2437,7 +2437,7 @@
     {
         "id": 230,
         "name": "Giày Sneaker Nữ SG4",
-        "price": "¥2631",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg4.jpg",
@@ -2448,7 +2448,7 @@
     {
         "id": 231,
         "name": "Giày Sneaker Nữ SG5",
-        "price": "¥2608",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg5.jpg",
@@ -2459,7 +2459,7 @@
     {
         "id": 232,
         "name": "Giày Sneaker Nữ SG6",
-        "price": "¥2674",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg6.jpg",
@@ -2470,7 +2470,7 @@
     {
         "id": 233,
         "name": "Giày Sneaker Nữ SG7",
-        "price": "¥2623",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg7.jpg",
@@ -2481,7 +2481,7 @@
     {
         "id": 234,
         "name": "Giày Sneaker Nữ SG8",
-        "price": "¥2548",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg8.jpg",
@@ -2492,7 +2492,7 @@
     {
         "id": 235,
         "name": "Giày Sneaker Nữ SG9",
-        "price": "¥2631",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg9.jpg",
@@ -2503,7 +2503,7 @@
     {
         "id": 236,
         "name": "Giày Sneaker Nữ SG10",
-        "price": "¥2510",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg10.jpg",
@@ -2514,7 +2514,7 @@
     {
         "id": 237,
         "name": "Giày Sneaker Nữ SG11",
-        "price": "¥2572",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg11.jpg",
@@ -2525,7 +2525,7 @@
     {
         "id": 238,
         "name": "Giày Sneaker Nữ SG12",
-        "price": "¥2616",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg12.jpg",
@@ -2536,7 +2536,7 @@
     {
         "id": 239,
         "name": "Giày Sneaker Nữ SG13",
-        "price": "¥2550",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg13.jpg",
@@ -2547,7 +2547,7 @@
     {
         "id": 240,
         "name": "Giày Sneaker Nữ SG14",
-        "price": "¥2634",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg14.jpg",
@@ -2558,7 +2558,7 @@
     {
         "id": 241,
         "name": "Giày Sneaker Nữ SG15",
-        "price": "¥2660",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg15.jpg",
@@ -2569,7 +2569,7 @@
     {
         "id": 242,
         "name": "Giày Sneaker Nữ SG16",
-        "price": "¥2540",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg16.jpg",
@@ -2580,7 +2580,7 @@
     {
         "id": 243,
         "name": "Giày Sneaker Nữ SG17",
-        "price": "¥2632",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg17.jpg",
@@ -2591,7 +2591,7 @@
     {
         "id": 244,
         "name": "Giày Sneaker Nữ SG18",
-        "price": "¥2557",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg18.jpg",
@@ -2602,7 +2602,7 @@
     {
         "id": 245,
         "name": "Giày Sneaker Nữ SG19",
-        "price": "¥2687",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg19.jpg",
@@ -2613,7 +2613,7 @@
     {
         "id": 246,
         "name": "Giày Sneaker Nữ SG20",
-        "price": "¥2598",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg20.jpg",
@@ -2624,7 +2624,7 @@
     {
         "id": 247,
         "name": "Giày Sneaker Nữ SG21",
-        "price": "¥2542",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg21.jpg",
@@ -2635,7 +2635,7 @@
     {
         "id": 248,
         "name": "Giày Sneaker Nữ SG22",
-        "price": "¥2539",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg22.jpg",
@@ -2646,7 +2646,7 @@
     {
         "id": 249,
         "name": "Giày Sneaker Nữ SG23",
-        "price": "¥2538",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg23.jpg",
@@ -2657,7 +2657,7 @@
     {
         "id": 250,
         "name": "Giày Sneaker Nữ SG24",
-        "price": "¥2571",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg24.jpg",
@@ -2668,7 +2668,7 @@
     {
         "id": 251,
         "name": "Giày Sneaker Nữ SG25",
-        "price": "¥2525",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg25.jpg",
@@ -2679,7 +2679,7 @@
     {
         "id": 252,
         "name": "Giày Sneaker Nữ SG26",
-        "price": "¥2679",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg26.jpg",
@@ -2690,7 +2690,7 @@
     {
         "id": 253,
         "name": "Giày Sneaker Nữ SG27",
-        "price": "¥2696",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg27.jpg",
@@ -2701,7 +2701,7 @@
     {
         "id": 254,
         "name": "Giày Sneaker Nữ SG28",
-        "price": "¥2533",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg28.jpg",
@@ -2712,7 +2712,7 @@
     {
         "id": 255,
         "name": "Giày Sneaker Nữ SG29",
-        "price": "¥2613",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg29.jpg",
@@ -2723,7 +2723,7 @@
     {
         "id": 256,
         "name": "Giày Sneaker Nữ SG30",
-        "price": "¥2677",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg30.jpg",
@@ -2734,7 +2734,7 @@
     {
         "id": 257,
         "name": "Giày Sneaker Nữ SG31",
-        "price": "¥2610",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg31.jpg",
@@ -2745,7 +2745,7 @@
     {
         "id": 258,
         "name": "Giày Sneaker Nữ SG32",
-        "price": "¥2500",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg32.jpg",
@@ -2756,7 +2756,7 @@
     {
         "id": 259,
         "name": "Giày Sneaker Nữ SG33",
-        "price": "¥2656",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg33.jpg",
@@ -2767,7 +2767,7 @@
     {
         "id": 260,
         "name": "Giày Sneaker Nữ SG34",
-        "price": "¥2610",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg34.jpg",
@@ -2778,7 +2778,7 @@
     {
         "id": 261,
         "name": "Giày Sneaker Nữ SG35",
-        "price": "¥2634",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg35.jpg",
@@ -2789,7 +2789,7 @@
     {
         "id": 262,
         "name": "Giày Sneaker Nữ SG36",
-        "price": "¥2601",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg36.jpg",
@@ -2800,7 +2800,7 @@
     {
         "id": 263,
         "name": "Giày Sneaker Nữ SG37",
-        "price": "¥2530",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg37.jpg",
@@ -2811,7 +2811,7 @@
     {
         "id": 264,
         "name": "Giày Sneaker Nữ SG38",
-        "price": "¥2563",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg38.jpg",
@@ -2822,7 +2822,7 @@
     {
         "id": 265,
         "name": "Giày Sneaker Nữ SG39",
-        "price": "¥2525",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg39.jpg",
@@ -2833,7 +2833,7 @@
     {
         "id": 266,
         "name": "Giày Sneaker Nữ SG40",
-        "price": "¥2554",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg40.jpg",
@@ -2844,7 +2844,7 @@
     {
         "id": 267,
         "name": "Giày Sneaker Nữ SG41",
-        "price": "¥2524",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg41.jpg",
@@ -2855,7 +2855,7 @@
     {
         "id": 268,
         "name": "Giày Sneaker Nữ SG42",
-        "price": "¥2617",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg42.jpg",
@@ -2866,7 +2866,7 @@
     {
         "id": 269,
         "name": "Giày Sneaker Nữ SG43",
-        "price": "¥2599",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg43.jpg",
@@ -2877,7 +2877,7 @@
     {
         "id": 270,
         "name": "Giày Sneaker Nữ SG44",
-        "price": "¥2557",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg44.jpg",
@@ -2888,7 +2888,7 @@
     {
         "id": 271,
         "name": "Giày Sneaker Nữ SG45",
-        "price": "¥2584",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg45.jpg",
@@ -2899,7 +2899,7 @@
     {
         "id": 272,
         "name": "Giày Sneaker Nữ SG46",
-        "price": "¥2609",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg46.jpg",
@@ -2910,7 +2910,7 @@
     {
         "id": 273,
         "name": "Giày Sneaker Nữ SG47",
-        "price": "¥2584",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg47.jpg",
@@ -2921,7 +2921,7 @@
     {
         "id": 274,
         "name": "Giày Sneaker Nữ SG48",
-        "price": "¥2558",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg48.jpg",
@@ -2932,7 +2932,7 @@
     {
         "id": 275,
         "name": "Giày Sneaker Nữ SG49",
-        "price": "¥2630",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg49.jpg",
@@ -2943,7 +2943,7 @@
     {
         "id": 276,
         "name": "Giày Sneaker Nữ SG50",
-        "price": "¥2552",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg50.jpg",
@@ -2954,7 +2954,7 @@
     {
         "id": 277,
         "name": "Giày Sneaker Nữ SG51",
-        "price": "¥2636",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg51.jpg",
@@ -2965,7 +2965,7 @@
     {
         "id": 278,
         "name": "Giày Sneaker Nữ SG52",
-        "price": "¥2618",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg52.jpg",
@@ -2976,7 +2976,7 @@
     {
         "id": 279,
         "name": "Giày Sneaker Nữ SG53",
-        "price": "¥2687",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg53.jpg",
@@ -2987,7 +2987,7 @@
     {
         "id": 280,
         "name": "Giày Sneaker Nữ SG54",
-        "price": "¥2652",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg54.jpg",
@@ -2998,7 +2998,7 @@
     {
         "id": 281,
         "name": "Giày Sneaker Nữ SG55",
-        "price": "¥2687",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg55.jpg",
@@ -3009,7 +3009,7 @@
     {
         "id": 282,
         "name": "Giày Sneaker Nữ SG56",
-        "price": "¥2541",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg56.jpg",
@@ -3020,7 +3020,7 @@
     {
         "id": 283,
         "name": "Giày Sneaker Nữ SG57",
-        "price": "¥2697",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg57.jpg",
@@ -3031,7 +3031,7 @@
     {
         "id": 284,
         "name": "Giày Sneaker Nữ SG58",
-        "price": "¥2577",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg58.jpg",
@@ -3042,7 +3042,7 @@
     {
         "id": 285,
         "name": "Giày Sneaker Nữ SG59",
-        "price": "¥2607",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg59.jpg",
@@ -3053,7 +3053,7 @@
     {
         "id": 286,
         "name": "Giày Sneaker Nữ SG60",
-        "price": "¥2512",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg60.jpg",
@@ -3064,7 +3064,7 @@
     {
         "id": 287,
         "name": "Giày Sneaker Nữ SG61",
-        "price": "¥2544",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg61.jpg",
@@ -3075,7 +3075,7 @@
     {
         "id": 288,
         "name": "Giày Sneaker Nữ SG62",
-        "price": "¥2605",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg62.jpg",
@@ -3086,7 +3086,7 @@
     {
         "id": 289,
         "name": "Giày Sneaker Nữ SG63",
-        "price": "¥2546",
+        "price": "¥2400",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg63.jpg",
@@ -3097,7 +3097,7 @@
     {
         "id": 290,
         "name": "Giày Sneaker Nữ SG64",
-        "price": "¥2649",
+        "price": "¥2200",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg64.jpg",
@@ -3108,7 +3108,7 @@
     {
         "id": 291,
         "name": "Giày Sneaker Nữ SG65",
-        "price": "¥2504",
+        "price": "¥2300",
         "category": "giay-the-thao",
         "categoryName": "Sneaker Nữ",
         "image": "assets/image/giay-nu/giay-the-thao/sg65.jpg",
@@ -5449,7 +5449,7 @@
     {
         "id": 650,
         "name": "Quần Dài Nữ JG21",
-        "price": "¥2400",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg21.jpg",
@@ -5460,7 +5460,7 @@
     {
         "id": 651,
         "name": "Quần Dài Nữ JG22",
-        "price": "¥2500",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg22.jpg",
@@ -5471,7 +5471,7 @@
     {
         "id": 652,
         "name": "Quần Dài Nữ JG23",
-        "price": "¥2600",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg23.jpg",
@@ -5482,7 +5482,7 @@
     {
         "id": 653,
         "name": "Quần Dài Nữ JG24",
-        "price": "¥2700",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg24.jpg",
@@ -5493,7 +5493,7 @@
     {
         "id": 654,
         "name": "Quần Dài Nữ JG25",
-        "price": "¥2800",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg25.jpg",
@@ -5504,7 +5504,7 @@
     {
         "id": 655,
         "name": "Quần Dài Nữ JG26",
-        "price": "¥2400",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg26.jpg",
@@ -5515,7 +5515,7 @@
     {
         "id": 656,
         "name": "Quần Dài Nữ JG27",
-        "price": "¥2500",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg27.jpg",
@@ -5526,7 +5526,7 @@
     {
         "id": 657,
         "name": "Quần Dài Nữ JG28",
-        "price": "¥2600",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg28.jpg",
@@ -5537,7 +5537,7 @@
     {
         "id": 658,
         "name": "Quần Dài Nữ JG29",
-        "price": "¥2700",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg29.jpg",
@@ -5548,7 +5548,7 @@
     {
         "id": 659,
         "name": "Quần Dài Nữ JG30",
-        "price": "¥2800",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg30.jpg",
@@ -5559,7 +5559,7 @@
     {
         "id": 660,
         "name": "Quần Dài Nữ JG31",
-        "price": "¥2400",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg31.jpg",
@@ -5570,7 +5570,7 @@
     {
         "id": 661,
         "name": "Quần Dài Nữ JG32",
-        "price": "¥2500",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg32.jpg",
@@ -5581,7 +5581,7 @@
     {
         "id": 662,
         "name": "Quần Dài Nữ JG33",
-        "price": "¥2600",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg33.jpg",
@@ -5592,7 +5592,7 @@
     {
         "id": 663,
         "name": "Quần Dài Nữ JG34",
-        "price": "¥2700",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg34.jpg",
@@ -5603,7 +5603,7 @@
     {
         "id": 664,
         "name": "Quần Dài Nữ JG35",
-        "price": "¥2800",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg35.jpg",
@@ -5614,7 +5614,7 @@
     {
         "id": 665,
         "name": "Quần Dài Nữ JG36",
-        "price": "¥2400",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg36.jpg",
@@ -5625,7 +5625,7 @@
     {
         "id": 666,
         "name": "Quần Dài Nữ JG37",
-        "price": "¥2500",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg37.jpg",
@@ -5636,7 +5636,7 @@
     {
         "id": 667,
         "name": "Quần Dài Nữ JG38",
-        "price": "¥2600",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg38.jpg",
@@ -5647,7 +5647,7 @@
     {
         "id": 668,
         "name": "Quần Dài Nữ JG39",
-        "price": "¥2700",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg39.jpg",
@@ -5658,7 +5658,7 @@
     {
         "id": 669,
         "name": "Quần Dài Nữ JG40",
-        "price": "¥2800",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg40.jpg",
