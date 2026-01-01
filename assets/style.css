@@ -1764,7 +1764,7 @@ picture img {
 
 .order-btn {
     flex: 1;
-    padding: 8px 10px;
+    padding: 8px 8px;
     background: linear-gradient(135deg, #ff4500, #ff6600);
     color: white;
     border: none;
@@ -1772,7 +1772,7 @@ picture img {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -5644,13 +5644,13 @@ html.tabs-stuck .header-fb-btn {
         font-size: 0.75rem;
     }
 
-    .order-btn {
-        padding: 8px 10px;
-        font-size: 0.85rem;
-    }
-
     .slider-dots {
         margin-top: 0.75rem;
+    }
+
+    .order-btn {
+        padding: 8px 8px;
+        font-size: 0.75rem;
     }
 
     .product-card {
@@ -5751,8 +5751,8 @@ html.tabs-stuck .header-fb-btn {
     }
 
     .order-btn {
-        padding: 8px 10px;
-        font-size: 0.9rem;
+        padding: 8px 8px;
+        font-size: 0.75rem;
     }
 
     .best-seller-badge {
@@ -5965,8 +5965,8 @@ html.tabs-stuck .header-fb-btn {
     }
 
     .order-btn {
-        padding: 8px 10px;
-        font-size: 0.85rem;
+        padding: 8px 8px;
+        font-size: 0.75rem;
     }
 
     .search-bar {
@@ -6224,8 +6224,8 @@ html.tabs-stuck .header-fb-btn {
     }
 
     .order-btn {
-        padding: 8px 10px;
-        font-size: 0.85rem;
+        padding: 8px 8px;
+        font-size: 0.75rem;
     }
 
     .best-seller-badge {
@@ -6266,13 +6266,8 @@ html.tabs-stuck .header-fb-btn {
     }
 
     .order-btn {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-
-    .order-btn {
-        font-size: 1rem;
-        padding: 10px;
+        padding: 8px 8px;
+        font-size: 0.75rem;
     }
 }
 
