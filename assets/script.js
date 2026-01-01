@@ -4660,20 +4660,21 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = 
     }
 
     if (videoId) {
-        // For TikTok browser, use youtube-nocookie.com (same as regular browsers)
-        // Keep it simple to avoid triggering YouTube spam detection
+        // For TikTok browser, use youtube.com with origin parameter
+        // This is required to avoid error 153 on TikTok browser
         if (forTikTok) {
-            // Use youtube-nocookie.com with minimal parameters
-            // Don't use origin parameter to avoid triggering spam detection
+            // Use regular youtube.com (not nocookie) with origin parameter
+            // This helps with referrer policy issues and error 153
             const params = new URLSearchParams({
                 autoplay: autoplay ? "1" : "0",
                 mute: mute ? "1" : "0",
                 rel: "0",
                 controls: "1",
                 playsinline: "1",
+                origin: window.location.origin || window.location.hostname,
             });
-            // Use nocookie for TikTok - privacy-enhanced and less likely to trigger CAPTCHA
-            return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+            // Use youtube.com for TikTok - required to avoid error 153
+            return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
         }
         
         // For regular browsers, use youtube-nocookie.com
