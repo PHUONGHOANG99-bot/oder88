@@ -1756,14 +1756,14 @@ picture img {
     display: flex;
     gap: 0;
     width: 100%;
-    margin-top: 0.15rem;
+    margin-top: 0;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .order-btn {
-    flex: 2;
+    flex: 1;
     padding: 8px 10px;
     background: linear-gradient(135deg, #ff4500, #ff6600);
     color: white;
@@ -4360,7 +4360,7 @@ html.tabs-stuck .header-fb-btn {
     flex-direction: column;
     gap: 4px;
     margin-bottom: 0;
-    padding-bottom: 2px;
+    padding-bottom: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -8063,7 +8063,6 @@ input:focus-visible {
     position: relative;
     overflow: visible;
     min-width: 0;
-    max-width: 33.33%;
 }
 
 .add-to-cart-btn:hover {

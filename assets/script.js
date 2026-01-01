@@ -3281,7 +3281,7 @@ function getBestSellers() {
     const totalTopProducts = 30; // Lấy 30 sản phẩm bán chạy nhất
     const displayProducts = 20; // Hiển thị 20 sản phẩm ngẫu nhiên từ 30 sản phẩm đó
 
-    // Danh mục ưu tiên: boot nữ, chân váy, túi xách, thu đông nữ
+    // Danh mục ưu tiên: boot nữ, chân váy, túi xách, thu đông nữ, giày sneaker nữ
     const priorityCategories = [
         "boot-nu",
         "chan-vay",
@@ -3289,6 +3289,7 @@ function getBestSellers() {
         "tui-xach-nam",
         "tui-xach-nu",
         "ao-thu-dong",
+        "giay-the-thao",
     ];
 
     // Tách sản phẩm thành 2 nhóm: ưu tiên và khác
@@ -7578,6 +7579,7 @@ function needsSize(category) {
         "boot-nu",
         "giay-the-thao",
         "giay-sneaker-nam",
+        "giay-bup-be",
     ];
 
     return (
@@ -7590,7 +7592,13 @@ function needsSize(category) {
 function getSizesForCategory(category) {
     if (!category) return [];
 
-    // Quần áo: S, M, L, XL
+    // Quần áo nữ: XS, S, M, L, XL
+    const pantsWomenCategories = [
+        "quan-dai-nu",
+        "quan-nu",
+    ];
+
+    // Quần áo khác: S, M, L, XL
     const clothingCategories = [
         "ao-nam",
         "ao-nu",
@@ -7599,8 +7607,6 @@ function getSizesForCategory(category) {
         "ao-thu-dong",
         "quan-nam",
         "quan-jean-nam",
-        "quan-dai-nu",
-        "quan-nu",
         "quan-bo-nam",
         "set-do",
         "set-do-nam",
@@ -7609,20 +7615,36 @@ function getSizesForCategory(category) {
         "chan-vay",
     ];
 
-    // Giày dép: 35-44
-    const shoeCategories = [
-        "giay",
-        "giay-nam",
+    // Giày nữ: 35-40
+    const shoeWomenCategories = [
         "giay-nu",
         "boot-nu",
         "giay-the-thao",
+        "giay-bup-be",
+    ];
+
+    // Giày nam: 39-45
+    const shoeMenCategories = [
+        "giay-nam",
         "giay-sneaker-nam",
     ];
 
-    if (clothingCategories.includes(category)) {
+    // Giày chung (nếu có category "giay" chung)
+    const shoeGeneralCategories = [
+        "giay",
+    ];
+
+    if (pantsWomenCategories.includes(category)) {
+        return ["XS", "S", "M", "L", "XL"];
+    } else if (clothingCategories.includes(category)) {
         return ["S", "M", "L", "XL"];
-    } else if (shoeCategories.includes(category)) {
-        return ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44"];
+    } else if (shoeWomenCategories.includes(category)) {
+        return ["35", "36", "37", "38", "39", "40"];
+    } else if (shoeMenCategories.includes(category)) {
+        return ["39", "40", "41", "42", "43", "44", "45"];
+    } else if (shoeGeneralCategories.includes(category)) {
+        // Nếu là category "giay" chung, trả về cả sizes nữ và nam
+        return ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"];
     }
 
     return [];
@@ -8387,7 +8409,7 @@ function checkoutCart() {
 
     // Build order message - format ngắn gọn, đầy đủ thông tin
     let message =
-        "[GIO HANG] DAT HANG - ODER88\n================================\n";
+        "ĐẶT HÀNG - ODER88\n\n";
 
     selectedCartItems.forEach((item, index) => {
         const yenAmount = getYenAmount(item.price);
@@ -8402,11 +8424,11 @@ function checkoutCart() {
             message += `   Size: ${item.size}\n`;
         }
 
-        message += `   Gia: ${formatPriceToYen(item.price)} (${
+        message += `   Giá: ${formatPriceToYen(item.price)} (${
             priceInfo.vnd
         })\n`;
-        message += `   So luong: ${item.quantity}\n`;
-        message += `   Thanh tien: ¥${formatVND(itemTotalYen)} (VND ${formatVND(
+        message += `   Số lượng: ${item.quantity}\n`;
+        message += `   Thành tiền: ¥${formatVND(itemTotalYen)} (VND ${formatVND(
             itemTotalVND
         )})\n`;
     });
@@ -8417,11 +8439,11 @@ function checkoutCart() {
     }, 0);
     const totalVND = convertYenToVND(totalYen);
 
-    message += "================================\n";
-    message += `TONG CONG: ¥${formatVND(totalYen)} (VND ${formatVND(
+    message += "\n";
+    message += `TỔNG: ¥${formatVND(totalYen)} (VND ${formatVND(
         totalVND
     )})\n`;
-    message += "Vui long xac nhan don hang. Cam on ban!";
+    message += "Vui lòng báo phí Ship của đơn hàng. Cảm ơn Shop";
 
     // Open Messenger with order
     openMessengerApp(message);
