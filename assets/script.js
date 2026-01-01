@@ -4660,11 +4660,11 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = 
     }
 
     if (videoId) {
-        // For TikTok browser, use youtube.com with origin parameter
-        // This is required to avoid error 153 on TikTok browser
+        // For TikTok browser, try youtube-nocookie.com first, then fallback to youtube.com
+        // This gives best of both worlds: privacy-enhanced first, then compatibility
         if (forTikTok) {
-            // Use regular youtube.com (not nocookie) with origin parameter
-            // This helps with referrer policy issues and error 153
+            // Try youtube-nocookie.com first (privacy-enhanced, less likely CAPTCHA)
+            // If that doesn't work, will fallback to youtube.com with origin parameter
             const params = new URLSearchParams({
                 autoplay: autoplay ? "1" : "0",
                 mute: mute ? "1" : "0",
@@ -4673,8 +4673,8 @@ function convertToYouTubeEmbed(url, autoplay = false, mute = false, forTikTok = 
                 playsinline: "1",
                 origin: window.location.origin || window.location.hostname,
             });
-            // Use youtube.com for TikTok - required to avoid error 153
-            return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+            // Try nocookie first for TikTok - privacy-enhanced and may work
+            return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
         }
         
         // For regular browsers, use youtube-nocookie.com
@@ -4885,6 +4885,25 @@ function openProductGallery(productId, imageIndex = 0) {
                     if (loadCheckTimeout) {
                         clearTimeout(loadCheckTimeout);
                     }
+                    // For TikTok browser, try youtube.com if nocookie failed
+                    if (!iframeLoaded && isTikTok && mainVideoIframe.src && mainVideoIframe.src.includes('youtube-nocookie.com')) {
+                        const videoId = extractYouTubeVideoId(videoUrl);
+                        if (videoId) {
+                            // Try regular youtube.com with origin parameter
+                            const fallbackParams = new URLSearchParams({
+                                autoplay: "0",
+                                mute: "0",
+                                rel: "0",
+                                controls: "1",
+                                playsinline: "1",
+                                origin: window.location.origin || window.location.hostname,
+                            });
+                            const fallbackUrl = `https://www.youtube.com/embed/${videoId}?${fallbackParams.toString()}`;
+                            mainVideoIframe.src = fallbackUrl;
+                            mainVideoIframe._embedUrl = fallbackUrl;
+                            return; // Don't show fallback yet, wait to see if this works
+                        }
+                    }
                     // Only show fallback on actual error, not on timeout
                     if (!iframeLoaded) {
                         setupFallbackUI();
@@ -4909,6 +4928,33 @@ function openProductGallery(productId, imageIndex = 0) {
                         const hasInvalidSize = iframeRect.height < 150 || iframeRect.width < 150;
                         
                         if (isHidden || hasInvalidSize) {
+                            // For TikTok browser, try youtube.com with origin if nocookie didn't work
+                            if (isTikTok && mainVideoIframe.src.includes('youtube-nocookie.com')) {
+                                const videoId = extractYouTubeVideoId(videoUrl);
+                                if (videoId) {
+                                    // Try regular youtube.com with origin parameter
+                                    const fallbackParams = new URLSearchParams({
+                                        autoplay: "0",
+                                        mute: "0",
+                                        rel: "0",
+                                        controls: "1",
+                                        playsinline: "1",
+                                        origin: window.location.origin || window.location.hostname,
+                                    });
+                                    const fallbackUrl = `https://www.youtube.com/embed/${videoId}?${fallbackParams.toString()}`;
+                                    mainVideoIframe.src = fallbackUrl;
+                                    mainVideoIframe._embedUrl = fallbackUrl;
+                                    
+                                    // Give it another 3 seconds before showing fallback UI
+                                    setTimeout(function() {
+                                        const iframeRect2 = mainVideoIframe.getBoundingClientRect();
+                                        if (iframeRect2.height < 150) {
+                                            setupFallbackUI();
+                                        }
+                                    }, 3000);
+                                    return;
+                                }
+                            }
                             setupFallbackUI();
                         }
                         // If iframe has valid size and is visible, assume it's loading/loaded correctly
