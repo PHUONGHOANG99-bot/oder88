@@ -7,7 +7,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg1.jpg",
         "bestSeller": true,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/FVtejjR9DN4"
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg2.jpg",
         "bestSeller": true,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/SL3JWB4Ev9Y"
     },
     {
         "id": 3,
@@ -27,7 +29,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg3.jpg",
         "bestSeller": true,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/M1bXTueqlyU"
     },
     {
         "id": 4,
@@ -37,7 +40,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg4.jpg",
         "bestSeller": false,
-        "purchases": 318
+        "purchases": 318,
+        "video": "https://www.youtube.com/embed/mfgeAycs0vM"
     },
     {
         "id": 5,
@@ -47,7 +51,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg5.jpg",
         "bestSeller": true,
-        "purchases": 335
+        "purchases": 335,
+        "video": "https://www.youtube.com/embed/WhYssqpShps"
     },
     {
         "id": 6,
@@ -57,7 +62,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg6.jpg",
         "bestSeller": false,
-        "purchases": 352
+        "purchases": 352,
+        "video": "https://www.youtube.com/embed/PMl4mH50OQk"
     },
     {
         "id": 7,
@@ -67,7 +73,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg7.jpg",
         "bestSeller": true,
-        "purchases": 369
+        "purchases": 369,
+        "video": "https://www.youtube.com/embed/qK6QN6NnulA"
     },
     {
         "id": 8,
@@ -77,7 +84,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg8.jpg",
         "bestSeller": true,
-        "purchases": 386
+        "purchases": 386,
+        "video": "https://www.youtube.com/embed/Kn1w7E2qGlc"
     },
     {
         "id": 9,
@@ -87,7 +95,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg9.jpg",
         "bestSeller": false,
-        "purchases": 403
+        "purchases": 403,
+        "video": "https://www.youtube.com/embed/7x0orMsD01M"
     },
     {
         "id": 10,
@@ -97,7 +106,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg10.jpg",
         "bestSeller": true,
-        "purchases": 420
+        "purchases": 420,
+        "video": "https://www.youtube.com/embed/puJagDQ2BAY"
     },
     {
         "id": 11,
@@ -107,7 +117,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg11.jpg",
         "bestSeller": false,
-        "purchases": 437
+        "purchases": 437,
+        "video": "https://www.youtube.com/embed/BWgftraks-w"
     },
     {
         "id": 12,
@@ -117,7 +128,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg12.jpg",
         "bestSeller": true,
-        "purchases": 454
+        "purchases": 454,
+        "video": "https://www.youtube.com/embed/ON8tfHRO_R4"
     },
     {
         "id": 13,
@@ -127,7 +139,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg13.jpg",
         "bestSeller": true,
-        "purchases": 471
+        "purchases": 471,
+        "video": "https://www.youtube.com/embed/Huzq4I5uF1A"
     },
     {
         "id": 14,
@@ -137,7 +150,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg14.jpg",
         "bestSeller": false,
-        "purchases": 488
+        "purchases": 488,
+        "video": "https://www.youtube.com/embed/ZI1gAw3F5s4"
     },
     {
         "id": 15,
@@ -147,7 +161,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg15.jpg",
         "bestSeller": true,
-        "purchases": 305
+        "purchases": 305,
+        "video": "https://www.youtube.com/embed/cRrQNk2P3oY"
     },
     {
         "id": 16,
@@ -157,7 +172,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg16.jpg",
         "bestSeller": false,
-        "purchases": 322
+        "purchases": 322,
+        "video": "https://www.youtube.com/embed/X-oeZVLD96w"
     },
     {
         "id": 17,
@@ -167,7 +183,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg17.jpg",
         "bestSeller": true,
-        "purchases": 339
+        "purchases": 339,
+        "video": "https://www.youtube.com/embed/8Puj2r7kGTI"
     },
     {
         "id": 18,
@@ -177,7 +194,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg18.jpg",
         "bestSeller": false,
-        "purchases": 356
+        "purchases": 356,
+        "video": "https://www.youtube.com/embed/M3_R9t-6NnI"
     },
     {
         "id": 19,
@@ -187,7 +205,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg19.jpg",
         "bestSeller": true,
-        "purchases": 373
+        "purchases": 373,
+        "video": "https://www.youtube.com/embed/PonhG5J0Qxk"
     },
     {
         "id": 20,
@@ -197,7 +216,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg20.jpg",
         "bestSeller": false,
-        "purchases": 390
+        "purchases": 390,
+        "video": "https://www.youtube.com/embed/Ipn_xXcxUWA"
     },
     {
         "id": 21,
@@ -1107,7 +1127,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg9.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "video": "https://res.cloudinary.com/dkfvz7cau/video/upload/v1766125897/14_r7gmph.mp4"
     },
     {
         "id": 128,
@@ -1127,7 +1148,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg11.jpg",
         "bestSeller": false,
-        "purchases": 342
+        "purchases": 342,
+        "video": "https://res.cloudinary.com/dkfvz7cau/video/upload/v1766125897/15_jhoqby.mp4"
     },
     {
         "id": 130,
@@ -1137,7 +1159,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg12.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "video": "https://res.cloudinary.com/dkfvz7cau/video/upload/v1766125900/16_qj6kkc.mp4"
     },
     {
         "id": 131,
@@ -1147,7 +1170,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg13.jpg",
         "bestSeller": true,
-        "purchases": 388
+        "purchases": 388,
+        "video": "https://www.youtube.com/embed/xAT8yTK5g1I"
     },
     {
         "id": 132,
@@ -1157,7 +1181,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg14.jpg",
         "bestSeller": false,
-        "purchases": 355
+        "purchases": 355,
+        "video": "https://www.youtube.com/embed/oIRKvxXf8js"
     },
     {
         "id": 133,
@@ -1207,7 +1232,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg19.jpg",
         "bestSeller": true,
-        "purchases": 392
+        "purchases": 392,
+        "video": "https://www.youtube.com/embed/BeoVwZ1_d2I"
     },
     {
         "id": 138,
@@ -5428,7 +5454,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg21.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/EdBeKslP6gE"
     },
     {
         "id": 651,
@@ -5438,7 +5465,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg22.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/Rm9RzUUKsvs"
     },
     {
         "id": 652,
@@ -5448,7 +5476,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg23.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/gUiTjKc2kbo"
     },
     {
         "id": 653,
@@ -5458,7 +5487,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg24.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/eTgqg8NY3eg"
     },
     {
         "id": 654,
@@ -5468,7 +5498,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg25.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 500,
+        "video": "https://www.youtube.com/embed/dQBWgsxPPws"
     },
     {
         "id": 655,
@@ -5478,7 +5509,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg26.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/cD276Uoo2is"
     },
     {
         "id": 656,
@@ -5488,7 +5520,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg27.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/LIyhUeOBF7E"
     },
     {
         "id": 657,
@@ -5498,7 +5531,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg28.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/XmlfE6ZqPZA"
     },
     {
         "id": 658,
@@ -5508,7 +5542,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg29.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/XeSVUZms_aY"
     },
     {
         "id": 659,
@@ -5518,7 +5553,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg30.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/NB4Xjy8gLs8"
     },
     {
         "id": 660,
@@ -5528,7 +5564,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg31.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/Z1-N4wrynfU"
     },
     {
         "id": 661,
@@ -5538,7 +5575,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg32.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/oDa8dXUceJ8"
     },
     {
         "id": 662,
@@ -5548,7 +5586,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg33.jpg",
         "bestSeller": true,
-        "purchases": 500
+        "purchases": 500,
+        "video": "https://www.youtube.com/embed/MqC8_5tUkYU"
     },
     {
         "id": 663,
@@ -5558,7 +5597,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg34.jpg",
         "bestSeller": false,
-        "purchases": 600
+        "purchases": 600,
+        "video": "https://www.youtube.com/embed/pj1prAvMPPE"
     },
     {
         "id": 664,
@@ -5568,7 +5608,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg35.jpg",
         "bestSeller": false,
-        "purchases": 700
+        "purchases": 700,
+        "video": "https://www.youtube.com/embed/BS_d08I3wE0"
     },
     {
         "id": 665,
@@ -5578,7 +5619,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg36.jpg",
         "bestSeller": false,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/X9q1o63aXjU"
     },
     {
         "id": 666,
@@ -5588,7 +5630,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg37.jpg",
         "bestSeller": true,
-        "purchases": 100
+        "purchases": 100,
+        "video": "https://www.youtube.com/embed/6qQ2HgGMKkk"
     },
     {
         "id": 667,
@@ -5598,7 +5641,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg38.jpg",
         "bestSeller": false,
-        "purchases": 200
+        "purchases": 200,
+        "video": "https://www.youtube.com/embed/-Wb-FAJY8eQ"
     },
     {
         "id": 668,
@@ -5608,7 +5652,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg39.jpg",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/k__O9Yl8zXg"
     },
     {
         "id": 669,
@@ -5618,7 +5663,8 @@
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg40.jpg",
         "bestSeller": false,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/gKqdWspPT74"
     },
     {
         "id": 670,
@@ -6090,9 +6136,9 @@
         "category": "ao-thu-dong",
         "categoryName": "Áo thu đông",
         "image": "assets/image/ao-nu/thu-dong-nu/TDG14.jpg",
-        "video": "https://res.cloudinary.com/dkfvz7cau/video/upload/v1766125897/14_r7gmph.mp4",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/VPdvwKgJPgY"
     },
     {
         "id": 716,
@@ -6101,9 +6147,9 @@
         "category": "ao-thu-dong",
         "categoryName": "Áo thu đông",
         "image": "assets/image/ao-nu/thu-dong-nu/TDG15.jpg",
-        "video": "https://res.cloudinary.com/dkfvz7cau/video/upload/v1766125897/15_jhoqby.mp4",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/VQ7RqxK-AEY"
     },
     {
         "id": 717,
@@ -6112,9 +6158,9 @@
         "category": "ao-thu-dong",
         "categoryName": "Áo thu đông",
         "image": "assets/image/ao-nu/thu-dong-nu/TDG16.jpg",
-        "video": "https://res.cloudinary.com/dkfvz7cau/video/upload/v1766125900/16_qj6kkc.mp4",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/Qtd4ol4SzEY"
     },
     {
         "id": 718,
@@ -6167,9 +6213,9 @@
         "category": "ao-thu-dong",
         "categoryName": "Áo thu đông",
         "image": "assets/image/ao-nu/thu-dong-nu/TDG21.jpg",
-        "video": "https://www.youtube.com/embed/oIRKvxXf8js",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/wf9p_N-Pwmg"
     },
     {
         "id": 723,
@@ -6200,9 +6246,9 @@
         "category": "ao-thu-dong",
         "categoryName": "Áo thu đông",
         "image": "assets/image/ao-nu/thu-dong-nu/TDG24.jpg",
-        "video": "https://www.youtube.com/embed/xAT8yTK5g1I",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/__Lya4xglEc"
     },
     {
         "id": 726,
@@ -6255,9 +6301,9 @@
         "category": "ao-thu-dong",
         "categoryName": "Áo thu đông",
         "image": "assets/image/ao-nu/thu-dong-nu/TDG29.jpg",
-        "video": "https://www.youtube.com/embed/BeoVwZ1_d2I",
         "bestSeller": false,
-        "purchases": 300
+        "purchases": 300,
+        "video": "https://www.youtube.com/embed/MSVoonYbonw"
     },
     {
         "id": 292,
