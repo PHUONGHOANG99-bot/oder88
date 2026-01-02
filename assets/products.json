@@ -233,7 +233,7 @@
     {
         "id": 22,
         "name": "Boot Nữ BN2",
-        "price": "¥3100",
+        "price": "¥3300",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn2.jpg",
@@ -254,7 +254,7 @@
     {
         "id": 24,
         "name": "Boot Nữ BN4",
-        "price": "¥3300",
+        "price": "¥1500",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn4.jpg",
@@ -275,7 +275,7 @@
     {
         "id": 26,
         "name": "Boot Nữ BN12",
-        "price": "¥3300",
+        "price": "¥2000",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn12.jpg",
@@ -286,7 +286,7 @@
     {
         "id": 27,
         "name": "Boot Nữ BN13",
-        "price": "¥3300",
+        "price": "¥3500",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn13.jpg",
@@ -297,7 +297,7 @@
     {
         "id": 28,
         "name": "Boot Nữ BN3",
-        "price": "¥3100",
+        "price": "¥3300",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn3.jpg",
@@ -308,7 +308,7 @@
     {
         "id": 29,
         "name": "Boot Nữ BN14",
-        "price": "¥3300",
+        "price": "¥3500",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn14.jpg",
@@ -319,7 +319,7 @@
     {
         "id": 30,
         "name": "Boot Nữ BN5",
-        "price": "¥3300",
+        "price": "¥3100",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn5.jpg",
@@ -330,7 +330,7 @@
     {
         "id": 31,
         "name": "Boot Nữ BN6",
-        "price": "¥3300",
+        "price": "¥2000",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn6.jpg",
@@ -341,7 +341,7 @@
     {
         "id": 32,
         "name": "Boot Nữ BN7",
-        "price": "¥3300",
+        "price": "¥2400",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn7.jpg",
@@ -352,7 +352,7 @@
     {
         "id": 33,
         "name": "Boot Nữ BN8",
-        "price": "¥3100",
+        "price": "¥2400",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn8.jpg",
@@ -363,7 +363,7 @@
     {
         "id": 34,
         "name": "Boot Nữ BN9",
-        "price": "¥3100",
+        "price": "¥2100",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn9.jpg",
@@ -374,7 +374,7 @@
     {
         "id": 35,
         "name": "Boot Nữ BN10",
-        "price": "¥3100",
+        "price": "¥2000",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn10.jpg",
@@ -396,7 +396,7 @@
     {
         "id": 37,
         "name": "Boot Nữ BN15",
-        "price": "¥3300",
+        "price": "¥3500",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn15.jpg",
@@ -407,7 +407,7 @@
     {
         "id": 38,
         "name": "Boot Nữ BN16",
-        "price": "¥3200",
+        "price": "¥2100",
         "category": "boot-nu",
         "categoryName": "Boot nữ",
         "image": "assets/image/giay-nu/boot-nu/bn16.jpg",
