@@ -378,20 +378,8 @@ async function loadProducts() {
         const raw = JSON.parse(safeText);
         products = Array.isArray(raw) ? raw.map(sanitizeProduct) : [];
 
-        // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có và điều chỉnh giá
+        // Tự động thêm số lượt mua ngẫu nhiên cho sản phẩm chưa có
         products = products.map((product) => {
-            // Điều chỉnh giá cho áo đông nam và áo khoác đông nữ: trừ 800 yên
-            if (
-                product.category === "ao-dong-nam" ||
-                product.category === "ao-dong-nu"
-            ) {
-                const currentYen = getYenAmount(product.price);
-                if (currentYen > 800) {
-                    const newYen = currentYen - 800;
-                    product.price = `¥${newYen}`;
-                }
-            }
-
             if (!product.purchases) {
                 // Tạo số lượt mua ngẫu nhiên là số chẵn: 100, 200, 300, 400, 500, 600, 700, 800
                 const randomMultiplier = Math.floor(Math.random() * 8) + 1; // 1-8
