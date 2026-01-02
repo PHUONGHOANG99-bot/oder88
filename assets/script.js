@@ -4417,28 +4417,26 @@ function filterProducts() {
         const tab = activeTab.dataset.tab;
         activeTabName = tab;
         if (tab === "hot") {
+            // Sắp xếp theo số lượng mua và bestSeller, không giới hạn số lượng
             filtered = [...filtered]
                 .sort((a, b) => {
                     const diff = getPurchaseCount(b) - getPurchaseCount(a);
                     if (diff !== 0) return diff;
                     return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
-                })
-                .slice(0, Math.min(filtered.length, 30));
+                });
         } else if (tab === "trending") {
-            // Sản phẩm xu hướng - lấy top 30 sản phẩm bán chạy nhất, sau đó shuffle ngẫu nhiên
+            // Sản phẩm xu hướng - sắp xếp theo số lượng mua, sau đó shuffle ngẫu nhiên, không giới hạn số lượng
             filtered = [...filtered]
                 .sort((a, b) => {
                     const diff = getPurchaseCount(b) - getPurchaseCount(a);
                     if (diff !== 0) return diff;
                     return (b.bestSeller ? 1 : 0) - (a.bestSeller ? 1 : 0);
                 })
-                .slice(0, Math.min(filtered.length, 30))
                 .sort(() => Math.random() - 0.5); // Shuffle ngẫu nhiên
         } else if (tab === "recommended") {
-            // Shuffle and take top products
+            // Shuffle ngẫu nhiên, không giới hạn số lượng
             filtered = [...filtered]
-                .sort(() => Math.random() - 0.5)
-                .slice(0, Math.min(filtered.length, 30));
+                .sort(() => Math.random() - 0.5);
         }
     }
 
@@ -6508,25 +6506,125 @@ function setupEventListeners() {
     // Initialize clear button visibility on page load
     toggleClearButton();
 
-    // Slider controls
-    document.querySelector(".next-btn")?.addEventListener("click", nextSlide);
-    document.querySelector(".prev-btn")?.addEventListener("click", prevSlide);
-
     // Auto slide with smooth transition
     let slideInterval = setInterval(() => {
         nextSlide();
     }, 2000); // 2 seconds for faster slide transition
 
+    // Helper function to restart auto-play
+    function restartAutoPlay() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(() => {
+            nextSlide();
+        }, 2000);
+    }
+
+    // Helper function to stop auto-play
+    function stopAutoPlay() {
+        clearInterval(slideInterval);
+    }
+
+    // Slider controls with proper state management
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
+
+    // Handle next button
+    if (nextBtn) {
+        // Click handler
+        nextBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            nextSlide();
+        });
+
+        // Mouse events for desktop
+        nextBtn.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            stopAutoPlay();
+            nextBtn.classList.add("pressed");
+        });
+
+        nextBtn.addEventListener("mouseup", () => {
+            nextBtn.classList.remove("pressed");
+            restartAutoPlay();
+        });
+
+        nextBtn.addEventListener("mouseleave", () => {
+            nextBtn.classList.remove("pressed");
+            restartAutoPlay();
+        });
+
+        // Touch events for mobile
+        nextBtn.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            stopAutoPlay();
+            nextBtn.classList.add("pressed");
+        });
+
+        nextBtn.addEventListener("touchend", (e) => {
+            e.preventDefault();
+            nextBtn.classList.remove("pressed");
+            nextSlide();
+            restartAutoPlay();
+        });
+
+        nextBtn.addEventListener("touchcancel", () => {
+            nextBtn.classList.remove("pressed");
+            restartAutoPlay();
+        });
+    }
+
+    // Handle prev button
+    if (prevBtn) {
+        // Click handler
+        prevBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            prevSlide();
+        });
+
+        // Mouse events for desktop
+        prevBtn.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            stopAutoPlay();
+            prevBtn.classList.add("pressed");
+        });
+
+        prevBtn.addEventListener("mouseup", () => {
+            prevBtn.classList.remove("pressed");
+            restartAutoPlay();
+        });
+
+        prevBtn.addEventListener("mouseleave", () => {
+            prevBtn.classList.remove("pressed");
+            restartAutoPlay();
+        });
+
+        // Touch events for mobile
+        prevBtn.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            stopAutoPlay();
+            prevBtn.classList.add("pressed");
+        });
+
+        prevBtn.addEventListener("touchend", (e) => {
+            e.preventDefault();
+            prevBtn.classList.remove("pressed");
+            prevSlide();
+            restartAutoPlay();
+        });
+
+        prevBtn.addEventListener("touchcancel", () => {
+            prevBtn.classList.remove("pressed");
+            restartAutoPlay();
+        });
+    }
+
     const sliderContainer = document.querySelector(".slider-container");
     if (sliderContainer) {
         sliderContainer.addEventListener("mouseenter", () => {
-            clearInterval(slideInterval);
+            stopAutoPlay();
         });
         sliderContainer.addEventListener("mouseleave", () => {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(() => {
-                nextSlide();
-            }, 2000);
+            restartAutoPlay();
         });
     }
 
