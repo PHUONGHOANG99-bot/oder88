@@ -78,7 +78,7 @@ python -m SimpleHTTPServer 8000
 
 ## 📝 Danh mục sản phẩm
 
-- 👔 Áo Nam (Áo đông nam)
+- 👔 Áo Nam (Áo Khoác Mùa Đông)
 - 👗 Áo Nữ (Áo đông nữ)
 - 👖 Quần dài nữ
 - 👠 Giày Nữ (Boot nữ, Giày Sneaker)

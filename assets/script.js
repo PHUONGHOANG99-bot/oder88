@@ -1488,7 +1488,7 @@ function initCategories() {
         },
         {
             id: "ao-dong-nam",
-            name: "Áo đông nam",
+            name: "Áo Khoác Mùa Đông",
             icon: "fa-tshirt",
             image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -1706,7 +1706,7 @@ function renderSubcategories(categoryId) {
         "ao-nam": [
             {
                 id: "ao-dong-nam",
-                name: "Áo đông nam",
+                name: "Áo Khoác Mùa Đông",
                 icon: "fa-tshirt",
                 image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
                 color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -2036,7 +2036,7 @@ function initMobileCategories_OLD() {
         },
         {
             id: "ao-dong-nam",
-            name: "Áo đông nam",
+            name: "Áo Khoác Mùa Đông",
             icon: "fa-tshirt",
             image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
             color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -3020,7 +3020,7 @@ function renderMobileSubcategories(categoryId) {
         "ao-nam": [
             {
                 id: "ao-dong-nam",
-                name: "Áo đông nam",
+                name: "Áo Khoác Mùa Đông",
                 icon: "fa-tshirt",
                 image: "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
                 color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -6288,7 +6288,7 @@ function setupEventListeners() {
                     "giay-nu": "Giày nữ",
                     "giay-nam": "Giày Nam",
                     "ao-nam": "Áo Nam",
-                    "ao-dong-nam": "Áo đông nam",
+                    "ao-dong-nam": "Áo Khoác Mùa Đông",
                     "giay-sneaker-nam": "Sneaker Nam",
                     "boot-nu": "Boot nữ",
                     "giay-the-thao": "Sneaker Nữ",
