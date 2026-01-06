@@ -508,7 +508,7 @@
     {
         "id": 70,
         "name": "Chân Váy CV1",
-        "price": "¥1700",
+        "price": "¥1400",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv1.jpg",
@@ -519,7 +519,7 @@
     {
         "id": 71,
         "name": "Chân Váy CV2",
-        "price": "¥1800",
+        "price": "¥1200",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv2.jpg",
@@ -530,7 +530,7 @@
     {
         "id": 72,
         "name": "Chân Váy CV3",
-        "price": "¥1900",
+        "price": "¥1100",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv3.jpg",
@@ -541,7 +541,7 @@
     {
         "id": 73,
         "name": "Chân Váy CV4",
-        "price": "¥1700",
+        "price": "¥1900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv4.jpg",
@@ -552,7 +552,7 @@
     {
         "id": 74,
         "name": "Chân Váy CV5",
-        "price": "¥1800",
+        "price": "¥1400",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv5.jpg",
@@ -563,7 +563,7 @@
     {
         "id": 75,
         "name": "Chân Váy CV6",
-        "price": "¥1900",
+        "price": "¥2100",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv6.jpg",
@@ -585,7 +585,7 @@
     {
         "id": 77,
         "name": "Chân Váy CV8",
-        "price": "¥1800",
+        "price": "¥2100",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv8.jpg",
@@ -596,7 +596,7 @@
     {
         "id": 78,
         "name": "Chân Váy CV9",
-        "price": "¥1900",
+        "price": "¥1200",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv9.jpg",
@@ -607,7 +607,7 @@
     {
         "id": 79,
         "name": "Chân Váy CV10",
-        "price": "¥1700",
+        "price": "¥900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv10.jpg",
@@ -618,7 +618,7 @@
     {
         "id": 80,
         "name": "Chân Váy CV11",
-        "price": "¥1800",
+        "price": "¥1300",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv11.jpg",
@@ -629,7 +629,7 @@
     {
         "id": 81,
         "name": "Chân Váy CV12",
-        "price": "¥1900",
+        "price": "¥1300",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv12.jpg",
@@ -651,7 +651,7 @@
     {
         "id": 83,
         "name": "Chân Váy CV14",
-        "price": "¥1800",
+        "price": "¥1200",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv14.jpg",
@@ -662,7 +662,7 @@
     {
         "id": 84,
         "name": "Chân Váy CV15",
-        "price": "¥1900",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv15.jpg",
@@ -673,7 +673,7 @@
     {
         "id": 85,
         "name": "Chân Váy CV16",
-        "price": "¥1700",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv16.jpg",
@@ -684,7 +684,7 @@
     {
         "id": 86,
         "name": "Chân Váy CV17",
-        "price": "¥1800",
+        "price": "¥1200",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv17.jpg",
@@ -695,7 +695,7 @@
     {
         "id": 87,
         "name": "Chân Váy CV18",
-        "price": "¥1900",
+        "price": "¥1300",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv18.jpg",
@@ -706,7 +706,7 @@
     {
         "id": 88,
         "name": "Chân Váy CV19",
-        "price": "¥1700",
+        "price": "¥1300",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv19.jpg",
@@ -717,7 +717,7 @@
     {
         "id": 89,
         "name": "Chân Váy CV20",
-        "price": "¥1800",
+        "price": "¥900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv20.jpg",
@@ -728,7 +728,7 @@
     {
         "id": 90,
         "name": "Chân Váy CV21",
-        "price": "¥1900",
+        "price": "¥1400",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv21.jpg",
@@ -739,7 +739,7 @@
     {
         "id": 91,
         "name": "Chân Váy CV22",
-        "price": "¥1700",
+        "price": "¥1400",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv22.jpg",
@@ -750,7 +750,7 @@
     {
         "id": 92,
         "name": "Chân Váy CV23",
-        "price": "¥1800",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv23.jpg",
@@ -761,7 +761,7 @@
     {
         "id": 93,
         "name": "Chân Váy CV24",
-        "price": "¥1900",
+        "price": "¥1400",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv24.jpg",
@@ -772,7 +772,7 @@
     {
         "id": 94,
         "name": "Chân Váy CV25",
-        "price": "¥1700",
+        "price": "¥1400",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv25.jpg",
@@ -783,7 +783,7 @@
     {
         "id": 95,
         "name": "Chân Váy CV26",
-        "price": "¥1800",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv26.jpg",
@@ -794,7 +794,7 @@
     {
         "id": 96,
         "name": "Chân Váy CV27",
-        "price": "¥1900",
+        "price": "¥1600",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv27.jpg",
@@ -805,7 +805,7 @@
     {
         "id": 97,
         "name": "Chân Váy CV28",
-        "price": "¥1700",
+        "price": "¥1300",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv28.jpg",
@@ -816,7 +816,7 @@
     {
         "id": 98,
         "name": "Chân Váy CV29",
-        "price": "¥1800",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv29.jpg",
@@ -827,7 +827,7 @@
     {
         "id": 99,
         "name": "Chân Váy CV30",
-        "price": "¥1900",
+        "price": "¥900",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv30.jpg",
@@ -838,7 +838,7 @@
     {
         "id": 100,
         "name": "Chân Váy CV31",
-        "price": "¥1700",
+        "price": "¥1100",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv31.jpg",
@@ -849,7 +849,7 @@
     {
         "id": 101,
         "name": "Chân Váy CV32",
-        "price": "¥1800",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv32.jpg",
@@ -860,7 +860,7 @@
     {
         "id": 102,
         "name": "Chân Váy CV33",
-        "price": "¥1900",
+        "price": "¥1200",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv33.jpg",
@@ -871,7 +871,7 @@
     {
         "id": 103,
         "name": "Chân Váy CV34",
-        "price": "¥1700",
+        "price": "¥1200",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv34.jpg",
@@ -882,7 +882,7 @@
     {
         "id": 104,
         "name": "Chân Váy CV35",
-        "price": "¥1800",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv35.jpg",
@@ -893,7 +893,7 @@
     {
         "id": 105,
         "name": "Chân Váy CV36",
-        "price": "¥1900",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv36.jpg",
@@ -904,7 +904,7 @@
     {
         "id": 106,
         "name": "Chân Váy CV37",
-        "price": "¥1700",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv37.jpg",
@@ -915,7 +915,7 @@
     {
         "id": 107,
         "name": "Chân Váy CV38",
-        "price": "¥1800",
+        "price": "¥2000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv38.jpg",
@@ -926,7 +926,7 @@
     {
         "id": 108,
         "name": "Chân Váy CV39",
-        "price": "¥1900",
+        "price": "¥1000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv39.jpg",
@@ -937,7 +937,7 @@
     {
         "id": 109,
         "name": "Chân Váy CV40",
-        "price": "¥1700",
+        "price": "¥2000",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv40.jpg",
@@ -948,7 +948,7 @@
     {
         "id": 110,
         "name": "Chân Váy CV41",
-        "price": "¥1800",
+        "price": "¥2300",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv41.jpg",
@@ -959,7 +959,7 @@
     {
         "id": 111,
         "name": "Chân Váy CV42",
-        "price": "¥1900",
+        "price": "¥1200",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv42.jpg",
@@ -970,7 +970,7 @@
     {
         "id": 112,
         "name": "Chân Váy CV43",
-        "price": "¥1700",
+        "price": "¥1800",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv43.jpg",
@@ -981,7 +981,7 @@
     {
         "id": 113,
         "name": "Chân Váy CV44",
-        "price": "¥1800",
+        "price": "¥1100",
         "category": "chan-vay",
         "categoryName": "Chân váy",
         "image": "assets/image/vay/chan-vay/cv44.jpg",
@@ -994,7 +994,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT1",
         "price": "¥4332",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
         "bestSeller": true,
         "purchases": 420
@@ -1004,7 +1004,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT2",
         "price": "¥3677",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt2.jpg",
         "bestSeller": true,
         "purchases": 385
@@ -1014,7 +1014,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT3",
         "price": "¥4256",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt3.jpg",
         "bestSeller": false,
         "purchases": 350
@@ -1024,7 +1024,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT4",
         "price": "¥3990",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt4.jpg",
         "bestSeller": true,
         "purchases": 445
@@ -1034,7 +1034,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT5",
         "price": "¥3735",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt5.jpg",
         "bestSeller": true,
         "purchases": 398
@@ -1400,7 +1400,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT6",
         "price": "¥3715",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt6.jpg",
         "bestSeller": true,
         "purchases": 412
@@ -1410,7 +1410,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT7",
         "price": "¥4341",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt7.jpg",
         "bestSeller": true,
         "purchases": 465
@@ -1420,7 +1420,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT8",
         "price": "¥4230",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt8.jpg",
         "bestSeller": false,
         "purchases": 368
@@ -1430,7 +1430,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT9",
         "price": "¥3879",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt9.jpg",
         "bestSeller": true,
         "purchases": 395
@@ -1440,50 +1440,37 @@
         "name": "Áo Khoác Nam Mùa Đông ADT10",
         "price": "¥4229",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt10.jpg",
         "bestSeller": true,
-        "purchases": 428,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt10.jpg",
-            "assets/image/ao-nam/anh-adn/10.1.jpg",
-            "assets/image/ao-nam/anh-adn/10.2.jpg"
-        ]
+        "purchases": 428
     },
     {
         "id": 159,
         "name": "Áo Khoác Nam Mùa Đông ADT11",
         "price": "¥3546",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt11.jpg",
         "bestSeller": false,
-        "purchases": 342,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt11.jpg",
-            "assets/image/ao-nam/anh-adn/11.1.jpg"
-        ]
+        "purchases": 342
     },
     {
         "id": 160,
         "name": "Áo Khoác Nam Mùa Đông ADT12",
         "price": "¥3953",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt12.jpg",
         "bestSeller": true,
-        "purchases": 410,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt12.jpg",
-            "assets/image/ao-nam/anh-adn/12.1.jpg"
-        ]
+        "purchases": 410
     },
     {
         "id": 161,
         "name": "Áo Khoác Nam Mùa Đông ADT13",
         "price": "¥3535",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt13.jpg",
         "bestSeller": true,
         "purchases": 388
@@ -1493,109 +1480,77 @@
         "name": "Áo Khoác Nam Mùa Đông ADT14",
         "price": "¥4437",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt14.jpg",
         "bestSeller": false,
-        "purchases": 355,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt14.jpg",
-            "assets/image/ao-nam/anh-adn/14.1.jpg"
-        ]
+        "purchases": 355
     },
     {
         "id": 163,
         "name": "Áo Khoác Nam Mùa Đông ADT15",
         "price": "¥4444",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt15.jpg",
         "bestSeller": true,
-        "purchases": 402,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt15.jpg",
-            "assets/image/ao-nam/anh-adn/15.1.jpg"
-        ]
+        "purchases": 402
     },
     {
         "id": 164,
         "name": "Áo Khoác Nam Mùa Đông ADT16",
         "price": "¥3894",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt16.jpg",
         "bestSeller": true,
-        "purchases": 435,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt16.jpg",
-            "assets/image/ao-nam/anh-adn/16.1.jpg",
-            "assets/image/ao-nam/anh-adn/16.2.jpg",
-            "assets/image/ao-nam/anh-adn/16.3.jpg"
-        ]
+        "purchases": 435
     },
     {
         "id": 165,
         "name": "Áo Khoác Nam Mùa Đông ADT17",
         "price": "¥3789",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt17.jpg",
         "bestSeller": true,
-        "purchases": 415,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt17.jpg",
-            "assets/image/ao-nam/anh-adn/17.1.jpg",
-            "assets/image/ao-nam/anh-adn/17.2.jpg"
-        ]
+        "purchases": 415
     },
     {
         "id": 166,
         "name": "Áo Khoác Nam Mùa Đông ADT18",
         "price": "¥4097",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt18.jpg",
         "bestSeller": false,
-        "purchases": 365,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt18.jpg",
-            "assets/image/ao-nam/anh-adn/18.1.jpg"
-        ]
+        "purchases": 365
     },
     {
         "id": 167,
         "name": "Áo Khoác Nam Mùa Đông ADT19",
         "price": "¥4289",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt19.jpg",
         "bestSeller": true,
-        "purchases": 392,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt19.jpg",
-            "assets/image/ao-nam/anh-adn/19.1.jpg"
-        ]
+        "purchases": 392
     },
     {
         "id": 168,
         "name": "Áo Khoác Nam Mùa Đông ADT20",
         "price": "¥3503",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt20.jpg",
         "bestSeller": true,
-        "purchases": 405,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt20.jpg",
-            "assets/image/ao-nam/anh-adn/20.1.jpg",
-            "assets/image/ao-nam/anh-adn/20.2.jpg"
-        ]
+        "purchases": 405
     },
     {
         "id": 169,
         "name": "Áo Khoác Nam Mùa Đông ADT21",
         "price": "¥4351",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt21.jpg",
         "bestSeller": true,
         "purchases": 418
@@ -1605,37 +1560,27 @@
         "name": "Áo Khoác Nam Mùa Đông ADT22",
         "price": "¥3956",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt22.jpg",
         "bestSeller": true,
-        "purchases": 400,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt22.jpg",
-            "assets/image/ao-nam/anh-adn/22.1.jpg"
-        ]
+        "purchases": 400
     },
     {
         "id": 171,
         "name": "Áo Khoác Nam Mùa Đông ADT23",
         "price": "¥3659",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt23.jpg",
         "bestSeller": true,
-        "purchases": 385,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt23.jpg",
-            "assets/image/ao-nam/anh-adn/23.1.jpg",
-            "assets/image/ao-nam/anh-adn/23.2.jpg",
-            "assets/image/ao-nam/anh-adn/23.3.jpg"
-        ]
+        "purchases": 385
     },
     {
         "id": 172,
         "name": "Áo Khoác Nam Mùa Đông ADT24",
         "price": "¥4477",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt24.jpg",
         "bestSeller": false,
         "purchases": 360
@@ -1645,108 +1590,77 @@
         "name": "Áo Khoác Nam Mùa Đông ADT25",
         "price": "¥4126",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt25.jpg",
         "bestSeller": true,
-        "purchases": 395,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt25.jpg",
-            "assets/image/ao-nam/anh-adn/25.1.jpg",
-            "assets/image/ao-nam/anh-adn/25.2.jpg"
-        ]
+        "purchases": 395
     },
     {
         "id": 174,
         "name": "Áo Khoác Nam Mùa Đông ADT26",
         "price": "¥4124",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt26.jpg",
         "bestSeller": true,
-        "purchases": 408,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt26.jpg",
-            "assets/image/ao-nam/anh-adn/26.1.jpg"
-        ]
+        "purchases": 408
     },
     {
         "id": 175,
         "name": "Áo Khoác Nam Mùa Đông ADT27",
         "price": "¥3643",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt27.jpg",
         "bestSeller": false,
-        "purchases": 372,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt27.jpg",
-            "assets/image/ao-nam/anh-adn/27.1.jpg"
-        ]
+        "purchases": 372
     },
     {
         "id": 176,
         "name": "Áo Khoác Nam Mùa Đông ADT28",
         "price": "¥4276",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt28.jpg",
         "bestSeller": true,
-        "purchases": 425,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt28.jpg",
-            "assets/image/ao-nam/anh-adn/28.1.jpg",
-            "assets/image/ao-nam/anh-adn/28.2.jpg"
-        ]
+        "purchases": 425
     },
     {
         "id": 177,
         "name": "Áo Khoác Nam Mùa Đông ADT29",
         "price": "¥3511",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt29.jpg",
         "bestSeller": false,
-        "purchases": 358,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt29.jpg",
-            "assets/image/ao-nam/anh-adn/29.1.jpg",
-            "assets/image/ao-nam/anh-adn/29.2.jpg"
-        ]
+        "purchases": 358
     },
     {
         "id": 178,
         "name": "Áo Khoác Nam Mùa Đông ADT30",
         "price": "¥4133",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt30.jpg",
         "bestSeller": true,
-        "purchases": 398,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt30.jpg",
-            "assets/image/ao-nam/anh-adn/30.1.jpg"
-        ]
+        "purchases": 398
     },
     {
         "id": 179,
         "name": "Áo Khoác Nam Mùa Đông ADT31",
         "price": "¥4314",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt31.jpg",
         "bestSeller": true,
-        "purchases": 412,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt31.jpg",
-            "assets/image/ao-nam/anh-adn/31.1.jpg"
-        ]
+        "purchases": 412
     },
     {
         "id": 180,
         "name": "Áo Khoác Nam Mùa Đông ADT32",
         "price": "¥4055",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt32.jpg",
         "bestSeller": true,
         "purchases": 700
@@ -1756,7 +1670,7 @@
         "name": "Áo Khoác Nam Mùa Đông ADT33",
         "price": "¥4315",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt33.jpg",
         "bestSeller": false,
         "purchases": 365
@@ -1766,65 +1680,47 @@
         "name": "Áo Khoác Nam Mùa Đông ADT34",
         "price": "¥3782",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt34.jpg",
         "bestSeller": true,
-        "purchases": 450,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt34.jpg",
-            "assets/image/ao-nam/anh-adn/34.1.jpg"
-        ]
+        "purchases": 450
     },
     {
         "id": 183,
         "name": "Áo Khoác Nam Mùa Đông ADT35",
         "price": "¥3791",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt35.jpg",
         "bestSeller": true,
-        "purchases": 430,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt35.jpg",
-            "assets/image/ao-nam/anh-adn/35.1.jpg"
-        ]
+        "purchases": 430
     },
     {
         "id": 184,
         "name": "Áo Khoác Nam Mùa Đông ADT36",
         "price": "¥4463",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt36.jpg",
         "bestSeller": false,
-        "purchases": 375,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt36.jpg",
-            "assets/image/ao-nam/anh-adn/36.1.jpg",
-            "assets/image/ao-nam/anh-adn/36.2.jpg"
-        ]
+        "purchases": 375
     },
     {
         "id": 185,
         "name": "Áo Khoác Nam Mùa Đông ADT37",
         "price": "¥3700",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt37.jpg",
         "bestSeller": true,
-        "purchases": 420,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt37.jpg",
-            "assets/image/ao-nam/anh-adn/37.1.jpg",
-            "assets/image/ao-nam/anh-adn/37.2.jpg"
-        ]
+        "purchases": 420
     },
     {
         "id": 186,
         "name": "Áo Khoác Nam Mùa Đông ADT38",
         "price": "¥4041",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt38.jpg",
         "bestSeller": true,
         "purchases": 445
@@ -1834,121 +1730,87 @@
         "name": "Áo Khoác Nam Mùa Đông ADT39",
         "price": "¥3991",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt39.jpg",
         "bestSeller": false,
-        "purchases": 380,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt39.jpg",
-            "assets/image/ao-nam/anh-adn/39.1.jpg"
-        ]
+        "purchases": 380
     },
     {
         "id": 188,
         "name": "Áo Khoác Nam Mùa Đông ADT40",
         "price": "¥3988",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt40.jpg",
         "bestSeller": true,
-        "purchases": 435,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt40.jpg",
-            "assets/image/ao-nam/anh-adn/40.1.jpg"
-        ]
+        "purchases": 435
     },
     {
         "id": 189,
         "name": "Áo Khoác Nam Mùa Đông ADT41",
         "price": "¥4133",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt41.jpg",
         "bestSeller": true,
-        "purchases": 400,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt41.jpg",
-            "assets/image/ao-nam/anh-adn/41.1.jpg"
-        ]
+        "purchases": 400
     },
     {
         "id": 190,
         "name": "Áo Khoác Nam Mùa Đông ADT42",
         "price": "¥4049",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt42.jpg",
         "bestSeller": true,
-        "purchases": 415,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt42.jpg",
-            "assets/image/ao-nam/anh-adn/42.1.jpg"
-        ]
+        "purchases": 415
     },
     {
         "id": 191,
         "name": "Áo Khoác Nam Mùa Đông ADT43",
         "price": "¥3857",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt43.jpg",
         "bestSeller": false,
-        "purchases": 370,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt43.jpg",
-            "assets/image/ao-nam/anh-adn/43.1.jpg"
-        ]
+        "purchases": 370
     },
     {
         "id": 192,
         "name": "Áo Khoác Nam Mùa Đông ADT44",
         "price": "¥4379",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt44.jpg",
         "bestSeller": true,
-        "purchases": 405,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt44.jpg",
-            "assets/image/ao-nam/anh-adn/44.2.jpg"
-        ]
+        "purchases": 405
     },
     {
         "id": 193,
         "name": "Áo Khoác Nam Mùa Đông ADT45",
         "price": "¥3623",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt45.jpg",
         "bestSeller": true,
-        "purchases": 425,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt45.jpg",
-            "assets/image/ao-nam/anh-adn/45.1.jpg",
-            "assets/image/ao-nam/anh-adn/45.2.jpg"
-        ]
+        "purchases": 425
     },
     {
         "id": 194,
         "name": "Áo Khoác Nam Mùa Đông ADT46",
         "price": "¥4471",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt46.jpg",
         "bestSeller": true,
-        "purchases": 460,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt46.jpg",
-            "assets/image/ao-nam/anh-adn/46.1.jpg",
-            "assets/image/ao-nam/anh-adn/46.2.jpg"
-        ]
+        "purchases": 460
     },
     {
         "id": 195,
         "name": "Áo Khoác Nam Mùa Đông ADT47",
         "price": "¥3982",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt47.jpg",
         "bestSeller": false,
         "purchases": 390
@@ -1958,448 +1820,310 @@
         "name": "Áo Khoác Nam Mùa Đông ADT48",
         "price": "¥4312",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt48.jpg",
         "bestSeller": true,
-        "purchases": 410,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt48.jpg",
-            "assets/image/ao-nam/anh-adn/48.1.jpg"
-        ]
+        "purchases": 410
     },
     {
         "id": 197,
         "name": "Áo Khoác Nam Mùa Đông ADT49",
         "price": "¥3749",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt49.jpg",
         "bestSeller": true,
-        "purchases": 480,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt49.jpg",
-            "assets/image/ao-nam/anh-adn/49.1.jpg"
-        ]
+        "purchases": 480
     },
     {
         "id": 198,
         "name": "Áo Khoác Nam Mùa Đông ADT50",
         "price": "¥4201",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt50.jpg",
         "bestSeller": true,
-        "purchases": 455,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt50.jpg",
-            "assets/image/ao-nam/anh-adn/50.1.jpg"
-        ]
+        "purchases": 455
     },
     {
         "id": 199,
         "name": "Áo Khoác Nam Mùa Đông ADT51",
         "price": "¥3600",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt51.jpg",
         "bestSeller": false,
-        "purchases": 385,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt51.jpg",
-            "assets/image/ao-nam/anh-adn/51.1.jpg",
-            "assets/image/ao-nam/anh-adn/51.2.jpg"
-        ]
+        "purchases": 385
     },
     {
         "id": 200,
         "name": "Áo Khoác Nam Mùa Đông ADT52",
         "price": "¥3578",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt52.jpg",
         "bestSeller": true,
-        "purchases": 400,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt52.jpg",
-            "assets/image/ao-nam/anh-adn/52.1.jpg",
-            "assets/image/ao-nam/anh-adn/52.2.jpg"
-        ]
+        "purchases": 400
     },
     {
         "id": 201,
         "name": "Áo Khoác Nam Mùa Đông ADT53",
         "price": "¥3510",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt53.jpg",
         "bestSeller": true,
-        "purchases": 430,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt53.jpg",
-            "assets/image/ao-nam/anh-adn/53.1.jpg",
-            "assets/image/ao-nam/anh-adn/53.2.jpg"
-        ]
+        "purchases": 430
     },
     {
         "id": 202,
         "name": "Áo Khoác Nam Mùa Đông ADT54",
         "price": "¥4013",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt54.jpg",
         "bestSeller": false,
-        "purchases": 360,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt54.jpg",
-            "assets/image/ao-nam/anh-adn/54.1.jpg"
-        ]
+        "purchases": 360
     },
     {
         "id": 203,
         "name": "Áo Khoác Nam Mùa Đông ADT55",
         "price": "¥3623",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt55.jpg",
         "bestSeller": true,
-        "purchases": 395,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt55.jpg",
-            "assets/image/ao-nam/anh-adn/55.1.jpg",
-            "assets/image/ao-nam/anh-adn/55.2.jpg"
-        ]
+        "purchases": 395
     },
     {
         "id": 204,
         "name": "Áo Khoác Nam Mùa Đông ADT56",
         "price": "¥3587",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt56.jpg",
         "bestSeller": true,
-        "purchases": 600,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt56.jpg",
-            "assets/image/ao-nam/anh-adn/56.1.jpg",
-            "assets/image/ao-nam/anh-adn/56.2.jpg"
-        ]
+        "purchases": 600
     },
     {
         "id": 205,
         "name": "Áo Khoác Nam Mùa Đông ADT57",
         "price": "¥3905",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt57.jpg",
         "bestSeller": true,
-        "purchases": 405,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt57.jpg",
-            "assets/image/ao-nam/anh-adn/57.1.jpg",
-            "assets/image/ao-nam/anh-adn/57.2.jpg"
-        ]
+        "purchases": 405
     },
     {
         "id": 206,
         "name": "Áo Khoác Nam Mùa Đông ADT58",
         "price": "¥4382",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt58.jpg",
         "bestSeller": true,
-        "purchases": 425,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt58.jpg",
-            "assets/image/ao-nam/anh-adn/58.1.jpg",
-            "assets/image/ao-nam/anh-adn/58.2.jpg"
-        ]
+        "purchases": 425
     },
     {
         "id": 207,
         "name": "Áo Khoác Nam Mùa Đông ADT59",
         "price": "¥4455",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt59.jpg",
         "bestSeller": true,
-        "purchases": 450,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt59.jpg",
-            "assets/image/ao-nam/anh-adn/59.1.jpg",
-            "assets/image/ao-nam/anh-adn/59.2.jpg"
-        ]
+        "purchases": 450
     },
     {
         "id": 208,
         "name": "Áo Khoác Nam Mùa Đông ADT60",
         "price": "¥3660",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt60.jpg",
         "bestSeller": false,
-        "purchases": 375,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt60.jpg",
-            "assets/image/ao-nam/anh-adn/60.1.jpg",
-            "assets/image/ao-nam/anh-adn/60.2.jpg"
-        ]
+        "purchases": 375
     },
     {
         "id": 209,
         "name": "Áo Khoác Nam Mùa Đông ADT61",
         "price": "¥4053",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt61.jpg",
         "bestSeller": true,
-        "purchases": 470,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt61.jpg",
-            "assets/image/ao-nam/anh-adn/61.1.jpg",
-            "assets/image/ao-nam/anh-adn/61.2.jpg"
-        ]
+        "purchases": 470
     },
     {
         "id": 210,
         "name": "Áo Khoác Nam Mùa Đông ADT62",
         "price": "¥3903",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt62.jpg",
         "bestSeller": true,
-        "purchases": 485,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt62.jpg",
-            "assets/image/ao-nam/anh-adn/62.1.jpg"
-        ]
+        "purchases": 485
     },
     {
         "id": 211,
         "name": "Áo Khoác Nam Mùa Đông ADT63",
         "price": "¥4283",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt63.jpg",
         "bestSeller": true,
-        "purchases": 410,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt63.jpg",
-            "assets/image/ao-nam/anh-adn/63.1.jpg"
-        ]
+        "purchases": 410
     },
     {
         "id": 212,
         "name": "Áo Khoác Nam Mùa Đông ADT64",
         "price": "¥4124",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt64.jpg",
         "bestSeller": true,
-        "purchases": 400,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt64.jpg",
-            "assets/image/ao-nam/anh-adn/64.1.jpg"
-        ]
+        "purchases": 400
     },
     {
         "id": 213,
         "name": "Áo Khoác Nam Mùa Đông ADT65",
         "price": "¥4456",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt65.jpg",
         "bestSeller": false,
-        "purchases": 380,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt65.jpg",
-            "assets/image/ao-nam/anh-adn/65.1.jpg"
-        ]
+        "purchases": 380
     },
     {
         "id": 214,
         "name": "Áo Khoác Nam Mùa Đông ADT66",
         "price": "¥4306",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt66.jpg",
         "bestSeller": true,
-        "purchases": 435,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt66.jpg",
-            "assets/image/ao-nam/anh-adn/66.1.jpg"
-        ]
+        "purchases": 435
     },
     {
         "id": 215,
         "name": "Áo Khoác Nam Mùa Đông ADT67",
         "price": "¥4001",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt67.jpg",
         "bestSeller": true,
-        "purchases": 495,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt67.jpg",
-            "assets/image/ao-nam/anh-adn/67.1.jpg"
-        ]
+        "purchases": 495
     },
     {
         "id": 216,
         "name": "Áo Khoác Nam Mùa Đông ADT68",
         "price": "¥3950",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt68.jpg",
         "bestSeller": true,
-        "purchases": 475,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt68.jpg",
-            "assets/image/ao-nam/anh-adn/68.1.jpg"
-        ]
+        "purchases": 475
     },
     {
         "id": 217,
         "name": "Áo Khoác Nam Mùa Đông ADT69",
         "price": "¥3572",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt69.jpg",
         "bestSeller": true,
-        "purchases": 420,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt69.jpg",
-            "assets/image/ao-nam/anh-adn/69.1.jpg",
-            "assets/image/ao-nam/anh-adn/69.2.jpg"
-        ]
+        "purchases": 420
     },
     {
         "id": 218,
         "name": "Áo Khoác Nam Mùa Đông ADT70",
         "price": "¥3759",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt70.jpg",
         "bestSeller": false,
-        "purchases": 390,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt70.jpg",
-            "assets/image/ao-nam/anh-adn/70.1.jpg"
-        ]
+        "purchases": 390
     },
     {
         "id": 219,
         "name": "Áo Khoác Nam Mùa Đông ADT71",
         "price": "¥3966",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt71.jpg",
         "bestSeller": true,
-        "purchases": 405,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt71.jpg",
-            "assets/image/ao-nam/anh-adn/71.1.jpg",
-            "assets/image/ao-nam/anh-adn/71.2.jpg"
-        ]
+        "purchases": 405
     },
     {
         "id": 220,
         "name": "Áo Khoác Nam Mùa Đông ADT72",
         "price": "¥4456",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt72.jpg",
         "bestSeller": true,
-        "purchases": 445,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt72.jpg",
-            "assets/image/ao-nam/anh-adn/72.1.jpg"
-        ]
+        "purchases": 445
     },
     {
         "id": 221,
         "name": "Áo Khoác Nam Mùa Đông ADT73",
         "price": "¥3983",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt73.jpg",
         "bestSeller": true,
-        "purchases": 410,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt73.jpg",
-            "assets/image/ao-nam/anh-adn/73.1.jpg"
-        ]
+        "purchases": 410
     },
     {
         "id": 222,
         "name": "Áo Khoác Nam Mùa Đông ADT74",
         "price": "¥3822",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt74.jpg",
         "bestSeller": false,
-        "purchases": 365,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt74.jpg",
-            "assets/image/ao-nam/anh-adn/74.1.jpg",
-            "assets/image/ao-nam/anh-adn/74.2.jpg"
-        ]
+        "purchases": 365
     },
     {
         "id": 223,
         "name": "Áo Khoác Nam Mùa Đông ADT75",
         "price": "¥4058",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt75.jpg",
         "bestSeller": true,
-        "purchases": 430,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt75.jpg",
-            "assets/image/ao-nam/anh-adn/75.1.jpg"
-        ]
+        "purchases": 430
     },
     {
         "id": 224,
         "name": "Áo Khoác Nam Mùa Đông ADT76",
         "price": "¥3696",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt76.jpg",
         "bestSeller": true,
-        "purchases": 405,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt76.jpg",
-            "assets/image/ao-nam/anh-adn/76.1.jpg"
-        ]
+        "purchases": 405
     },
     {
         "id": 225,
         "name": "Áo Khoác Nam Mùa Đông ADT77",
         "price": "¥3864",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt77.jpg",
         "bestSeller": false,
-        "purchases": 375,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt77.jpg",
-            "assets/image/ao-nam/anh-adn/77.1.jpg"
-        ]
+        "purchases": 375
     },
     {
         "id": 226,
         "name": "Áo Khoác Nam Mùa Đông ADT78",
         "price": "¥3939",
         "category": "ao-dong-nam",
-        "categoryName": "Áo đông nam",
+        "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt78.jpg",
         "bestSeller": true,
-        "purchases": 390,
-        "images": [
-            "assets/image/ao-nam/ao-dong-nam/adt78.jpg",
-            "assets/image/ao-nam/anh-adn/78.1.jpg",
-            "assets/image/ao-nam/anh-adn/78.2.jpg"
-        ]
+        "purchases": 390
     },
     {
         "id": 227,
