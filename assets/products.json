@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Quần Dài Nữ JG1",
-        "price": "¥1800",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg1.jpg",
@@ -13,7 +13,7 @@
     {
         "id": 2,
         "name": "Quần Dài Nữ JG2",
-        "price": "¥1900",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg2.jpg",
@@ -24,7 +24,7 @@
     {
         "id": 3,
         "name": "Quần Dài Nữ JG3",
-        "price": "¥2000",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg3.jpg",
@@ -35,7 +35,7 @@
     {
         "id": 4,
         "name": "Quần Dài Nữ JG4",
-        "price": "¥2100",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg4.jpg",
@@ -46,7 +46,7 @@
     {
         "id": 5,
         "name": "Quần Dài Nữ JG5",
-        "price": "¥1800",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg5.jpg",
@@ -57,7 +57,7 @@
     {
         "id": 6,
         "name": "Quần Dài Nữ JG6",
-        "price": "¥1900",
+        "price": "¥1000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg6.jpg",
@@ -68,7 +68,7 @@
     {
         "id": 7,
         "name": "Quần Dài Nữ JG7",
-        "price": "¥2000",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg7.jpg",
@@ -79,7 +79,7 @@
     {
         "id": 8,
         "name": "Quần Dài Nữ JG8",
-        "price": "¥2100",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg8.jpg",
@@ -90,7 +90,7 @@
     {
         "id": 9,
         "name": "Quần Dài Nữ JG9",
-        "price": "¥1800",
+        "price": "¥1400",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg9.jpg",
@@ -101,7 +101,7 @@
     {
         "id": 10,
         "name": "Quần Dài Nữ JG10",
-        "price": "¥1900",
+        "price": "¥1400",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg10.jpg",
@@ -112,7 +112,7 @@
     {
         "id": 11,
         "name": "Quần Dài Nữ JG11",
-        "price": "¥2000",
+        "price": "¥2300",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg11.jpg",
@@ -123,7 +123,7 @@
     {
         "id": 12,
         "name": "Quần Dài Nữ JG12",
-        "price": "¥2100",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg12.jpg",
@@ -134,7 +134,7 @@
     {
         "id": 13,
         "name": "Quần Dài Nữ JG13",
-        "price": "¥1800",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg13.jpg",
@@ -145,7 +145,7 @@
     {
         "id": 14,
         "name": "Quần Dài Nữ JG14",
-        "price": "¥1900",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg14.jpg",
@@ -156,7 +156,7 @@
     {
         "id": 15,
         "name": "Quần Dài Nữ JG15",
-        "price": "¥2000",
+        "price": "¥1800",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg15.jpg",
@@ -167,7 +167,7 @@
     {
         "id": 16,
         "name": "Quần Dài Nữ JG16",
-        "price": "¥2100",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg16.jpg",
@@ -178,7 +178,7 @@
     {
         "id": 17,
         "name": "Quần Dài Nữ JG17",
-        "price": "¥1800",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg17.jpg",
@@ -189,7 +189,7 @@
     {
         "id": 18,
         "name": "Quần Dài Nữ JG18",
-        "price": "¥1900",
+        "price": "¥1400",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg18.jpg",
@@ -200,7 +200,7 @@
     {
         "id": 19,
         "name": "Quần Dài Nữ JG19",
-        "price": "¥2000",
+        "price": "¥1700",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg19.jpg",
@@ -211,7 +211,7 @@
     {
         "id": 20,
         "name": "Quần Dài Nữ JG20",
-        "price": "¥2100",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg20.jpg",
@@ -5173,7 +5173,7 @@
     {
         "id": 650,
         "name": "Quần Dài Nữ JG21",
-        "price": "¥1800",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg21.jpg",
@@ -5184,7 +5184,7 @@
     {
         "id": 651,
         "name": "Quần Dài Nữ JG22",
-        "price": "¥1900",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg22.jpg",
@@ -5195,7 +5195,7 @@
     {
         "id": 652,
         "name": "Quần Dài Nữ JG23",
-        "price": "¥2000",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg23.jpg",
@@ -5206,7 +5206,7 @@
     {
         "id": 653,
         "name": "Quần Dài Nữ JG24",
-        "price": "¥2100",
+        "price": "¥1400",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg24.jpg",
@@ -5217,7 +5217,7 @@
     {
         "id": 654,
         "name": "Quần Dài Nữ JG25",
-        "price": "¥1800",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg25.jpg",
@@ -5228,7 +5228,7 @@
     {
         "id": 655,
         "name": "Quần Dài Nữ JG26",
-        "price": "¥1900",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg26.jpg",
@@ -5239,7 +5239,7 @@
     {
         "id": 656,
         "name": "Quần Dài Nữ JG27",
-        "price": "¥2000",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg27.jpg",
@@ -5250,7 +5250,7 @@
     {
         "id": 657,
         "name": "Quần Dài Nữ JG28",
-        "price": "¥2100",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg28.jpg",
@@ -5261,7 +5261,7 @@
     {
         "id": 658,
         "name": "Quần Dài Nữ JG29",
-        "price": "¥1800",
+        "price": "¥1600",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg29.jpg",
@@ -5272,7 +5272,7 @@
     {
         "id": 659,
         "name": "Quần Dài Nữ JG30",
-        "price": "¥1900",
+        "price": "¥2000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg30.jpg",
@@ -5294,7 +5294,7 @@
     {
         "id": 661,
         "name": "Quần Dài Nữ JG32",
-        "price": "¥2100",
+        "price": "¥1000",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg32.jpg",
@@ -5305,7 +5305,7 @@
     {
         "id": 662,
         "name": "Quần Dài Nữ JG33",
-        "price": "¥1800",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg33.jpg",
@@ -5316,7 +5316,7 @@
     {
         "id": 663,
         "name": "Quần Dài Nữ JG34",
-        "price": "¥1900",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg34.jpg",
@@ -5327,7 +5327,7 @@
     {
         "id": 664,
         "name": "Quần Dài Nữ JG35",
-        "price": "¥2000",
+        "price": "¥1500",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg35.jpg",
@@ -5349,7 +5349,7 @@
     {
         "id": 666,
         "name": "Quần Dài Nữ JG37",
-        "price": "¥1800",
+        "price": "¥2100",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg37.jpg",
@@ -5360,7 +5360,7 @@
     {
         "id": 667,
         "name": "Quần Dài Nữ JG38",
-        "price": "¥1900",
+        "price": "¥2200",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg38.jpg",
@@ -5371,7 +5371,7 @@
     {
         "id": 668,
         "name": "Quần Dài Nữ JG39",
-        "price": "¥2000",
+        "price": "¥2700",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg39.jpg",
@@ -5382,7 +5382,7 @@
     {
         "id": 669,
         "name": "Quần Dài Nữ JG40",
-        "price": "¥2100",
+        "price": "¥1900",
         "category": "quan-dai-nu",
         "categoryName": "Quần dài nữ",
         "image": "assets/image/quan-dai-nu/jg40.jpg",
