@@ -118,7 +118,7 @@
         "image": "assets/image/quan-dai-nu/jg11.jpg",
         "bestSeller": false,
         "purchases": 437,
-        "video": "https://www.youtube.com/embed/BWgftraks-w"
+        "video": ""
     },
     {
         "id": 12,
@@ -997,7 +997,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
         "bestSeller": true,
-        "purchases": 420
+        "purchases": 420,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt1.jpg",
+            "assets/image/ao-nam/anh-adn/1.1.jpg",
+            "assets/image/ao-nam/anh-adn/1.2.jpg",
+            "assets/image/ao-nam/anh-adn/1.3.jpg"
+        ]
     },
     {
         "id": 115,
@@ -1007,7 +1013,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt2.jpg",
         "bestSeller": true,
-        "purchases": 385
+        "purchases": 385,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt2.jpg",
+            "assets/image/ao-nam/anh-adn/2.1.jpg",
+            "assets/image/ao-nam/anh-adn/2.2.jpg",
+            "assets/image/ao-nam/anh-adn/2.3.jpg",
+            "assets/image/ao-nam/anh-adn/2.4.jpg"
+        ]
     },
     {
         "id": 116,
@@ -1017,7 +1030,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt3.jpg",
         "bestSeller": false,
-        "purchases": 350
+        "purchases": 350,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt3.jpg",
+            "assets/image/ao-nam/anh-adn/3.1.jpg",
+            "assets/image/ao-nam/anh-adn/3.2.jpg",
+            "assets/image/ao-nam/anh-adn/3.3.jpg"
+        ]
     },
     {
         "id": 117,
@@ -1027,7 +1046,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt4.jpg",
         "bestSeller": true,
-        "purchases": 445
+        "purchases": 445,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt4.jpg",
+            "assets/image/ao-nam/anh-adn/4.1.jpg"
+        ]
     },
     {
         "id": 118,
@@ -1037,7 +1060,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt5.jpg",
         "bestSeller": true,
-        "purchases": 398
+        "purchases": 398,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt5.jpg",
+            "assets/image/ao-nam/anh-adn/5.1.jpg"
+        ]
     },
     {
         "id": 119,
@@ -1072,7 +1099,7 @@
     {
         "id": 122,
         "name": "Áo Mùa Đông Nữ ADG4",
-        "price": "¥3600",
+        "price": "¥2500",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg4.jpg",
@@ -1165,13 +1192,12 @@
     {
         "id": 131,
         "name": "Áo Mùa Đông Nữ ADG13",
-        "price": "¥1400",
+        "price": "¥3000",
         "category": "ao-dong-nu",
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg13.jpg",
         "bestSeller": true,
-        "purchases": 388,
-        "video": "https://www.youtube.com/embed/xAT8yTK5g1I"
+        "purchases": 388
     },
     {
         "id": 132,
@@ -1403,7 +1429,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt6.jpg",
         "bestSeller": true,
-        "purchases": 412
+        "purchases": 412,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt6.jpg",
+            "assets/image/ao-nam/anh-adn/6.1.jpg"
+        ]
     },
     {
         "id": 155,
@@ -1413,7 +1443,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt7.jpg",
         "bestSeller": true,
-        "purchases": 465
+        "purchases": 465,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt7.jpg",
+            "assets/image/ao-nam/anh-adn/7.1.jpg"
+        ]
     },
     {
         "id": 156,
@@ -1423,7 +1457,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt8.jpg",
         "bestSeller": false,
-        "purchases": 368
+        "purchases": 368,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt8.jpg",
+            "assets/image/ao-nam/anh-adn/8.1.jpg",
+            "assets/image/ao-nam/anh-adn/8.2.jpg"
+        ]
     },
     {
         "id": 157,
@@ -1433,7 +1472,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt9.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt9.jpg",
+            "assets/image/ao-nam/anh-adn/9.1.jpg",
+            "assets/image/ao-nam/anh-adn/9.2.jpg"
+        ]
     },
     {
         "id": 158,
@@ -1443,7 +1487,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt10.jpg",
         "bestSeller": true,
-        "purchases": 428
+        "purchases": 428,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt10.jpg",
+            "assets/image/ao-nam/anh-adn/10.1.jpg",
+            "assets/image/ao-nam/anh-adn/10.2.jpg",
+            "assets/image/ao-nam/anh-adn/10.3.jpg"
+        ]
     },
     {
         "id": 159,
@@ -1453,7 +1503,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt11.jpg",
         "bestSeller": false,
-        "purchases": 342
+        "purchases": 342,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt11.jpg",
+            "assets/image/ao-nam/anh-adn/11.1.jpg"
+        ]
     },
     {
         "id": 160,
@@ -1463,7 +1517,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt12.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt12.jpg",
+            "assets/image/ao-nam/anh-adn/12.1.jpg",
+            "assets/image/ao-nam/anh-adn/12.2.jpg"
+        ]
     },
     {
         "id": 161,
@@ -1473,7 +1532,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt13.jpg",
         "bestSeller": true,
-        "purchases": 388
+        "purchases": 388,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt13.jpg",
+            "assets/image/ao-nam/anh-adn/13.1.jpg",
+            "assets/image/ao-nam/anh-adn/13.2.jpg"
+        ]
     },
     {
         "id": 162,
@@ -1483,7 +1547,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt14.jpg",
         "bestSeller": false,
-        "purchases": 355
+        "purchases": 355,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt14.jpg",
+            "assets/image/ao-nam/anh-adn/14.1.jpg",
+            "assets/image/ao-nam/anh-adn/14.2.jpg"
+        ]
     },
     {
         "id": 163,
@@ -1493,7 +1562,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt15.jpg",
         "bestSeller": true,
-        "purchases": 402
+        "purchases": 402,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt15.jpg",
+            "assets/image/ao-nam/anh-adn/15.1.jpg"
+        ]
     },
     {
         "id": 164,
@@ -1503,7 +1576,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt16.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt16.jpg",
+            "assets/image/ao-nam/anh-adn/16.1.jpg",
+            "assets/image/ao-nam/anh-adn/16.2.jpg"
+        ]
     },
     {
         "id": 165,
@@ -1513,7 +1591,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt17.jpg",
         "bestSeller": true,
-        "purchases": 415
+        "purchases": 415,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt17.jpg",
+            "assets/image/ao-nam/anh-adn/17.1.jpg",
+            "assets/image/ao-nam/anh-adn/17.2.jpg"
+        ]
     },
     {
         "id": 166,
@@ -1523,7 +1606,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt18.jpg",
         "bestSeller": false,
-        "purchases": 365
+        "purchases": 365,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt18.jpg",
+            "assets/image/ao-nam/anh-adn/18.1.jpg",
+            "assets/image/ao-nam/anh-adn/18.2.jpg"
+        ]
     },
     {
         "id": 167,
@@ -1533,7 +1621,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt19.jpg",
         "bestSeller": true,
-        "purchases": 392
+        "purchases": 392,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt19.jpg",
+            "assets/image/ao-nam/anh-adn/19.1.jpg",
+            "assets/image/ao-nam/anh-adn/19.2.jpg",
+            "assets/image/ao-nam/anh-adn/19.3.jpg",
+            "assets/image/ao-nam/anh-adn/19.4.jpg"
+        ]
     },
     {
         "id": 168,
@@ -1543,7 +1638,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt20.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt20.jpg",
+            "assets/image/ao-nam/anh-adn/20.1.jpg",
+            "assets/image/ao-nam/anh-adn/20.2.jpg",
+            "assets/image/ao-nam/anh-adn/20.3.jpg"
+        ]
     },
     {
         "id": 169,
@@ -1553,7 +1654,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt21.jpg",
         "bestSeller": true,
-        "purchases": 418
+        "purchases": 418,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt21.jpg",
+            "assets/image/ao-nam/anh-adn/21.1.jpg",
+            "assets/image/ao-nam/anh-adn/21.2.jpg",
+            "assets/image/ao-nam/anh-adn/21.3.jpg"
+        ]
     },
     {
         "id": 170,
@@ -1563,7 +1670,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt22.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt22.jpg",
+            "assets/image/ao-nam/anh-adn/22.1.jpg",
+            "assets/image/ao-nam/anh-adn/22.2.jpg",
+            "assets/image/ao-nam/anh-adn/22.3.jpg",
+            "assets/image/ao-nam/anh-adn/22.4.jpg"
+        ]
     },
     {
         "id": 171,
@@ -1573,7 +1687,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt23.jpg",
         "bestSeller": true,
-        "purchases": 385
+        "purchases": 385,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt23.jpg",
+            "assets/image/ao-nam/anh-adn/23.1.jpg"
+        ]
     },
     {
         "id": 172,
@@ -1583,7 +1701,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt24.jpg",
         "bestSeller": false,
-        "purchases": 360
+        "purchases": 360,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt24.jpg",
+            "assets/image/ao-nam/anh-adn/24.1.jpg",
+            "assets/image/ao-nam/anh-adn/24.2.jpg",
+            "assets/image/ao-nam/anh-adn/24.3.jpg"
+        ]
     },
     {
         "id": 173,
@@ -1593,7 +1717,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt25.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt25.jpg",
+            "assets/image/ao-nam/anh-adn/25.1.jpg",
+            "assets/image/ao-nam/anh-adn/25.2.jpg",
+            "assets/image/ao-nam/anh-adn/25.3.jpg"
+        ]
     },
     {
         "id": 174,
@@ -1603,7 +1733,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt26.jpg",
         "bestSeller": true,
-        "purchases": 408
+        "purchases": 408,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt26.jpg",
+            "assets/image/ao-nam/anh-adn/26.1.jpg",
+            "assets/image/ao-nam/anh-adn/26.2.jpg"
+        ]
     },
     {
         "id": 175,
@@ -1618,12 +1753,21 @@
     {
         "id": 176,
         "name": "Áo Khoác Nam Mùa Đông ADT28",
-        "price": "¥2300",
+        "price": "¥2900",
         "category": "ao-dong-nam",
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt28.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt28.jpg",
+            "assets/image/ao-nam/anh-adn/28.1.jpg",
+            "assets/image/ao-nam/anh-adn/28.2.jpg",
+            "assets/image/ao-nam/anh-adn/28.3.jpg",
+            "assets/image/ao-nam/anh-adn/28.4.jpg",
+            "assets/image/ao-nam/anh-adn/28.5.jpg",
+            "assets/image/ao-nam/anh-adn/28.6.jpg"
+        ]
     },
     {
         "id": 177,
@@ -1633,17 +1777,29 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt29.jpg",
         "bestSeller": false,
-        "purchases": 358
+        "purchases": 358,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt29.jpg",
+            "assets/image/ao-nam/anh-adn/29.1.jpg",
+            "assets/image/ao-nam/anh-adn/29.2.jpg"
+        ]
     },
     {
         "id": 178,
         "name": "Áo Khoác Nam Mùa Đông ADT30",
-        "price": "¥2900",
+        "price": "¥2400",
         "category": "ao-dong-nam",
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt30.jpg",
         "bestSeller": true,
-        "purchases": 398
+        "purchases": 398,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt30.jpg",
+            "assets/image/ao-nam/anh-adn/30.1.jpg",
+            "assets/image/ao-nam/anh-adn/30.2.jpg",
+            "assets/image/ao-nam/anh-adn/30.3.jpg",
+            "assets/image/ao-nam/anh-adn/30.4.jpg"
+        ]
     },
     {
         "id": 179,
@@ -1653,17 +1809,31 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt31.jpg",
         "bestSeller": true,
-        "purchases": 412
+        "purchases": 412,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt31.jpg",
+            "assets/image/ao-nam/anh-adn/31..jpg",
+            "assets/image/ao-nam/anh-adn/31.1.jpg"
+        ]
     },
     {
         "id": 180,
         "name": "Áo Khoác Nam Mùa Đông ADT32",
-        "price": "¥2900",
+        "price": "¥4600",
         "category": "ao-dong-nam",
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt32.jpg",
         "bestSeller": true,
-        "purchases": 700
+        "purchases": 700,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt32.jpg",
+            "assets/image/ao-nam/anh-adn/32.1.jpg",
+            "assets/image/ao-nam/anh-adn/32.2.jpg",
+            "assets/image/ao-nam/anh-adn/32.3.jpg",
+            "assets/image/ao-nam/anh-adn/32.4.jpg",
+            "assets/image/ao-nam/anh-adn/32.5.jpg",
+            "assets/image/ao-nam/anh-adn/32.6.jpg"
+        ]
     },
     {
         "id": 181,
@@ -1673,7 +1843,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt33.jpg",
         "bestSeller": false,
-        "purchases": 365
+        "purchases": 365,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt33.jpg",
+            "assets/image/ao-nam/anh-adn/33.1.jpg",
+            "assets/image/ao-nam/anh-adn/33.2.jpg"
+        ]
     },
     {
         "id": 182,
@@ -1683,7 +1858,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt34.jpg",
         "bestSeller": true,
-        "purchases": 450
+        "purchases": 450,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt34.jpg",
+            "assets/image/ao-nam/anh-adn/34.1.jpg",
+            "assets/image/ao-nam/anh-adn/34.2.jpg",
+            "assets/image/ao-nam/anh-adn/34.3.jpg"
+        ]
     },
     {
         "id": 183,
@@ -1693,7 +1874,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt35.jpg",
         "bestSeller": true,
-        "purchases": 430
+        "purchases": 430,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt35.jpg",
+            "assets/image/ao-nam/anh-adn/35.1.jpg",
+            "assets/image/ao-nam/anh-adn/35.2.jpg"
+        ]
     },
     {
         "id": 184,
@@ -1713,7 +1899,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt37.jpg",
         "bestSeller": true,
-        "purchases": 420
+        "purchases": 420,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt37.jpg",
+            "assets/image/ao-nam/anh-adn/37.1.jpg",
+            "assets/image/ao-nam/anh-adn/37.2.jpg",
+            "assets/image/ao-nam/anh-adn/37.3.jpg",
+            "assets/image/ao-nam/anh-adn/37.4.jpg"
+        ]
     },
     {
         "id": 186,
@@ -1723,7 +1916,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt38.jpg",
         "bestSeller": true,
-        "purchases": 445
+        "purchases": 445,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt38.jpg",
+            "assets/image/ao-nam/anh-adn/38.1.jpg",
+            "assets/image/ao-nam/anh-adn/38.2.jpg"
+        ]
     },
     {
         "id": 187,
@@ -1733,7 +1931,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt39.jpg",
         "bestSeller": false,
-        "purchases": 380
+        "purchases": 380,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt39.jpg",
+            "assets/image/ao-nam/anh-adn/39.1.jpg"
+        ]
     },
     {
         "id": 188,
@@ -1743,7 +1945,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt40.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt40.jpg",
+            "assets/image/ao-nam/anh-adn/40..jpg",
+            "assets/image/ao-nam/anh-adn/40.2.jpg"
+        ]
     },
     {
         "id": 189,
@@ -1763,7 +1970,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt42.jpg",
         "bestSeller": true,
-        "purchases": 415
+        "purchases": 415,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt42.jpg",
+            "assets/image/ao-nam/anh-adn/42.1.jpg",
+            "assets/image/ao-nam/anh-adn/42.2.jpg"
+        ]
     },
     {
         "id": 191,
@@ -1773,7 +1985,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt43.jpg",
         "bestSeller": false,
-        "purchases": 370
+        "purchases": 370,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt43.jpg",
+            "assets/image/ao-nam/anh-adn/43.1.jpg",
+            "assets/image/ao-nam/anh-adn/43.2.jpg",
+            "assets/image/ao-nam/anh-adn/43.3.jpg"
+        ]
     },
     {
         "id": 192,
@@ -1783,7 +2001,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt44.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt44.jpg",
+            "assets/image/ao-nam/anh-adn/44.1.jpg",
+            "assets/image/ao-nam/anh-adn/44.2.jpg"
+        ]
     },
     {
         "id": 193,
@@ -1793,7 +2016,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt45.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt45.jpg",
+            "assets/image/ao-nam/anh-adn/45.1.jpg",
+            "assets/image/ao-nam/anh-adn/45.2.jpg"
+        ]
     },
     {
         "id": 194,
@@ -1803,7 +2031,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt46.jpg",
         "bestSeller": true,
-        "purchases": 460
+        "purchases": 460,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt46.jpg",
+            "assets/image/ao-nam/anh-adn/46.1.jpg",
+            "assets/image/ao-nam/anh-adn/46.2.jpg"
+        ]
     },
     {
         "id": 195,
@@ -1813,7 +2046,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt47.jpg",
         "bestSeller": false,
-        "purchases": 390
+        "purchases": 390,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt47.jpg",
+            "assets/image/ao-nam/anh-adn/47.1.jpg",
+            "assets/image/ao-nam/anh-adn/47.2.jpg",
+            "assets/image/ao-nam/anh-adn/47.3.jpg"
+        ]
     },
     {
         "id": 196,
@@ -1823,7 +2062,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt48.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt48.jpg",
+            "assets/image/ao-nam/anh-adn/48.1.jpg",
+            "assets/image/ao-nam/anh-adn/48.2.jpg"
+        ]
     },
     {
         "id": 197,
@@ -1833,7 +2077,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt49.jpg",
         "bestSeller": true,
-        "purchases": 480
+        "purchases": 480,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt49.jpg",
+            "assets/image/ao-nam/anh-adn/49.1.jpg",
+            "assets/image/ao-nam/anh-adn/49.2.jpg",
+            "assets/image/ao-nam/anh-adn/49.3.jpg",
+            "assets/image/ao-nam/anh-adn/49.4.jpg"
+        ]
     },
     {
         "id": 198,
@@ -1843,7 +2094,15 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt50.jpg",
         "bestSeller": true,
-        "purchases": 455
+        "purchases": 455,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt50.jpg",
+            "assets/image/ao-nam/anh-adn/50.1.jpg",
+            "assets/image/ao-nam/anh-adn/50.2.jpg",
+            "assets/image/ao-nam/anh-adn/50.3.jpg",
+            "assets/image/ao-nam/anh-adn/50.4.jpg",
+            "assets/image/ao-nam/anh-adn/50.5.jpg"
+        ]
     },
     {
         "id": 199,
@@ -1853,7 +2112,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt51.jpg",
         "bestSeller": false,
-        "purchases": 385
+        "purchases": 385,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt51.jpg",
+            "assets/image/ao-nam/anh-adn/51.1.jpg"
+        ]
     },
     {
         "id": 200,
@@ -1863,7 +2126,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt52.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt52.jpg",
+            "assets/image/ao-nam/anh-adn/52.2.jpg",
+            "assets/image/ao-nam/anh-adn/52.3.jpg",
+            "assets/image/ao-nam/anh-adn/52.4.jpg"
+        ]
     },
     {
         "id": 201,
@@ -1873,7 +2142,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt53.jpg",
         "bestSeller": true,
-        "purchases": 430
+        "purchases": 430,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt53.jpg",
+            "assets/image/ao-nam/anh-adn/53.1.jpg"
+        ]
     },
     {
         "id": 202,
@@ -1883,17 +2156,30 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt54.jpg",
         "bestSeller": false,
-        "purchases": 360
+        "purchases": 360,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt54.jpg",
+            "assets/image/ao-nam/anh-adn/54.1.jpg"
+        ]
     },
     {
         "id": 203,
         "name": "Áo Khoác Nam Mùa Đông ADT55",
-        "price": "¥3100",
+        "price": "¥2800",
         "category": "ao-dong-nam",
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt55.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt55.jpg",
+            "assets/image/ao-nam/anh-adn/55.1.jpg",
+            "assets/image/ao-nam/anh-adn/55.2.jpg",
+            "assets/image/ao-nam/anh-adn/55.3.jpg",
+            "assets/image/ao-nam/anh-adn/55.4.jpg",
+            "assets/image/ao-nam/anh-adn/55.5.jpg",
+            "assets/image/ao-nam/anh-adn/55.6.jpg"
+        ]
     },
     {
         "id": 204,
@@ -1903,7 +2189,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt56.jpg",
         "bestSeller": true,
-        "purchases": 600
+        "purchases": 600,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt56.jpg",
+            "assets/image/ao-nam/anh-adn/56.1.jpg",
+            "assets/image/ao-nam/anh-adn/56.2.jpg",
+            "assets/image/ao-nam/anh-adn/56.3.jpg"
+        ]
     },
     {
         "id": 205,
@@ -1913,7 +2205,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt57.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt57.jpg",
+            "assets/image/ao-nam/anh-adn/57.1.jpg",
+            "assets/image/ao-nam/anh-adn/57.2.jpg"
+        ]
     },
     {
         "id": 206,
@@ -1923,7 +2220,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt58.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt58.jpg",
+            "assets/image/ao-nam/anh-adn/58.1.jpg",
+            "assets/image/ao-nam/anh-adn/58.2.jpg"
+        ]
     },
     {
         "id": 207,
@@ -1933,7 +2235,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt59.jpg",
         "bestSeller": true,
-        "purchases": 450
+        "purchases": 450,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt59.jpg",
+            "assets/image/ao-nam/anh-adn/59.1.jpg",
+            "assets/image/ao-nam/anh-adn/59.2.jpg"
+        ]
     },
     {
         "id": 208,
@@ -1943,7 +2250,12 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt60.jpg",
         "bestSeller": false,
-        "purchases": 375
+        "purchases": 375,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt60.jpg",
+            "assets/image/ao-nam/anh-adn/60.1.jpg",
+            "assets/image/ao-nam/anh-adn/60.2.jpg"
+        ]
     },
     {
         "id": 209,
@@ -1953,7 +2265,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt61.jpg",
         "bestSeller": true,
-        "purchases": 470
+        "purchases": 470,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt61.jpg",
+            "assets/image/ao-nam/anh-adn/61.1.jpg"
+        ]
     },
     {
         "id": 210,
@@ -1963,7 +2279,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt62.jpg",
         "bestSeller": true,
-        "purchases": 485
+        "purchases": 485,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt62.jpg",
+            "assets/image/ao-nam/anh-adn/62.1.jpg"
+        ]
     },
     {
         "id": 211,
@@ -1973,7 +2293,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt63.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt63.jpg",
+            "assets/image/ao-nam/anh-adn/63.1.jpg"
+        ]
     },
     {
         "id": 212,
@@ -1983,7 +2307,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt64.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt64.jpg",
+            "assets/image/ao-nam/anh-adn/64.1.jpg",
+            "assets/image/ao-nam/anh-adn/64.2.jpg",
+            "assets/image/ao-nam/anh-adn/64.3.jpg"
+        ]
     },
     {
         "id": 213,
@@ -1993,7 +2323,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt65.jpg",
         "bestSeller": false,
-        "purchases": 380
+        "purchases": 380,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt65.jpg",
+            "assets/image/ao-nam/anh-adn/65.1.jpg"
+        ]
     },
     {
         "id": 214,
@@ -2003,7 +2337,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt66.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt66.jpg",
+            "assets/image/ao-nam/anh-adn/66..jpg",
+            "assets/image/ao-nam/anh-adn/66.2.jpg",
+            "assets/image/ao-nam/anh-adn/66.3.jpg",
+            "assets/image/ao-nam/anh-adn/66.4.jpg"
+        ]
     },
     {
         "id": 215,
@@ -2013,7 +2354,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt67.jpg",
         "bestSeller": true,
-        "purchases": 495
+        "purchases": 495,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt67.jpg",
+            "assets/image/ao-nam/anh-adn/67.1.jpg",
+            "assets/image/ao-nam/anh-adn/67.2.jpg",
+            "assets/image/ao-nam/anh-adn/67.3.jpg",
+            "assets/image/ao-nam/anh-adn/67.4.jpg"
+        ]
     },
     {
         "id": 216,
@@ -2023,7 +2371,16 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt68.jpg",
         "bestSeller": true,
-        "purchases": 475
+        "purchases": 475,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt68.jpg",
+            "assets/image/ao-nam/anh-adn/68.1.jpg",
+            "assets/image/ao-nam/anh-adn/68.2.jpg",
+            "assets/image/ao-nam/anh-adn/68.3.jpg",
+            "assets/image/ao-nam/anh-adn/68.4.jpg",
+            "assets/image/ao-nam/anh-adn/68.5.jpg",
+            "assets/image/ao-nam/anh-adn/68.6.jpg"
+        ]
     },
     {
         "id": 217,
@@ -2033,7 +2390,15 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt69.jpg",
         "bestSeller": true,
-        "purchases": 420
+        "purchases": 420,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt69.jpg",
+            "assets/image/ao-nam/anh-adn/69.1.jpg",
+            "assets/image/ao-nam/anh-adn/69.2.jpg",
+            "assets/image/ao-nam/anh-adn/69.3.jpg",
+            "assets/image/ao-nam/anh-adn/69.4.jpg",
+            "assets/image/ao-nam/anh-adn/69.5.jpg"
+        ]
     },
     {
         "id": 218,
@@ -2043,7 +2408,14 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt70.jpg",
         "bestSeller": false,
-        "purchases": 390
+        "purchases": 390,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt70.jpg",
+            "assets/image/ao-nam/anh-adn/70.1.jpg",
+            "assets/image/ao-nam/anh-adn/70.2.jpg",
+            "assets/image/ao-nam/anh-adn/70.3.jpg",
+            "assets/image/ao-nam/anh-adn/70.4.jpg"
+        ]
     },
     {
         "id": 219,
@@ -2063,7 +2435,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt72.jpg",
         "bestSeller": true,
-        "purchases": 445
+        "purchases": 445,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt72.jpg",
+            "assets/image/ao-nam/anh-adn/72.1.jpg",
+            "assets/image/ao-nam/anh-adn/72.2.jpg",
+            "assets/image/ao-nam/anh-adn/72.3.jpg"
+        ]
     },
     {
         "id": 221,
@@ -2073,7 +2451,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt73.jpg",
         "bestSeller": true,
-        "purchases": 410
+        "purchases": 410,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt73.jpg",
+            "assets/image/ao-nam/anh-adn/73.1.jpg"
+        ]
     },
     {
         "id": 222,
@@ -2083,7 +2465,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt74.jpg",
         "bestSeller": false,
-        "purchases": 365
+        "purchases": 365,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt74.jpg",
+            "assets/image/ao-nam/anh-adn/74.1.jpg",
+            "assets/image/ao-nam/anh-adn/74.2.jpg",
+            "assets/image/ao-nam/anh-adn/74.3.jpg"
+        ]
     },
     {
         "id": 223,
@@ -2093,7 +2481,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt75.jpg",
         "bestSeller": true,
-        "purchases": 430
+        "purchases": 430,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt75.jpg",
+            "assets/image/ao-nam/anh-adn/75.1.jpg"
+        ]
     },
     {
         "id": 224,
@@ -2103,7 +2495,13 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt76.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt76.jpg",
+            "assets/image/ao-nam/anh-adn/76.1.jpg",
+            "assets/image/ao-nam/anh-adn/76.2.jpg",
+            "assets/image/ao-nam/anh-adn/76.3.jpg"
+        ]
     },
     {
         "id": 225,
@@ -2113,7 +2511,15 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt77.jpg",
         "bestSeller": false,
-        "purchases": 375
+        "purchases": 375,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt77.jpg",
+            "assets/image/ao-nam/anh-adn/77.1.jpg",
+            "assets/image/ao-nam/anh-adn/77.2.jpg",
+            "assets/image/ao-nam/anh-adn/77.3.jpg",
+            "assets/image/ao-nam/anh-adn/77.4.jpg",
+            "assets/image/ao-nam/anh-adn/77.5.jpg"
+        ]
     },
     {
         "id": 226,
@@ -2123,7 +2529,11 @@
         "categoryName": "Áo Khoác Mùa Đông",
         "image": "assets/image/ao-nam/ao-dong-nam/adt78.jpg",
         "bestSeller": true,
-        "purchases": 390
+        "purchases": 390,
+        "images": [
+            "assets/image/ao-nam/ao-dong-nam/adt78.jpg",
+            "assets/image/ao-nam/anh-adn/78.1.jpg"
+        ]
     },
     {
         "id": 227,
