@@ -1245,6 +1245,9 @@ function toggleCategoryDropdown() {
 }
 
 function selectCategory(category, categoryName) {
+    // Lưu category cũ để kiểm tra xem có đổi danh mục không
+    const previousCategory = currentCategory;
+    
     // Đóng menu mobile
     const mobileCategories = document.getElementById("mobileCategories");
     const overlay = document.getElementById("mobileOverlay");
@@ -1313,38 +1316,68 @@ function selectCategory(category, categoryName) {
 
     // Đã tắt thông báo khi load sản phẩm
 
-    // Scroll về đầu products-tabs ngay lập tức khi đổi danh mục (trước khi filter)
-    const scrollToProductsTabs = () => {
-        const productsTabs = document.querySelector(".products-tabs");
-        const productsGrid = document.getElementById("productsGrid");
-        const productsSection = document.querySelector(".products-section");
+    // Nếu đổi danh mục (không phải category hiện tại), scroll về đầu products-tabs
+    if (previousCategory !== category) {
+        // Scroll về đầu products-tabs ngay lập tức (instant) khi đổi danh mục
+        const scrollToProductsTabs = (instant = false) => {
+            const productsTabs = document.querySelector(".products-tabs");
+            const productsGrid = document.getElementById("productsGrid");
+            const productsSection = document.querySelector(".products-section");
 
-        let targetElement = productsTabs || productsGrid || productsSection;
+            let targetElement = productsTabs || productsGrid || productsSection;
 
-        if (targetElement) {
-            // Tính toán vị trí scroll về đầu phần products-tabs
-            const targetPosition =
-                targetElement.getBoundingClientRect().top +
-                window.pageYOffset -
-                80;
-            
-            // Scroll về đầu phần products, đảm bảo luôn scroll về đầu khi đổi danh mục
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth",
-            });
-        }
-    };
+            if (targetElement) {
+                // Dùng offsetTop thay vì getBoundingClientRect để chính xác hơn
+                let targetPosition = 0;
+                if (productsTabs) {
+                    targetPosition = productsTabs.offsetTop - 80;
+                } else if (productsGrid) {
+                    targetPosition = productsGrid.offsetTop - 80;
+                } else if (productsSection) {
+                    targetPosition = productsSection.offsetTop - 80;
+                }
+                
+                // Scroll về đầu phần products - dùng instant scroll để scroll ngay lập tức
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: instant ? "auto" : "smooth",
+                });
+            }
+        };
 
-    // Scroll ngay lập tức khi đổi danh mục
-    scrollToProductsTabs();
+        // Scroll ngay lập tức (instant) khi đổi danh mục - trước khi filter
+        scrollToProductsTabs(true);
+    }
 
     filterProducts();
 
-    // Scroll lại sau khi filter xong để đảm bảo scroll đúng vị trí
-    setTimeout(() => {
-        scrollToProductsTabs();
-    }, 200);
+    // Nếu đổi danh mục, scroll lại sau khi DOM được cập nhật
+    if (previousCategory !== category) {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                const productsTabs = document.querySelector(".products-tabs");
+                const productsGrid = document.getElementById("productsGrid");
+                const productsSection = document.querySelector(".products-section");
+
+                let targetElement = productsTabs || productsGrid || productsSection;
+
+                if (targetElement) {
+                    let targetPosition = 0;
+                    if (productsTabs) {
+                        targetPosition = productsTabs.offsetTop - 80;
+                    } else if (productsGrid) {
+                        targetPosition = productsGrid.offsetTop - 80;
+                    } else if (productsSection) {
+                        targetPosition = productsSection.offsetTop - 80;
+                    }
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+    }
 }
 
 // Hàm cập nhật hiển thị nút quay lại
