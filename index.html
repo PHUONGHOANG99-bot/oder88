@@ -230,13 +230,14 @@
                     }
 
                     window.addEventListener("load", () => {
+                        const SW_SCRIPT_URL = "sw.js?v=86"; // Lưu URL để dùng sau
                         navigator.serviceWorker
-                            .register("sw.js?v=86")
+                            .register(SW_SCRIPT_URL)
                             .then((registration) => {
                                 console.log("SW registered: ", registration);
 
                                 // Function để check và hiển thị update notification
-                                const checkAndShowUpdate = () => {
+                                const checkAndShowUpdate = async () => {
                                     // Kiểm tra cooldown trước khi reload
                                     const lastReload =
                                         sessionStorage.getItem("lastSWReload");
@@ -254,11 +255,52 @@
                                         return;
                                     }
 
+                                    // Lấy version từ cache name của waiting service worker
+                                    let waitingSWVersion = null;
+                                    try {
+                                        // Lấy tất cả cache names và tìm cache name mới nhất (version cao nhất)
+                                        const cacheNames = await caches.keys();
+                                        const swCaches = cacheNames.filter(name => name.includes('oder88-shop-v'));
+                                        
+                                        if (swCaches.length > 0) {
+                                            // Tìm version cao nhất
+                                            let maxVersion = 0;
+                                            swCaches.forEach(cacheName => {
+                                                const versionMatch = cacheName.match(/v(\d+)/);
+                                                if (versionMatch) {
+                                                    const version = parseInt(versionMatch[1]);
+                                                    if (version > maxVersion) {
+                                                        maxVersion = version;
+                                                        waitingSWVersion = versionMatch[1];
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    } catch (e) {
+                                        console.log("Error getting SW version:", e);
+                                    }
+
+                                    // Nếu không lấy được version, dùng timestamp làm fallback
+                                    const updateIdentifier = waitingSWVersion || `update-${Date.now()}`;
+                                    const lastShownUpdate = localStorage.getItem("lastShownSWUpdate");
+
+                                    // Chỉ hiển thị nếu chưa hiển thị cho version này
+                                    if (lastShownUpdate === updateIdentifier) {
+                                        console.log(
+                                            "⏸️ Update notification already shown for version " + updateIdentifier + ", skipping"
+                                        );
+                                        return;
+                                    }
+
                                     // Hiển thị thông báo update
                                     if (
                                         typeof showUpdateNotification ===
                                         "function"
                                     ) {
+                                        // Lưu lại đã hiển thị cho version này
+                                        localStorage.setItem("lastShownSWUpdate", updateIdentifier);
+                                        console.log("💾 Saved shown update version:", updateIdentifier);
+                                        
                                         showUpdateNotification(() => {
                                             console.log(
                                                 "🔄 New SW version detected, reloading..."
