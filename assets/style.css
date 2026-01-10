@@ -7084,6 +7084,13 @@ input:focus-visible {
     box-sizing: border-box;
 }
 
+/* FontAwesome render icon bằng ::before -> chỉnh nhẹ để kính lúp nằm gọn trong vòng tròn */
+.category-search-icon::before {
+    display: block;
+    transform: translate(-0.6px, -0.6px) scale(0.92);
+    transform-origin: center;
+}
+
 .category-search-icon::after {
     content: "";
     position: absolute;
