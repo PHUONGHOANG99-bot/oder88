@@ -7056,19 +7056,21 @@ input:focus-visible {
     top: auto;
     transform: none;
     font-size: 0.85rem !important;
-    color: #ff6a00;
+    color: #ff6a00 !important;
+    -webkit-text-fill-color: #ff6a00 !important;
     z-index: 2;
     padding: 0;
     line-height: 1;
-    background: none;
-    border: none;
-    box-shadow: none;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     width: auto;
     height: auto;
     min-width: auto;
     min-height: auto;
     max-width: none;
     max-height: none;
+    display: inline-block;
 }
 
 .bottom-nav-item span {
