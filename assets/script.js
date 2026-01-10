@@ -1316,68 +1316,45 @@ function selectCategory(category, categoryName) {
 
     // Đã tắt thông báo khi load sản phẩm
 
-    // Nếu đổi danh mục (không phải category hiện tại), reset về đầu và scroll về đầu products-tabs
-    if (previousCategory !== category) {
-        // Reset về trang đầu tiên khi đổi danh mục
+    const shouldResetView = previousCategory !== category;
+
+    // Helper: scroll tới phần tabs/grid của sản phẩm (ổn định hơn offsetTop khi có sticky/layout phức tạp)
+    const scrollToProductsTabs = (instant = false) => {
+        const productsTabs =
+            document.getElementById("productsTabs") ||
+            document.querySelector(".products-tabs");
+        const productsGrid = document.getElementById("productsGrid");
+        const productsSection = document.querySelector(".products-section");
+
+        const targetElement = productsTabs || productsGrid || productsSection;
+        if (!targetElement) return;
+
+        const headerOffset = 80;
+        const targetPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerOffset;
+
+        window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: instant ? "auto" : "smooth",
+        });
+    };
+
+    // Nếu đổi danh mục: reset về đầu và scroll về tabs/grid trước khi render
+    if (shouldResetView) {
         currentPage = 1;
-        visibleProductsCount = productsPerPage; // Reset về số lượng sản phẩm ban đầu
-        // Scroll về đầu products-tabs ngay lập tức (instant) khi đổi danh mục
-        const scrollToProductsTabs = (instant = false) => {
-            const productsTabs = document.querySelector(".products-tabs");
-            const productsGrid = document.getElementById("productsGrid");
-            const productsSection = document.querySelector(".products-section");
-
-            let targetElement = productsTabs || productsGrid || productsSection;
-
-            if (targetElement) {
-                // Dùng offsetTop thay vì getBoundingClientRect để chính xác hơn
-                let targetPosition = 0;
-                if (productsTabs) {
-                    targetPosition = productsTabs.offsetTop - 80;
-                } else if (productsGrid) {
-                    targetPosition = productsGrid.offsetTop - 80;
-                } else if (productsSection) {
-                    targetPosition = productsSection.offsetTop - 80;
-                }
-                
-                // Scroll về đầu phần products - dùng instant scroll để scroll ngay lập tức
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: instant ? "auto" : "smooth",
-                });
-            }
-        };
-
-        // Scroll ngay lập tức (instant) khi đổi danh mục - trước khi filter
+        visibleProductsCount = productsPerPage;
         scrollToProductsTabs(true);
     }
 
     filterProducts();
 
     // Nếu đổi danh mục, scroll lại sau khi DOM được cập nhật
-    if (previousCategory !== category) {
+    if (shouldResetView) {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                const productsTabs = document.querySelector(".products-tabs");
-                const productsGrid = document.getElementById("productsGrid");
-                const productsSection = document.querySelector(".products-section");
-
-                let targetElement = productsTabs || productsGrid || productsSection;
-
-                if (targetElement) {
-                    let targetPosition = 0;
-                    if (productsTabs) {
-                        targetPosition = productsTabs.offsetTop - 80;
-                    } else if (productsGrid) {
-                        targetPosition = productsGrid.offsetTop - 80;
-                    } else if (productsSection) {
-                        targetPosition = productsSection.offsetTop - 80;
-                    }
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: "smooth",
-                    });
-                }
+                scrollToProductsTabs(false);
             });
         });
     }
