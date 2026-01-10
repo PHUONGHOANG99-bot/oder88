@@ -13,7 +13,7 @@ let currentRenderList = [];
 let loadMoreObserver = null;
 const LOAD_MORE_SENTINEL_ID = "productsLoadMoreSentinel";
 const LOAD_MORE_SPINNER_ID = "productsLoadMoreSpinner";
-const PRELOAD_BATCH_SIZE = 12; // preload trước 12 ảnh để user vuốt xuống là ảnh có sẵn
+const PRELOAD_BATCH_SIZE = 24; // preload trước 24 ảnh để user vuốt xuống là ảnh có sẵn
 let isLoadingMore = false;
 const preloadedImageUrls = new Set();
 let currentSlide = 0;
@@ -326,7 +326,7 @@ function createOptimizedImageSrc(imagePath, options = {}) {
 function createOptimizedImageElement(product, index, isSlider = false) {
     const imagePath = product.image;
     const optimized = createOptimizedImageSrc(imagePath);
-    const isEager = isSlider ? index < 3 : index < 4;
+    const isEager = isSlider ? index < 3 : index < 16; // Tăng từ 4 lên 16 ảnh eager load để tải sẵn nhiều ảnh ban đầu
     const className = isSlider ? "slider-img" : "product-image";
 
     // Sử dụng img với srcset cho responsive images
@@ -3539,10 +3539,10 @@ function displayProductsPaginated(productsToShow) {
             // Preload batch tiếp theo ngay sau khi render đợt đầu
             if ("requestIdleCallback" in window) {
                 requestIdleCallback(() => preloadNextBatchImages(), {
-                    timeout: 1500,
+                    timeout: 500, // Giảm từ 1500 xuống 500ms để preload sớm hơn
                 });
             } else {
-                setTimeout(() => preloadNextBatchImages(), 300);
+                setTimeout(() => preloadNextBatchImages(), 200); // Giảm từ 300 xuống 200ms
             }
         });
     }
@@ -3812,7 +3812,7 @@ function getProductImageUrl(product) {
     return normalizePath(product.image);
 }
 
-function preloadImages(urls, concurrency = 6) {
+function preloadImages(urls, concurrency = 10) { // Tăng concurrency từ 6 lên 10 để tải ảnh nhanh hơn
     const list = (urls || []).filter(Boolean);
     if (list.length === 0) return Promise.resolve();
 
@@ -3864,9 +3864,9 @@ function preloadNextBatchImages() {
         .filter(Boolean);
 
     // Preload + timeout để không treo UI nếu mạng chậm
-    const timeoutMs = 2000;
+    const timeoutMs = 3000; // Tăng timeout từ 2000 lên 3000ms để cho phép tải nhiều ảnh hơn
     return Promise.race([
-        preloadImages(urls, 6),
+        preloadImages(urls, 10), // Tăng concurrency từ 6 lên 10
         new Promise((resolve) => setTimeout(resolve, timeoutMs)),
     ]);
 }
@@ -3913,10 +3913,10 @@ function appendMoreProducts() {
     if (visibleProductsCount < currentRenderList.length) {
         if ("requestIdleCallback" in window) {
             requestIdleCallback(() => preloadNextBatchImages(), {
-                timeout: 1500,
+                timeout: 500, // Giảm từ 1500 xuống 500ms để preload sớm hơn
             });
         } else {
-            setTimeout(() => preloadNextBatchImages(), 300);
+            setTimeout(() => preloadNextBatchImages(), 200); // Giảm từ 300 xuống 200ms
         }
     }
 }
@@ -6871,7 +6871,7 @@ function initIntersectionObserver() {
                 });
             },
             {
-                rootMargin: "150px", // Load sớm hơn cho trải nghiệm mượt
+                rootMargin: "500px", // Tăng từ 150px lên 500px để load ảnh sớm hơn nhiều khi scroll
                 threshold: 0.01,
             }
         );
@@ -7153,7 +7153,7 @@ function prefetchLikelyResources() {
         Math.min(visibleProductsCount + productsPerPage, list.length)
     );
 
-    nextBatchProducts.slice(0, 8).forEach((product) => {
+    nextBatchProducts.slice(0, 20).forEach((product) => { // Tăng từ 8 lên 20 ảnh để preload nhiều hơn
         if (product && product.image) {
             const link = document.createElement("link");
             link.rel = "prefetch";

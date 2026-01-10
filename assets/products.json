@@ -1140,7 +1140,14 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg7.jpg",
         "bestSeller": true,
-        "purchases": 465
+        "purchases": 465,
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adg7.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/7.1.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/7.2.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/7.3.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/7.4.jpg"
+        ]
     },
     {
         "id": 126,
@@ -1150,7 +1157,11 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg8.jpg",
         "bestSeller": false,
-        "purchases": 368
+        "purchases": 368,
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adg8.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/8.1.jpg"
+        ]
     },
     {
         "id": 127,
@@ -1304,7 +1315,7 @@
         "image": "assets/image/ao-nu/ao-dong-nu/adg22.jpg",
         "bestSeller": false,
         "purchases": 348,
-        "video": "https://www.youtube.com/embed/8ztfJNFLWes"
+        "video": "https://www.youtube.com/embed/sztrIdzBWmo"
     },
     {
         "id": 141,
@@ -1358,7 +1369,13 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg27.jpg",
         "bestSeller": true,
-        "purchases": 408
+        "purchases": 408,
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adg27.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/27.1.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/27.2.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/27.3.jpg"
+        ]
     },
     {
         "id": 146,
@@ -1412,7 +1429,14 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg32.jpg",
         "bestSeller": true,
-        "purchases": 398
+        "purchases": 398,
+        "images": [
+            "assets/image/ao-nu/ao-dong-nu/adg32.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/32.1.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/32.2.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/32.3.jpg",
+            "assets/image/ao-nu/anh-ao-dong-nu/32.4.jpg"
+        ]
     },
     {
         "id": 151,
