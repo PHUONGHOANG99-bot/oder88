@@ -1316,8 +1316,11 @@ function selectCategory(category, categoryName) {
 
     // Đã tắt thông báo khi load sản phẩm
 
-    // Nếu đổi danh mục (không phải category hiện tại), scroll về đầu products-tabs
+    // Nếu đổi danh mục (không phải category hiện tại), reset về đầu và scroll về đầu products-tabs
     if (previousCategory !== category) {
+        // Reset về trang đầu tiên khi đổi danh mục
+        currentPage = 1;
+        visibleProductsCount = productsPerPage; // Reset về số lượng sản phẩm ban đầu
         // Scroll về đầu products-tabs ngay lập tức (instant) khi đổi danh mục
         const scrollToProductsTabs = (instant = false) => {
             const productsTabs = document.querySelector(".products-tabs");
