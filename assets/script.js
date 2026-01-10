@@ -1320,7 +1320,7 @@ function selectCategory(category, categoryName) {
     currentPage = 1;
     visibleProductsCount = productsPerPage;
 
-    // Helper: scroll tới phần tabs/grid của sản phẩm (ổn định hơn offsetTop khi có sticky/layout phức tạp)
+    // Helper: scroll tới phần tabs/grid của sản phẩm - đảm bảo tabs ở đầu màn hình
     const scrollToProductsTabs = (instant = false) => {
         const productsTabs =
             document.getElementById("productsTabs") ||
@@ -1331,16 +1331,41 @@ function selectCategory(category, categoryName) {
         const targetElement = productsTabs || productsGrid || productsSection;
         if (!targetElement) return;
 
-        const headerOffset = 80;
-        const targetPosition =
-            targetElement.getBoundingClientRect().top +
-            window.pageYOffset -
-            headerOffset;
-
-        window.scrollTo({
-            top: Math.max(0, targetPosition),
-            behavior: instant ? "auto" : "smooth",
-        });
+        // Dùng scrollIntoView để đảm bảo phần tabs ở đầu viewport (ẩn phần categories)
+        if (instant) {
+            // Scroll ngay lập tức không animation
+            targetElement.scrollIntoView({
+                behavior: "auto",
+                block: "start",
+                inline: "nearest"
+            });
+            // Điều chỉnh thêm một chút để đảm bảo tabs ở đúng vị trí
+            setTimeout(() => {
+                const rect = targetElement.getBoundingClientRect();
+                const headerHeight = 80;
+                if (rect.top < headerHeight) {
+                    window.scrollBy(0, rect.top - headerHeight);
+                }
+            }, 0);
+        } else {
+            // Scroll mượt mà
+            targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+            });
+            // Điều chỉnh sau một chút để đảm bảo tabs ở đúng vị trí
+            setTimeout(() => {
+                const rect = targetElement.getBoundingClientRect();
+                const headerHeight = 80;
+                if (rect.top < headerHeight) {
+                    window.scrollBy({
+                        top: rect.top - headerHeight,
+                        behavior: "smooth"
+                    });
+                }
+            }, 100);
+        }
     };
 
     // Scroll về tabs/grid ngay lập tức (trước khi filter) - luôn scroll khi chọn danh mục
