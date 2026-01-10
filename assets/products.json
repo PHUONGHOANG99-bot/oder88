@@ -1074,7 +1074,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg1.jpg",
         "bestSeller": true,
-        "purchases": 420
+        "purchases": 420,
+        "video": "https://www.youtube.com/embed/mUfF4P9HdtM"
     },
     {
         "id": 120,
@@ -1084,7 +1085,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg2.jpg",
         "bestSeller": true,
-        "purchases": 385
+        "purchases": 385,
+        "video": "https://www.youtube.com/embed/zLJ8MsnzPuI"
     },
     {
         "id": 121,
@@ -1094,7 +1096,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg3.jpg",
         "bestSeller": false,
-        "purchases": 350
+        "purchases": 350,
+        "video": "https://www.youtube.com/embed/N51joXSwz8o"
     },
     {
         "id": 122,
@@ -1104,7 +1107,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg4.jpg",
         "bestSeller": true,
-        "purchases": 445
+        "purchases": 445,
+        "video": "https://www.youtube.com/embed/wf0ZuFPt9HA"
     },
     {
         "id": 123,
@@ -1114,7 +1118,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg5.jpg",
         "bestSeller": true,
-        "purchases": 398
+        "purchases": 398,
+        "video": "https://www.youtube.com/embed/OXzPWl3Ri0Q"
     },
     {
         "id": 124,
@@ -1124,7 +1129,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg6.jpg",
         "bestSeller": true,
-        "purchases": 800
+        "purchases": 800,
+        "video": "https://www.youtube.com/embed/JLIUBX1_FtQ"
     },
     {
         "id": 125,
@@ -1165,7 +1171,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg10.jpg",
         "bestSeller": true,
-        "purchases": 428
+        "purchases": 428,
+        "video": "https://www.youtube.com/embed/xzJZ8JrUEZc"
     },
     {
         "id": 129,
@@ -1197,7 +1204,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg13.jpg",
         "bestSeller": true,
-        "purchases": 388
+        "purchases": 388,
+        "video": "https://www.youtube.com/embed/VLGYpI2rLxs"
     },
     {
         "id": 132,
@@ -1218,7 +1226,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg15.jpg",
         "bestSeller": true,
-        "purchases": 402
+        "purchases": 402,
+        "video": "https://www.youtube.com/embed/VjMcmwhSoK0"
     },
     {
         "id": 134,
@@ -1228,7 +1237,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg16.jpg",
         "bestSeller": true,
-        "purchases": 435
+        "purchases": 435,
+        "video": "https://www.youtube.com/embed/EF3ntg9sXRc"
     },
     {
         "id": 135,
@@ -1238,7 +1248,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg17.jpg",
         "bestSeller": true,
-        "purchases": 415
+        "purchases": 415,
+        "video": "https://www.youtube.com/embed/WmothttihSU"
     },
     {
         "id": 136,
@@ -1248,7 +1259,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg18.jpg",
         "bestSeller": false,
-        "purchases": 365
+        "purchases": 365,
+        "video": "https://www.youtube.com/embed/tsgrSIiHb8g"
     },
     {
         "id": 137,
@@ -1259,7 +1271,7 @@
         "image": "assets/image/ao-nu/ao-dong-nu/adg19.jpg",
         "bestSeller": true,
         "purchases": 392,
-        "video": "https://www.youtube.com/embed/BeoVwZ1_d2I"
+        "video": "https://www.youtube.com/embed/gAl9x9DH9GI"
     },
     {
         "id": 138,
@@ -1269,7 +1281,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg20.jpg",
         "bestSeller": true,
-        "purchases": 405
+        "purchases": 405,
+        "video": "https://www.youtube.com/embed/yFRR55O_WBs"
     },
     {
         "id": 139,
@@ -1279,7 +1292,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg21.jpg",
         "bestSeller": true,
-        "purchases": 418
+        "purchases": 418,
+        "video": "https://www.youtube.com/embed/Z1S-hzGhWes"
     },
     {
         "id": 140,
@@ -1289,7 +1303,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg22.jpg",
         "bestSeller": false,
-        "purchases": 348
+        "purchases": 348,
+        "video": "https://www.youtube.com/embed/8ztfJNFLWes"
     },
     {
         "id": 141,
@@ -1299,7 +1314,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg23.jpg",
         "bestSeller": true,
-        "purchases": 400
+        "purchases": 400,
+        "video": "https://www.youtube.com/embed/tJt0CYy745M"
     },
     {
         "id": 142,
@@ -1309,7 +1325,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg24.jpg",
         "bestSeller": true,
-        "purchases": 385
+        "purchases": 385,
+        "video": "https://www.youtube.com/embed/dMNnu1eZetM"
     },
     {
         "id": 143,
@@ -1319,7 +1336,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg25.jpg",
         "bestSeller": false,
-        "purchases": 360
+        "purchases": 360,
+        "video": "https://www.youtube.com/embed/qjYcqtcOQT8"
     },
     {
         "id": 144,
@@ -1329,7 +1347,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg26.jpg",
         "bestSeller": true,
-        "purchases": 395
+        "purchases": 395,
+        "video": "https://www.youtube.com/embed/W2AXu0X8hDY"
     },
     {
         "id": 145,
@@ -1349,7 +1368,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg28.jpg",
         "bestSeller": false,
-        "purchases": 372
+        "purchases": 372,
+        "video": "https://www.youtube.com/embed/3bwYie3QbM0"
     },
     {
         "id": 147,
@@ -1359,7 +1379,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg29.jpg",
         "bestSeller": true,
-        "purchases": 390
+        "purchases": 390,
+        "video": "https://www.youtube.com/embed/WbgNiBmQ0dU"
     },
     {
         "id": 148,
@@ -1369,7 +1390,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg30.jpg",
         "bestSeller": true,
-        "purchases": 425
+        "purchases": 425,
+        "video": "https://www.youtube.com/embed/i5Ozpho78Gc"
     },
     {
         "id": 149,
@@ -1379,7 +1401,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg31.jpg",
         "bestSeller": false,
-        "purchases": 358
+        "purchases": 358,
+        "video": "https://www.youtube.com/embed/SNhfmxjdNzg"
     },
     {
         "id": 150,
@@ -1399,7 +1422,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg33.jpg",
         "bestSeller": true,
-        "purchases": 412
+        "purchases": 412,
+        "video": "https://www.youtube.com/embed/ZCSDKlqyO1c"
     },
     {
         "id": 152,
@@ -1409,7 +1433,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg34.jpg",
         "bestSeller": true,
-        "purchases": 440
+        "purchases": 440,
+        "video": "https://www.youtube.com/embed/s1WY_kslQvo"
     },
     {
         "id": 153,
@@ -1419,7 +1444,8 @@
         "categoryName": "Áo đông nữ",
         "image": "assets/image/ao-nu/ao-dong-nu/adg35.jpg",
         "bestSeller": false,
-        "purchases": 365
+        "purchases": 365,
+        "video": "https://www.youtube.com/embed/5CuQffW9wbE"
     },
     {
         "id": 154,
