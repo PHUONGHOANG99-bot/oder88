@@ -7298,6 +7298,61 @@ input:focus-visible {
         padding-bottom: 0;
     }
 
+    /* Fix bottom navigation on mobile */
+    .bottom-nav-item {
+        padding: 8px 6px !important;
+        gap: 4px !important;
+    }
+
+    .bottom-nav-item i {
+        font-size: 1.3rem !important;
+    }
+
+    .bottom-nav-item span {
+        font-size: 0.65rem !important;
+    }
+
+    /* Reduce logo size on mobile */
+    .bottom-nav-logo {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 2px !important;
+    }
+
+    .bottom-nav-logo-item {
+        padding: 8px 10px !important;
+        min-width: auto !important;
+    }
+
+    /* Adjust margins for bottom nav items on mobile */
+    .bottom-nav-item:nth-child(2) {
+        margin-right: 50px !important;
+    }
+
+    .bottom-nav-item:nth-child(3) {
+        margin-left: 50px !important;
+    }
+
+    /* Adjust category icon wrapper on mobile */
+    .category-icon-wrapper {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .category-icon-wrapper .fa-bars {
+        font-size: 1.35rem !important;
+    }
+
+    .category-search-icon {
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        min-height: 16px !important;
+        max-width: 16px !important;
+        max-height: 16px !important;
+        font-size: 0.65rem !important;
+    }
+
     .featured-slider {
         padding-bottom: 0.25rem;
     }
