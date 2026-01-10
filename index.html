@@ -2,12 +2,17 @@
 <html lang="vi">
     <head>
         <meta charset="UTF-8" />
+        <!-- Referrer Policy - Fix QUIC protocol error when accessing from Facebook -->
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
         />
         <!-- Performance hints -->
         <meta http-equiv="x-dns-prefetch-control" content="on" />
+        <!-- Compatibility headers for Chrome QUIC protocol -->
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+        <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
         <!-- Modern web app features -->
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

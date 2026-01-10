@@ -42,3 +42,27 @@ Nếu chỉ muốn xóa cache của một ảnh:
 - Sau khi tăng version Service Worker, người dùng sẽ tự động nhận cache mới khi refresh trang
 - Cache cũ sẽ được xóa tự động sau 24-48 giờ nếu không có tương tác
 - Để force clear cache ngay, dùng Cách 2 hoặc 3
+
+## Xử lý lỗi ERR_QUIC_PROTOCOL_ERROR trên Chrome
+
+Nếu bạn gặp lỗi "ERR_QUIC_PROTOCOL_ERROR" khi truy cập từ Facebook trên Chrome desktop:
+
+### Giải pháp 1: Xóa cache và cookies (Khuyến nghị)
+1. Nhấn `Ctrl + Shift + Delete` (Windows) hoặc `Cmd + Shift + Delete` (Mac)
+2. Chọn "Cookies và dữ liệu trang web khác" và "Hình ảnh và tệp được lưu trong bộ nhớ đệm"
+3. Chọn "Tất cả thời gian"
+4. Nhấn **Xóa dữ liệu**
+5. Thử truy cập lại trang web
+
+### Giải pháp 2: Tắt QUIC protocol trong Chrome (Tạm thời)
+1. Mở Chrome và vào: `chrome://flags/#enable-quic`
+2. Tìm "Experimental QUIC protocol"
+3. Chọn **Disabled**
+4. Khởi động lại Chrome
+5. Thử truy cập lại
+
+### Giải pháp 3: Sử dụng chế độ ẩn danh (Incognito)
+Nhấn `Ctrl + Shift + N` (Windows) hoặc `Cmd + Shift + N` (Mac) để mở cửa sổ ẩn danh và thử truy cập lại.
+
+### Giải pháp 4: Sử dụng trình duyệt khác
+Trong khi chờ Chrome khắc phục, bạn có thể sử dụng Cốc Cốc, Firefox, hoặc Edge.
