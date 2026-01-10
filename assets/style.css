@@ -7009,6 +7009,21 @@ input:focus-visible {
     pointer-events: auto;
 }
 
+/* Logo cho bottom navigation */
+.bottom-nav-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 5;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Category icon wrapper với 3 gạch và kính lúp */
 .category-icon-wrapper {
     position: relative;
@@ -7099,6 +7114,12 @@ input:focus-visible {
     color: #ff6600;
 }
 
+.bottom-nav-item:hover .bottom-nav-logo,
+.bottom-nav-item:focus .bottom-nav-logo {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
+}
+
 .bottom-nav-item:hover .category-icon-wrapper .fa-bars,
 .bottom-nav-item:focus .category-icon-wrapper .fa-bars {
     transform: scale(1.08);
@@ -7122,6 +7143,12 @@ input:focus-visible {
 .bottom-nav-item.active i {
     color: #ff6600;
     transform: scale(1.15);
+}
+
+.bottom-nav-item.active .bottom-nav-logo {
+    transform: scale(1.15);
+    box-shadow: 0 4px 16px rgba(255, 102, 0, 0.3);
+    background: rgba(255, 102, 0, 0.1);
 }
 
 .bottom-nav-item.active .category-icon-wrapper .fa-bars {
