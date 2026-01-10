@@ -230,6 +230,26 @@ function formatPriceWithVND(price) {
     };
 }
 
+// Hàm kiểm tra có nên ẩn giá (cho danh mục chưa có giá cụ thể)
+function shouldHidePrice(product) {
+    if (!product) return false;
+    const category = product.category || "";
+    // Ẩn giá cho danh mục Sét đồ
+    return category.startsWith("set-do");
+}
+
+// Hàm lấy giá hiển thị (ẩn giá nếu cần)
+function getPriceDisplay(product) {
+    if (shouldHidePrice(product)) {
+        return {
+            yen: "Inbox",
+            vnd: "",
+            hidePrice: true,
+        };
+    }
+    return formatPriceWithVND(product.price);
+}
+
 // Intersection Observer instances
 let scrollObserver = null;
 let imageObserver = null;
@@ -343,7 +363,7 @@ function createOptimizedImageElement(product, index, isSlider = false) {
             alt="${getCategoryDisplayName(
                 product.category,
                 product.categoryName
-            )} - ${formatPriceToYen(product.price)}" 
+            )} - ${getPriceDisplay(product).yen}" 
             class="${className} image-optimized" 
             data-product-id="${product.id}"
             loading="${isEager ? "eager" : "lazy"}"
@@ -3388,12 +3408,13 @@ function initSlider() {
             </div>
             <div class="slider-info">
                 <div class="slider-price-container">
-                    <div class="slider-price">${formatPriceToYen(
-                        product.price
-                    )}</div>
-                    <div class="slider-price-vnd">${
-                        formatPriceWithVND(product.price).vnd
-                    }</div>
+                    ${(() => {
+                        const priceData = getPriceDisplay(product);
+                        return `
+                            <div class="slider-price">${priceData.yen}</div>
+                            ${priceData.vnd ? `<div class="slider-price-vnd">${priceData.vnd}</div>` : ''}
+                        `;
+                    })()}
                 </div>
                 <div class="product-actions">
                     <button 
@@ -3410,7 +3431,7 @@ function initSlider() {
                        onclick="openMessengerApp('${escapeMessageForHTML(
                            createMessengerOrderLink(
                                product.name,
-                               formatPriceToYen(product.price),
+                               getPriceDisplay(product).yen,
                                getCategoryDisplayName(
                                    product.category,
                                    product.categoryName
@@ -3604,12 +3625,13 @@ function renderProductCard(product, index) {
                 <div class="product-info">
                     <div class="product-price-wrapper">
                         <div class="product-price-container">
-                            <div class="product-price">${formatPriceToYen(
-                                product.price
-                            )}</div>
-                            <div class="product-price-vnd">${
-                                formatPriceWithVND(product.price).vnd
-                            }</div>
+                            ${(() => {
+                                const priceData = getPriceDisplay(product);
+                                return `
+                                    <div class="product-price">${priceData.yen}</div>
+                                    ${priceData.vnd ? `<div class="product-price-vnd">${priceData.vnd}</div>` : ''}
+                                `;
+                            })()}
                         </div>
                         <div class="product-meta-info">
                             ${
@@ -3641,7 +3663,7 @@ function renderProductCard(product, index) {
                            onclick="openMessengerApp('${escapeMessageForHTML(
                                createMessengerOrderLink(
                                    product.name,
-                                   formatPriceToYen(product.price),
+                                   getPriceDisplay(product).yen,
                                    getCategoryDisplayName(
                                        product.category,
                                        product.categoryName
@@ -4767,10 +4789,10 @@ function openProductGallery(productId, imageIndex = 0) {
     // Set product info
     if (productName) productName.textContent = product.name;
     if (productPrice) {
-        const priceData = formatPriceWithVND(product.price);
+        const priceData = getPriceDisplay(product);
         productPrice.innerHTML = `
             <span class="gallery-price-yen">${priceData.yen}</span>
-            <span class="gallery-price-vnd">${priceData.vnd}</span>
+            ${priceData.vnd ? `<span class="gallery-price-vnd">${priceData.vnd}</span>` : ''}
         `;
     }
     if (currentIndexSpan)
@@ -4782,7 +4804,7 @@ function openProductGallery(productId, imageIndex = 0) {
     if (orderBtn) {
         const message = createMessengerOrderLink(
             product.name,
-            formatPriceToYen(product.price),
+            getPriceDisplay(product).yen,
             getCategoryDisplayName(product.category, product.categoryName)
         );
         orderBtn.href = "javascript:void(0)";
@@ -7521,7 +7543,7 @@ function shareProduct(product) {
 
     const shareData = {
         title: product.name,
-        text: `${product.name} - ${formatPriceToYen(product.price)}`,
+        text: `${product.name} - ${getPriceDisplay(product).yen}`,
         url: `${window.location.origin}${window.location.pathname}?product=${product.id}`,
     };
 
@@ -8298,7 +8320,7 @@ function updateCartModal() {
         // Render cart items
         cartItems.innerHTML = cart
             .map((item) => {
-                const priceInfo = formatPriceWithVND(item.price);
+                const priceData = getPriceDisplay({ price: item.price, category: item.category });
                 const totalYen = getYenAmount(item.price) * item.quantity;
                 const totalVND = convertYenToVND(totalYen);
 
@@ -8355,12 +8377,8 @@ function updateCartModal() {
                         </div>
                         <div class="cart-item-details-row">
                             <div class="cart-item-price-wrapper">
-                                <p class="cart-item-price">${formatPriceToYen(
-                                    item.price
-                                )}</p>
-                                <p class="cart-item-price-vnd">${
-                                    priceInfo.vnd
-                                }</p>
+                                <p class="cart-item-price">${priceData.yen}</p>
+                                ${priceData.vnd ? `<p class="cart-item-price-vnd">${priceData.vnd}</p>` : ''}
                             </div>
                             <button class="cart-item-remove" 
                                     onclick="removeFromCart(${item.id})"
@@ -8545,7 +8563,7 @@ function checkoutCart() {
         const yenAmount = getYenAmount(item.price);
         const itemTotalYen = yenAmount * item.quantity;
         const itemTotalVND = convertYenToVND(itemTotalYen);
-        const priceInfo = formatPriceWithVND(item.price);
+        const priceData = getPriceDisplay({ price: item.price, category: item.category });
 
         message += `${index + 1}. ${item.name}\n`;
 
@@ -8554,9 +8572,7 @@ function checkoutCart() {
             message += `   Size: ${item.size}\n`;
         }
 
-        message += `   Giá: ${formatPriceToYen(item.price)} (${
-            priceInfo.vnd
-        })\n`;
+        message += `   Giá: ${priceData.yen}${priceData.vnd ? ` (${priceData.vnd})` : ''}\n`;
         message += `   Số lượng: ${item.quantity}\n`;
         message += `   Thành tiền: ¥${formatVND(itemTotalYen)} (VND ${formatVND(
             itemTotalVND
