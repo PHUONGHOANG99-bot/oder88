@@ -1316,7 +1316,9 @@ function selectCategory(category, categoryName) {
 
     // Đã tắt thông báo khi load sản phẩm
 
-    const shouldResetView = previousCategory !== category;
+    // Luôn reset về đầu khi chọn danh mục (bao gồm cả khi chọn lại danh mục hiện tại)
+    currentPage = 1;
+    visibleProductsCount = productsPerPage;
 
     // Helper: scroll tới phần tabs/grid của sản phẩm (ổn định hơn offsetTop khi có sticky/layout phức tạp)
     const scrollToProductsTabs = (instant = false) => {
@@ -1341,23 +1343,17 @@ function selectCategory(category, categoryName) {
         });
     };
 
-    // Nếu đổi danh mục: reset về đầu và scroll về tabs/grid trước khi render
-    if (shouldResetView) {
-        currentPage = 1;
-        visibleProductsCount = productsPerPage;
-        scrollToProductsTabs(true);
-    }
+    // Scroll về tabs/grid ngay lập tức (trước khi filter) - luôn scroll khi chọn danh mục
+    scrollToProductsTabs(true);
 
     filterProducts();
 
-    // Nếu đổi danh mục, scroll lại sau khi DOM được cập nhật
-    if (shouldResetView) {
+    // Scroll lại sau khi DOM được cập nhật để đảm bảo đúng vị trí
+    requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                scrollToProductsTabs(false);
-            });
+            scrollToProductsTabs(false);
         });
-    }
+    });
 }
 
 // Hàm cập nhật hiển thị nút quay lại
