@@ -7011,17 +7011,23 @@ input:focus-visible {
 
 /* Logo cho bottom navigation */
 .bottom-nav-logo {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 5;
     pointer-events: auto;
     background: rgba(255, 255, 255, 0.1);
-    padding: 2px;
+    padding: 3px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Item chứa logo - tăng padding để dễ ấn hơn */
+.bottom-nav-logo-item {
+    padding: 12px 16px !important;
+    min-width: 60px;
 }
 
 /* Category icon wrapper với 3 gạch và kính lúp */
@@ -7116,8 +7122,13 @@ input:focus-visible {
 
 .bottom-nav-item:hover .bottom-nav-logo,
 .bottom-nav-item:focus .bottom-nav-logo {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(255, 102, 0, 0.25);
+}
+
+.bottom-nav-logo-item:hover,
+.bottom-nav-logo-item:focus {
+    background: rgba(255, 102, 0, 0.1) !important;
 }
 
 .bottom-nav-item:hover .category-icon-wrapper .fa-bars,
@@ -7146,9 +7157,13 @@ input:focus-visible {
 }
 
 .bottom-nav-item.active .bottom-nav-logo {
-    transform: scale(1.15);
-    box-shadow: 0 4px 16px rgba(255, 102, 0, 0.3);
-    background: rgba(255, 102, 0, 0.1);
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(255, 102, 0, 0.35);
+    background: rgba(255, 102, 0, 0.12);
+}
+
+.bottom-nav-logo-item.active {
+    background: rgba(255, 102, 0, 0.15) !important;
 }
 
 .bottom-nav-item.active .category-icon-wrapper .fa-bars {
