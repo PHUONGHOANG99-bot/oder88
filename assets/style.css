@@ -7179,18 +7179,6 @@ input:focus-visible {
         0 4px 12px rgba(255, 102, 0, 0.35);
 }
 
-.bottom-nav-item.active::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 32px;
-    height: 3px;
-    background: linear-gradient(90deg, #ff6600, #ff8c00);
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
-}
 
 .bottom-nav-item.active::after {
     content: "";
