@@ -7266,9 +7266,27 @@ input:focus-visible {
     }
 
     /* Fix bottom navigation on mobile */
+    .bottom-nav {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        border-top: none !important;
+    }
+
     .bottom-nav-item {
         padding: 8px 6px !important;
         gap: 4px !important;
+        background: transparent !important;
+    }
+
+    .bottom-nav-item:hover,
+    .bottom-nav-item:focus {
+        background: rgba(255, 102, 0, 0.08) !important;
+    }
+
+    .bottom-nav-item.active {
+        background: rgba(255, 102, 0, 0.12) !important;
     }
 
     .bottom-nav-item i {
