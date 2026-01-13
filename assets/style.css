@@ -130,7 +130,6 @@ body {
     font-family: var(--font-family);
     background: #ffffff;
     color: var(--text-primary);
-    min-height: 100dvh;
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -6870,7 +6869,7 @@ input:focus-visible {
 /* Bottom Navigation Bar */
 .bottom-nav {
     position: fixed !important;
-    bottom: env(safe-area-inset-bottom, 0px);
+    bottom: 0;
     left: 0;
     right: 0;
     background: #ffffff;
