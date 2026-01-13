@@ -73,6 +73,9 @@
     --z-toast: 3000;
     --z-gallery: 4000;
 
+    /* In-app browsers (Meta Business Suite) can overlay a bottom toolbar over fixed elements */
+    --bottom-nav-offset: 0px;
+
     /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.3);
@@ -6868,9 +6871,14 @@ input:focus-visible {
 }
 
 /* Bottom Navigation Bar */
+html.inapp-meta-suite {
+    /* default; JS can override via inline CSS variable for best fit */
+    --bottom-nav-offset: 64px;
+}
+
 .bottom-nav {
     position: fixed !important;
-    bottom: 0 !important;
+    bottom: var(--bottom-nav-offset, 0px) !important;
     left: 0 !important;
     right: 0 !important;
     background: #ffffff !important;
@@ -6896,8 +6904,7 @@ input:focus-visible {
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
     position: fixed !important;
-    bottom: 6px !important;
-    bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+    bottom: calc(var(--bottom-nav-offset, 0px) + 6px) !important;
     left: 50% !important;
     z-index: 2500 !important;
     transform: translateX(-50%) translateZ(0) !important;
