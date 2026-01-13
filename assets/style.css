@@ -6887,6 +6887,12 @@ input:focus-visible {
     box-sizing: border-box;
 }
 
+/* Facebook in-app browser (FBAN/FBAV): fix iOS visual viewport gap under fixed bottom nav */
+html.fb-inapp .bottom-nav {
+    transform: translateY(var(--fb-vv-bottom, 0px));
+    -webkit-transform: translateY(var(--fb-vv-bottom, 0px));
+}
+
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
     position: fixed !important;
@@ -6926,6 +6932,28 @@ input:focus-visible {
     /* Ngăn chặn mọi tương tác với scroll */
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+}
+
+html.fb-inapp .bottom-nav-trend-btn {
+    transform: translateX(-50%) translateY(var(--fb-vv-bottom, 0px)) !important;
+    -webkit-transform: translateX(-50%) translateY(var(--fb-vv-bottom, 0px))
+        translateZ(0) !important;
+}
+
+html.fb-inapp .bottom-nav-trend-btn:hover {
+    transform: translateX(-50%)
+        translateY(calc(var(--fb-vv-bottom, 0px) - 5px)) scale(1.05) !important;
+    -webkit-transform: translateX(-50%)
+        translateY(calc(var(--fb-vv-bottom, 0px) - 5px)) scale(1.05) translateZ(0)
+        !important;
+}
+
+html.fb-inapp .bottom-nav-trend-btn:active {
+    transform: translateX(-50%)
+        translateY(calc(var(--fb-vv-bottom, 0px) - 2px)) scale(0.98) !important;
+    -webkit-transform: translateX(-50%)
+        translateY(calc(var(--fb-vv-bottom, 0px) - 2px)) scale(0.98) translateZ(0)
+        !important;
 }
 
 .bottom-nav-trend-btn:hover {

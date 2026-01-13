@@ -471,8 +471,49 @@ function getDefaultProducts() {
 
 // ==================== HÀM HIỂN THỊ SẢN PHẨM MỚI ====================
 // ==================== KHỞI TẠO ỨNG DỤNG ====================
+// ==================== FACEBOOK IN-APP (IAB) VIEWPORT FIX ====================
+function isFacebookInAppBrowser() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+    // FBAN/FBAV: Facebook app webview; FB_IAB: Facebook in-app browser marker
+    return /FBAN|FBAV|FB_IAB|FBSV|FBBV/i.test(ua);
+}
+
+function updateFacebookVisualViewportOffset() {
+    // Some iOS in-app browsers position fixed elements relative to a different viewport,
+    // causing a blank gap at the bottom. Use visualViewport delta as a corrective offset.
+    const vv = window.visualViewport;
+    let bottomOffset = 0;
+
+    if (vv && typeof vv.height === "number" && typeof vv.offsetTop === "number") {
+        bottomOffset = Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
+    }
+
+    document.documentElement.style.setProperty(
+        "--fb-vv-bottom",
+        `${bottomOffset}px`
+    );
+}
+
+function initFacebookInAppViewportFix() {
+    if (!isFacebookInAppBrowser()) return;
+
+    document.documentElement.classList.add("fb-inapp");
+    updateFacebookVisualViewportOffset();
+
+    // Keep updated when toolbars show/hide / rotation / zoom
+    window.addEventListener("resize", updateFacebookVisualViewportOffset);
+    window.addEventListener("orientationchange", updateFacebookVisualViewportOffset);
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener("resize", updateFacebookVisualViewportOffset);
+        window.visualViewport.addEventListener("scroll", updateFacebookVisualViewportOffset);
+    }
+}
+
 async function initializeApp() {
     try {
+        // Facebook in-app browser (iOS) viewport correction (only affects bottom nav via CSS)
+        initFacebookInAppViewportFix();
+
         // 1. Show loading spinner
         showPageLoader();
 
