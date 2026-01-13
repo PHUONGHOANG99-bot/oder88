@@ -130,7 +130,7 @@ body {
     font-family: var(--font-family);
     background: #ffffff;
     color: var(--text-primary);
-    min-height: 100vh;
+    min-height: 100dvh;
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
