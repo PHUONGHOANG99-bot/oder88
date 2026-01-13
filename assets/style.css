@@ -7333,9 +7333,9 @@ input:focus-visible {
         margin-bottom: 0.75rem;
     }
 
-    /* Ensure body has padding at bottom for bottom nav */
+    /* Reserve space for bottom navigation */
     body {
-        padding-bottom: 0;
+        padding-bottom: calc(76px + env(safe-area-inset-bottom));
     }
 }
 
