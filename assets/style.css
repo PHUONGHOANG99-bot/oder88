@@ -6870,30 +6870,38 @@ input:focus-visible {
 /* Bottom Navigation Bar */
 .bottom-nav {
     position: fixed !important;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #ffffff;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #ffffff !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    display: flex;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 8px calc(6px + env(safe-area-inset-bottom));
+    padding: 12px 8px 12px 8px;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08), 0 -1px 0 rgba(0, 0, 0, 0.05);
-    z-index: 2500;
+    z-index: 2500 !important;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
     position: fixed !important;
-    bottom: calc(6px + env(safe-area-inset-bottom)) !important;
+    bottom: 6px !important;
+    bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important;
     left: 50% !important;
     z-index: 2500 !important;
-    transform: translateX(-50%) !important;
+    transform: translateX(-50%) translateZ(0) !important;
+    -webkit-transform: translateX(-50%) translateZ(0) !important;
     width: 70px;
     height: 70px;
     border-radius: 50%;
