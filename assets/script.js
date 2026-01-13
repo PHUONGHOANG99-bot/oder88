@@ -602,78 +602,6 @@ function getCategoryDisplayName(categoryId, fallbackName) {
     return map[categoryId] || fallbackName || "Sản phẩm";
 }
 
-// ==================== IN-APP BROWSER (META BUSINESS SUITE) FIXES ====================
-function isMetaBusinessSuiteInApp() {
-    try {
-        const ua = (navigator.userAgent || "").toLowerCase();
-        const isFacebookFamily = /fban|fbav|fb_iab|fb4a/i.test(ua);
-        // Meta Business Suite / Pages Manager variants often show up with these tokens
-        const isBusinessSuite =
-            /metabusinesssuite|meta business suite|businesssuite|business_suite|pagesmanager|fbpagemanager|fbpageadmin|pageadmin/i.test(
-                ua
-            );
-        return isFacebookFamily && isBusinessSuite;
-    } catch (e) {
-        return false;
-    }
-}
-
-function isIOSDevice() {
-    try {
-        return /ipad|iphone|ipod/i.test(navigator.userAgent || "");
-    } catch (e) {
-        return false;
-    }
-}
-
-// Estimate how much UI overlays the bottom of the viewport (best-effort)
-function getVisualViewportBottomInsetPx() {
-    try {
-        const vv = window.visualViewport;
-        if (!vv) return 0;
-        const delta = window.innerHeight - vv.height - vv.offsetTop;
-        return Math.max(0, Math.round(delta));
-    } catch (e) {
-        return 0;
-    }
-}
-
-function applyInAppBottomNavOffset() {
-    const root = document.documentElement;
-    if (!root) return;
-
-    if (!isMetaBusinessSuiteInApp()) {
-        root.classList.remove("inapp-meta-suite");
-        root.style.removeProperty("--bottom-nav-offset");
-        applyInAppBottomNavOffset._lockedOffset = null;
-        return;
-    }
-
-    root.classList.add("inapp-meta-suite");
-
-    // Meta Business Suite WebView often overlays a bottom toolbar; lift the bottom nav above it.
-    const vvInset = getVisualViewportBottomInsetPx();
-
-    // Heuristic: visualViewport inset is the best signal when available.
-    // Clamp to avoid pushing the bar too high (this was the "worse" case).
-    const MAX_OFFSET = 140;
-    let offset = Math.max(0, Math.min(MAX_OFFSET, vvInset));
-
-    // Fallback when visualViewport doesn't report the overlay (some WebViews)
-    if (offset === 0) {
-        offset = isIOSDevice() ? 72 : 48;
-    }
-
-    // Lock: never decrease while scrolling (prevents "Ngẫu nhiên" button from shifting)
-    const prev = applyInAppBottomNavOffset._lockedOffset;
-    if (typeof prev === "number") {
-        offset = Math.max(prev, offset);
-    }
-    applyInAppBottomNavOffset._lockedOffset = offset;
-
-    root.style.setProperty("--bottom-nav-offset", `${offset}px`);
-}
-
 // ==================== HÀM LOADING SPINNER ====================
 function showPageLoader() {
     const loader = document.getElementById("pageLoader");
@@ -6794,23 +6722,6 @@ function setupEventListeners() {
 
 // ==================== KHỞI ĐỘNG ỨNG DỤNG ====================
 document.addEventListener("DOMContentLoaded", function () {
-    // Fix layout for Meta Business Suite in-app browser (bottom toolbar can cover fixed nav)
-    applyInAppBottomNavOffset();
-    try {
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener(
-                "resize",
-                applyInAppBottomNavOffset,
-                { passive: true }
-            );
-        }
-        window.addEventListener("resize", applyInAppBottomNavOffset, {
-            passive: true,
-        });
-    } catch (e) {
-        // ignore
-    }
-
     // Load cart ngay lập tức để đảm bảo không mất khi reload
     loadCart();
 

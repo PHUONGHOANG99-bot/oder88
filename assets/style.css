@@ -73,9 +73,6 @@
     --z-toast: 3000;
     --z-gallery: 4000;
 
-    /* In-app browsers (Meta Business Suite) can overlay a bottom toolbar over fixed elements */
-    --bottom-nav-offset: 0px;
-
     /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.3);
@@ -6871,58 +6868,40 @@ input:focus-visible {
 }
 
 /* Bottom Navigation Bar */
-html.inapp-meta-suite {
-    /* default; JS can override via inline CSS variable for best fit */
-    --bottom-nav-offset: 0px;
-}
-
 .bottom-nav {
     position: fixed !important;
-    bottom: var(--bottom-nav-offset, 0px) !important;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + var(--bottom-nav-offset, 0px)) !important;
-    left: 0 !important;
-    right: 0 !important;
-    background: #ffffff !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    display: grid !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-items: center;
-    gap: 8px;
-    padding: 12px 8px 20px 8px;
-    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    padding: 12px 8px calc(6px + env(safe-area-inset-bottom));
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08), 0 -1px 0 rgba(0, 0, 0, 0.05);
-    z-index: 2500 !important;
+    z-index: 2500;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
-    width: 100% !important;
-    max-width: 100vw !important;
+    width: 100%;
     box-sizing: border-box;
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
 }
 
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
-    position: relative !important;
-    grid-column: 3;
-    z-index: 2600 !important;
-    justify-self: center;
-    align-self: center;
+    position: fixed !important;
+    bottom: calc(6px + env(safe-area-inset-bottom)) !important;
+    left: 50% !important;
+    z-index: 2500 !important;
+    transform: translateX(-50%) !important;
     width: 70px;
     height: 70px;
-    min-width: 70px;
-    min-height: 70px;
-    border-radius: 50% !important;
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%) !important;
-    border: none !important;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+    border: none;
     box-shadow: 0 4px 20px rgba(139, 92, 246, 0.5),
-        0 8px 30px rgba(124, 58, 237, 0.4) !important;
-    display: flex !important;
+        0 8px 30px rgba(124, 58, 237, 0.4);
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -6930,43 +6909,48 @@ html.inapp-meta-suite {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 8px 4px !important;
-    margin: 0 !important;
-    color: white !important;
+    z-index: 1001 !important;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transform: translateY(-14px) translateZ(0) !important;
-    -webkit-transform: translateY(-14px) translateZ(0) !important;
+    /* Đảm bảo nút không bị ảnh hưởng bởi scroll và luôn cố định */
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    /* Ngăn chặn mọi tương tác với scroll */
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
 
 .bottom-nav-trend-btn:hover {
-    transform: translateY(-16px) scale(1.05) translateZ(0) !important;
-    -webkit-transform: translateY(-16px) scale(1.05) translateZ(0) !important;
+    transform: translateX(-50%) translateY(-5px) scale(1.05) !important;
+    -webkit-transform: translateX(-50%) translateY(-5px) scale(1.05)
+        translateZ(0) !important;
     box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6),
-        0 12px 40px rgba(124, 58, 237, 0.5) !important;
-    background: linear-gradient(135deg, #9f7aea 0%, #8b5cf6 50%, #7c3aed 100%) !important;
+        0 12px 40px rgba(124, 58, 237, 0.5);
+    background: linear-gradient(135deg, #9f7aea 0%, #8b5cf6 50%, #7c3aed 100%);
 }
 
 .bottom-nav-trend-btn:active {
-    transform: translateY(-14px) scale(0.98) translateZ(0) !important;
-    -webkit-transform: translateY(-14px) scale(0.98) translateZ(0) !important;
-    box-shadow: 0 3px 15px rgba(139, 92, 246, 0.5) !important;
+    transform: translateX(-50%) translateY(-2px) scale(0.98) !important;
+    -webkit-transform: translateX(-50%) translateY(-2px) scale(0.98)
+        translateZ(0) !important;
+    box-shadow: 0 3px 15px rgba(139, 92, 246, 0.5);
 }
 
 .bottom-nav-trend-btn span {
     display: block;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
     text-align: center;
-    padding: 0 4px;
-    white-space: normal;
-    word-break: break-word;
+    padding: 0 6px;
 }
 
 .bottom-nav-item {
@@ -6974,10 +6958,9 @@ html.inapp-meta-suite {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 6px;
     position: relative;
-    width: 100%;
-    padding: 8px 4px;
+    padding: 12px 8px;
     border: none;
     background: none;
     color: #8e8e93;
@@ -6986,13 +6969,36 @@ html.inapp-meta-suite {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    flex: 1 1 0;
     min-width: 0;
+    max-width: 100%;
     border-radius: 16px;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* Center button sits in column 3; no special margins needed */
+/* Điều chỉnh khoảng cách: Trang chủ và Liên hệ gần nhau */
+.bottom-nav-item:nth-child(1) {
+    margin-right: 0;
+}
+
+.bottom-nav-item:nth-child(2) {
+    margin-left: 0;
+    /* Tạo khoảng trống với nút Ngẫu nhiên ở giữa */
+    margin-right: 60px;
+}
+
+/* Điều chỉnh khoảng cách: Tìm kiếm và Danh mục gần nhau */
+.bottom-nav-item:nth-child(3) {
+    /* Tạo khoảng trống với nút Ngẫu nhiên ở giữa */
+    margin-left: 60px;
+    margin-right: 0;
+}
+
+.bottom-nav-item:nth-child(5) {
+    margin-left: 0;
+}
 
 .bottom-nav-item i {
     font-size: 1.5rem;
@@ -7071,8 +7077,6 @@ html.inapp-meta-suite {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-    line-height: 1.1;
-    padding-bottom: 2px;
 }
 
 .bottom-nav-item:hover,
@@ -7286,7 +7290,14 @@ html.inapp-meta-suite {
         min-width: auto !important;
     }
 
-    /* No special margins needed with grid layout */
+    /* Adjust margins for bottom nav items on mobile */
+    .bottom-nav-item:nth-child(2) {
+        margin-right: 50px !important;
+    }
+
+    .bottom-nav-item:nth-child(3) {
+        margin-left: 50px !important;
+    }
 
     /* Adjust category icon wrapper on mobile */
     .category-icon-wrapper {
@@ -7325,7 +7336,7 @@ html.inapp-meta-suite {
 
     /* Ensure body has padding at bottom for bottom nav */
     body {
-        padding-bottom: 85px;
+        padding-bottom: 0;
     }
 }
 
@@ -7341,23 +7352,22 @@ html.inapp-meta-suite {
     }
 
     .bottom-nav {
-        padding: 10px 4px;
+        padding: 10px 6px calc(6px + env(safe-area-inset-bottom));
     }
 
     .bottom-nav-item {
-        padding: 10px 4px;
+        padding: 10px 6px;
         gap: 5px;
-        flex: 1 1 0%;
+        flex: 1 1 0;
         min-width: 0;
-        flex-shrink: 1;
     }
 
     .bottom-nav-item:nth-child(2) {
-        margin-right: 45px;
+        margin-right: 52px;
     }
 
     .bottom-nav-item:nth-child(3) {
-        margin-left: 45px;
+        margin-left: 52px;
     }
 
     .bottom-nav-item i {
@@ -7400,8 +7410,10 @@ html.inapp-meta-suite {
     .bottom-nav-trend-btn {
         width: 65px;
         height: 65px;
-        transform: translateY(-16px) translateZ(0) !important;
-        -webkit-transform: translateY(-16px) translateZ(0) !important;
+        bottom: calc(6px + env(safe-area-inset-bottom)) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        -webkit-transform: translateX(-50%) translateZ(0) !important;
         font-size: 0.6rem;
     }
 
@@ -7454,7 +7466,6 @@ html.inapp-meta-suite {
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
-    padding-bottom: 80px;
 }
 
 .cart-modal.active {
@@ -7477,7 +7488,7 @@ html.inapp-meta-suite {
     position: absolute;
     right: 0;
     top: 0;
-    bottom: 80px;
+    bottom: 0;
     width: 100%;
     max-width: 450px;
     background: #ffffff; /* luôn trắng */
@@ -7887,7 +7898,7 @@ html.inapp-meta-suite {
     }
 
     .cart-content {
-        bottom: 80px;
+        bottom: 0;
         max-width: 100%;
     }
 
