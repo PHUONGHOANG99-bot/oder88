@@ -656,12 +656,12 @@ function applyInAppBottomNavOffset() {
 
     // Heuristic: visualViewport inset is the best signal when available.
     // Clamp to avoid pushing the bar too high (this was the "worse" case).
-    const MAX_OFFSET = 80;
+    const MAX_OFFSET = 140;
     let offset = Math.max(0, Math.min(MAX_OFFSET, vvInset));
 
     // Fallback when visualViewport doesn't report the overlay (some WebViews)
     if (offset === 0) {
-        offset = isIOSDevice() ? 44 : 32;
+        offset = isIOSDevice() ? 72 : 48;
     }
 
     // Lock: never decrease while scrolling (prevents "Ngẫu nhiên" button from shifting)

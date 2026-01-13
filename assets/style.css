@@ -6885,12 +6885,14 @@ html.inapp-meta-suite {
     background: #ffffff !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    display: flex !important;
+    display: grid !important;
     visibility: visible !important;
     opacity: 1 !important;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 4px 18px 4px;
+    grid-template-columns: 1fr 1fr 88px 1fr 1fr;
+    align-items: end;
+    justify-items: center;
+    gap: 0;
+    padding: 10px 4px 16px 4px;
     padding-bottom: 18px;
     padding-bottom: calc(6px + env(safe-area-inset-bottom, 18px));
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08), 0 -1px 0 rgba(0, 0, 0, 0.05);
@@ -6907,13 +6909,14 @@ html.inapp-meta-suite {
 
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
-    position: fixed !important;
-    bottom: calc(var(--bottom-nav-offset, 0px) + 6px) !important;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + var(--bottom-nav-offset, 0px) + 6px) !important;
-    left: 50% !important;
+    /* In-flow center button (prevents drifting in Meta Business Suite WebView) */
+    position: relative !important;
+    grid-column: 3;
     z-index: 2600 !important;
-    transform: translateX(-50%) translateZ(0) !important;
-    -webkit-transform: translateX(-50%) translateZ(0) !important;
+    justify-self: center;
+    align-self: start;
+    transform: translateY(-18px) translateZ(0) !important;
+    -webkit-transform: translateY(-18px) translateZ(0) !important;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -6949,18 +6952,16 @@ html.inapp-meta-suite {
 }
 
 .bottom-nav-trend-btn:hover {
-    transform: translateX(-50%) translateY(-5px) scale(1.05) !important;
-    -webkit-transform: translateX(-50%) translateY(-5px) scale(1.05)
-        translateZ(0) !important;
+    transform: translateY(-22px) scale(1.05) translateZ(0) !important;
+    -webkit-transform: translateY(-22px) scale(1.05) translateZ(0) !important;
     box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6),
         0 12px 40px rgba(124, 58, 237, 0.5);
     background: linear-gradient(135deg, #9f7aea 0%, #8b5cf6 50%, #7c3aed 100%);
 }
 
 .bottom-nav-trend-btn:active {
-    transform: translateX(-50%) translateY(-2px) scale(0.98) !important;
-    -webkit-transform: translateX(-50%) translateY(-2px) scale(0.98)
-        translateZ(0) !important;
+    transform: translateY(-18px) scale(0.98) translateZ(0) !important;
+    -webkit-transform: translateY(-18px) scale(0.98) translateZ(0) !important;
     box-shadow: 0 3px 15px rgba(139, 92, 246, 0.5);
 }
 
@@ -6980,7 +6981,8 @@ html.inapp-meta-suite {
     justify-content: center;
     gap: 6px;
     position: relative;
-    padding: 12px 6px;
+    width: 100%;
+    padding: 10px 4px 6px 4px;
     border: none;
     background: none;
     color: #8e8e93;
@@ -6990,36 +6992,13 @@ html.inapp-meta-suite {
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    flex: 1 1 0%;
     min-width: 0;
-    flex-shrink: 1;
-    max-width: none;
     border-radius: 16px;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* Điều chỉnh khoảng cách: Trang chủ và Liên hệ gần nhau */
-.bottom-nav-item:nth-child(1) {
-    margin-right: 0;
-}
-
-.bottom-nav-item:nth-child(2) {
-    margin-left: 0;
-    /* Tạo khoảng trống với nút Ngẫu nhiên ở giữa */
-    margin-right: 50px;
-}
-
-/* Điều chỉnh khoảng cách: Tìm kiếm và Danh mục gần nhau */
-.bottom-nav-item:nth-child(3) {
-    /* Tạo khoảng trống với nút Ngẫu nhiên ở giữa */
-    margin-left: 50px;
-    margin-right: 0;
-}
-
-.bottom-nav-item:nth-child(5) {
-    margin-left: 0;
-}
+/* Center button sits in column 3; no special margins needed */
 
 .bottom-nav-item i {
     font-size: 1.5rem;
@@ -7098,6 +7077,8 @@ html.inapp-meta-suite {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    line-height: 1.1;
+    padding-bottom: 2px;
 }
 
 .bottom-nav-item:hover,
@@ -7311,14 +7292,7 @@ html.inapp-meta-suite {
         min-width: auto !important;
     }
 
-    /* Adjust margins for bottom nav items on mobile */
-    .bottom-nav-item:nth-child(2) {
-        margin-right: 50px !important;
-    }
-
-    .bottom-nav-item:nth-child(3) {
-        margin-left: 50px !important;
-    }
+    /* No special margins needed with grid layout */
 
     /* Adjust category icon wrapper on mobile */
     .category-icon-wrapper {
@@ -7432,11 +7406,8 @@ html.inapp-meta-suite {
     .bottom-nav-trend-btn {
         width: 65px;
         height: 65px;
-        bottom: calc(var(--bottom-nav-offset, 0px) + 6px) !important;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + var(--bottom-nav-offset, 0px) + 6px) !important;
-        left: 50% !important;
-        transform: translateX(-50%) translateZ(0) !important;
-        -webkit-transform: translateX(-50%) translateZ(0) !important;
+        transform: translateY(-16px) translateZ(0) !important;
+        -webkit-transform: translateY(-16px) translateZ(0) !important;
         font-size: 0.6rem;
     }
 
