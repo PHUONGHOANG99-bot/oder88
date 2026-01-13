@@ -6885,7 +6885,6 @@ input:focus-visible {
     border-top: 1px solid rgba(0, 0, 0, 0.06);
     width: 100%;
     box-sizing: border-box;
-    position: relative;
 }
 
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
