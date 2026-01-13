@@ -6888,13 +6888,12 @@ html.inapp-meta-suite {
     display: grid !important;
     visibility: visible !important;
     opacity: 1 !important;
-    grid-template-columns: 1fr 1fr 88px 1fr 1fr;
-    align-items: end;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
     justify-items: center;
-    gap: 0;
-    padding: 10px 4px 16px 4px;
-    padding-bottom: 18px;
-    padding-bottom: calc(6px + env(safe-area-inset-bottom, 18px));
+    gap: 4px;
+    padding: 12px 4px 18px 4px;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08), 0 -1px 0 rgba(0, 0, 0, 0.05);
     z-index: 2500 !important;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -6909,22 +6908,21 @@ html.inapp-meta-suite {
 
 /* Trend Button - Nút tròn màu tím đậm ở giữa */
 .bottom-nav-trend-btn {
-    /* In-flow center button (prevents drifting in Meta Business Suite WebView) */
     position: relative !important;
     grid-column: 3;
     z-index: 2600 !important;
     justify-self: center;
-    align-self: start;
-    transform: translateY(-18px) translateZ(0) !important;
-    -webkit-transform: translateY(-18px) translateZ(0) !important;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
-    border: none;
+    align-self: center;
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    min-height: 64px;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%) !important;
+    border: none !important;
     box-shadow: 0 4px 20px rgba(139, 92, 246, 0.5),
-        0 8px 30px rgba(124, 58, 237, 0.4);
-    display: flex;
+        0 8px 30px rgba(124, 58, 237, 0.4) !important;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -6932,37 +6930,36 @@ html.inapp-meta-suite {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    /* keep a single z-index (avoid conflicting declarations across WebViews) */
-    padding: 0;
-    margin: 0;
-    color: white;
-    font-size: 0.7rem;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: white !important;
+    font-size: 0.65rem;
     font-weight: 700;
     text-align: center;
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    /* Đảm bảo nút không bị ảnh hưởng bởi scroll và luôn cố định */
+    transform: translateY(-12px) translateZ(0) !important;
+    -webkit-transform: translateY(-12px) translateZ(0) !important;
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* Ngăn chặn mọi tương tác với scroll */
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
 
 .bottom-nav-trend-btn:hover {
-    transform: translateY(-22px) scale(1.05) translateZ(0) !important;
-    -webkit-transform: translateY(-22px) scale(1.05) translateZ(0) !important;
+    transform: translateY(-14px) scale(1.05) translateZ(0) !important;
+    -webkit-transform: translateY(-14px) scale(1.05) translateZ(0) !important;
     box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6),
-        0 12px 40px rgba(124, 58, 237, 0.5);
-    background: linear-gradient(135deg, #9f7aea 0%, #8b5cf6 50%, #7c3aed 100%);
+        0 12px 40px rgba(124, 58, 237, 0.5) !important;
+    background: linear-gradient(135deg, #9f7aea 0%, #8b5cf6 50%, #7c3aed 100%) !important;
 }
 
 .bottom-nav-trend-btn:active {
-    transform: translateY(-18px) scale(0.98) translateZ(0) !important;
-    -webkit-transform: translateY(-18px) scale(0.98) translateZ(0) !important;
-    box-shadow: 0 3px 15px rgba(139, 92, 246, 0.5);
+    transform: translateY(-12px) scale(0.98) translateZ(0) !important;
+    -webkit-transform: translateY(-12px) scale(0.98) translateZ(0) !important;
+    box-shadow: 0 3px 15px rgba(139, 92, 246, 0.5) !important;
 }
 
 .bottom-nav-trend-btn span {
@@ -6979,10 +6976,10 @@ html.inapp-meta-suite {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 4px;
     position: relative;
     width: 100%;
-    padding: 10px 4px 6px 4px;
+    padding: 8px 4px;
     border: none;
     background: none;
     color: #8e8e93;
@@ -6991,7 +6988,6 @@ html.inapp-meta-suite {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
     min-width: 0;
     border-radius: 16px;
     margin: 0;
