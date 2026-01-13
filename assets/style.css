@@ -6891,9 +6891,9 @@ html.inapp-meta-suite {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    gap: 4px;
-    padding: 12px 4px 18px 4px;
-    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+    padding: 12px 8px 20px 8px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08), 0 -1px 0 rgba(0, 0, 0, 0.05);
     z-index: 2500 !important;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -6913,10 +6913,10 @@ html.inapp-meta-suite {
     z-index: 2600 !important;
     justify-self: center;
     align-self: center;
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    min-height: 64px;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
     border-radius: 50% !important;
     background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%) !important;
     border: none !important;
@@ -6930,17 +6930,13 @@ html.inapp-meta-suite {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0 !important;
+    padding: 8px 4px !important;
     margin: 0 !important;
     color: white !important;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transform: translateY(-12px) translateZ(0) !important;
-    -webkit-transform: translateY(-12px) translateZ(0) !important;
+    transform: translateY(-14px) translateZ(0) !important;
+    -webkit-transform: translateY(-14px) translateZ(0) !important;
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -6949,26 +6945,28 @@ html.inapp-meta-suite {
 }
 
 .bottom-nav-trend-btn:hover {
-    transform: translateY(-14px) scale(1.05) translateZ(0) !important;
-    -webkit-transform: translateY(-14px) scale(1.05) translateZ(0) !important;
+    transform: translateY(-16px) scale(1.05) translateZ(0) !important;
+    -webkit-transform: translateY(-16px) scale(1.05) translateZ(0) !important;
     box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6),
         0 12px 40px rgba(124, 58, 237, 0.5) !important;
     background: linear-gradient(135deg, #9f7aea 0%, #8b5cf6 50%, #7c3aed 100%) !important;
 }
 
 .bottom-nav-trend-btn:active {
-    transform: translateY(-12px) scale(0.98) translateZ(0) !important;
-    -webkit-transform: translateY(-12px) scale(0.98) translateZ(0) !important;
+    transform: translateY(-14px) scale(0.98) translateZ(0) !important;
+    -webkit-transform: translateY(-14px) scale(0.98) translateZ(0) !important;
     box-shadow: 0 3px 15px rgba(139, 92, 246, 0.5) !important;
 }
 
 .bottom-nav-trend-btn span {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     text-align: center;
-    padding: 0 6px;
+    padding: 0 4px;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .bottom-nav-item {
@@ -7327,7 +7325,7 @@ html.inapp-meta-suite {
 
     /* Ensure body has padding at bottom for bottom nav */
     body {
-        padding-bottom: 0;
+        padding-bottom: 85px;
     }
 }
 
@@ -7456,6 +7454,7 @@ html.inapp-meta-suite {
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
+    padding-bottom: 80px;
 }
 
 .cart-modal.active {
@@ -7478,7 +7477,7 @@ html.inapp-meta-suite {
     position: absolute;
     right: 0;
     top: 0;
-    bottom: 0;
+    bottom: 80px;
     width: 100%;
     max-width: 450px;
     background: #ffffff; /* luôn trắng */
@@ -7888,7 +7887,7 @@ html.inapp-meta-suite {
     }
 
     .cart-content {
-        bottom: 0;
+        bottom: 80px;
         max-width: 100%;
     }
 
