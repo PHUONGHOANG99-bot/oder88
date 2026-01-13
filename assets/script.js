@@ -645,6 +645,7 @@ function applyInAppBottomNavOffset() {
     if (!isMetaBusinessSuiteInApp()) {
         root.classList.remove("inapp-meta-suite");
         root.style.removeProperty("--bottom-nav-offset");
+        applyInAppBottomNavOffset._lockedOffset = null;
         return;
     }
 
@@ -662,6 +663,13 @@ function applyInAppBottomNavOffset() {
     if (offset === 0) {
         offset = isIOSDevice() ? 44 : 32;
     }
+
+    // Lock: never decrease while scrolling (prevents "Ngẫu nhiên" button from shifting)
+    const prev = applyInAppBottomNavOffset._lockedOffset;
+    if (typeof prev === "number") {
+        offset = Math.max(prev, offset);
+    }
+    applyInAppBottomNavOffset._lockedOffset = offset;
 
     root.style.setProperty("--bottom-nav-offset", `${offset}px`);
 }
@@ -6792,11 +6800,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (window.visualViewport) {
             window.visualViewport.addEventListener(
                 "resize",
-                applyInAppBottomNavOffset,
-                { passive: true }
-            );
-            window.visualViewport.addEventListener(
-                "scroll",
                 applyInAppBottomNavOffset,
                 { passive: true }
             );
