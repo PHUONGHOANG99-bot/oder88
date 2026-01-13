@@ -609,7 +609,7 @@ function isMetaBusinessSuiteInApp() {
         const isFacebookFamily = /fban|fbav|fb_iab|fb4a/i.test(ua);
         // Meta Business Suite / Pages Manager variants often show up with these tokens
         const isBusinessSuite =
-            /metabusinesssuite|businesssuite|business_suite|pagesmanager|fbpageadmin|pageadmin/i.test(
+            /metabusinesssuite|meta business suite|businesssuite|business_suite|pagesmanager|fbpagemanager|fbpageadmin|pageadmin/i.test(
                 ua
             );
         return isFacebookFamily && isBusinessSuite;
@@ -652,8 +652,17 @@ function applyInAppBottomNavOffset() {
 
     // Meta Business Suite WebView often overlays a bottom toolbar; lift the bottom nav above it.
     const vvInset = getVisualViewportBottomInsetPx();
-    const base = isIOSDevice() ? 64 : 56; // conservative defaults
-    const offset = Math.max(base, vvInset);
+
+    // Heuristic: visualViewport inset is the best signal when available.
+    // Clamp to avoid pushing the bar too high (this was the "worse" case).
+    const MAX_OFFSET = 80;
+    let offset = Math.max(0, Math.min(MAX_OFFSET, vvInset));
+
+    // Fallback when visualViewport doesn't report the overlay (some WebViews)
+    if (offset === 0) {
+        offset = isIOSDevice() ? 44 : 32;
+    }
+
     root.style.setProperty("--bottom-nav-offset", `${offset}px`);
 }
 
